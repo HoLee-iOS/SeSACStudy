@@ -12,6 +12,10 @@
 		C1817C4D2918E0C500382A09 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1817C4C2918E0C500382A09 /* ViewController.swift */; };
 		C1817C522918E0C600382A09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1817C512918E0C600382A09 /* Assets.xcassets */; };
 		C1817C552918E0C600382A09 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1817C532918E0C600382A09 /* LaunchScreen.storyboard */; };
+		C1817C6C2918FD0300382A09 /* BlackNWhite.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1817C6B2918FD0300382A09 /* BlackNWhite.swift */; };
+		C1817C6E2918FD1100382A09 /* BrandColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1817C6D2918FD1100382A09 /* BrandColor.swift */; };
+		C1817C702918FD1A00382A09 /* GrayScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1817C6F2918FD1A00382A09 /* GrayScale.swift */; };
+		C1817C722918FD2600382A09 /* SystemColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1817C712918FD2600382A09 /* SystemColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +26,10 @@
 		C1817C512918E0C600382A09 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C1817C542918E0C600382A09 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C1817C562918E0C600382A09 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C1817C6B2918FD0300382A09 /* BlackNWhite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackNWhite.swift; sourceTree = "<group>"; };
+		C1817C6D2918FD1100382A09 /* BrandColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandColor.swift; sourceTree = "<group>"; };
+		C1817C6F2918FD1A00382A09 /* GrayScale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrayScale.swift; sourceTree = "<group>"; };
+		C1817C712918FD2600382A09 /* SystemColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemColor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +122,10 @@
 		C1817C612918EB5100382A09 /* Colors */ = {
 			isa = PBXGroup;
 			children = (
+				C1817C6B2918FD0300382A09 /* BlackNWhite.swift */,
+				C1817C6D2918FD1100382A09 /* BrandColor.swift */,
+				C1817C6F2918FD1A00382A09 /* GrayScale.swift */,
+				C1817C712918FD2600382A09 /* SystemColor.swift */,
 			);
 			path = Colors;
 			sourceTree = "<group>";
@@ -246,9 +258,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1817C6C2918FD0300382A09 /* BlackNWhite.swift in Sources */,
 				C1817C4D2918E0C500382A09 /* ViewController.swift in Sources */,
 				C1817C492918E0C500382A09 /* AppDelegate.swift in Sources */,
 				C1817C4B2918E0C500382A09 /* SceneDelegate.swift in Sources */,
+				C1817C6E2918FD1100382A09 /* BrandColor.swift in Sources */,
+				C1817C702918FD1A00382A09 /* GrayScale.swift in Sources */,
+				C1817C722918FD2600382A09 /* SystemColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
