@@ -6,7 +6,9 @@
 //
 
 import Foundation
+import UIKit
 
 struct BlackNWhite {
-    static let white = UIColor(red: <#T##CGFloat#>, green: <#T##CGFloat#>, blue: <#T##CGFloat#>, alpha: <#T##CGFloat#>)
+    static let white = UIColor.white
+    static let black = UIColor.black
 }
