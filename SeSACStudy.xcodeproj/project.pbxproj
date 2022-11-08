@@ -16,6 +16,14 @@
 		C1817C702918FD1A00382A09 /* GrayScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1817C6F2918FD1A00382A09 /* GrayScale.swift */; };
 		C1817C722918FD2600382A09 /* SystemColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1817C712918FD2600382A09 /* SystemColor.swift */; };
 		C19373B7291A7697008C8FED /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19373B6291A7697008C8FED /* OnBoardingViewController.swift */; };
+		C19373BA291A7FC7008C8FED /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = C19373B9291A7FC7008C8FED /* SnapKit */; };
+		C19373BC291A8230008C8FED /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19373BB291A8230008C8FED /* Icons.swift */; };
+		C19373BE291A89CE008C8FED /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = C19373BD291A89CE008C8FED /* .gitignore */; };
+		C19373C3291A9E32008C8FED /* NotoSansCJKkr-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = C19373C2291A9E32008C8FED /* NotoSansCJKkr-Medium.otf */; };
+		C19373C7291A9EE2008C8FED /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19373C6291A9EE2008C8FED /* Fonts.swift */; };
+		C19373C9291AA7E5008C8FED /* PageContentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19373C8291AA7E5008C8FED /* PageContentsViewController.swift */; };
+		C19373CB291AA873008C8FED /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19373CA291AA873008C8FED /* PageViewController.swift */; };
+		C19373CD291ABFE3008C8FED /* PageContents.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19373CC291ABFE3008C8FED /* PageContents.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +38,13 @@
 		C1817C6F2918FD1A00382A09 /* GrayScale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrayScale.swift; sourceTree = "<group>"; };
 		C1817C712918FD2600382A09 /* SystemColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemColor.swift; sourceTree = "<group>"; };
 		C19373B6291A7697008C8FED /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
+		C19373BB291A8230008C8FED /* Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
+		C19373BD291A89CE008C8FED /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		C19373C2291A9E32008C8FED /* NotoSansCJKkr-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Medium.otf"; sourceTree = "<group>"; };
+		C19373C6291A9EE2008C8FED /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		C19373C8291AA7E5008C8FED /* PageContentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageContentsViewController.swift; sourceTree = "<group>"; };
+		C19373CA291AA873008C8FED /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		C19373CC291ABFE3008C8FED /* PageContents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageContents.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C19373BA291A7FC7008C8FED /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +78,7 @@
 		C1817C472918E0C500382A09 /* SeSACStudy */ = {
 			isa = PBXGroup;
 			children = (
+				C19373BD291A89CE008C8FED /* .gitignore */,
 				C1817C482918E0C500382A09 /* AppDelegate.swift */,
 				C1817C4A2918E0C500382A09 /* SceneDelegate.swift */,
 				C1817C562918E0C600382A09 /* Info.plist */,
@@ -101,6 +118,8 @@
 		C1817C5E2918EAE600382A09 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
+				C19373BB291A8230008C8FED /* Icons.swift */,
+				C19373C6291A9EE2008C8FED /* Fonts.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -115,6 +134,7 @@
 		C1817C602918EB4900382A09 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				C19373C2291A9E32008C8FED /* NotoSansCJKkr-Medium.otf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -141,6 +161,7 @@
 		C1817C642918EBA400382A09 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				C19373CC291ABFE3008C8FED /* PageContents.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -149,6 +170,8 @@
 			isa = PBXGroup;
 			children = (
 				C19373B6291A7697008C8FED /* OnBoardingViewController.swift */,
+				C19373C8291AA7E5008C8FED /* PageContentsViewController.swift */,
+				C19373CA291AA873008C8FED /* PageViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -204,6 +227,9 @@
 			dependencies = (
 			);
 			name = SeSACStudy;
+			packageProductDependencies = (
+				C19373B9291A7FC7008C8FED /* SnapKit */,
+			);
 			productName = SeSACStudy;
 			productReference = C1817C452918E0C500382A09 /* SeSACStudy.app */;
 			productType = "com.apple.product-type.application";
@@ -232,6 +258,9 @@
 				Base,
 			);
 			mainGroup = C1817C3C2918E0C500382A09;
+			packageReferences = (
+				C19373B8291A7FC7008C8FED /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = C1817C462918E0C500382A09 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -247,7 +276,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C1817C552918E0C600382A09 /* LaunchScreen.storyboard in Resources */,
+				C19373BE291A89CE008C8FED /* .gitignore in Resources */,
 				C1817C522918E0C600382A09 /* Assets.xcassets in Resources */,
+				C19373C3291A9E32008C8FED /* NotoSansCJKkr-Medium.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,12 +289,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C19373CD291ABFE3008C8FED /* PageContents.swift in Sources */,
+				C19373C9291AA7E5008C8FED /* PageContentsViewController.swift in Sources */,
 				C1817C6C2918FD0300382A09 /* BlackNWhite.swift in Sources */,
+				C19373CB291AA873008C8FED /* PageViewController.swift in Sources */,
 				C1817C492918E0C500382A09 /* AppDelegate.swift in Sources */,
+				C19373BC291A8230008C8FED /* Icons.swift in Sources */,
 				C19373B7291A7697008C8FED /* OnBoardingViewController.swift in Sources */,
 				C1817C4B2918E0C500382A09 /* SceneDelegate.swift in Sources */,
 				C1817C6E2918FD1100382A09 /* BrandColor.swift in Sources */,
 				C1817C702918FD1A00382A09 /* GrayScale.swift in Sources */,
+				C19373C7291A9EE2008C8FED /* Fonts.swift in Sources */,
 				C1817C722918FD2600382A09 /* SystemColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -411,6 +447,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -439,6 +476,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -474,6 +512,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C19373B8291A7FC7008C8FED /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C19373B9291A7FC7008C8FED /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C19373B8291A7FC7008C8FED /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C1817C3D2918E0C500382A09 /* Project object */;
 }
