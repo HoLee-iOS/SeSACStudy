@@ -10,8 +10,17 @@ import SnapKit
 
 class OnBoardingViewController: UIViewController {
     
-    lazy var myView: UIView = {
-        let view = UIView()        
+    let startButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("시작하기", for: .normal)
+        button.backgroundColor = BrandColor.green
+        button.setTitleColor(BlackNWhite.white, for: .normal)
+        button.layer.cornerRadius = 10
+        return button
+    }()
+    
+    let myView: UIView = {
+        let view = UIView()
         return view
     }()
     
@@ -28,13 +37,20 @@ class OnBoardingViewController: UIViewController {
     }
     
     func configureUI() {
-        view.addSubview(myView)
+        [startButton, myView].forEach { view.addSubview($0) }
     }
     
     func setConstraints() {
         
+        startButton.snp.makeConstraints { make in
+            make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(16)
+            make.bottom.equalTo(view.safeAreaLayoutGuide).offset(-50)
+            make.height.equalTo(48)
+        }
+        
         myView.snp.makeConstraints { make in
-            make.edges.equalTo(view.safeAreaLayoutGuide)
+            make.horizontalEdges.top.equalTo(view.safeAreaLayoutGuide)
+            make.bottom.equalTo(startButton.snp.top).offset(-40)
         }
         
     }

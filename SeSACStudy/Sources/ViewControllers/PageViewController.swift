@@ -10,8 +10,6 @@ import SnapKit
 
 final class PageViewController: UIPageViewController {
     
-    let pageControl = UIPageControl(frame: .zero)
-    
     var pages: [UIViewController] = [UIViewController]()
     
     override init(transitionStyle style: UIPageViewController.TransitionStyle, navigationOrientation: UIPageViewController.NavigationOrientation, options: [UIPageViewController.OptionsKey : Any]? = nil) {
@@ -26,43 +24,38 @@ final class PageViewController: UIPageViewController {
         super.viewDidLoad()
         
         setConfigure()
-        setConstraints()
         setControl()
-    }
-    
-    @objc func moveTo(_ sender: UIPageControl) {
-        setViewControllers([pages[sender.currentPage]], direction: .forward, animated: true)
+        setPageContents()
     }
     
     func setConfigure() {
         dataSource = self
         delegate = self
-        
+    }
+    
+    func setControl() {
+        let pageControl = UIPageControl.appearance(whenContainedInInstancesOf: [UIPageViewController.self])
+        pageControl.pageIndicatorTintColor = GrayScale.gray5
+        pageControl.currentPageIndicatorTintColor = BlackNWhite.black
+    }
+    
+    func setPageContents() {
         for i in 0..<PageContents.contents.count {
             let vc = PageContentsViewController()
             vc.imageView.image = PageContents.contents[i].imgs
-            vc.label.text = PageContents.contents[i].strings
+            let style = NSMutableParagraphStyle()
+            let fontSize: CGFloat = 24
+            let lineheight = fontSize * 1.6
+            style.minimumLineHeight = lineheight
+            style.maximumLineHeight = lineheight
+            style.alignment = .center
+            let attributedText = NSMutableAttributedString(string: PageContents.contents[i].highlight ?? "", attributes: [NSAttributedString.Key.font: UIFont(name: Fonts.medium, size: 24)!, NSAttributedString.Key.foregroundColor: BrandColor.green, .paragraphStyle: style, .baselineOffset: (lineheight - fontSize) / 4])
+            attributedText.append(NSAttributedString(string: PageContents.contents[i].strings, attributes: [NSAttributedString.Key.font: UIFont(name: Fonts.regular, size: 24)!, NSAttributedString.Key.foregroundColor: BlackNWhite.black, .paragraphStyle: style, .baselineOffset: (lineheight - fontSize) / 4]))
+            vc.label.attributedText = attributedText
             pages.append(vc)
         }
         
         setViewControllers([pages[0]], direction: .forward, animated: true)
-        
-        view.addSubview(pageControl)
-    }
-    
-    func setConstraints() {
-        pageControl.snp.makeConstraints { make in
-            make.centerX.equalTo(view.safeAreaLayoutGuide)
-            make.bottom.equalTo(view.safeAreaLayoutGuide).multipliedBy(0.8)
-        }
-    }
-    
-    func setControl() {
-        pageControl.numberOfPages = PageContents.contents.count
-        pageControl.pageIndicatorTintColor = GrayScale.gray5
-        pageControl.currentPageIndicatorTintColor = BlackNWhite.black
-        pageControl.allowsContinuousInteraction = false
-        pageControl.addTarget(self, action: #selector(moveTo), for: .valueChanged)
     }
 }
 
@@ -96,12 +89,5 @@ extension PageViewController: UIPageViewControllerDelegate {
         guard let firstVC = viewControllers?.first else { return 0 }
         guard let firstVCIndex = pages.firstIndex(of: firstVC) else { return 0 }
         return firstVCIndex
-    }
-    
-    //MARK: 페이지 컨트롤 연결
-    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
-        guard let currentPageViewController = pageViewController.viewControllers?.first else { return }
-        guard let index = pages.firstIndex(of: currentPageViewController) else { return }
-        pageControl.currentPage = index
     }
 }

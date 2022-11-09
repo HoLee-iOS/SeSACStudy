@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C150F4CB291B5348004BF518 /* NotoSansCJKkr-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = C150F4CA291B5348004BF518 /* NotoSansCJKkr-Regular.otf */; };
 		C1817C492918E0C500382A09 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1817C482918E0C500382A09 /* AppDelegate.swift */; };
 		C1817C4B2918E0C500382A09 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1817C4A2918E0C500382A09 /* SceneDelegate.swift */; };
 		C1817C522918E0C600382A09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1817C512918E0C600382A09 /* Assets.xcassets */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C150F4CA291B5348004BF518 /* NotoSansCJKkr-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Regular.otf"; sourceTree = "<group>"; };
 		C1817C452918E0C500382A09 /* SeSACStudy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSACStudy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1817C482918E0C500382A09 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C1817C4A2918E0C500382A09 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				C19373C2291A9E32008C8FED /* NotoSansCJKkr-Medium.otf */,
+				C150F4CA291B5348004BF518 /* NotoSansCJKkr-Regular.otf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C150F4CB291B5348004BF518 /* NotoSansCJKkr-Regular.otf in Resources */,
 				C1817C552918E0C600382A09 /* LaunchScreen.storyboard in Resources */,
 				C19373BE291A89CE008C8FED /* .gitignore in Resources */,
 				C1817C522918E0C600382A09 /* Assets.xcassets in Resources */,

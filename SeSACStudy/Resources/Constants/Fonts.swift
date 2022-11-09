@@ -9,4 +9,5 @@ import Foundation
 
 struct Fonts {
     static let medium = "NotoSansCJKkr-Medium"
+    static let regular = "NotoSansCJKkr-Regular"
 }
