@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C1440692291C0BA700B6C9EC /* TargetedControlEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1440691291C0BA700B6C9EC /* TargetedControlEvent.swift */; };
 		C150F4CB291B5348004BF518 /* NotoSansCJKkr-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = C150F4CA291B5348004BF518 /* NotoSansCJKkr-Regular.otf */; };
 		C1817C492918E0C500382A09 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1817C482918E0C500382A09 /* AppDelegate.swift */; };
 		C1817C4B2918E0C500382A09 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1817C4A2918E0C500382A09 /* SceneDelegate.swift */; };
@@ -40,6 +41,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C1440691291C0BA700B6C9EC /* TargetedControlEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetedControlEvent.swift; sourceTree = "<group>"; };
 		C150F4CA291B5348004BF518 /* NotoSansCJKkr-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Regular.otf"; sourceTree = "<group>"; };
 		C1817C452918E0C500382A09 /* SeSACStudy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSACStudy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1817C482918E0C500382A09 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 			children = (
 				C19373CC291ABFE3008C8FED /* PageContents.swift */,
 				C19CA032291B862F00CC6761 /* PhoneAuthViewModel.swift */,
+				C1440691291C0BA700B6C9EC /* TargetedControlEvent.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -351,6 +354,7 @@
 				C19CA043291B96F000CC6761 /* CommonViewModel.swift in Sources */,
 				C1817C702918FD1A00382A09 /* GrayScale.swift in Sources */,
 				C19CA045291BA20400CC6761 /* String + Extensions.swift in Sources */,
+				C1440692291C0BA700B6C9EC /* TargetedControlEvent.swift in Sources */,
 				C19373C7291A9EE2008C8FED /* Fonts.swift in Sources */,
 				C1817C722918FD2600382A09 /* SystemColor.swift in Sources */,
 				C19CA035291B870200CC6761 /* BaseView.swift in Sources */,

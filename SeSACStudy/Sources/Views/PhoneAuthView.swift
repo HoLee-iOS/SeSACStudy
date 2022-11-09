@@ -81,27 +81,26 @@ class PhoneAuthView: BaseView {
     
     override func bindData() {
         
-        let input = PhoneAuthViewModel.Input(phoneNumberText: phoneNumberText.rx.text)
+        let input = PhoneAuthViewModel.Input(phoneNumberText: phoneNumberText.rx.text, editingStatus1: phoneNumberText.rx.controlEvent(.editingDidBegin), editingStatus2: phoneNumberText.rx.controlEvent([.editingDidEnd, .editingDidEndOnExit]))
         let output = viewModel.transform(input: input)
         
-        phoneNumberText.rx.controlEvent([.editingDidBegin])
-            .withUnretained(self)
-            .bind { (vc, _) in
-                vc.underline.backgroundColor = BlackNWhite.black
+        //MARK: - 편집 상태에 따른 Underline 색상 변경
+        output.editStatus1
+            .drive { [weak self] _ in
+                self?.underline.backgroundColor = BlackNWhite.black
             }
             .disposed(by: disposeBag)
         
-        phoneNumberText.rx.controlEvent([.editingDidEnd])
-            .withUnretained(self)
-            .bind { (vc, _) in
-                vc.underline.backgroundColor = GrayScale.gray3
+        output.editStatus2
+            .drive { [weak self] _ in
+                self?.underline.backgroundColor = GrayScale.gray3
             }
             .disposed(by: disposeBag)
         
         //MARK: - 전화 번호 하이픈 추가
         output.changeFormat
             .drive(phoneNumberText.rx.text)
-            .disposed(by: disposeBag)        
+            .disposed(by: disposeBag)
         
         //MARK: - 전화 번호에 대한 유효성 검사
         output.phoneNum

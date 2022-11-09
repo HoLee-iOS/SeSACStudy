@@ -15,12 +15,15 @@ final class PhoneAuthViewModel: CommonViewModel {
     
     struct Input {
         let phoneNumberText: ControlProperty<String?>
-//        let editingStatus: ControlEvent<()>
+        let editingStatus1: ControlEvent<Void>
+        let editingStatus2: ControlEvent<Void>
     }
     
     struct Output {
         let phoneNum: Observable<Bool>
         let changeFormat: Driver<String>
+        let editStatus1: Driver<Void>
+        let editStatus2: Driver<Void>
     }
     
     func transform(input: Input) -> Output {
@@ -38,8 +41,12 @@ final class PhoneAuthViewModel: CommonViewModel {
             }
             .asDriver(onErrorJustReturn: "")
         
-//        let editStatus = input.editingStatus
+        let editStatus1 = input.editingStatus1
+            .asDriver()
         
-        return Output(phoneNum: validationCheck, changeFormat: changeFormatted)
+        let editStatus2 = input.editingStatus2
+            .asDriver()
+        
+        return Output(phoneNum: validationCheck, changeFormat: changeFormatted, editStatus1: editStatus1, editStatus2: editStatus2)
     }
 }
