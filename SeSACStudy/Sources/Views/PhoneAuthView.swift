@@ -38,7 +38,7 @@ class PhoneAuthView: BaseView {
     
     let underline: UIView = {
         let view = UIView()
-        view.backgroundColor = GrayScale.gray5
+        view.backgroundColor = GrayScale.gray3
         return view
     }()
     
@@ -84,19 +84,26 @@ class PhoneAuthView: BaseView {
         let input = PhoneAuthViewModel.Input(phoneNumberText: phoneNumberText.rx.text)
         let output = viewModel.transform(input: input)
         
-        phoneNumberText.rx.controlEvent([.editingDidBegin, .editingDidEnd])
+        phoneNumberText.rx.controlEvent([.editingDidBegin])
             .withUnretained(self)
             .bind { (vc, _) in
                 vc.underline.backgroundColor = BlackNWhite.black
             }
             .disposed(by: disposeBag)
         
-        //MARK: - 폰번호 하이픈 추가
+        phoneNumberText.rx.controlEvent([.editingDidEnd])
+            .withUnretained(self)
+            .bind { (vc, _) in
+                vc.underline.backgroundColor = GrayScale.gray3
+            }
+            .disposed(by: disposeBag)
+        
+        //MARK: - 전화 번호 하이픈 추가
         output.changeFormat
             .drive(phoneNumberText.rx.text)
             .disposed(by: disposeBag)        
         
-        //MARK: - 폰번호에 대한 유효성 검사
+        //MARK: - 전화 번호에 대한 유효성 검사
         output.phoneNum
             .withUnretained(self)
             .bind(onNext: { (vc, value) in
@@ -104,10 +111,25 @@ class PhoneAuthView: BaseView {
                 value ? (vc.authButton.backgroundColor = BrandColor.green ) : (vc.authButton.backgroundColor = GrayScale.gray6)
             })
             .disposed(by: disposeBag)
+        
+        //MARK: - 텍스트필드 글자 수 제한
+        output.changeFormat
+            .drive { [weak self] str in
+                self?.limitCount(str)
+            }
+            .disposed(by: disposeBag)
     }
     
     //MARK: - 키보드 내리기
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.endEditing(true)
+    }
+    
+    //MARK: - 글자 제한 메서드
+    private func limitCount(_ str: String) {
+        if str.count > 13 {
+            let index = str.index(str.startIndex, offsetBy: 13)
+            self.phoneNumberText.text = String(str[..<index])
+        }
     }
 }

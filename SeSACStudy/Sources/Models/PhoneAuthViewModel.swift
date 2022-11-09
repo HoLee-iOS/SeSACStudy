@@ -15,7 +15,7 @@ final class PhoneAuthViewModel: CommonViewModel {
     
     struct Input {
         let phoneNumberText: ControlProperty<String?>
-        
+//        let editingStatus: ControlEvent<()>
     }
     
     struct Output {
@@ -24,7 +24,6 @@ final class PhoneAuthViewModel: CommonViewModel {
     }
     
     func transform(input: Input) -> Output {
-        
         let validationCheck = input.phoneNumberText.orEmpty
             .map { str in
                 let phoneNumRegEx = "^01([0|1|6|7|8|9]?)-?([0-9]{3,4})-?([0-9]{4})$"
@@ -38,6 +37,8 @@ final class PhoneAuthViewModel: CommonViewModel {
                 str.addHypen()
             }
             .asDriver(onErrorJustReturn: "")
+        
+//        let editStatus = input.editingStatus
         
         return Output(phoneNum: validationCheck, changeFormat: changeFormatted)
     }
