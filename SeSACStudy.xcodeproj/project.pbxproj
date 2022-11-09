@@ -25,6 +25,18 @@
 		C19373C9291AA7E5008C8FED /* PageContentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19373C8291AA7E5008C8FED /* PageContentsViewController.swift */; };
 		C19373CB291AA873008C8FED /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19373CA291AA873008C8FED /* PageViewController.swift */; };
 		C19373CD291ABFE3008C8FED /* PageContents.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19373CC291ABFE3008C8FED /* PageContents.swift */; };
+		C19CA02C291B7CCD00CC6761 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = C19CA02B291B7CCD00CC6761 /* FirebaseAuth */; };
+		C19CA02F291B83E700CC6761 /* PhoneAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19CA02E291B83E700CC6761 /* PhoneAuthViewController.swift */; };
+		C19CA031291B862000CC6761 /* PhoneAuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19CA030291B862000CC6761 /* PhoneAuthView.swift */; };
+		C19CA033291B862F00CC6761 /* PhoneAuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19CA032291B862F00CC6761 /* PhoneAuthViewModel.swift */; };
+		C19CA035291B870200CC6761 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19CA034291B870200CC6761 /* BaseView.swift */; };
+		C19CA037291B874000CC6761 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19CA036291B874000CC6761 /* BaseViewController.swift */; };
+		C19CA039291B903600CC6761 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C19CA038291B903600CC6761 /* GoogleService-Info.plist */; };
+		C19CA03C291B950E00CC6761 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = C19CA03B291B950E00CC6761 /* Toast */; };
+		C19CA03F291B964A00CC6761 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = C19CA03E291B964A00CC6761 /* RxCocoa */; };
+		C19CA041291B964A00CC6761 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C19CA040291B964A00CC6761 /* RxSwift */; };
+		C19CA043291B96F000CC6761 /* CommonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19CA042291B96F000CC6761 /* CommonViewModel.swift */; };
+		C19CA045291BA20400CC6761 /* String + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19CA044291BA20400CC6761 /* String + Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +59,15 @@
 		C19373C8291AA7E5008C8FED /* PageContentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageContentsViewController.swift; sourceTree = "<group>"; };
 		C19373CA291AA873008C8FED /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		C19373CC291ABFE3008C8FED /* PageContents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageContents.swift; sourceTree = "<group>"; };
+		C19CA02D291B81C700CC6761 /* SeSACStudy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SeSACStudy.entitlements; sourceTree = "<group>"; };
+		C19CA02E291B83E700CC6761 /* PhoneAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneAuthViewController.swift; sourceTree = "<group>"; };
+		C19CA030291B862000CC6761 /* PhoneAuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneAuthView.swift; sourceTree = "<group>"; };
+		C19CA032291B862F00CC6761 /* PhoneAuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneAuthViewModel.swift; sourceTree = "<group>"; };
+		C19CA034291B870200CC6761 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		C19CA036291B874000CC6761 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		C19CA038291B903600CC6761 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C19CA042291B96F000CC6761 /* CommonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonViewModel.swift; sourceTree = "<group>"; };
+		C19CA044291BA20400CC6761 /* String + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,7 +75,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C19CA03C291B950E00CC6761 /* Toast in Frameworks */,
 				C19373BA291A7FC7008C8FED /* SnapKit in Frameworks */,
+				C19CA041291B964A00CC6761 /* RxSwift in Frameworks */,
+				C19CA03F291B964A00CC6761 /* RxCocoa in Frameworks */,
+				C19CA02C291B7CCD00CC6761 /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,7 +105,9 @@
 		C1817C472918E0C500382A09 /* SeSACStudy */ = {
 			isa = PBXGroup;
 			children = (
+				C19CA02D291B81C700CC6761 /* SeSACStudy.entitlements */,
 				C19373BD291A89CE008C8FED /* .gitignore */,
+				C19CA038291B903600CC6761 /* GoogleService-Info.plist */,
 				C1817C482918E0C500382A09 /* AppDelegate.swift */,
 				C1817C4A2918E0C500382A09 /* SceneDelegate.swift */,
 				C1817C562918E0C600382A09 /* Info.plist */,
@@ -122,6 +149,8 @@
 			children = (
 				C19373BB291A8230008C8FED /* Icons.swift */,
 				C19373C6291A9EE2008C8FED /* Fonts.swift */,
+				C19CA034291B870200CC6761 /* BaseView.swift */,
+				C19CA036291B874000CC6761 /* BaseViewController.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -129,6 +158,7 @@
 		C1817C5F2918EB3B00382A09 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				C19CA044291BA20400CC6761 /* String + Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -165,6 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				C19373CC291ABFE3008C8FED /* PageContents.swift */,
+				C19CA032291B862F00CC6761 /* PhoneAuthViewModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -175,6 +206,7 @@
 				C19373B6291A7697008C8FED /* OnBoardingViewController.swift */,
 				C19373C8291AA7E5008C8FED /* PageContentsViewController.swift */,
 				C19373CA291AA873008C8FED /* PageViewController.swift */,
+				C19CA02E291B83E700CC6761 /* PhoneAuthViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -182,6 +214,7 @@
 		C1817C662918EBEB00382A09 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				C19CA042291B96F000CC6761 /* CommonViewModel.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -196,6 +229,7 @@
 		C1817C682918EC1800382A09 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C19CA030291B862000CC6761 /* PhoneAuthView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -232,6 +266,10 @@
 			name = SeSACStudy;
 			packageProductDependencies = (
 				C19373B9291A7FC7008C8FED /* SnapKit */,
+				C19CA02B291B7CCD00CC6761 /* FirebaseAuth */,
+				C19CA03B291B950E00CC6761 /* Toast */,
+				C19CA03E291B964A00CC6761 /* RxCocoa */,
+				C19CA040291B964A00CC6761 /* RxSwift */,
 			);
 			productName = SeSACStudy;
 			productReference = C1817C452918E0C500382A09 /* SeSACStudy.app */;
@@ -263,6 +301,9 @@
 			mainGroup = C1817C3C2918E0C500382A09;
 			packageReferences = (
 				C19373B8291A7FC7008C8FED /* XCRemoteSwiftPackageReference "SnapKit" */,
+				C19CA02A291B7CCD00CC6761 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				C19CA03A291B950E00CC6761 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
+				C19CA03D291B964A00CC6761 /* XCRemoteSwiftPackageReference "RxSwift" */,
 			);
 			productRefGroup = C1817C462918E0C500382A09 /* Products */;
 			projectDirPath = "";
@@ -283,6 +324,7 @@
 				C19373BE291A89CE008C8FED /* .gitignore in Resources */,
 				C1817C522918E0C600382A09 /* Assets.xcassets in Resources */,
 				C19373C3291A9E32008C8FED /* NotoSansCJKkr-Medium.otf in Resources */,
+				C19CA039291B903600CC6761 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,13 +340,20 @@
 				C1817C6C2918FD0300382A09 /* BlackNWhite.swift in Sources */,
 				C19373CB291AA873008C8FED /* PageViewController.swift in Sources */,
 				C1817C492918E0C500382A09 /* AppDelegate.swift in Sources */,
+				C19CA031291B862000CC6761 /* PhoneAuthView.swift in Sources */,
 				C19373BC291A8230008C8FED /* Icons.swift in Sources */,
+				C19CA037291B874000CC6761 /* BaseViewController.swift in Sources */,
 				C19373B7291A7697008C8FED /* OnBoardingViewController.swift in Sources */,
 				C1817C4B2918E0C500382A09 /* SceneDelegate.swift in Sources */,
+				C19CA033291B862F00CC6761 /* PhoneAuthViewModel.swift in Sources */,
+				C19CA02F291B83E700CC6761 /* PhoneAuthViewController.swift in Sources */,
 				C1817C6E2918FD1100382A09 /* BrandColor.swift in Sources */,
+				C19CA043291B96F000CC6761 /* CommonViewModel.swift in Sources */,
 				C1817C702918FD1A00382A09 /* GrayScale.swift in Sources */,
+				C19CA045291BA20400CC6761 /* String + Extensions.swift in Sources */,
 				C19373C7291A9EE2008C8FED /* Fonts.swift in Sources */,
 				C1817C722918FD2600382A09 /* SystemColor.swift in Sources */,
+				C19CA035291B870200CC6761 /* BaseView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,6 +490,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SeSACStudy/SeSACStudy.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 54R3763M9G;
@@ -470,6 +520,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SeSACStudy/SeSACStudy.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 54R3763M9G;
@@ -526,6 +577,30 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		C19CA02A291B7CCD00CC6761 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+		C19CA03A291B950E00CC6761 /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scalessec/Toast-Swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		C19CA03D291B964A00CC6761 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -533,6 +608,26 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C19373B8291A7FC7008C8FED /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		C19CA02B291B7CCD00CC6761 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C19CA02A291B7CCD00CC6761 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		C19CA03B291B950E00CC6761 /* Toast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C19CA03A291B950E00CC6761 /* XCRemoteSwiftPackageReference "Toast-Swift" */;
+			productName = Toast;
+		};
+		C19CA03E291B964A00CC6761 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C19CA03D291B964A00CC6761 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		C19CA040291B964A00CC6761 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C19CA03D291B964A00CC6761 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
