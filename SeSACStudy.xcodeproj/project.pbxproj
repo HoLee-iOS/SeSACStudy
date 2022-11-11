@@ -11,6 +11,8 @@
 		C1440696291C20F700B6C9EC /* PhoneInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1440695291C20F700B6C9EC /* PhoneInputViewController.swift */; };
 		C1440698291C210900B6C9EC /* PhoneInputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1440697291C210900B6C9EC /* PhoneInputViewModel.swift */; };
 		C150F4CB291B5348004BF518 /* NotoSansCJKkr-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = C150F4CA291B5348004BF518 /* NotoSansCJKkr-Regular.otf */; };
+		C17D12F8291EA9F5007D8049 /* TextFieldControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17D12F7291EA9F5007D8049 /* TextFieldControl.swift */; };
+		C17D12FA291EAF58007D8049 /* GenderTap.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17D12F9291EAF58007D8049 /* GenderTap.swift */; };
 		C1817C492918E0C500382A09 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1817C482918E0C500382A09 /* AppDelegate.swift */; };
 		C1817C4B2918E0C500382A09 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1817C4A2918E0C500382A09 /* SceneDelegate.swift */; };
 		C1817C522918E0C600382A09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1817C512918E0C600382A09 /* Assets.xcassets */; };
@@ -59,6 +61,8 @@
 		C1440695291C20F700B6C9EC /* PhoneInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneInputViewController.swift; sourceTree = "<group>"; };
 		C1440697291C210900B6C9EC /* PhoneInputViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneInputViewModel.swift; sourceTree = "<group>"; };
 		C150F4CA291B5348004BF518 /* NotoSansCJKkr-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Regular.otf"; sourceTree = "<group>"; };
+		C17D12F7291EA9F5007D8049 /* TextFieldControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldControl.swift; sourceTree = "<group>"; };
+		C17D12F9291EAF58007D8049 /* GenderTap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderTap.swift; sourceTree = "<group>"; };
 		C1817C452918E0C500382A09 /* SeSACStudy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSACStudy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1817C482918E0C500382A09 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C1817C4A2918E0C500382A09 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -224,6 +228,7 @@
 		C1817C642918EBA400382A09 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				C17D12F7291EA9F5007D8049 /* TextFieldControl.swift */,
 				C19373CC291ABFE3008C8FED /* PageContents.swift */,
 				C19CA032291B862F00CC6761 /* PhoneAuthViewModel.swift */,
 				C1440697291C210900B6C9EC /* PhoneInputViewModel.swift */,
@@ -231,6 +236,7 @@
 				C1C949A6291D155A00A58FBF /* DateViewModel.swift */,
 				C1C15E93291E34E7005B9188 /* EmailViewModel.swift */,
 				C1C15E99291E4054005B9188 /* GenderViewModel.swift */,
+				C17D12F9291EAF58007D8049 /* GenderTap.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -385,6 +391,7 @@
 				C1C949A1291D047200A58FBF /* NicknameViewModel.swift in Sources */,
 				C1817C6C2918FD0300382A09 /* BlackNWhite.swift in Sources */,
 				C1C949A7291D155A00A58FBF /* DateViewModel.swift in Sources */,
+				C17D12F8291EA9F5007D8049 /* TextFieldControl.swift in Sources */,
 				C1C15E9A291E4054005B9188 /* GenderViewModel.swift in Sources */,
 				C19373CB291AA873008C8FED /* PageViewController.swift in Sources */,
 				C1C15E98291E404A005B9188 /* GenderViewController.swift in Sources */,
@@ -407,6 +414,7 @@
 				C19CA043291B96F000CC6761 /* CommonViewModel.swift in Sources */,
 				C1817C702918FD1A00382A09 /* GrayScale.swift in Sources */,
 				C19CA045291BA20400CC6761 /* String + Extensions.swift in Sources */,
+				C17D12FA291EAF58007D8049 /* GenderTap.swift in Sources */,
 				C1440694291C20E600B6C9EC /* PhoneInputView.swift in Sources */,
 				C19373C7291A9EE2008C8FED /* Fonts.swift in Sources */,
 				C1C15E96291E4042005B9188 /* GenderView.swift in Sources */,

@@ -15,10 +15,13 @@ final class EmailViewModel: CommonViewModel {
     
     struct Input {
         let emailText: ControlProperty<String?>
+        let editingStatus1: ControlEvent<Void>
+        let editingStatus2: ControlEvent<Void>
     }
     
     struct Output {
         let validationCheck: Observable<Bool>
+        let editStatus: Observable<TextFieldControl>
     }
     
     func transform(input: Input) -> Output {
@@ -30,7 +33,8 @@ final class EmailViewModel: CommonViewModel {
                 return emailTest.evaluate(with: str)
             }
         
-        return Output(validationCheck: validationCheck)
-    }
-    
+        let editStatus = Observable.merge(input.editingStatus1.map{TextFieldControl.editingDidBegin}, input.editingStatus2.map{TextFieldControl.editingDidEnd})
+        
+        return Output(validationCheck: validationCheck, editStatus: editStatus)
+    }    
 }

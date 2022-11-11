@@ -15,43 +15,20 @@ final class DateViewModel: CommonViewModel {
     
     struct Input {
         let pickerDate: ControlProperty<Date>
-        let yearText: ControlProperty<String?>
-        let monthText: ControlProperty<String?>
-        let dayText: ControlProperty<String?>
     }
     
     struct Output {
-        let inputYear: Observable<String>
-        let inputMonth: Observable<String>
-        let inputDay: Observable<String>
+        let inputValue: Observable<DateComponents>
         let validationCheck: Observable<Bool>
     }
     
     func transform(input: Input) -> Output {
         
-        let inputYear = input.pickerDate
+        let inputValue = input.pickerDate
             .changed
             .map { value in
-                let formmatter = DateFormatter()
-                formmatter.dateFormat = "yyyy"
-                return formmatter.string(from: value)
-            }
-        
-        let inputMonth = input.pickerDate
-            .changed
-            .map { value in
-                let formmatter = DateFormatter()
-                formmatter.dateFormat = "MM"
-                return formmatter.string(from: value)
-            }
-        
-        let inputDay = input.pickerDate
-            .changed
-            .map { value in
-                let formmatter = DateFormatter()
-                formmatter.dateFormat = "dd"
-                return formmatter.string(from: value)
-            }
+            return Calendar.current.dateComponents([.year, .month, .day], from: value)
+        }
         
         let validationCheck = input.pickerDate
             .changed
@@ -68,6 +45,6 @@ final class DateViewModel: CommonViewModel {
                 return false
             }
         
-        return Output(inputYear: inputYear, inputMonth: inputMonth, inputDay: inputDay, validationCheck: validationCheck)
+        return Output(inputValue: inputValue, validationCheck: validationCheck)
     }
 }

@@ -14,15 +14,19 @@ final class GenderViewModel: CommonViewModel {
     let disposeBag = DisposeBag()
     
     struct Input {
-        
+        let maleTap: ControlEvent<Void>
+        let femaleTap: ControlEvent<Void>
     }
     
     struct Output {
-        
+        let genderTap: Observable<GenderTap>
     }
     
     func transform(input: Input) -> Output {
-        return Output()
+        
+        let genderTap = Observable.merge(input.maleTap.map{GenderTap.maleTap}, input.femaleTap.map{GenderTap.femaleTap})
+        
+        return Output(genderTap: genderTap)
     }
     
 }

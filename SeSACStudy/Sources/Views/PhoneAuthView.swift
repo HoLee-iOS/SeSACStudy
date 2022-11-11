@@ -37,7 +37,7 @@ final class PhoneAuthView: BaseView {
     
     let underline: UIView = {
         let view = UIView()
-        view.backgroundColor = GrayScale.gray3
+        view.backgroundColor = GrayScale.gray6
         return view
     }()
     
@@ -84,15 +84,13 @@ final class PhoneAuthView: BaseView {
         let output = viewModel.transform(input: input)
         
         //MARK: - 편집 상태에 따른 Underline 색상 변경
-        output.editStatus1
-            .drive { [weak self] _ in
-                self?.underline.backgroundColor = BlackNWhite.black
-            }
-            .disposed(by: disposeBag)
-        
-        output.editStatus2
-            .drive { [weak self] _ in
-                self?.underline.backgroundColor = GrayScale.gray3
+        output.editStatus
+            .withUnretained(self)
+            .bind { (vc, value) in
+                switch value {
+                case .editingDidBegin: vc.underline.backgroundColor = BlackNWhite.black
+                case .editingDidEnd: vc.underline.backgroundColor = GrayScale.gray6
+                }
             }
             .disposed(by: disposeBag)
         
@@ -104,10 +102,9 @@ final class PhoneAuthView: BaseView {
         //MARK: - 전화 번호에 대한 유효성 검사
         output.phoneNum
             .withUnretained(self)
-            .bind(onNext: { (vc, value) in
-                vc.authButton.isEnabled = value
-                value ? (vc.authButton.backgroundColor = BrandColor.green ) : (vc.authButton.backgroundColor = GrayScale.gray6)
-            })
+            .bind { (vc, value) in
+                value ? (vc.authButton.backgroundColor = BrandColor.green) : (vc.authButton.backgroundColor = GrayScale.gray6)
+            }
             .disposed(by: disposeBag)
         
         //MARK: - 텍스트필드 글자 수 제한

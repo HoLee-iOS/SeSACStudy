@@ -59,7 +59,7 @@ final class PhoneInputView: BaseView {
     
     let underline: UIView = {
         let view = UIView()
-        view.backgroundColor = GrayScale.gray3
+        view.backgroundColor = GrayScale.gray6
         return view
     }()
     
@@ -120,15 +120,13 @@ final class PhoneInputView: BaseView {
         let output = viewModel.transform(input: input)
         
         //MARK: - 편집 상태에 따른 Underline 색상 변경
-        output.editStatus1
-            .drive { [weak self] _ in
-                self?.underline.backgroundColor = BlackNWhite.black
-            }
-            .disposed(by: disposeBag)
-        
-        output.editStatus2
-            .drive { [weak self] _ in
-                self?.underline.backgroundColor = GrayScale.gray3
+        output.editStatus
+            .withUnretained(self)
+            .bind { (vc, actions) in
+                switch actions {
+                case .editingDidBegin: vc.underline.backgroundColor = BlackNWhite.black
+                case .editingDidEnd: vc.underline.backgroundColor = GrayScale.gray6
+                }
             }
             .disposed(by: disposeBag)
         
@@ -136,7 +134,6 @@ final class PhoneInputView: BaseView {
         output.authNum
             .withUnretained(self)
             .bind { (vc, value) in
-                vc.authButton.isEnabled = value
                 value ? (vc.authButton.backgroundColor = BrandColor.green) : (vc.authButton.backgroundColor = GrayScale.gray6)
             }
             .disposed(by: disposeBag)

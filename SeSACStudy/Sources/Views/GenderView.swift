@@ -98,4 +98,32 @@ final class GenderView: BaseView {
             make.bottom.equalTo(maleButton.snp.top).multipliedBy(0.9)
         }
     }
+    
+    override func bindData() {
+        
+        let input = GenderViewModel.Input(maleTap: maleButton.rx.tap, femaleTap: femaleButton.rx.tap)
+        let output = viewModel.transform(input: input)
+        
+        //MARK: - 성별 선택에 대한 분기 처리
+        output.genderTap
+            .withUnretained(self)
+            .bind { (vc, tap) in
+                vc.nextButton.backgroundColor = GrayScale.gray6
+                switch tap {
+                case .maleTap:
+                    if vc.femaleButton.backgroundColor == BrandColor.whiteGreen {
+                        vc.femaleButton.backgroundColor = BlackNWhite.white
+                    }
+                    vc.maleButton.backgroundColor = BrandColor.whiteGreen
+                    vc.nextButton.backgroundColor = BrandColor.green
+                case .femaleTap:
+                    if vc.maleButton.backgroundColor == BrandColor.whiteGreen {
+                        vc.maleButton.backgroundColor = BlackNWhite.white
+                    }
+                    vc.femaleButton.backgroundColor = BrandColor.whiteGreen
+                    vc.nextButton.backgroundColor = BrandColor.green
+                }
+            }
+            .disposed(by: disposeBag)
+    }
 }

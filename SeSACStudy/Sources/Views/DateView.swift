@@ -152,26 +152,22 @@ final class DateView: BaseView {
             make.centerX.equalTo(self.safeAreaLayoutGuide)
             make.bottom.equalTo(monthText.snp.top).multipliedBy(0.7)
         }
-        
     }
     
     override func bindData() {
-        
-        let input = DateViewModel.Input(pickerDate: picker.rx.date, yearText: yearText.rx.text, monthText: monthText.rx.text, dayText: dayText.rx.text)
+   
+        let input = DateViewModel.Input(pickerDate: picker.rx.date)
         
         let output = viewModel.transform(input: input)
         
         //MARK: - 데이트 피커로 선택한 값 텍스트필드에 입력
-        output.inputYear
-            .bind(to: yearText.rx.text)
-            .disposed(by: disposeBag)
-        
-        output.inputMonth
-            .bind(to: monthText.rx.text)
-            .disposed(by: disposeBag)
-        
-        output.inputDay
-            .bind(to: dayText.rx.text)
+        output.inputValue
+            .withUnretained(self)
+            .bind { vc, value in
+                vc.yearText.text = String(value.year ?? 0)
+                vc.monthText.text = String(value.month ?? 0)
+                vc.dayText.text = String(value.day ?? 0)
+            }
             .disposed(by: disposeBag)
         
         //MARK: - 만 17살에 대한 유효성 체크
@@ -181,6 +177,5 @@ final class DateView: BaseView {
                 value ? (vc.nextButton.backgroundColor = BrandColor.green) : (vc.nextButton.backgroundColor = GrayScale.gray5)
             }
             .disposed(by: disposeBag)
-        
     }
 }

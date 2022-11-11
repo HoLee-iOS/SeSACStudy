@@ -22,8 +22,7 @@ final class NicknameViewModel: CommonViewModel {
     struct Output {
         let nickName: Observable<Bool>
         let changeFormat: Driver<String>
-        let editStatus1: Driver<Void>
-        let editStatus2: Driver<Void>
+        let editStatus: Observable<TextFieldControl>
     }
     
     func transform(input: Input) -> Output {
@@ -38,13 +37,9 @@ final class NicknameViewModel: CommonViewModel {
             }
             .asDriver(onErrorJustReturn: "")
         
-        let editStatus1 = input.editingStatus1
-            .asDriver()
+        let editStatus = Observable.merge(input.editingStatus1.map{TextFieldControl.editingDidBegin}, input.editingStatus2.map{TextFieldControl.editingDidEnd})
         
-        let editStatus2 = input.editingStatus2
-            .asDriver()
-        
-        return Output(nickName: validationCheck, changeFormat: changeFormatted, editStatus1: editStatus1, editStatus2: editStatus2)
+        return Output(nickName: validationCheck, changeFormat: changeFormatted, editStatus: editStatus)
     }
     
 }

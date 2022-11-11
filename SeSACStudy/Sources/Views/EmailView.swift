@@ -52,7 +52,7 @@ final class EmailView: BaseView {
     override func configure() {
         [nextButton, underline, emailText, label].forEach { self.addSubview($0) }
     }
-
+    
     override func setConstraints() {
         nextButton.snp.makeConstraints { make in
             make.horizontalEdges.equalTo(self.safeAreaLayoutGuide).inset(16)
@@ -77,11 +77,22 @@ final class EmailView: BaseView {
             make.bottom.equalTo(emailText.snp.top).multipliedBy(0.7)
         }
     }
-
+    
     override func bindData() {
         
-        let input = EmailViewModel.Input(emailText: emailText.rx.text)
+        let input = EmailViewModel.Input(emailText: emailText.rx.text, editingStatus1: emailText.rx.controlEvent(.editingDidBegin), editingStatus2: emailText.rx.controlEvent([.editingDidEnd, .editingDidEndOnExit]))
         let output = viewModel.transform(input: input)
+        
+        //MARK: - 편집 상태에 따른 Underline 색상 변경
+        output.editStatus
+            .withUnretained(self)
+            .bind { (vc, value) in
+                switch value {
+                case .editingDidBegin: vc.underline.backgroundColor = BlackNWhite.black
+                case .editingDidEnd: vc.underline.backgroundColor = GrayScale.gray6
+                }
+            }
+            .disposed(by: disposeBag)
         
         //MARK: - 이메일에 대한 유효성 검사
         output.validationCheck
