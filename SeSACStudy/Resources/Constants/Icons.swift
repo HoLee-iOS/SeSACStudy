@@ -8,6 +8,8 @@
 import UIKit
 
 struct Icons {
+    static let splashTxt = UIImage(named: "txt")
+    static let splashLogo = UIImage(named: "splash_logo")
     static let onboarding1 = UIImage(named: "onboarding_img1")
     static let onboarding2 = UIImage(named: "onboarding_img2")
     static let onboarding3 = UIImage(named: "onboarding_img3")

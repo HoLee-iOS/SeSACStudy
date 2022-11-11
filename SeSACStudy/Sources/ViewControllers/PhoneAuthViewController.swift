@@ -28,7 +28,7 @@ class PhoneAuthViewController: BaseViewController {
         authView.authButton.rx.tap
             .withUnretained(self)
             .bind { (vc, _) in
-                Auth.auth().languageCode = "ko";
+                Auth.auth().languageCode = "ko"
                 PhoneAuthProvider.provider()
                     .verifyPhoneNumber("+82 \(vc.authView.phoneNumberText.text ?? "")", uiDelegate: nil) { (verificationID, error) in
                         if let error = error {

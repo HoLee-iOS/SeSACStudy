@@ -36,12 +36,20 @@ class OnBoardingViewController: UIViewController {
         addView()
     }
     
+    @objc func startTap() {
+        UserDefaults.standard.set(true, forKey: "First")
+        let nav = UINavigationController(rootViewController: PhoneAuthViewController())
+        let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
+        guard let delegate = sceneDelegate else { return }
+        delegate.window?.rootViewController = nav
+    }
+    
     func configureUI() {
         [startButton, myView].forEach { view.addSubview($0) }
+        startButton.addTarget(self, action: #selector(startTap), for: .touchUpInside)
     }
     
     func setConstraints() {
-        
         startButton.snp.makeConstraints { make in
             make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(16)
             make.bottom.equalTo(view.safeAreaLayoutGuide).offset(-50)
@@ -52,7 +60,6 @@ class OnBoardingViewController: UIViewController {
             make.horizontalEdges.top.equalTo(view.safeAreaLayoutGuide)
             make.bottom.equalTo(startButton.snp.top).offset(-40)
         }
-        
     }
     
     func addView() {

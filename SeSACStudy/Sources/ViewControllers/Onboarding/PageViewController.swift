@@ -33,12 +33,14 @@ final class PageViewController: UIPageViewController {
         delegate = self
     }
     
+    //MARK: - 페이지 컨트롤 색상 변경
     func setControl() {
         let pageControl = UIPageControl.appearance(whenContainedInInstancesOf: [UIPageViewController.self])
         pageControl.pageIndicatorTintColor = GrayScale.gray5
         pageControl.currentPageIndicatorTintColor = BlackNWhite.black
     }
     
+    //MARK: - 페이지 컨텐츠 설정
     func setPageContents() {
         for i in 0..<PageContents.contents.count {
             let vc = PageContentsViewController()
