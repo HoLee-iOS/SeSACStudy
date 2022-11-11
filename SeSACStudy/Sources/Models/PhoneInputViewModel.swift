@@ -29,7 +29,6 @@ final class PhoneInputViewModel: CommonViewModel {
             .map { str in
                 return str.count >= 6
             }
-            .share()
         
         let changeFormatted = input.authNumberText.orEmpty
             .map { str in

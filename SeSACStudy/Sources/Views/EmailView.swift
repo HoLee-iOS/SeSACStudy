@@ -80,5 +80,16 @@ final class EmailView: BaseView {
 
     override func bindData() {
         
+        let input = EmailViewModel.Input(emailText: emailText.rx.text)
+        let output = viewModel.transform(input: input)
+        
+        //MARK: - 이메일에 대한 유효성 검사
+        output.validationCheck
+            .withUnretained(self)
+            .bind { (vc, value) in
+                value ? (vc.nextButton.backgroundColor = BrandColor.green) : (vc.nextButton.backgroundColor = GrayScale.gray6)
+            }
+            .disposed(by: disposeBag)
+        
     }
 }

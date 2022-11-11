@@ -31,7 +31,6 @@ final class NicknameViewModel: CommonViewModel {
             .map { str in
                 return str.count >= 1 && str.count <= 10
             }
-            .share()
         
         let changeFormatted = input.nicknameText.orEmpty
             .map { str in

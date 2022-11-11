@@ -31,7 +31,6 @@ final class PhoneAuthViewModel: CommonViewModel {
                 let emailTest = NSPredicate(format:"SELF MATCHES %@", phoneNumRegEx)
                 return emailTest.evaluate(with: str)
             }
-            .share()
         
         let changeFormatted = input.phoneNumberText.orEmpty
             .map { str in

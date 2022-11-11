@@ -36,7 +36,6 @@ final class DateViewModel: CommonViewModel {
                 formmatter.dateFormat = "yyyy"
                 return formmatter.string(from: value)
             }
-            .share()
         
         let inputMonth = input.pickerDate
             .changed
@@ -45,7 +44,6 @@ final class DateViewModel: CommonViewModel {
                 formmatter.dateFormat = "MM"
                 return formmatter.string(from: value)
             }
-            .share()
         
         let inputDay = input.pickerDate
             .changed
@@ -54,7 +52,6 @@ final class DateViewModel: CommonViewModel {
                 formmatter.dateFormat = "dd"
                 return formmatter.string(from: value)
             }
-            .share()
         
         let validationCheck = input.pickerDate
             .changed
@@ -70,7 +67,6 @@ final class DateViewModel: CommonViewModel {
                 }
                 return false
             }
-            .share()
         
         return Output(inputYear: inputYear, inputMonth: inputMonth, inputDay: inputDay, validationCheck: validationCheck)
     }

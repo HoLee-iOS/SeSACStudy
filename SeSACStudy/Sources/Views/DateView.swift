@@ -161,6 +161,7 @@ final class DateView: BaseView {
         
         let output = viewModel.transform(input: input)
         
+        //MARK: - 데이트 피커로 선택한 값 텍스트필드에 입력
         output.inputYear
             .bind(to: yearText.rx.text)
             .disposed(by: disposeBag)
@@ -173,6 +174,7 @@ final class DateView: BaseView {
             .bind(to: dayText.rx.text)
             .disposed(by: disposeBag)
         
+        //MARK: - 만 17살에 대한 유효성 체크
         output.validationCheck
             .withUnretained(self)
             .bind { (vc, value) in
