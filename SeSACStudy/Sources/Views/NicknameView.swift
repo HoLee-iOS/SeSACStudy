@@ -1,8 +1,8 @@
 //
-//  PhoneAuthView.swift
+//  NicknameView.swift
 //  SeSACStudy
 //
-//  Created by 이현호 on 2022/11/09.
+//  Created by 이현호 on 2022/11/10.
 //
 
 import UIKit
@@ -10,11 +10,11 @@ import SnapKit
 import RxSwift
 import RxCocoa
 
-final class PhoneAuthView: BaseView {
+final class NicknameView: BaseView {
     
     let disposeBag = DisposeBag()
     
-    private let viewModel = PhoneAuthViewModel()
+    private let viewModel = NicknameViewModel()
     
     let label: UILabel = {
         let label = UILabel()
@@ -24,14 +24,14 @@ final class PhoneAuthView: BaseView {
         var paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineHeightMultiple = 1.08
         paragraphStyle.alignment = .center
-        label.attributedText = NSMutableAttributedString(string: "새싹 서비스 이용을 위해\n휴대폰 번호를 입력해 주세요", attributes: [NSAttributedString.Key.kern: -0.5, NSAttributedString.Key.paragraphStyle: paragraphStyle])
+        label.attributedText = NSMutableAttributedString(string: "닉네임을 입력해 주세요", attributes: [NSAttributedString.Key.kern: -0.5, NSAttributedString.Key.paragraphStyle: paragraphStyle])
         return label
     }()
     
-    let phoneNumberText: UITextField = {
+    let nicknameText: UITextField = {
         let text = UITextField()
-        text.placeholder = "휴대폰 번호(-없이 숫자만 입력)"
-        text.keyboardType = .numberPad
+        text.placeholder = "10자 이내로 입력"
+        text.font = UIFont(name: Fonts.regular, size: 14)
         return text
     }()
     
@@ -41,20 +41,20 @@ final class PhoneAuthView: BaseView {
         return view
     }()
     
-    let authButton: UIButton = {
+    let nextButton: UIButton = {
         let button = UIButton()
-        button.setTitle("인증 문자 받기", for: .normal)
+        button.setTitle("다음", for: .normal)
         button.layer.cornerRadius = 10
         button.backgroundColor = GrayScale.gray6
         return button
     }()
     
     override func configure() {
-        [authButton, underline, phoneNumberText, label].forEach { self.addSubview($0) }
+        [nextButton, underline, nicknameText, label].forEach { self.addSubview($0) }
     }
     
     override func setConstraints() {
-        authButton.snp.makeConstraints { make in
+        nextButton.snp.makeConstraints { make in
             make.horizontalEdges.equalTo(self.safeAreaLayoutGuide).inset(16)
             make.bottom.equalTo(self.safeAreaLayoutGuide).multipliedBy(0.6)
             make.height.equalTo(self.safeAreaLayoutGuide).multipliedBy(0.07)
@@ -63,24 +63,24 @@ final class PhoneAuthView: BaseView {
         underline.snp.makeConstraints { make in
             make.height.equalTo(1)
             make.horizontalEdges.equalTo(self.safeAreaLayoutGuide).inset(16)
-            make.bottom.equalTo(authButton.snp.top).multipliedBy(0.8)
+            make.bottom.equalTo(nextButton.snp.top).multipliedBy(0.8)
         }
         
-        phoneNumberText.snp.makeConstraints { make in
-            make.horizontalEdges.equalTo(self.safeAreaLayoutGuide).inset(16)
+        nicknameText.snp.makeConstraints { make in
+            make.leading.equalTo(self.safeAreaLayoutGuide).inset(28)
             make.bottom.equalTo(underline.snp.top).offset(15)
             make.height.equalTo(self.safeAreaLayoutGuide).multipliedBy(0.1)
         }
         
         label.snp.makeConstraints { make in
             make.centerX.equalTo(self.safeAreaLayoutGuide)
-            make.bottom.equalTo(phoneNumberText.snp.top).multipliedBy(0.8)
+            make.bottom.equalTo(nicknameText.snp.top).multipliedBy(0.7)
         }
     }
     
     override func bindData() {
         
-        let input = PhoneAuthViewModel.Input(phoneNumberText: phoneNumberText.rx.text, editingStatus1: phoneNumberText.rx.controlEvent(.editingDidBegin), editingStatus2: phoneNumberText.rx.controlEvent([.editingDidEnd, .editingDidEndOnExit]))
+        let input = NicknameViewModel.Input(nicknameText: nicknameText.rx.text, editingStatus1: nicknameText.rx.controlEvent(.editingDidBegin), editingStatus2: nicknameText.rx.controlEvent([.editingDidEnd, .editingDidEndOnExit]))
         let output = viewModel.transform(input: input)
         
         //MARK: - 편집 상태에 따른 Underline 색상 변경
@@ -96,18 +96,13 @@ final class PhoneAuthView: BaseView {
             }
             .disposed(by: disposeBag)
         
-        //MARK: - 전화 번호 하이픈 추가
-        output.changeFormat
-            .drive(phoneNumberText.rx.text)
-            .disposed(by: disposeBag)
-        
-        //MARK: - 전화 번호에 대한 유효성 검사
-        output.phoneNum
+        //MARK: - 닉네임에 대한 유효성 검사
+        output.nickName
             .withUnretained(self)
-            .bind(onNext: { (vc, value) in
-                vc.authButton.isEnabled = value
-                value ? (vc.authButton.backgroundColor = BrandColor.green ) : (vc.authButton.backgroundColor = GrayScale.gray6)
-            })
+            .bind { (vc, value) in
+                vc.nextButton.isEnabled = value
+                value ? (vc.nextButton.backgroundColor = BrandColor.green) : (vc.nextButton.backgroundColor = GrayScale.gray6)
+            }
             .disposed(by: disposeBag)
         
         //MARK: - 텍스트필드 글자 수 제한
@@ -120,9 +115,9 @@ final class PhoneAuthView: BaseView {
     
     //MARK: - 글자 제한 메서드
     private func limitCount(_ str: String) {
-        if str.count > 13 {
-            let index = str.index(str.startIndex, offsetBy: 13)
-            self.phoneNumberText.text = String(str[..<index])
+        if str.count > 10 {
+            let index = str.index(str.startIndex, offsetBy: 10)
+            self.nicknameText.text = String(str[..<index])
         }
     }
 }

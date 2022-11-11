@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Toast
 
 class BaseView: UIView {
     
@@ -26,4 +27,13 @@ class BaseView: UIView {
     func setConstraints() { }
     
     func bindData() { }
+    
+    func showToast(_ message: String) {
+        self.makeToast(message, position: .bottom)
+    }
+    
+    //MARK: - 키보드 내리기
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.endEditing(true)
+    }
 }

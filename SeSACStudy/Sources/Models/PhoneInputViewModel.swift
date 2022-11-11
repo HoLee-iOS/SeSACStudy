@@ -1,41 +1,39 @@
 //
-//  PhoneAuthViewModel.swift
+//  PhoneInputViewModel.swift
 //  SeSACStudy
 //
-//  Created by 이현호 on 2022/11/09.
+//  Created by 이현호 on 2022/11/10.
 //
 
 import Foundation
 import RxSwift
 import RxCocoa
 
-final class PhoneAuthViewModel: CommonViewModel {
+final class PhoneInputViewModel: CommonViewModel {
     
     struct Input {
-        let phoneNumberText: ControlProperty<String?>
+        let authNumberText: ControlProperty<String?>
         let editingStatus1: ControlEvent<Void>
         let editingStatus2: ControlEvent<Void>
     }
     
     struct Output {
-        let phoneNum: Observable<Bool>
+        let authNum: Observable<Bool>
         let changeFormat: Driver<String>
         let editStatus1: Driver<Void>
         let editStatus2: Driver<Void>
     }
     
     func transform(input: Input) -> Output {
-        let validationCheck = input.phoneNumberText.orEmpty
+        let validationCheck = input.authNumberText.orEmpty
             .map { str in
-                let phoneNumRegEx = "^01([0|1|6|7|8|9]?)-?([0-9]{3,4})-?([0-9]{4})$"
-                let emailTest = NSPredicate(format:"SELF MATCHES %@", phoneNumRegEx)
-                return emailTest.evaluate(with: str)
+                return str.count >= 6
             }
             .share()
         
-        let changeFormatted = input.phoneNumberText.orEmpty
+        let changeFormatted = input.authNumberText.orEmpty
             .map { str in
-                str.addHypen()
+                return str
             }
             .asDriver(onErrorJustReturn: "")
         
@@ -45,6 +43,8 @@ final class PhoneAuthViewModel: CommonViewModel {
         let editStatus2 = input.editingStatus2
             .asDriver()
         
-        return Output(phoneNum: validationCheck, changeFormat: changeFormatted, editStatus1: editStatus1, editStatus2: editStatus2)
+        return Output(authNum: validationCheck, changeFormat: changeFormatted, editStatus1: editStatus1, editStatus2: editStatus2)
     }
+
+    
 }
