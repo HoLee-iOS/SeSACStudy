@@ -16,10 +16,19 @@ final class DateView: BaseView {
     
     private let viewModel = DateViewModel()
     
+    let picker: UIDatePicker = {
+        let picker = UIDatePicker()
+        picker.preferredDatePickerStyle = .wheels
+        picker.datePickerMode = .date
+        picker.locale = Locale(identifier: "ko-KR")
+        return picker
+    }()
+    
     func makeText(placeHolder: String) -> UITextField {
         let text = UITextField()
         text.placeholder = placeHolder
         text.font = UIFont(name: Fonts.regular, size: 14)
+        text.inputView = picker
         return text
     }
     
@@ -146,4 +155,30 @@ final class DateView: BaseView {
         
     }
     
+    override func bindData() {
+        
+        let input = DateViewModel.Input(pickerDate: picker.rx.date, yearText: yearText.rx.text, monthText: monthText.rx.text, dayText: dayText.rx.text)
+        
+        let output = viewModel.transform(input: input)
+        
+        output.inputYear
+            .bind(to: yearText.rx.text)
+            .disposed(by: disposeBag)
+        
+        output.inputMonth
+            .bind(to: monthText.rx.text)
+            .disposed(by: disposeBag)
+        
+        output.inputDay
+            .bind(to: dayText.rx.text)
+            .disposed(by: disposeBag)
+        
+        output.validationCheck
+            .withUnretained(self)
+            .bind { (vc, value) in
+                value ? (vc.nextButton.backgroundColor = BrandColor.green) : (vc.nextButton.backgroundColor = GrayScale.gray5)
+            }
+            .disposed(by: disposeBag)
+        
+    }
 }

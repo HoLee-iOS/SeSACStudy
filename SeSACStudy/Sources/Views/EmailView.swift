@@ -77,8 +77,8 @@ final class EmailView: BaseView {
             make.bottom.equalTo(emailText.snp.top).multipliedBy(0.7)
         }
     }
-//
-//    override func bindData() {
-//        <#code#>
-//    }
+
+    override func bindData() {
+        
+    }
 }
