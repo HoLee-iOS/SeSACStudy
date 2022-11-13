@@ -116,14 +116,14 @@ final class GenderView: BaseView {
                     }
                     vc.maleButton.backgroundColor = BrandColor.whiteGreen
                     vc.nextButton.backgroundColor = BrandColor.green
-                    UserDefaults.standard.setValue(1, forKey: "gender")
+                    UserDefaultsManager.gender = 1
                 case .femaleTap:
                     if vc.maleButton.backgroundColor == BrandColor.whiteGreen {
                         vc.maleButton.backgroundColor = BlackNWhite.white
                     }
                     vc.femaleButton.backgroundColor = BrandColor.whiteGreen
                     vc.nextButton.backgroundColor = BrandColor.green
-                    UserDefaults.standard.setValue(0, forKey: "gender")
+                    UserDefaultsManager.gender = 0
                 }
             }
             .disposed(by: disposeBag)

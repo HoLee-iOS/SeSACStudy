@@ -24,7 +24,7 @@ class EmailViewController: BaseViewController {
                 if vc.emailView.nextButton.backgroundColor == GrayScale.gray6 {
                     vc.showToast("이메일 형식이 올바르지 않습니다.")
                 } else {
-                    UserDefaults.standard.setValue(vc.emailView.emailText.text, forKey: "email")
+                    UserDefaultsManager.email = vc.emailView.emailText.text ?? ""
                     vc.navigationController?.pushViewController(GenderViewController(), animated: true)
                 }                
             }

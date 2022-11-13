@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Firebase
 import FirebaseCore
 import FirebaseMessaging
 
@@ -14,18 +13,23 @@ import FirebaseMessaging
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        //MARK: - 파이어베이스 설정
         FirebaseApp.configure()
         
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { _, _ in
         }
         application.registerForRemoteNotifications()
         
-//        Messaging.messaging().delegate = self
-//        Messaging.messaging().token { token, error in
-//            <#code#>
-//        }
-        
+        //MARK: - FCM 토큰 불러오기
+        Messaging.messaging().token { token, error in
+            if let error = error {
+                print("Error fetching FCM registration token: \(error)")
+            } else if let token = token {
+                UserDefaultsManager.fcmToken = token
+                print("FCM registration token: \(token)")
+            }
+        }
         return true
     }
     
@@ -42,7 +46,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
-    
-    
 }
 

@@ -13,10 +13,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
+        //MARK: - 백버튼 이미지 설정
         UINavigationBar.appearance().backIndicatorImage = Icons.backButton?.withAlignmentRectInsets(UIEdgeInsets(top: 0.0, left: -12.0, bottom: 0.0, right: 0.0))
         UINavigationBar.appearance().backIndicatorTransitionMaskImage = Icons.backButton
         UINavigationBar.appearance().tintColor = .black
         
+        //MARK: - 초기화면 설정
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
         window?.rootViewController = LaunchViewController()

@@ -20,18 +20,20 @@ class PhoneInputViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        showToast("인증번호를 보냈습니다.")
+        
     }
     
-    override func bindData() {
+    override func bindData() {        
+        showToast("인증번호를 보냈습니다.")
         
         customView.authButton.rx.tap
             .withUnretained(self)
             .bind { (vc, _) in
+                UserDefaultsManager.verificationCode = vc.customView.authNumberText.text ?? ""
                 //MARK: - 로그인을 할 FIRPhoneAuthCredential 객체 생성
                 let credential = PhoneAuthProvider.provider().credential(
-                    withVerificationID: UserDefaults.standard.string(forKey: "verificationID") ?? "",
-                    verificationCode: vc.customView.authNumberText.text ?? ""
+                    withVerificationID: UserDefaultsManager.verificationID,
+                    verificationCode: UserDefaultsManager.verificationCode
                 )
                 //MARK: - FIRPhoneAuthCredential 객체를 사용하여 로그인
                 Auth.auth().signIn(with: credential) { authResult, error in
@@ -45,18 +47,23 @@ class PhoneInputViewController: BaseViewController {
                         }
                         return
                     }
+                    //MARK: - ID 토큰 발급
                     authResult?.user.getIDToken { token, error in
                         if let error = error {
                             vc.showToast("에러: \(error.localizedDescription)")
+                            return
                         }
-
                         guard let token = token else { return }
-                        UserDefaults.standard.setValue(token, forKey: "token")
-                        APIService.login(idToken: token) { value, statusCode, error in
+                        //MARK: - 로그인 API 요청
+                        UserDefaultsManager.token = token
+                        APIService.login { value, statusCode, error in
                             guard let statusCode = statusCode else { return }
                             switch statusCode {
                             case 200: vc.showToast("로그인 성공")
+                            case 401: vc.refreshToken()
                             case 406: vc.navigationController?.pushViewController(NicknameViewController(), animated: true)
+                            case 500: vc.showToast("서버 오류")
+                            case 501: vc.showToast("잘못된 요청")
                             default: vc.showToast("기타 오류")
                             }
                         }
@@ -65,6 +72,7 @@ class PhoneInputViewController: BaseViewController {
             }
             .disposed(by: customView.disposeBag)
         
+        //MARK: - 재전송 기능 구현
         customView.resendButton.rx.tap
             .withUnretained(self)
             .bind { (vc, _) in
@@ -82,11 +90,34 @@ class PhoneInputViewController: BaseViewController {
                             }
                             return
                         }
-                        
                         guard let id = verificationID else { return }
-                        UserDefaults.standard.set("\(id)", forKey: "verificationID")
+                        UserDefaultsManager.verificationID = id
                     }
             }
             .disposed(by: customView.disposeBag)
+    }
+    
+    //MARK: - 토큰 만료 시 토큰 재발급
+    func refreshToken() {
+        let currentUser = Auth.auth().currentUser
+        currentUser?.getIDTokenForcingRefresh(true) { token, error in
+            if let error = error {
+                self.showToast("에러: \(error.localizedDescription)")
+                return
+            } else if let token = token {
+                UserDefaultsManager.token = token
+                APIService.login { value, status, error in
+                    guard let status = status else { return }
+                    switch status {
+                    case 200: self.showToast("로그인 성공")
+                    case 401: self.showToast("토큰 만료")
+                    case 406: self.navigationController?.pushViewController(NicknameViewController(), animated: true)
+                    case 500: self.showToast("서버 오류")
+                    case 501: self.showToast("잘못된 요청")
+                    default: self.showToast("기타 오류")
+                    }
+                }
+            }
+        }
     }
 }

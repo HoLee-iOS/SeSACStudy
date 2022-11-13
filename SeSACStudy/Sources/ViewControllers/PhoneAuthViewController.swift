@@ -48,9 +48,10 @@ class PhoneAuthViewController: BaseViewController {
                                 return
                             }
                             guard let id = verificationID else { return }
-                            UserDefaults.standard.setValue(vc.authView.phoneNumberText.text?.removeHypen() ?? "", forKey: "phoneNum")
-                            UserDefaults.standard.set("\(id)", forKey: "verificationID")
+                            UserDefaultsManager.phoneNum = vc.authView.phoneNumberText.text?.removeHypen() ?? ""
+                            UserDefaultsManager.verificationID = id
                             vc.navigationController?.pushViewController(PhoneInputViewController(), animated: true)
+                            
                         }
                 }
             }

@@ -37,7 +37,7 @@ class OnBoardingViewController: UIViewController {
     }
     
     @objc func startTap() {
-        UserDefaults.standard.set(true, forKey: "First")
+        UserDefaultsManager.first = true
         let nav = UINavigationController(rootViewController: PhoneAuthViewController())
         let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
         guard let delegate = sceneDelegate else { return }

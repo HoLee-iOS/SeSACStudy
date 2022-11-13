@@ -27,6 +27,5 @@ final class GenderViewModel: CommonViewModel {
         let genderTap = Observable.merge(input.maleTap.map{GenderTap.maleTap}, input.femaleTap.map{GenderTap.femaleTap})
         
         return Output(genderTap: genderTap)
-    }
-    
+    }    
 }

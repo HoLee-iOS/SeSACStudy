@@ -27,9 +27,9 @@ class DateViewController: BaseViewController {
                 if vc.dateView.nextButton.backgroundColor == GrayScale.gray6 {
                     vc.showToast("새싹스터디는 만 17세 이상만 사용할 수 있습니다.")
                 } else {
-                    UserDefaults.standard.setValue(vc.dateView.picker.date, forKey: "date")
+                    UserDefaultsManager.birth = "\(vc.dateView.picker.date)"
                     vc.navigationController?.pushViewController(EmailViewController(), animated: true)
-                }                
+                }
             }
             .disposed(by: dateView.disposeBag)
     }

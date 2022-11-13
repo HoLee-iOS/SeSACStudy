@@ -8,40 +8,49 @@
 import Foundation
 import Alamofire
 
-struct Login: Codable {
-    let token: String
-}
-
 //URL컨버터블로 API통신
 enum Router: URLRequestConvertible {
     
-    case login(verificationCode: String)
+    case login
+    case signUp
     
     var baseURL: URL {
-        return URL(string: "http://api.sesac.co.kr:1207/")!
+        guard let url = URL(string: UserDefaultsManager.baseURL) else { return URL(fileURLWithPath: "") }
+        return url
     }
     
     var method: HTTPMethod {
         switch self {
         case .login: return .get
+        case .signUp: return .post
         }
     }
     
     var path: String {
         switch self {
-        case .login: return "v1/user"
+        case .login, .signUp: return UserDefaultsManager.loginPath
         }
     }
     
     var headers: HTTPHeaders {
         switch self {
-        case .login:
-            return ["idtoken" : UserDefaults.standard.string(forKey: "token") ?? "", "Content-Type" : "application/x-www-form-urlencoded"]
+        case .login, .signUp:
+            
+            return ["idtoken" : UserDefaultsManager.token, "Content-Type" : UserDefaultsManager.contentType]
         }
     }
     
     var parameters: [String : String] {
         switch self {
+        case .signUp:
+            return [
+                "phoneNumber" : UserDefaultsManager.phoneNum,
+                "FCMtoken" : UserDefaultsManager.fcmToken,
+                "nick" : UserDefaultsManager.nickname,
+                "birth" : UserDefaultsManager.birth,
+                "email" : UserDefaultsManager.email,
+                "gender" : "\(UserDefaultsManager.gender)"
+            ]
         default:
             return ["":""]
         }

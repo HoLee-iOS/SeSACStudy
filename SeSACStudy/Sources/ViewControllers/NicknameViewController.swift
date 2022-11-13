@@ -29,7 +29,7 @@ class NicknameViewController: BaseViewController {
                 if vc.nicknameView.nextButton.backgroundColor == GrayScale.gray6 {
                     vc.showToast("닉네임은 1자 이상 10자 이내로 부탁드려요.")
                 } else {
-                    UserDefaults.standard.setValue(vc.nicknameView.nicknameText.text, forKey: "nick")
+                    UserDefaultsManager.nickname = vc.nicknameView.nicknameText.text ?? ""
                     vc.navigationController?.pushViewController(DateViewController(), animated: true)
                 }
             }

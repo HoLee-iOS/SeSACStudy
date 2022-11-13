@@ -115,6 +115,7 @@ final class PhoneAuthView: BaseView {
             .disposed(by: disposeBag)
     }
     
+    //MARK: - 글자 제한 메서드
     private func limitCount(_ str: String) {
         if str.count > 13 {
             let index = str.index(str.startIndex, offsetBy: 13)

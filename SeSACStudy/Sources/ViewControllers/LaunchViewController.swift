@@ -28,7 +28,7 @@ class LaunchViewController: BaseViewController {
 
     func startVC() {
         var vc: UIViewController
-        if UserDefaults.standard.bool(forKey: "First") {
+        if UserDefaultsManager.first {
             vc = PhoneAuthViewController()
         } else {
             vc = OnBoardingViewController()
