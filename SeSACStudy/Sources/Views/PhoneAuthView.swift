@@ -99,6 +99,13 @@ final class PhoneAuthView: BaseView {
             .drive(phoneNumberText.rx.text)
             .disposed(by: disposeBag)
         
+        //MARK: - 텍스트필드 글자 수 제한
+        output.changeFormat
+            .drive { [weak self] str in
+                self?.limitCount(str)
+            }
+            .disposed(by: disposeBag)
+        
         //MARK: - 전화 번호에 대한 유효성 검사
         output.phoneNum
             .withUnretained(self)
@@ -106,16 +113,8 @@ final class PhoneAuthView: BaseView {
                 value ? (vc.authButton.backgroundColor = BrandColor.green) : (vc.authButton.backgroundColor = GrayScale.gray6)
             }
             .disposed(by: disposeBag)
-        
-        //MARK: - 텍스트필드 글자 수 제한
-        output.changeFormat
-            .drive { [weak self] str in
-                self?.limitCount(str)
-            }
-            .disposed(by: disposeBag)
     }
     
-    //MARK: - 글자 제한 메서드
     private func limitCount(_ str: String) {
         if str.count > 13 {
             let index = str.index(str.startIndex, offsetBy: 13)

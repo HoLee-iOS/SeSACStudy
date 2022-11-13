@@ -27,23 +27,33 @@ class PhoneAuthViewController: BaseViewController {
         //MARK: - 인증 문자 받기 버튼 클릭 시 인증 번호 입력 창으로 이동
         authView.authButton.rx.tap
             .withUnretained(self)
-            .bind { (vc, _) in
-                Auth.auth().languageCode = "ko"
-                PhoneAuthProvider.provider()
-                    .verifyPhoneNumber("+82 \(vc.authView.phoneNumberText.text ?? "")", uiDelegate: nil) { (verificationID, error) in
-                        if let error = error {
-                            vc.showToast("에러 \(error.localizedDescription)")
-                            return
-                        }
-                        if let id = verificationID {
+            .bind { (vc, _ ) in
+                //MARK: - 유효하지 않은 형식
+                if vc.authView.authButton.backgroundColor == GrayScale.gray6 {
+                    vc.showToast("잘못된 전화번호 형식입니다.")
+                    //MARK: - 유효한 형식
+                } else {
+                    vc.showToast("전화 번호 인증 시작")
+                    Auth.auth().languageCode = "ko"
+                    PhoneAuthProvider.provider()
+                        .verifyPhoneNumber(vc.authView.phoneNumberText.text?.removeHypen() ?? "", uiDelegate: nil) { (verificationID, error) in
+                            if let error = error as NSError? {
+                                guard let errorCode = AuthErrorCode.Code(rawValue: error.code) else { return }
+                                switch errorCode {
+                                case .tooManyRequests:
+                                    vc.showToast("과도한 인증 시도가 있었습니다. 나중에 다시 시도해 주세요.")
+                                default:
+                                    vc.showToast("에러가 발생했습니다. 다시 시도해주세요.")
+                                }
+                                return
+                            }
+                            guard let id = verificationID else { return }
+                            UserDefaults.standard.setValue(vc.authView.phoneNumberText.text?.removeHypen() ?? "", forKey: "phoneNum")
                             UserDefaults.standard.set("\(id)", forKey: "verificationID")
-                            vc.modalPresentationStyle = .overFullScreen
-                            vc.present(PhoneInputViewController(), animated: true)
+                            vc.navigationController?.pushViewController(PhoneInputViewController(), animated: true)
                         }
-                    }
+                }
             }
             .disposed(by: authView.disposeBag)
     }
 }
-
-

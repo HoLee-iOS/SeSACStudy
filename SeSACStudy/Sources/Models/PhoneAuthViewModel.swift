@@ -25,6 +25,7 @@ final class PhoneAuthViewModel: CommonViewModel {
     
     func transform(input: Input) -> Output {
         let validationCheck = input.phoneNumberText.orEmpty
+            .changed
             .map { str in
                 let phoneNumRegEx = "^01([0|1|6|7|8|9]?)-?([0-9]{3,4})-?([0-9]{4})$"
                 let emailTest = NSPredicate(format:"SELF MATCHES %@", phoneNumRegEx)

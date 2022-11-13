@@ -115,7 +115,7 @@ final class PhoneInputView: BaseView {
     }
     
     override func bindData() {
-                
+        
         let input = PhoneInputViewModel.Input(authNumberText: authNumberText.rx.text, editingStatus1: authNumberText.rx.controlEvent(.editingDidBegin), editingStatus2: authNumberText.rx.controlEvent([.editingDidEnd, .editingDidEndOnExit]))
         let output = viewModel.transform(input: input)
         

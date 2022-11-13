@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class NicknameViewController: BaseViewController {
     
@@ -18,5 +20,19 @@ class NicknameViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+    }
+    
+    override func bindData() {
+        nicknameView.nextButton.rx.tap
+            .withUnretained(self)
+            .bind { (vc, _) in
+                if vc.nicknameView.nextButton.backgroundColor == GrayScale.gray6 {
+                    vc.showToast("닉네임은 1자 이상 10자 이내로 부탁드려요.")
+                } else {
+                    UserDefaults.standard.setValue(vc.nicknameView.nicknameText.text, forKey: "nick")
+                    vc.navigationController?.pushViewController(DateViewController(), animated: true)
+                }
+            }
+            .disposed(by: nicknameView.disposeBag)
     }
 }

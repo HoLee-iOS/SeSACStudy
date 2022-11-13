@@ -11,8 +11,7 @@ import Toast
 class BaseViewController: UIViewController {
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         configure()
         setConstraints()
         bindData()
@@ -25,6 +24,6 @@ class BaseViewController: UIViewController {
     func bindData() { }
     
     func showToast(_ message: String) {
-        self.view.makeToast(message, position: .bottom)
+        self.view.makeToast(message, position: .top)
     }
 }

@@ -39,6 +39,6 @@ final class PhoneInputViewModel: CommonViewModel {
         
         return Output(authNum: validationCheck, changeFormat: changeFormatted, editStatus: textFieldControl)
     }
-
+    
     
 }

@@ -21,21 +21,21 @@ class LaunchViewController: BaseViewController {
     }
     
     override func bindData() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
             self?.startVC()
         }
     }
 
     func startVC() {
         var vc: UIViewController
-        let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
-        let sceneDelegate = windowScene?.delegate as? SceneDelegate
         if UserDefaults.standard.bool(forKey: "First") {
             vc = PhoneAuthViewController()
         } else {
             vc = OnBoardingViewController()
         }
-        sceneDelegate?.window?.rootViewController = vc
-        sceneDelegate?.window?.makeKeyAndVisible()
+        let navigationVC = UINavigationController(rootViewController: vc)
+        let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
+        guard let delegate = sceneDelegate else { return }
+        delegate.window?.rootViewController = navigationVC
     }
 }

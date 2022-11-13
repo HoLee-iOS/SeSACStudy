@@ -6,7 +6,9 @@
 //
 
 import UIKit
+import Firebase
 import FirebaseCore
+import FirebaseMessaging
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,6 +20,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { _, _ in
         }
         application.registerForRemoteNotifications()
+        
+//        Messaging.messaging().delegate = self
+//        Messaging.messaging().token { token, error in
+//            <#code#>
+//        }
+        
         return true
     }
     

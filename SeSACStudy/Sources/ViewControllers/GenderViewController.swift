@@ -19,4 +19,13 @@ class GenderViewController: BaseViewController {
         super.viewDidLoad()
         
     }
+    
+    override func bindData() {
+        genderView.nextButton.rx.tap
+            .withUnretained(self)
+            .bind { (vc, _) in
+                
+            }
+            .disposed(by: genderView.disposeBag)
+    }
 }

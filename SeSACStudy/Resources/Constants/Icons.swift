@@ -13,6 +13,7 @@ struct Icons {
     static let onboarding1 = UIImage(named: "onboarding_img1")
     static let onboarding2 = UIImage(named: "onboarding_img2")
     static let onboarding3 = UIImage(named: "onboarding_img3")
+    static let backButton = UIImage(named: "arrow")
     static let male = UIImage(named: "man")
     static let female = UIImage(named: "woman")
 }

@@ -98,7 +98,6 @@ final class NicknameView: BaseView {
         output.nickName
             .withUnretained(self)
             .bind { (vc, value) in
-                vc.nextButton.isEnabled = value
                 value ? (vc.nextButton.backgroundColor = BrandColor.green) : (vc.nextButton.backgroundColor = GrayScale.gray6)
             }
             .disposed(by: disposeBag)
