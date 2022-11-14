@@ -64,6 +64,10 @@
 		C1C949A3291D14FA00A58FBF /* DateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C949A2291D14FA00A58FBF /* DateView.swift */; };
 		C1C949A5291D154E00A58FBF /* DateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C949A4291D154E00A58FBF /* DateViewController.swift */; };
 		C1C949A7291D155A00A58FBF /* DateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C949A6291D155A00A58FBF /* DateViewModel.swift */; };
+		C1D78985292209BD00A83600 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D78984292209BD00A83600 /* NetworkError.swift */; };
+		C1D78989292222A800A83600 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D78988292222A800A83600 /* MainTabBarController.swift */; };
+		C1D7898B2922230D00A83600 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D7898A2922230D00A83600 /* MyPageViewController.swift */; };
+		C1D7898D2922233500A83600 /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D7898C2922233500A83600 /* MyPageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -120,6 +124,10 @@
 		C1C949A2291D14FA00A58FBF /* DateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateView.swift; sourceTree = "<group>"; };
 		C1C949A4291D154E00A58FBF /* DateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateViewController.swift; sourceTree = "<group>"; };
 		C1C949A6291D155A00A58FBF /* DateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateViewModel.swift; sourceTree = "<group>"; };
+		C1D78984292209BD00A83600 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		C1D78988292222A800A83600 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		C1D7898A2922230D00A83600 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
+		C1D7898C2922233500A83600 /* MyPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,16 +148,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C17D12FD291ECD91007D8049 /* Onboarding */ = {
-			isa = PBXGroup;
-			children = (
-				C19373C8291AA7E5008C8FED /* PageContentsViewController.swift */,
-				C19373CA291AA873008C8FED /* PageViewController.swift */,
-				C19373B6291A7697008C8FED /* OnBoardingViewController.swift */,
-			);
-			path = Onboarding;
-			sourceTree = "<group>";
-		};
 		C1817C3C2918E0C500382A09 = {
 			isa = PBXGroup;
 			children = (
@@ -177,6 +175,7 @@
 				C1817C562918E0C600382A09 /* Info.plist */,
 				C1817C5D2918EAC700382A09 /* Resources */,
 				C1817C5C2918E91D00382A09 /* Sources */,
+				C1D789832922054D00A83600 /* Scenes */,
 			);
 			path = SeSACStudy;
 			sourceTree = "<group>";
@@ -184,13 +183,10 @@
 		C1817C5C2918E91D00382A09 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				C1817C6A2918EC3500382A09 /* Cells */,
-				C1817C692918EC2800382A09 /* Classes */,
-				C1817C642918EBA400382A09 /* Models */,
+				C1D789952922263200A83600 /* Struct */,
+				C1D789942922262B00A83600 /* Enum */,
 				C1817C672918EBF900382A09 /* Network */,
 				C1817C662918EBEB00382A09 /* Protocols */,
-				C1817C652918EBB100382A09 /* ViewControllers */,
-				C1817C682918EC1800382A09 /* Views */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -213,8 +209,7 @@
 			children = (
 				C19373BB291A8230008C8FED /* Icons.swift */,
 				C19373C6291A9EE2008C8FED /* Fonts.swift */,
-				C19CA034291B870200CC6761 /* BaseView.swift */,
-				C19CA036291B874000CC6761 /* BaseViewController.swift */,
+				C1D789A5292228CD00A83600 /* Base */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -255,40 +250,6 @@
 			path = Storyboards;
 			sourceTree = "<group>";
 		};
-		C1817C642918EBA400382A09 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				C17D12F7291EA9F5007D8049 /* TextFieldControl.swift */,
-				C19373CC291ABFE3008C8FED /* PageContents.swift */,
-				C19CA032291B862F00CC6761 /* PhoneAuthViewModel.swift */,
-				C1440697291C210900B6C9EC /* PhoneInputViewModel.swift */,
-				C1C949A0291D047200A58FBF /* NicknameViewModel.swift */,
-				C1C949A6291D155A00A58FBF /* DateViewModel.swift */,
-				C1C15E93291E34E7005B9188 /* EmailViewModel.swift */,
-				C1C15E99291E4054005B9188 /* GenderViewModel.swift */,
-				C17D12F9291EAF58007D8049 /* GenderTap.swift */,
-				C1ACFDA1291F8A97002941DF /* AuthTap.swift */,
-				C1BDB24D2921696300479A3A /* UserDefaultsWrapper.swift */,
-				C1BDB24F2921699200479A3A /* UserDefaultsManager.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		C1817C652918EBB100382A09 /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				C17D12FD291ECD91007D8049 /* Onboarding */,
-				C19CA02E291B83E700CC6761 /* PhoneAuthViewController.swift */,
-				C1440695291C20F700B6C9EC /* PhoneInputViewController.swift */,
-				C1C9499C291D042400A58FBF /* NicknameViewController.swift */,
-				C1C949A4291D154E00A58FBF /* DateViewController.swift */,
-				C1C15E91291E34C6005B9188 /* EmailViewController.swift */,
-				C1C15E97291E404A005B9188 /* GenderViewController.swift */,
-				C17D12FE291ED39A007D8049 /* LaunchViewController.swift */,
-			);
-			path = ViewControllers;
-			sourceTree = "<group>";
-		};
 		C1817C662918EBEB00382A09 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -303,36 +264,175 @@
 				C14D21622920F5C200FF2AF3 /* APIService.swift */,
 				C14D21642920F5C800FF2AF3 /* Router.swift */,
 				C14D21692920FB7D00FF2AF3 /* DTO.swift */,
+				C1D78984292209BD00A83600 /* NetworkError.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
 		};
-		C1817C682918EC1800382A09 /* Views */ = {
+		C1D789832922054D00A83600 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				C1440693291C20E600B6C9EC /* PhoneInputView.swift */,
-				C19CA030291B862000CC6761 /* PhoneAuthView.swift */,
-				C1C9499E291D044700A58FBF /* NicknameView.swift */,
-				C1C949A2291D14FA00A58FBF /* DateView.swift */,
-				C1C15E8F291E34BA005B9188 /* EmailView.swift */,
-				C1C15E95291E4042005B9188 /* GenderView.swift */,
+				C1D789A22922280A00A83600 /* Main */,
+				C1D789932922260C00A83600 /* SignUp */,
+				C1D78992292225F600A83600 /* PhoneAuth */,
+				C1D78991292225ED00A83600 /* Onboarding */,
+				C1D78990292225D500A83600 /* Splash */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		C1D78990292225D500A83600 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				C17D12FE291ED39A007D8049 /* LaunchViewController.swift */,
 				C17D1300291ED671007D8049 /* SplashView.swift */,
 			);
-			path = Views;
+			path = Splash;
 			sourceTree = "<group>";
 		};
-		C1817C692918EC2800382A09 /* Classes */ = {
+		C1D78991292225ED00A83600 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				C19373C8291AA7E5008C8FED /* PageContentsViewController.swift */,
+				C19373CA291AA873008C8FED /* PageViewController.swift */,
+				C19373B6291A7697008C8FED /* OnBoardingViewController.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		C1D78992292225F600A83600 /* PhoneAuth */ = {
+			isa = PBXGroup;
+			children = (
+				C1D789992922270600A83600 /* Input */,
+				C1D78998292226FF00A83600 /* Auth */,
+			);
+			path = PhoneAuth;
+			sourceTree = "<group>";
+		};
+		C1D789932922260C00A83600 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				C1D789A12922278A00A83600 /* Gender */,
+				C1D789A02922278300A83600 /* Email */,
+				C1D7899F2922277700A83600 /* Birth */,
+				C1D7899E2922276B00A83600 /* Nickname */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		C1D789942922262B00A83600 /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				C17D12F7291EA9F5007D8049 /* TextFieldControl.swift */,
+				C1ACFDA1291F8A97002941DF /* AuthTap.swift */,
+				C17D12F9291EAF58007D8049 /* GenderTap.swift */,
+			);
+			path = Enum;
+			sourceTree = "<group>";
+		};
+		C1D789952922263200A83600 /* Struct */ = {
+			isa = PBXGroup;
+			children = (
+				C19373CC291ABFE3008C8FED /* PageContents.swift */,
+				C1BDB24D2921696300479A3A /* UserDefaultsWrapper.swift */,
+				C1BDB24F2921699200479A3A /* UserDefaultsManager.swift */,
+			);
+			path = Struct;
+			sourceTree = "<group>";
+		};
+		C1D78998292226FF00A83600 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				C19CA032291B862F00CC6761 /* PhoneAuthViewModel.swift */,
+				C19CA02E291B83E700CC6761 /* PhoneAuthViewController.swift */,
+				C19CA030291B862000CC6761 /* PhoneAuthView.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		C1D789992922270600A83600 /* Input */ = {
+			isa = PBXGroup;
+			children = (
+				C1440697291C210900B6C9EC /* PhoneInputViewModel.swift */,
+				C1440695291C20F700B6C9EC /* PhoneInputViewController.swift */,
+				C1440693291C20E600B6C9EC /* PhoneInputView.swift */,
+			);
+			path = Input;
+			sourceTree = "<group>";
+		};
+		C1D7899E2922276B00A83600 /* Nickname */ = {
+			isa = PBXGroup;
+			children = (
+				C1C949A0291D047200A58FBF /* NicknameViewModel.swift */,
+				C1C9499C291D042400A58FBF /* NicknameViewController.swift */,
+				C1C9499E291D044700A58FBF /* NicknameView.swift */,
+			);
+			path = Nickname;
+			sourceTree = "<group>";
+		};
+		C1D7899F2922277700A83600 /* Birth */ = {
+			isa = PBXGroup;
+			children = (
+				C1C949A6291D155A00A58FBF /* DateViewModel.swift */,
+				C1C949A4291D154E00A58FBF /* DateViewController.swift */,
+				C1C949A2291D14FA00A58FBF /* DateView.swift */,
+			);
+			path = Birth;
+			sourceTree = "<group>";
+		};
+		C1D789A02922278300A83600 /* Email */ = {
+			isa = PBXGroup;
+			children = (
+				C1C15E93291E34E7005B9188 /* EmailViewModel.swift */,
+				C1C15E91291E34C6005B9188 /* EmailViewController.swift */,
+				C1C15E8F291E34BA005B9188 /* EmailView.swift */,
+			);
+			path = Email;
+			sourceTree = "<group>";
+		};
+		C1D789A12922278A00A83600 /* Gender */ = {
+			isa = PBXGroup;
+			children = (
+				C1C15E99291E4054005B9188 /* GenderViewModel.swift */,
+				C1C15E97291E404A005B9188 /* GenderViewController.swift */,
+				C1C15E95291E4042005B9188 /* GenderView.swift */,
+			);
+			path = Gender;
+			sourceTree = "<group>";
+		};
+		C1D789A22922280A00A83600 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				C1D78988292222A800A83600 /* MainTabBarController.swift */,
+				C1D789A32922283000A83600 /* Home */,
+				C1D789A42922286700A83600 /* MyPage */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		C1D789A32922283000A83600 /* Home */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = Classes;
+			path = Home;
 			sourceTree = "<group>";
 		};
-		C1817C6A2918EC3500382A09 /* Cells */ = {
+		C1D789A42922286700A83600 /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
+				C1D7898A2922230D00A83600 /* MyPageViewController.swift */,
+				C1D7898C2922233500A83600 /* MyPageView.swift */,
 			);
-			path = Cells;
+			path = MyPage;
+			sourceTree = "<group>";
+		};
+		C1D789A5292228CD00A83600 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				C19CA034291B870200CC6761 /* BaseView.swift */,
+				C19CA036291B874000CC6761 /* BaseViewController.swift */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -435,11 +535,13 @@
 				C1C15E9A291E4054005B9188 /* GenderViewModel.swift in Sources */,
 				C1ACFDA2291F8A97002941DF /* AuthTap.swift in Sources */,
 				C19373CB291AA873008C8FED /* PageViewController.swift in Sources */,
+				C1D78989292222A800A83600 /* MainTabBarController.swift in Sources */,
 				C1C15E98291E404A005B9188 /* GenderViewController.swift in Sources */,
 				C14D21652920F5C800FF2AF3 /* Router.swift in Sources */,
 				C1817C492918E0C500382A09 /* AppDelegate.swift in Sources */,
 				C17D12FF291ED39A007D8049 /* LaunchViewController.swift in Sources */,
 				C1C9499D291D042400A58FBF /* NicknameViewController.swift in Sources */,
+				C1D7898B2922230D00A83600 /* MyPageViewController.swift in Sources */,
 				C1C9499F291D044700A58FBF /* NicknameView.swift in Sources */,
 				C17D1301291ED671007D8049 /* SplashView.swift in Sources */,
 				C19CA031291B862000CC6761 /* PhoneAuthView.swift in Sources */,
@@ -449,6 +551,7 @@
 				C1440696291C20F700B6C9EC /* PhoneInputViewController.swift in Sources */,
 				C14D21632920F5C200FF2AF3 /* APIService.swift in Sources */,
 				C19373B7291A7697008C8FED /* OnBoardingViewController.swift in Sources */,
+				C1D78985292209BD00A83600 /* NetworkError.swift in Sources */,
 				C1C949A3291D14FA00A58FBF /* DateView.swift in Sources */,
 				C1817C4B2918E0C500382A09 /* SceneDelegate.swift in Sources */,
 				C1C15E94291E34E7005B9188 /* EmailViewModel.swift in Sources */,
@@ -463,6 +566,7 @@
 				C17D12FA291EAF58007D8049 /* GenderTap.swift in Sources */,
 				C1440694291C20E600B6C9EC /* PhoneInputView.swift in Sources */,
 				C19373C7291A9EE2008C8FED /* Fonts.swift in Sources */,
+				C1D7898D2922233500A83600 /* MyPageView.swift in Sources */,
 				C1C15E96291E4042005B9188 /* GenderView.swift in Sources */,
 				C1817C722918FD2600382A09 /* SystemColor.swift in Sources */,
 				C1BDB2502921699200479A3A /* UserDefaultsManager.swift in Sources */,

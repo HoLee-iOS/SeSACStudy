@@ -16,4 +16,8 @@ struct Icons {
     static let backButton = UIImage(named: "arrow")
     static let male = UIImage(named: "man")
     static let female = UIImage(named: "woman")
+    static let homeTab = UIImage(named: "unHome")
+    static let shopTab = UIImage(named: "unShop")
+    static let friendTab = UIImage(named: "unFriends")
+    static let mypageTab = UIImage(named: "unMy")
 }

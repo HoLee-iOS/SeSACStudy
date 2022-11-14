@@ -27,6 +27,7 @@ class PhoneInputViewController: BaseViewController {
         showToast("인증번호를 보냈습니다.")
         
         customView.authButton.rx.tap
+            .throttle(.seconds(3), scheduler: MainScheduler.instance)
             .withUnretained(self)
             .bind { (vc, _) in
                 UserDefaultsManager.verificationCode = vc.customView.authNumberText.text ?? ""
@@ -106,15 +107,15 @@ class PhoneInputViewController: BaseViewController {
                 return
             } else if let token = token {
                 UserDefaultsManager.token = token
-                APIService.login { value, status, error in
+                APIService.login { [weak self] (value, status, error) in
                     guard let status = status else { return }
                     switch status {
-                    case 200: self.showToast("로그인 성공")
-                    case 401: self.showToast("토큰 만료")
-                    case 406: self.navigationController?.pushViewController(NicknameViewController(), animated: true)
-                    case 500: self.showToast("서버 오류")
-                    case 501: self.showToast("잘못된 요청")
-                    default: self.showToast("기타 오류")
+                    case 200: self?.showToast("로그인 성공")
+                    case 401: self?.showToast("토큰 만료")
+                    case 406: self?.navigationController?.pushViewController(NicknameViewController(), animated: true)
+                    case 500: self?.showToast("서버 오류")
+                    case 501: self?.showToast("잘못된 요청")
+                    default: self?.showToast("기타 오류")
                     }
                 }
             }
