@@ -68,6 +68,7 @@
 		C1D78989292222A800A83600 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D78988292222A800A83600 /* MainTabBarController.swift */; };
 		C1D7898B2922230D00A83600 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D7898A2922230D00A83600 /* MyPageViewController.swift */; };
 		C1D7898D2922233500A83600 /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D7898C2922233500A83600 /* MyPageView.swift */; };
+		C1D789A72922420F00A83600 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D789A62922420F00A83600 /* BaseTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -128,6 +129,7 @@
 		C1D78988292222A800A83600 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		C1D7898A2922230D00A83600 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		C1D7898C2922233500A83600 /* MyPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageView.swift; sourceTree = "<group>"; };
+		C1D789A62922420F00A83600 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -431,6 +433,7 @@
 			children = (
 				C19CA034291B870200CC6761 /* BaseView.swift */,
 				C19CA036291B874000CC6761 /* BaseViewController.swift */,
+				C1D789A62922420F00A83600 /* BaseTableViewCell.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -536,6 +539,7 @@
 				C1ACFDA2291F8A97002941DF /* AuthTap.swift in Sources */,
 				C19373CB291AA873008C8FED /* PageViewController.swift in Sources */,
 				C1D78989292222A800A83600 /* MainTabBarController.swift in Sources */,
+				C1D789A72922420F00A83600 /* BaseTableViewCell.swift in Sources */,
 				C1C15E98291E404A005B9188 /* GenderViewController.swift in Sources */,
 				C14D21652920F5C800FF2AF3 /* Router.swift in Sources */,
 				C1817C492918E0C500382A09 /* AppDelegate.swift in Sources */,

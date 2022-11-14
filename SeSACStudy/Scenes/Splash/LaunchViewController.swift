@@ -47,7 +47,7 @@ class LaunchViewController: BaseViewController {
         } else {
             self.setRootNavVC(vc: OnBoardingViewController())
         }
-    }    
+    }
     
     //MARK: - 토큰 만료 시 토큰 재발급
     func refreshToken() {

@@ -18,6 +18,7 @@ class MyPageViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
     }
     
 }

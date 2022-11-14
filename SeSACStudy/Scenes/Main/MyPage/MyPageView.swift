@@ -9,6 +9,8 @@ import Foundation
 
 class MyPageView: BaseView {
     
+    
+    
     override func configure() {
         
     }
