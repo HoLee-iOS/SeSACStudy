@@ -11,6 +11,7 @@ import Toast
 class BaseViewController: UIViewController {
     
     override func viewDidLoad() {
+        self.view.backgroundColor = BlackNWhite.white
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         configure()
         setConstraints()

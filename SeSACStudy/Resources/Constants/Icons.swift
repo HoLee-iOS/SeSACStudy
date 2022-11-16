@@ -20,4 +20,12 @@ struct Icons {
     static let shopTab = UIImage(named: "unShop")
     static let friendTab = UIImage(named: "unFriends")
     static let mypageTab = UIImage(named: "unMy")
+    static let sesacFace1 = UIImage(named: "sesac_face_1")
+    static let settingNotice = UIImage(named: "notice")
+    static let settingFAQ = UIImage(named: "faq")
+    static let settingQNA = UIImage(named: "qna")
+    static let settingAlarm = UIImage(named: "setting_alarm")
+    static let settingPermit = UIImage(named: "permit")
+    static let moreView = UIImage(named: "more_arrow")
+    static let sesacBack1 = UIImage(named: "sesac_background_1")
 }

@@ -60,7 +60,7 @@ class PhoneInputViewController: BaseViewController {
                         APIService.login { value, statusCode, error in
                             guard let statusCode = statusCode else { return }
                             switch statusCode {
-                            case 200: vc.showToast("로그인 성공")
+                            case 200: vc.view.makeToast("로그인 성공", position: .top) { _ in vc.setRootVC(vc: MainTabBarController()) }
                             case 401: vc.refreshToken()
                             case 406: vc.navigationController?.pushViewController(NicknameViewController(), animated: true)
                             case 500: vc.showToast("서버 오류")
@@ -110,7 +110,7 @@ class PhoneInputViewController: BaseViewController {
                 APIService.login { [weak self] (value, status, error) in
                     guard let status = status else { return }
                     switch status {
-                    case 200: self?.showToast("로그인 성공")
+                    case 200: self?.view.makeToast("로그인 성공", position: .top, completion: { _ in self?.setRootVC(vc: MainTabBarController()) })
                     case 401: self?.showToast("토큰 만료")
                     case 406: self?.navigationController?.pushViewController(NicknameViewController(), animated: true)
                     case 500: self?.showToast("서버 오류")
