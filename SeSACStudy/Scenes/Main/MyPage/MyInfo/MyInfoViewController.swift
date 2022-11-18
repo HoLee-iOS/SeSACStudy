@@ -30,12 +30,19 @@ class MyInfoViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let saveButton = UIBarButtonItem(title: "저장", style: .plain, target: self, action: #selector(saveButtonTapped))
+        self.navigationItem.rightBarButtonItem = saveButton
+        self.navigationItem.title = "정보 관리"
+        
         configureDataSource()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.title = "정보 관리"
         self.tabBarController?.tabBar.isHidden = true
+    }
+    
+    @objc func saveButtonTapped() {
+        
     }
     
     override func configure() {
