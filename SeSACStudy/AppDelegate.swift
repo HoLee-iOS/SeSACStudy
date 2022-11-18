@@ -14,6 +14,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        //MARK: - 앱 실행시 네트워크 상태 확인
+        NetworkMonitor.shared.startMonitoring()
+        
         //MARK: - 파이어베이스 설정
         FirebaseApp.configure()
         

@@ -7,8 +7,14 @@
 
 import UIKit
 import SnapKit
+import RxSwift
+import RxCocoa
 
 class GenderCollectionViewCell: BaseCollectionViewCell {
+    
+    let viewModel = MyInfoViewModel()
+    
+    let disposeBag = DisposeBag()
     
     let titleLabel: UILabel = {
         let label = UILabel()
@@ -69,4 +75,34 @@ class GenderCollectionViewCell: BaseCollectionViewCell {
         }
     }
     
+    override func bindData() {
+        
+        let input = MyInfoViewModel.Input(maleTap: maleButton.rx.tap, femaleTap: femaleButton.rx.tap)
+        let output = viewModel.transform(input: input)
+        
+        //MARK: - 성별 선택에 대한 분기 처리
+        output.genderTap
+            .withUnretained(self)
+            .bind { (vc, tap) in
+                switch tap {
+                case .maleTap:
+                    if vc.femaleButton.backgroundColor == BrandColor.green {
+                        vc.femaleButton.backgroundColor = BlackNWhite.white
+                        vc.femaleButton.configuration?.attributedTitle?.foregroundColor = BlackNWhite.black
+                    }
+                    vc.maleButton.backgroundColor = BrandColor.green
+                    vc.maleButton.configuration?.attributedTitle?.foregroundColor = BlackNWhite.white
+                    UserDefaultsManager.gender = 1
+                case .femaleTap:
+                    if vc.maleButton.backgroundColor == BrandColor.green {
+                        vc.maleButton.backgroundColor = BlackNWhite.white
+                        vc.maleButton.configuration?.attributedTitle?.foregroundColor = BlackNWhite.black
+                    }
+                    vc.femaleButton.backgroundColor = BrandColor.green
+                    vc.femaleButton.configuration?.attributedTitle?.foregroundColor = BlackNWhite.white
+                    UserDefaultsManager.gender = 0
+                }
+            }
+            .disposed(by: disposeBag)
+    }
 }

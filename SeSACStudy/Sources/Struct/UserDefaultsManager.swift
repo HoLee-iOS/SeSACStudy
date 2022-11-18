@@ -48,6 +48,9 @@ struct UserDefaultsManager {
     @UserDefaultsWrapper(key: "fcmToken", defaultValue: "")
     static var fcmToken: String
     
+    @UserDefaultsWrapper(key: "searchAllow", defaultValue: 0)
+    static var searchAllow: Int
+    
     static func removeAll() {
         if let appDomain = Bundle.main.bundleIdentifier {
             UserDefaults.standard.removePersistentDomain(forName: appDomain)

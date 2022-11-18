@@ -6,8 +6,14 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class SearchAllowCollectionViewCell: BaseCollectionViewCell {
+    
+    let viewModel = MyInfoViewModel()
+    
+    let disposeBag = DisposeBag()
     
     let titleLabel: UILabel = {
         let label = UILabel()
@@ -39,4 +45,11 @@ class SearchAllowCollectionViewCell: BaseCollectionViewCell {
         }
     }
     
+    override func bindData() {
+        searchSwitch.rx.isOn
+            .bind { value in
+                value ? (UserDefaultsManager.searchAllow = 1) : (UserDefaultsManager.searchAllow = 0)
+            }
+            .disposed(by: disposeBag)
+    }
 }
