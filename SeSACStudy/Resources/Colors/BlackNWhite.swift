@@ -9,5 +9,5 @@ import UIKit
 
 struct BlackNWhite {
     static let white = UIColor.white
-    static let black = UIColor.black
+    static let black = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1)
 }

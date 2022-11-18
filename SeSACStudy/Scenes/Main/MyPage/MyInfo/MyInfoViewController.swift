@@ -16,7 +16,6 @@ class MyInfoViewController: BaseViewController {
     
     private lazy var collectionView: UICollectionView = {
         let view = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
-        view.delegate = self
         return view
     }()
     
@@ -31,11 +30,11 @@ class MyInfoViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        collectionView.selectionFollowsFocus = false
         configureDataSource()
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.title = "정보 관리"
         self.tabBarController?.tabBar.isHidden = true
     }
     
@@ -50,18 +49,6 @@ class MyInfoViewController: BaseViewController {
     }
 }
 
-extension MyInfoViewController: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if hiddenPLZ {
-            hiddenPLZ = false
-        } else {
-            hiddenPLZ = true
-        }
-        updateUI()
-    }
-}
-
-
 extension MyInfoViewController {
     
     //MARK: - compositionalLayout 설정
@@ -75,22 +62,25 @@ extension MyInfoViewController {
                 let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                                       heightDimension: .fractionalHeight(1.0))
                 let item = NSCollectionLayoutItem(layoutSize: itemSize)
-                
                 let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                                       heightDimension: .fractionalWidth(0.5))
-                let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
-                                                               subitems: [item])
-                
+                                                       heightDimension: .fractionalWidth(0.6))
+                let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
                 let section = NSCollectionLayoutSection(group: group)
                 return section
-            case .sub:
-                let estimatedHeight = CGFloat(1000)
+            case .profile:
+                let estimatedHeight = CGFloat(70)
                 let layoutSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                                         heightDimension: .estimated(estimatedHeight))
                 let item = NSCollectionLayoutItem(layoutSize: layoutSize)
-                let group = NSCollectionLayoutGroup.horizontal(layoutSize: layoutSize,
-                                                               subitem: item,
-                                                               count: 1)
+                let group = NSCollectionLayoutGroup.vertical(layoutSize: layoutSize, subitem: item, count: 1)
+                let section = NSCollectionLayoutSection(group: group)
+                return section
+            case .gender, .study, .search, .age, .withdraw:
+                let estimatedHeight = CGFloat(90)
+                let layoutSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                        heightDimension: .estimated(estimatedHeight))
+                let item = NSCollectionLayoutItem(layoutSize: layoutSize)
+                let group = NSCollectionLayoutGroup.vertical(layoutSize: layoutSize, subitem: item, count: 1)
                 let section = NSCollectionLayoutSection(group: group)
                 return section
             }
@@ -110,7 +100,6 @@ extension MyInfoViewController {
         
         let cellRegistration1 = UICollectionView.CellRegistration<UserCardCollectionViewCell, dummy> { cell, indexPath, itemIdentifier in
             cell.userCardLabel.text = itemIdentifier.name
-            cell.subImage.image = itemIdentifier.profile
             
             var background = UIBackgroundConfiguration.listPlainCell()
             background.cornerRadius = 8
@@ -120,18 +109,48 @@ extension MyInfoViewController {
             cell.backgroundConfiguration = background
         }
         
+        let cellRegistration2 = UICollectionView.CellRegistration<GenderCollectionViewCell, dummy> { cell,indexPath,itemIdentifier in
+        }
+        
+        let cellRegistration3 = UICollectionView.CellRegistration<StudyCollectionViewCell, dummy> { cell, indexPath, itemIdentifier in
+        }
+        
+        let cellRegistration4 = UICollectionView.CellRegistration<SearchAllowCollectionViewCell, dummy> { cell, indexPath, itemIdentifier in
+        }
+        
+        let cellRegistration5 = UICollectionView.CellRegistration<AgeCollectionViewCell, dummy> { cell, indexPath, itemIdentifier in
+        }
+        
+        let cellRegistration6 = UICollectionView.CellRegistration<WithdrawCollectionViewCell, dummy> { cell, indexPath, itemIdentifier in
+        }
+        
         //MARK: - 데이터 소스에 데이터 넣기
         dataSource = UICollectionViewDiffableDataSource(collectionView: collectionView, cellProvider: { collectionView, indexPath, itemIdentifier in
             let cell0 = collectionView.dequeueConfiguredReusableCell(using: cellRegistration0, for: indexPath, item: itemIdentifier)
             let cell1 = collectionView.dequeueConfiguredReusableCell(using: cellRegistration1, for: indexPath, item: itemIdentifier)
+            let cell2 = collectionView.dequeueConfiguredReusableCell(using: cellRegistration2, for: indexPath, item: itemIdentifier)
+            let cell3 = collectionView.dequeueConfiguredReusableCell(using: cellRegistration3, for: indexPath, item: itemIdentifier)
+            let cell4 = collectionView.dequeueConfiguredReusableCell(using: cellRegistration4, for: indexPath, item: itemIdentifier)
+            let cell5 = collectionView.dequeueConfiguredReusableCell(using: cellRegistration5, for: indexPath, item: itemIdentifier)
+            let cell6 = collectionView.dequeueConfiguredReusableCell(using: cellRegistration6, for: indexPath, item: itemIdentifier)
             
             guard let section = Section(rawValue: indexPath.section) else { return nil }
             
             switch section {
             case .main:
                 return cell0
-            case .sub:
+            case .profile:
                 return cell1
+            case .gender:
+                return cell2
+            case .study:
+                return cell3
+            case .search:
+                return cell4
+            case .age:
+                return cell5
+            case .withdraw:
+                return cell6
             }
         })
         
@@ -149,14 +168,21 @@ extension MyInfoViewController {
         currentSnapshot.appendSections([.main])
         currentSnapshot.appendItems(dummy.contents(), toSection: .main)
 
+        
         if hiddenPLZ {
-            currentSnapshot.appendSections([.sub])
-            currentSnapshot.appendItems([dummy(profile: nil, name: "에이치호")], toSection: .sub)
+            currentSnapshot.appendSections([.profile])
+            currentSnapshot.appendItems([dummy(profile: nil, name: "에이치호")], toSection: .profile)
         } else {
-            currentSnapshot.appendSections([.sub])
-            currentSnapshot.appendItems(dummy.contents(), toSection: .sub)
+            currentSnapshot.appendSections([.profile])
+            currentSnapshot.appendItems(dummy.contents(), toSection: .profile)
         }
 
-        dataSource.apply(currentSnapshot, animatingDifferences: false)
+        dataSource.apply(currentSnapshot, animatingDifferences: true)
+//        currentSnapshot = NSDiffableDataSourceSnapshot<Section, dummy>()
+//        Section.allCases.forEach { section in
+//            currentSnapshot.appendSections([section])
+//            currentSnapshot.appendItems(dummy.contents(), toSection: section)
+//        }
+//        dataSource.apply(currentSnapshot, animatingDifferences: true)
     }
 }

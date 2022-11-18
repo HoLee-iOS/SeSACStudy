@@ -12,15 +12,12 @@ import RxSwift
 class MyInfoViewModel: CommonViewModel {
     
     struct Input {
-        
     }
     
     struct Output {
-        
     }
     
-    func transform(input: Input) -> Output {
-        
+    func transform(input: Input) -> Output {        
         return Output()
     }
 }

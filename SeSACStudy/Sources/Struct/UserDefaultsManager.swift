@@ -12,7 +12,7 @@ struct UserDefaultsManager {
     @UserDefaultsWrapper(key: "token", defaultValue: "")
     static var token: String
     
-    @UserDefaultsWrapper(key: "baseURL", defaultValue: "http://api.sesac.co.kr:1207")
+    @UserDefaultsWrapper(key: "baseURL", defaultValue: "http://api.sesac.co.kr:1210")
     static var baseURL: String
     
     @UserDefaultsWrapper(key: "contentType", defaultValue: "application/x-www-form-urlencoded")

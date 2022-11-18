@@ -10,7 +10,12 @@ import UIKit
 
 enum Section: Int, Hashable, CaseIterable {
     case main = 0
-    case sub
+    case profile
+    case gender
+    case study
+    case search
+    case age
+    case withdraw
 }
 
 struct dummy: Hashable {

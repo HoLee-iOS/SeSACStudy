@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C110D27229275C0600CD536D /* ThumbButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C110D27129275C0600CD536D /* ThumbButton.swift */; };
+		C110D27629275C8F00CD536D /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C110D27529275C8F00CD536D /* CustomSlider.swift */; };
+		C110D2782927681C00CD536D /* Comparable + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C110D2772927681C00CD536D /* Comparable + Extensions.swift */; };
+		C110D27A2927931700CD536D /* UIImage + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C110D2792927931700CD536D /* UIImage + Extensions.swift */; };
 		C12CD14C292363E10083C869 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12CD14B292363E10083C869 /* Section.swift */; };
-		C12CD14E2923747F0083C869 /* UserImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12CD14D2923747F0083C869 /* UserImageCollectionViewCell.swift */; };
 		C12CD1542923BF9A0083C869 /* MyInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12CD1532923BF9A0083C869 /* MyInfoViewModel.swift */; };
 		C1440694291C20E600B6C9EC /* PhoneInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1440693291C20E600B6C9EC /* PhoneInputView.swift */; };
 		C1440696291C20F700B6C9EC /* PhoneInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1440695291C20F700B6C9EC /* PhoneInputViewController.swift */; };
@@ -52,6 +55,15 @@
 		C19CA043291B96F000CC6761 /* CommonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19CA042291B96F000CC6761 /* CommonViewModel.swift */; };
 		C19CA045291BA20400CC6761 /* String + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19CA044291BA20400CC6761 /* String + Extensions.swift */; };
 		C1ACFDA2291F8A97002941DF /* AuthTap.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1ACFDA1291F8A97002941DF /* AuthTap.swift */; };
+		C1BAF7E229266543007157AC /* UserCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BAF7DB29266542007157AC /* UserCardCollectionViewCell.swift */; };
+		C1BAF7E329266543007157AC /* StudyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BAF7DC29266542007157AC /* StudyCollectionViewCell.swift */; };
+		C1BAF7E429266543007157AC /* UserImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BAF7DD29266543007157AC /* UserImageCollectionViewCell.swift */; };
+		C1BAF7E529266543007157AC /* MyNameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BAF7DE29266543007157AC /* MyNameTableViewCell.swift */; };
+		C1BAF7E629266543007157AC /* MyPageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BAF7DF29266543007157AC /* MyPageTableViewCell.swift */; };
+		C1BAF7E729266543007157AC /* AgeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BAF7E029266543007157AC /* AgeCollectionViewCell.swift */; };
+		C1BAF7E829266543007157AC /* GenderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BAF7E129266543007157AC /* GenderCollectionViewCell.swift */; };
+		C1BAF7EB2926658D007157AC /* SearchAllowCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BAF7EA2926658D007157AC /* SearchAllowCollectionViewCell.swift */; };
+		C1BAF7ED292665E7007157AC /* WithdrawCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BAF7EC292665E7007157AC /* WithdrawCollectionViewCell.swift */; };
 		C1BDB24C2920FF5B00479A3A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C1BDB24B2920FF5B00479A3A /* GoogleService-Info.plist */; };
 		C1BDB24E2921696300479A3A /* UserDefaultsWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BDB24D2921696300479A3A /* UserDefaultsWrapper.swift */; };
 		C1BDB2502921699200479A3A /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BDB24F2921699200479A3A /* UserDefaultsManager.swift */; };
@@ -71,21 +83,21 @@
 		C1D78989292222A800A83600 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D78988292222A800A83600 /* MainTabBarController.swift */; };
 		C1D7898B2922230D00A83600 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D7898A2922230D00A83600 /* MyPageViewController.swift */; };
 		C1D789A72922420F00A83600 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D789A62922420F00A83600 /* BaseCollectionViewCell.swift */; };
-		C1D789A92922425100A83600 /* MyPageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D789A82922425100A83600 /* MyPageTableViewCell.swift */; };
 		C1D789AB292242BB00A83600 /* ReusableViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D789AA292242BB00A83600 /* ReusableViewProtocol.swift */; };
 		C1D789AD292242E900A83600 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D789AC292242E900A83600 /* NetworkMonitor.swift */; };
 		C1D789AF29224BEB00A83600 /* SettingList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D789AE29224BEB00A83600 /* SettingList.swift */; };
 		C1D789B12922500500A83600 /* MyPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D789B02922500500A83600 /* MyPageViewModel.swift */; };
 		C1D789B32922518700A83600 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D789B22922518700A83600 /* BaseTableViewCell.swift */; };
-		C1D789B92922908600A83600 /* MyNameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D789B82922908600A83600 /* MyNameTableViewCell.swift */; };
 		C1D789BF2922A8EB00A83600 /* MyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D789BE2922A8EB00A83600 /* MyInfoViewController.swift */; };
 		C1D789C22922AABB00A83600 /* CircleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D789C12922AABB00A83600 /* CircleImageView.swift */; };
-		C1D789CA2922B95100A83600 /* UserCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D789C92922B95100A83600 /* UserCardCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C110D27129275C0600CD536D /* ThumbButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbButton.swift; sourceTree = "<group>"; };
+		C110D27529275C8F00CD536D /* CustomSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
+		C110D2772927681C00CD536D /* Comparable + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Comparable + Extensions.swift"; sourceTree = "<group>"; };
+		C110D2792927931700CD536D /* UIImage + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage + Extensions.swift"; sourceTree = "<group>"; };
 		C12CD14B292363E10083C869 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
-		C12CD14D2923747F0083C869 /* UserImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		C12CD1532923BF9A0083C869 /* MyInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoViewModel.swift; sourceTree = "<group>"; };
 		C1440693291C20E600B6C9EC /* PhoneInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneInputView.swift; sourceTree = "<group>"; };
 		C1440695291C20F700B6C9EC /* PhoneInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneInputViewController.swift; sourceTree = "<group>"; };
@@ -125,6 +137,15 @@
 		C19CA042291B96F000CC6761 /* CommonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonViewModel.swift; sourceTree = "<group>"; };
 		C19CA044291BA20400CC6761 /* String + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Extensions.swift"; sourceTree = "<group>"; };
 		C1ACFDA1291F8A97002941DF /* AuthTap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTap.swift; sourceTree = "<group>"; };
+		C1BAF7DB29266542007157AC /* UserCardCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCardCollectionViewCell.swift; sourceTree = "<group>"; };
+		C1BAF7DC29266542007157AC /* StudyCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudyCollectionViewCell.swift; sourceTree = "<group>"; };
+		C1BAF7DD29266543007157AC /* UserImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		C1BAF7DE29266543007157AC /* MyNameTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyNameTableViewCell.swift; sourceTree = "<group>"; };
+		C1BAF7DF29266543007157AC /* MyPageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPageTableViewCell.swift; sourceTree = "<group>"; };
+		C1BAF7E029266543007157AC /* AgeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgeCollectionViewCell.swift; sourceTree = "<group>"; };
+		C1BAF7E129266543007157AC /* GenderCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenderCollectionViewCell.swift; sourceTree = "<group>"; };
+		C1BAF7EA2926658D007157AC /* SearchAllowCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAllowCollectionViewCell.swift; sourceTree = "<group>"; };
+		C1BAF7EC292665E7007157AC /* WithdrawCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawCollectionViewCell.swift; sourceTree = "<group>"; };
 		C1BDB24B2920FF5B00479A3A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C1BDB24D2921696300479A3A /* UserDefaultsWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsWrapper.swift; sourceTree = "<group>"; };
 		C1BDB24F2921699200479A3A /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
@@ -144,16 +165,13 @@
 		C1D78988292222A800A83600 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		C1D7898A2922230D00A83600 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		C1D789A62922420F00A83600 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
-		C1D789A82922425100A83600 /* MyPageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageTableViewCell.swift; sourceTree = "<group>"; };
 		C1D789AA292242BB00A83600 /* ReusableViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableViewProtocol.swift; sourceTree = "<group>"; };
 		C1D789AC292242E900A83600 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		C1D789AE29224BEB00A83600 /* SettingList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingList.swift; sourceTree = "<group>"; };
 		C1D789B02922500500A83600 /* MyPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewModel.swift; sourceTree = "<group>"; };
 		C1D789B22922518700A83600 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
-		C1D789B82922908600A83600 /* MyNameTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNameTableViewCell.swift; sourceTree = "<group>"; };
 		C1D789BE2922A8EB00A83600 /* MyInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoViewController.swift; sourceTree = "<group>"; };
 		C1D789C12922AABB00A83600 /* CircleImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImageView.swift; sourceTree = "<group>"; };
-		C1D789C92922B95100A83600 /* UserCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCardCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +192,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C1621FBD292715BD00DD720E /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				C1BAF7DD29266543007157AC /* UserImageCollectionViewCell.swift */,
+				C1BAF7DB29266542007157AC /* UserCardCollectionViewCell.swift */,
+				C1BAF7E129266543007157AC /* GenderCollectionViewCell.swift */,
+				C1BAF7DC29266542007157AC /* StudyCollectionViewCell.swift */,
+				C1BAF7EA2926658D007157AC /* SearchAllowCollectionViewCell.swift */,
+				C1BAF7E029266543007157AC /* AgeCollectionViewCell.swift */,
+				C1BAF7EC292665E7007157AC /* WithdrawCollectionViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		C1817C3C2918E0C500382A09 = {
 			isa = PBXGroup;
 			children = (
@@ -245,6 +277,8 @@
 			isa = PBXGroup;
 			children = (
 				C19CA044291BA20400CC6761 /* String + Extensions.swift */,
+				C110D2772927681C00CD536D /* Comparable + Extensions.swift */,
+				C110D2792927931700CD536D /* UIImage + Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -298,14 +332,37 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		C1BAF7D029261685007157AC /* Friends */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Friends;
+			sourceTree = "<group>";
+		};
+		C1BAF7D12926169C007157AC /* Shop */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Shop;
+			sourceTree = "<group>";
+		};
+		C1BAF7E92926654E007157AC /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				C1BAF7DE29266543007157AC /* MyNameTableViewCell.swift */,
+				C1BAF7DF29266543007157AC /* MyPageTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		C1D789832922054D00A83600 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				C1D789A22922280A00A83600 /* Main */,
-				C1D789932922260C00A83600 /* SignUp */,
-				C1D78992292225F600A83600 /* PhoneAuth */,
-				C1D78991292225ED00A83600 /* Onboarding */,
 				C1D78990292225D500A83600 /* Splash */,
+				C1D78991292225ED00A83600 /* Onboarding */,
+				C1D78992292225F600A83600 /* PhoneAuth */,
+				C1D789932922260C00A83600 /* SignUp */,
+				C1D789A22922280A00A83600 /* Main */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -332,8 +389,8 @@
 		C1D78992292225F600A83600 /* PhoneAuth */ = {
 			isa = PBXGroup;
 			children = (
-				C1D789992922270600A83600 /* Input */,
 				C1D78998292226FF00A83600 /* Auth */,
+				C1D789992922270600A83600 /* Input */,
 			);
 			path = PhoneAuth;
 			sourceTree = "<group>";
@@ -341,10 +398,10 @@
 		C1D789932922260C00A83600 /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
-				C1D789A12922278A00A83600 /* Gender */,
-				C1D789A02922278300A83600 /* Email */,
-				C1D7899F2922277700A83600 /* Birth */,
 				C1D7899E2922276B00A83600 /* Nickname */,
+				C1D7899F2922277700A83600 /* Birth */,
+				C1D789A02922278300A83600 /* Email */,
+				C1D789A12922278A00A83600 /* Gender */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -436,6 +493,8 @@
 			children = (
 				C1D78988292222A800A83600 /* MainTabBarController.swift */,
 				C1D789A32922283000A83600 /* Home */,
+				C1BAF7D12926169C007157AC /* Shop */,
+				C1BAF7D029261685007157AC /* Friends */,
 				C1D789A42922286700A83600 /* MyPage */,
 			);
 			path = Main;
@@ -451,11 +510,10 @@
 		C1D789A42922286700A83600 /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
-				C1D789BD2922A8C700A83600 /* MyInfo */,
 				C1D7898A2922230D00A83600 /* MyPageViewController.swift */,
-				C1D789A82922425100A83600 /* MyPageTableViewCell.swift */,
-				C1D789B82922908600A83600 /* MyNameTableViewCell.swift */,
 				C1D789B02922500500A83600 /* MyPageViewModel.swift */,
+				C1BAF7E92926654E007157AC /* Cell */,
+				C1D789BD2922A8C700A83600 /* MyInfo */,
 			);
 			path = MyPage;
 			sourceTree = "<group>";
@@ -475,9 +533,8 @@
 			isa = PBXGroup;
 			children = (
 				C1D789BE2922A8EB00A83600 /* MyInfoViewController.swift */,
-				C1D789C92922B95100A83600 /* UserCardCollectionViewCell.swift */,
-				C12CD14D2923747F0083C869 /* UserImageCollectionViewCell.swift */,
 				C12CD1532923BF9A0083C869 /* MyInfoViewModel.swift */,
+				C1621FBD292715BD00DD720E /* Cell */,
 			);
 			path = MyInfo;
 			sourceTree = "<group>";
@@ -486,6 +543,8 @@
 			isa = PBXGroup;
 			children = (
 				C1D789C12922AABB00A83600 /* CircleImageView.swift */,
+				C110D27129275C0600CD536D /* ThumbButton.swift */,
+				C110D27529275C8F00CD536D /* CustomSlider.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -583,53 +642,62 @@
 				C19373CD291ABFE3008C8FED /* PageContents.swift in Sources */,
 				C19373C9291AA7E5008C8FED /* PageContentsViewController.swift in Sources */,
 				C1C949A1291D047200A58FBF /* NicknameViewModel.swift in Sources */,
+				C1BAF7E429266543007157AC /* UserImageCollectionViewCell.swift in Sources */,
 				C1817C6C2918FD0300382A09 /* BlackNWhite.swift in Sources */,
 				C1D789B32922518700A83600 /* BaseTableViewCell.swift in Sources */,
 				C1BDB24E2921696300479A3A /* UserDefaultsWrapper.swift in Sources */,
 				C1C949A7291D155A00A58FBF /* DateViewModel.swift in Sources */,
 				C17D12F8291EA9F5007D8049 /* TextFieldControl.swift in Sources */,
+				C1BAF7E529266543007157AC /* MyNameTableViewCell.swift in Sources */,
 				C1C15E9A291E4054005B9188 /* GenderViewModel.swift in Sources */,
 				C1ACFDA2291F8A97002941DF /* AuthTap.swift in Sources */,
+				C1BAF7ED292665E7007157AC /* WithdrawCollectionViewCell.swift in Sources */,
 				C19373CB291AA873008C8FED /* PageViewController.swift in Sources */,
 				C1D78989292222A800A83600 /* MainTabBarController.swift in Sources */,
+				C1BAF7E729266543007157AC /* AgeCollectionViewCell.swift in Sources */,
 				C1D789A72922420F00A83600 /* BaseCollectionViewCell.swift in Sources */,
 				C1C15E98291E404A005B9188 /* GenderViewController.swift in Sources */,
 				C14D21652920F5C800FF2AF3 /* Router.swift in Sources */,
-				C1D789A92922425100A83600 /* MyPageTableViewCell.swift in Sources */,
 				C1817C492918E0C500382A09 /* AppDelegate.swift in Sources */,
-				C12CD14E2923747F0083C869 /* UserImageCollectionViewCell.swift in Sources */,
 				C1D789BF2922A8EB00A83600 /* MyInfoViewController.swift in Sources */,
 				C17D12FF291ED39A007D8049 /* LaunchViewController.swift in Sources */,
+				C1BAF7E329266543007157AC /* StudyCollectionViewCell.swift in Sources */,
 				C1C9499D291D042400A58FBF /* NicknameViewController.swift in Sources */,
 				C1D7898B2922230D00A83600 /* MyPageViewController.swift in Sources */,
 				C1C9499F291D044700A58FBF /* NicknameView.swift in Sources */,
 				C17D1301291ED671007D8049 /* SplashView.swift in Sources */,
+				C110D2782927681C00CD536D /* Comparable + Extensions.swift in Sources */,
 				C19CA031291B862000CC6761 /* PhoneAuthView.swift in Sources */,
 				C12CD14C292363E10083C869 /* Section.swift in Sources */,
 				C1440698291C210900B6C9EC /* PhoneInputViewModel.swift in Sources */,
 				C19373BC291A8230008C8FED /* Icons.swift in Sources */,
 				C19CA037291B874000CC6761 /* BaseViewController.swift in Sources */,
+				C1BAF7E629266543007157AC /* MyPageTableViewCell.swift in Sources */,
 				C1D789AD292242E900A83600 /* NetworkMonitor.swift in Sources */,
 				C1440696291C20F700B6C9EC /* PhoneInputViewController.swift in Sources */,
 				C14D21632920F5C200FF2AF3 /* APIService.swift in Sources */,
 				C19373B7291A7697008C8FED /* OnBoardingViewController.swift in Sources */,
 				C1D789C22922AABB00A83600 /* CircleImageView.swift in Sources */,
+				C1BAF7E229266543007157AC /* UserCardCollectionViewCell.swift in Sources */,
 				C1D78985292209BD00A83600 /* NetworkError.swift in Sources */,
+				C110D27A2927931700CD536D /* UIImage + Extensions.swift in Sources */,
 				C1C949A3291D14FA00A58FBF /* DateView.swift in Sources */,
 				C1817C4B2918E0C500382A09 /* SceneDelegate.swift in Sources */,
-				C1D789B92922908600A83600 /* MyNameTableViewCell.swift in Sources */,
 				C1C15E94291E34E7005B9188 /* EmailViewModel.swift in Sources */,
 				C19CA033291B862F00CC6761 /* PhoneAuthViewModel.swift in Sources */,
 				C1D789AF29224BEB00A83600 /* SettingList.swift in Sources */,
 				C19CA02F291B83E700CC6761 /* PhoneAuthViewController.swift in Sources */,
+				C110D27629275C8F00CD536D /* CustomSlider.swift in Sources */,
 				C14D216A2920FB7D00FF2AF3 /* DTO.swift in Sources */,
 				C1C15E92291E34C6005B9188 /* EmailViewController.swift in Sources */,
 				C1817C6E2918FD1100382A09 /* BrandColor.swift in Sources */,
 				C19CA043291B96F000CC6761 /* CommonViewModel.swift in Sources */,
 				C1817C702918FD1A00382A09 /* GrayScale.swift in Sources */,
 				C1D789B12922500500A83600 /* MyPageViewModel.swift in Sources */,
+				C1BAF7EB2926658D007157AC /* SearchAllowCollectionViewCell.swift in Sources */,
 				C19CA045291BA20400CC6761 /* String + Extensions.swift in Sources */,
 				C12CD1542923BF9A0083C869 /* MyInfoViewModel.swift in Sources */,
+				C1BAF7E829266543007157AC /* GenderCollectionViewCell.swift in Sources */,
 				C17D12FA291EAF58007D8049 /* GenderTap.swift in Sources */,
 				C1D789AB292242BB00A83600 /* ReusableViewProtocol.swift in Sources */,
 				C1440694291C20E600B6C9EC /* PhoneInputView.swift in Sources */,
@@ -639,7 +707,7 @@
 				C1BDB2502921699200479A3A /* UserDefaultsManager.swift in Sources */,
 				C1C949A5291D154E00A58FBF /* DateViewController.swift in Sources */,
 				C1C15E90291E34BA005B9188 /* EmailView.swift in Sources */,
-				C1D789CA2922B95100A83600 /* UserCardCollectionViewCell.swift in Sources */,
+				C110D27229275C0600CD536D /* ThumbButton.swift in Sources */,
 				C19CA035291B870200CC6761 /* BaseView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
