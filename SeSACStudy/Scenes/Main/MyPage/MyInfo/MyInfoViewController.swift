@@ -12,8 +12,6 @@ import RxCocoa
 
 class MyInfoViewController: BaseViewController {
     
-    var hiddenPLZ = false
-    
     private lazy var collectionView: UICollectionView = {
         let view = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
         return view
@@ -169,27 +167,28 @@ extension MyInfoViewController {
         }
         dataSource.apply(currentSnapshot, animatingDifferences: true)
     }
-    
-    func updateUI() {
-        currentSnapshot = NSDiffableDataSourceSnapshot<Section, dummy>()
-        currentSnapshot.appendSections([.main])
-        currentSnapshot.appendItems(dummy.contents(), toSection: .main)
-
-        
-        if hiddenPLZ {
-            currentSnapshot.appendSections([.profile])
-            currentSnapshot.appendItems([dummy(profile: nil, name: "에이치호")], toSection: .profile)
-        } else {
-            currentSnapshot.appendSections([.profile])
-            currentSnapshot.appendItems(dummy.contents(), toSection: .profile)
-        }
-
-        dataSource.apply(currentSnapshot, animatingDifferences: true)
-//        currentSnapshot = NSDiffableDataSourceSnapshot<Section, dummy>()
-//        Section.allCases.forEach { section in
-//            currentSnapshot.appendSections([section])
-//            currentSnapshot.appendItems(dummy.contents(), toSection: section)
-//        }
-//        dataSource.apply(currentSnapshot, animatingDifferences: true)
-    }
 }
+
+//MARK: - UI 업데이트
+//    func updateUI() {
+//        currentSnapshot = NSDiffableDataSourceSnapshot<Section, dummy>()
+//        currentSnapshot.appendSections([.main])
+//        currentSnapshot.appendItems(dummy.contents(), toSection: .main)
+//
+//
+//        if hiddenPLZ {
+//            currentSnapshot.appendSections([.profile])
+//            currentSnapshot.appendItems([dummy(profile: nil, name: "에이치호")], toSection: .profile)
+//        } else {
+//            currentSnapshot.appendSections([.profile])
+//            currentSnapshot.appendItems(dummy.contents(), toSection: .profile)
+//        }
+//
+//        dataSource.apply(currentSnapshot, animatingDifferences: true)
+////        currentSnapshot = NSDiffableDataSourceSnapshot<Section, dummy>()
+////        Section.allCases.forEach { section in
+////            currentSnapshot.appendSections([section])
+////            currentSnapshot.appendItems(dummy.contents(), toSection: section)
+////        }
+////        dataSource.apply(currentSnapshot, animatingDifferences: true)
+//    }

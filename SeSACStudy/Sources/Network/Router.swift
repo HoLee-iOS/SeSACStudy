@@ -13,6 +13,7 @@ enum Router: URLRequestConvertible {
     
     case login
     case signUp
+    case save
     
     var baseURL: URL {
         guard let url = URL(string: UserDefaultsManager.baseURL) else { return URL(fileURLWithPath: "") }
@@ -23,19 +24,20 @@ enum Router: URLRequestConvertible {
         switch self {
         case .login: return .get
         case .signUp: return .post
+        case .save: return .put
         }
     }
     
     var path: String {
         switch self {
         case .login, .signUp: return UserDefaultsManager.loginPath
+        case .save: return UserDefaultsManager.savePath
         }
     }
     
     var headers: HTTPHeaders {
         switch self {
-        case .login, .signUp:
-            
+        case .login, .signUp, .save:
             return ["idtoken" : UserDefaultsManager.token, "Content-Type" : UserDefaultsManager.contentType]
         }
     }
@@ -51,6 +53,14 @@ enum Router: URLRequestConvertible {
                 "email" : UserDefaultsManager.email,
                 "gender" : "\(UserDefaultsManager.gender)"
             ]
+        case .save:
+            return [
+                "searchable" : "\(UserDefaultsManager.searchable)",
+                "ageMin" : "\(UserDefaultsManager.ageMin)",
+                "ageMax" : "\(UserDefaultsManager.ageMax)",
+                "gender" : "\(UserDefaultsManager.gender)",
+                "study" : UserDefaultsManager.study ?? ""
+            ]
         default:
             return ["":""]
         }
@@ -62,8 +72,7 @@ enum Router: URLRequestConvertible {
         request.method = method
         request.headers = headers
         //통신의 컨텐트 타입이 form-urlencoded이므로 파라미터의 인코딩을 해당 타입에 맞게 해주고 API통신을 요청
-        request = try URLEncodedFormParameterEncoder().encode(parameters, into: request)
-        
+        request = try URLEncodedFormParameterEncoder().encode(parameters, into: request)        
         return request
     }
 }

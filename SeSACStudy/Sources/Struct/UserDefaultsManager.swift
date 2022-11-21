@@ -21,6 +21,9 @@ struct UserDefaultsManager {
     @UserDefaultsWrapper(key: "loginPath", defaultValue: "/v1/user")
     static var loginPath: String
     
+    @UserDefaultsWrapper(key: "savePath", defaultValue: "/v1/user/mypage")
+    static var savePath: String
+    
     @UserDefaultsWrapper(key: "verificationCode", defaultValue: "")
     static var verificationCode: String
     
@@ -48,8 +51,17 @@ struct UserDefaultsManager {
     @UserDefaultsWrapper(key: "fcmToken", defaultValue: "")
     static var fcmToken: String
     
-    @UserDefaultsWrapper(key: "searchAllow", defaultValue: 0)
-    static var searchAllow: Int
+    @UserDefaultsWrapper(key: "searchable", defaultValue: 0)
+    static var searchable: Int
+    
+    @UserDefaultsWrapper(key: "ageMin", defaultValue: 18)
+    static var ageMin: Int
+    
+    @UserDefaultsWrapper(key: "ageMax", defaultValue: 65)
+    static var ageMax: Int
+    
+    @UserDefaultsWrapper(key: "study", defaultValue: "")
+    static var study: String?
     
     static func removeAll() {
         if let appDomain = Bundle.main.bundleIdentifier {
