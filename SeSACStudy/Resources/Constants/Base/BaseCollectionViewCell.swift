@@ -25,9 +25,5 @@ class BaseCollectionViewCell: UICollectionViewCell {
     func setConstraints() {}
     
     func bindData() {}
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.endEditing(true)
-    }
 }
 

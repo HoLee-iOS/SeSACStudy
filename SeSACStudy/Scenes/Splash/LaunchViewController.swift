@@ -43,7 +43,12 @@ class LaunchViewController: BaseViewController {
                         self?.setRootVC(vc: MainTabBarController())
                     case .invalidToken: self?.refreshToken()
                     case .needSignUp: self?.setRootNavVC(vc: NicknameViewController())
-                    default: return
+                    default: self?.view.makeToast("\(networkErr.errorDescription)", completion: { _ in
+                        UIApplication.shared.perform(#selector(NSXPCConnection.suspend))
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                            exit(0)
+                        }
+                    })
                     }
                 }
             }
@@ -68,9 +73,17 @@ class LaunchViewController: BaseViewController {
                     guard let status = status else { return }
                     guard let networkCode = NetworkError(rawValue: status) else { return }
                     switch networkCode {
-                    case .success: self?.setRootVC(vc: MainTabBarController())
+                    case .success:
+                        //MARK: - 로그인 성공 시 닉네임 값 받아오기
+                        UserDefaultsManager.nickname = value?.nick ?? ""
+                        self?.setRootVC(vc: MainTabBarController())
                     case .needSignUp: self?.setRootNavVC(vc: NicknameViewController())
-                    default: return
+                    default: self?.view.makeToast("잠시 후 다시 시도 해주세요.", completion: { _ in
+                        UIApplication.shared.perform(#selector(NSXPCConnection.suspend))
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                            exit(0)
+                        }
+                    })
                     }
                 }
             }

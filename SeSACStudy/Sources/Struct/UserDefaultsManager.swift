@@ -24,6 +24,9 @@ struct UserDefaultsManager {
     @UserDefaultsWrapper(key: "savePath", defaultValue: "/v1/user/mypage")
     static var savePath: String
     
+    @UserDefaultsWrapper(key: "withdrawPath", defaultValue: "/v1/user/withdraw")
+    static var withdrawPath: String
+    
     @UserDefaultsWrapper(key: "verificationCode", defaultValue: "")
     static var verificationCode: String
     
@@ -63,13 +66,18 @@ struct UserDefaultsManager {
     @UserDefaultsWrapper(key: "study", defaultValue: "")
     static var study: String?
     
-    static func removeAll() {
-        if let appDomain = Bundle.main.bundleIdentifier {
-            UserDefaults.standard.removePersistentDomain(forName: appDomain)
-        }
-    }
-    
-    static func resetSingupData() {
-        
+    static func resetData() {
+        UserDefaultsManager.token = ""
+        UserDefaultsManager.phoneNum = ""
+        UserDefaultsManager.birth = ""
+        UserDefaultsManager.email = ""
+        UserDefaultsManager.gender = 2
+        UserDefaultsManager.nickname = ""
+        UserDefaultsManager.first = false
+        UserDefaultsManager.fcmToken = ""
+        UserDefaultsManager.searchable = 0
+        UserDefaultsManager.ageMin = 18
+        UserDefaultsManager.ageMax = 65
+        UserDefaultsManager.study = ""
     }
 }

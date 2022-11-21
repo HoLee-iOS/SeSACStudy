@@ -20,12 +20,10 @@ class PhoneInputViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        showToast("인증번호를 보냈습니다.")
     }
     
-    override func bindData() {        
-        showToast("인증번호를 보냈습니다.")
-        
+    override func bindData() {
         customView.authButton.rx.tap
             .throttle(.seconds(3), scheduler: MainScheduler.instance)
             .withUnretained(self)
@@ -60,12 +58,16 @@ class PhoneInputViewController: BaseViewController {
                         APIService.login { value, statusCode, error in
                             guard let statusCode = statusCode else { return }
                             switch statusCode {
-                            case 200: vc.view.makeToast("로그인 성공", position: .top) { _ in vc.setRootVC(vc: MainTabBarController()) }
+                            case 200:
+                                //MARK: - 로그인 성공 시 닉네임 값 받아오기
+                                UserDefaultsManager.nickname = value?.nick ?? ""
+                                vc.view.makeToast("로그인 성공", position: .top) { _ in vc.setRootVC(vc: MainTabBarController()) }
                             case 401: vc.refreshToken()
-                            case 406: vc.navigationController?.pushViewController(NicknameViewController(), animated: true)
-                            case 500: vc.showToast("서버 오류")
-                            case 501: vc.showToast("잘못된 요청")
-                            default: vc.showToast("기타 오류")
+                            case 406:
+                                vc.view.makeToast("미가입 유저로 회원가입 화면으로 이동합니다.") { _ in
+                                    vc.navigationController?.pushViewController(NicknameViewController(), animated: true)
+                                }
+                            default: vc.showToast("잠시 후 다시 시도해주세요.")
                             }
                         }
                     }
@@ -110,12 +112,15 @@ class PhoneInputViewController: BaseViewController {
                 APIService.login { [weak self] (value, status, error) in
                     guard let status = status else { return }
                     switch status {
-                    case 200: self?.view.makeToast("로그인 성공", position: .top, completion: { _ in self?.setRootVC(vc: MainTabBarController()) })
-                    case 401: self?.showToast("토큰 만료")
-                    case 406: self?.navigationController?.pushViewController(NicknameViewController(), animated: true)
-                    case 500: self?.showToast("서버 오류")
-                    case 501: self?.showToast("잘못된 요청")
-                    default: self?.showToast("기타 오류")
+                    case 200:
+                        //MARK: - 로그인 성공 시 닉네임 값 받아오기
+                        UserDefaultsManager.nickname = value?.nick ?? ""
+                        self?.view.makeToast("로그인 성공", position: .top, completion: { _ in self?.setRootVC(vc: MainTabBarController()) })
+                    case 406:
+                        self?.view.makeToast("미가입 유저로 회원가입 화면으로 이동합니다.") { _ in
+                            self?.navigationController?.pushViewController(NicknameViewController(), animated: true)
+                        }
+                    default: self?.showToast("잠시 후 다시 시도해주세요.")
                     }
                 }
             }

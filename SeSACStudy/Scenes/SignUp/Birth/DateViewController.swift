@@ -36,7 +36,6 @@ class DateViewController: BaseViewController {
                     vc.showToast("새싹스터디는 만 17세 이상만 사용할 수 있습니다.")
                 } else {
                     UserDefaultsManager.birth = dateFormatted(date: vc.dateView.picker.date)
-                    print(UserDefaultsManager.birth)
                     vc.navigationController?.pushViewController(EmailViewController(), animated: true)
                 }
             }

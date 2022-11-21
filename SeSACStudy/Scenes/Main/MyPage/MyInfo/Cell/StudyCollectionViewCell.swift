@@ -60,7 +60,6 @@ class StudyCollectionViewCell: BaseCollectionViewCell {
     }
     
     override func bindData() {
-        
         //MARK: - 유저 디폴트 값을 studyInfo 텍스트에 적용
         studyInfo.text = UserDefaultsManager.study
         
@@ -70,5 +69,10 @@ class StudyCollectionViewCell: BaseCollectionViewCell {
                 UserDefaultsManager.study = vc.studyInfo.text
             }
             .disposed(by: disposeBag)
+    }
+    
+    //MARK: - 스터디 편집에 대한 종료
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.endEditing(true)
     }
 }

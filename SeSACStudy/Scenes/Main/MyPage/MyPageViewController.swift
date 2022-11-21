@@ -84,10 +84,10 @@ extension MyPageViewController: UITableViewDelegate, UITableViewDataSource {
                 
                 switch networkErr {
                 case .success:
-                    //MARK: - 로그인 통신 성공 시 값 받아오기
+                    //MARK: - 로그인 통신 성공 시 값 받아오기                    
                     UserDefaultsManager.gender = value?.gender ?? 2
                     UserDefaultsManager.study = value?.study ?? ""
-                    UserDefaultsManager.searchable = value?.searchable ?? 2
+                    UserDefaultsManager.searchable = value?.searchable ?? 0
                     UserDefaultsManager.ageMin = value?.ageMin ?? 18
                     UserDefaultsManager.ageMax = value?.ageMax ?? 65
                     self?.navigationController?.pushViewController(MyInfoViewController(), animated: true)

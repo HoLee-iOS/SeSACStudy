@@ -55,6 +55,7 @@
 		C19CA043291B96F000CC6761 /* CommonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19CA042291B96F000CC6761 /* CommonViewModel.swift */; };
 		C19CA045291BA20400CC6761 /* String + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19CA044291BA20400CC6761 /* String + Extensions.swift */; };
 		C1ACFDA2291F8A97002941DF /* AuthTap.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1ACFDA1291F8A97002941DF /* AuthTap.swift */; };
+		C1ADB799292B8C8800867752 /* WithdrawViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1ADB798292B8C8800867752 /* WithdrawViewController.swift */; };
 		C1BAF7E229266543007157AC /* UserCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BAF7DB29266542007157AC /* UserCardCollectionViewCell.swift */; };
 		C1BAF7E329266543007157AC /* StudyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BAF7DC29266542007157AC /* StudyCollectionViewCell.swift */; };
 		C1BAF7E429266543007157AC /* UserImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BAF7DD29266543007157AC /* UserImageCollectionViewCell.swift */; };
@@ -137,6 +138,7 @@
 		C19CA042291B96F000CC6761 /* CommonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonViewModel.swift; sourceTree = "<group>"; };
 		C19CA044291BA20400CC6761 /* String + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Extensions.swift"; sourceTree = "<group>"; };
 		C1ACFDA1291F8A97002941DF /* AuthTap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTap.swift; sourceTree = "<group>"; };
+		C1ADB798292B8C8800867752 /* WithdrawViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawViewController.swift; sourceTree = "<group>"; };
 		C1BAF7DB29266542007157AC /* UserCardCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCardCollectionViewCell.swift; sourceTree = "<group>"; };
 		C1BAF7DC29266542007157AC /* StudyCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudyCollectionViewCell.swift; sourceTree = "<group>"; };
 		C1BAF7DD29266543007157AC /* UserImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserImageCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -534,6 +536,7 @@
 			children = (
 				C1D789BE2922A8EB00A83600 /* MyInfoViewController.swift */,
 				C12CD1532923BF9A0083C869 /* MyInfoViewModel.swift */,
+				C1ADB798292B8C8800867752 /* WithdrawViewController.swift */,
 				C1621FBD292715BD00DD720E /* Cell */,
 			);
 			path = MyInfo;
@@ -665,6 +668,7 @@
 				C1C9499D291D042400A58FBF /* NicknameViewController.swift in Sources */,
 				C1D7898B2922230D00A83600 /* MyPageViewController.swift in Sources */,
 				C1C9499F291D044700A58FBF /* NicknameView.swift in Sources */,
+				C1ADB799292B8C8800867752 /* WithdrawViewController.swift in Sources */,
 				C17D1301291ED671007D8049 /* SplashView.swift in Sources */,
 				C110D2782927681C00CD536D /* Comparable + Extensions.swift in Sources */,
 				C19CA031291B862000CC6761 /* PhoneAuthView.swift in Sources */,

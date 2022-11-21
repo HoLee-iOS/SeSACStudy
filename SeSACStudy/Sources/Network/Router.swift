@@ -14,6 +14,7 @@ enum Router: URLRequestConvertible {
     case login
     case signUp
     case save
+    case withdraw
     
     var baseURL: URL {
         guard let url = URL(string: UserDefaultsManager.baseURL) else { return URL(fileURLWithPath: "") }
@@ -23,7 +24,7 @@ enum Router: URLRequestConvertible {
     var method: HTTPMethod {
         switch self {
         case .login: return .get
-        case .signUp: return .post
+        case .signUp, .withdraw: return .post
         case .save: return .put
         }
     }
@@ -32,12 +33,13 @@ enum Router: URLRequestConvertible {
         switch self {
         case .login, .signUp: return UserDefaultsManager.loginPath
         case .save: return UserDefaultsManager.savePath
+        case .withdraw: return UserDefaultsManager.withdrawPath
         }
     }
     
     var headers: HTTPHeaders {
         switch self {
-        case .login, .signUp, .save:
+        case .login, .signUp, .save, .withdraw:
             return ["idtoken" : UserDefaultsManager.token, "Content-Type" : UserDefaultsManager.contentType]
         }
     }

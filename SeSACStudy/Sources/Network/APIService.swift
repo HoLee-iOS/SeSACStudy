@@ -48,4 +48,17 @@ class APIService {
             }
         }
     }
+    
+    //MARK: - 회원 탈퇴 시 API 통신
+    static func withdraw(completion: @escaping (String?, Int?, Error?) -> Void) {
+        AF.request(Router.withdraw).responseString { response in
+            guard let statusCode = response.response?.statusCode else { return }
+            switch response.result {
+            case .success(let data):
+                completion(data, statusCode, nil)
+            case .failure(let error):
+                completion(nil, statusCode, error)
+            }
+        }
+    }
 }

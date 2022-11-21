@@ -18,13 +18,23 @@ class WithdrawCollectionViewCell: BaseCollectionViewCell {
         return label
     }()
     
+    let withdrawButton: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .clear
+        return button
+    }()
+    
     override func configure() {
-        contentView.addSubview(titleLabel)
+        [titleLabel, withdrawButton].forEach{ contentView.addSubview($0) }
     }
     
     override func setConstraints() {
         titleLabel.snp.makeConstraints {
             $0.leading.verticalEdges.equalTo(safeAreaLayoutGuide).inset(16)
+        }
+        
+        withdrawButton.snp.makeConstraints {
+            $0.edges.equalTo(safeAreaLayoutGuide)
         }
     }
 }

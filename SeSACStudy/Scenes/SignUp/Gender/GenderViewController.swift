@@ -37,7 +37,7 @@ class GenderViewController: BaseViewController {
                         case .success: vc.view.makeToast("회원가입 성공", position: .top) { _ in vc.setRootVC(vc: MainTabBarController()) }
                         case .invalidNick: vc.view.makeToast("사용할 수 없는 닉네임입니다.", position: .top) { _ in vc.backTo() }
                         case .invalidToken: vc.refreshToken()
-                        default: vc.showToast(networkErr.errorDescription)
+                        default: vc.showToast("잠시 후 다시 시도해 주세요.")
                         }
                     }
                 }
@@ -67,7 +67,7 @@ class GenderViewController: BaseViewController {
                     guard let status = status else { return }
                     guard let networkCode = NetworkError(rawValue: status) else { return }
                     switch networkCode {
-                    case .success: self?.setRootVC(vc: MainTabBarController())
+                    case .success: self?.view.makeToast("회원가입 성공", position: .top) { _ in self?.setRootVC(vc: MainTabBarController()) }
                     default: self?.showToast("잠시 후 다시 시도해 주세요.")
                     }
                 }

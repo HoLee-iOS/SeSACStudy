@@ -145,7 +145,6 @@ extension MyInfoViewController {
         
         let cellRegistration1 = UICollectionView.CellRegistration<UserCardCollectionViewCell, dummy> { cell, indexPath, itemIdentifier in
             cell.userCardLabel.text = itemIdentifier.name
-            
             var background = UIBackgroundConfiguration.listPlainCell()
             background.cornerRadius = 8
             background.strokeColor = GrayScale.gray2
@@ -167,6 +166,13 @@ extension MyInfoViewController {
         }
         
         let cellRegistration6 = UICollectionView.CellRegistration<WithdrawCollectionViewCell, dummy> { cell, indexPath, itemIdentifier in
+            cell.withdrawButton.rx.tap
+                .bind { _ in
+                    let vc = WithdrawViewController()
+                    vc.modalPresentationStyle = .overFullScreen
+                    self.present(vc, animated: true)
+                }
+                .disposed(by: self.disposeBag)
         }
         
         //MARK: - 데이터 소스에 데이터 넣기
