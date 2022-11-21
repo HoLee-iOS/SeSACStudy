@@ -75,8 +75,8 @@ extension MyPageViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.navigationController?.pushViewController(MyInfoViewController(), animated: true)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {        
+        indexPath.row == 0 ? (self.navigationController?.pushViewController(MyInfoViewController(), animated: true)) : showToast("준비 중인 서비스입니다.")
     }
 }
 
