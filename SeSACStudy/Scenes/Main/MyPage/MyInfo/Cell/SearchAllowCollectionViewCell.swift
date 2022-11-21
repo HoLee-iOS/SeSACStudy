@@ -46,9 +46,17 @@ class SearchAllowCollectionViewCell: BaseCollectionViewCell {
     }
     
     override func bindData() {
+        
+        //MARK: - 유저 디폴트 값을 searchSwith에 적용
+        if UserDefaultsManager.searchable == 0 {
+            searchSwitch.isOn = false
+        } else {
+            searchSwitch.isOn = true
+        }
+        
         searchSwitch.rx.isOn
             .bind { value in
-                value ? (UserDefaultsManager.searchAllow = 1) : (UserDefaultsManager.searchAllow = 0)
+                value ? (UserDefaultsManager.searchable = 1) : (UserDefaultsManager.searchable = 0)
             }
             .disposed(by: disposeBag)
     }

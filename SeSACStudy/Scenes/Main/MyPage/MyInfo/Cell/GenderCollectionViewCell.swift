@@ -77,6 +77,20 @@ class GenderCollectionViewCell: BaseCollectionViewCell {
     
     override func bindData() {
         
+        //MARK: - 유저 디폴트 값에 대한 분기 처리
+        if UserDefaultsManager.gender == 0 {
+            femaleButton.backgroundColor = BrandColor.green
+            femaleButton.configuration?.attributedTitle?.foregroundColor = BlackNWhite.white
+            maleButton.backgroundColor = BlackNWhite.white
+        } else if UserDefaultsManager.gender == 1 {
+            femaleButton.backgroundColor = BlackNWhite.white
+            maleButton.backgroundColor = BrandColor.green
+            maleButton.configuration?.attributedTitle?.foregroundColor = BlackNWhite.white
+        } else {
+            self.femaleButton.backgroundColor = BlackNWhite.white
+            self.maleButton.backgroundColor = BlackNWhite.white
+        }
+        
         let input = MyInfoViewModel.Input(maleTap: maleButton.rx.tap, femaleTap: femaleButton.rx.tap)
         let output = viewModel.transform(input: input)
         

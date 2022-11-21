@@ -9,6 +9,7 @@ import UIKit
 import SnapKit
 import RxSwift
 import RxCocoa
+import FirebaseAuth
 
 class MyInfoViewController: BaseViewController {
     
@@ -39,8 +40,47 @@ class MyInfoViewController: BaseViewController {
         self.tabBarController?.tabBar.isHidden = true
     }
     
+    //MARK: - 저장 버튼 클릭 시 PUT 통신을 통해 회원 정보 수정
     @objc func saveButtonTapped() {
-        
+        APIService.myPage { [weak self] value, statusCode, error in
+            guard let statusCode = statusCode else { return }
+            guard let networkErr = NetworkError(rawValue: statusCode) else { return }
+            switch networkErr {
+            case .success:
+                self?.view.makeToast("저장 성공", position: .center, completion: { _ in
+                    self?.navigationController?.popViewController(animated: true)
+                })
+            case .invalidToken: self?.refreshToken()
+            default: self?.showToast("잠시 후 다시 시도해 주세요.")
+            }
+        }
+    }
+    
+    //MARK: - 토큰 만료 시 토큰 재발급
+    func refreshToken() {
+        let currentUser = Auth.auth().currentUser
+        currentUser?.getIDTokenForcingRefresh(true) { token, error in
+            if let error = error as? NSError {
+                guard let errorCode = AuthErrorCode.Code(rawValue: error.code) else { return }
+                switch errorCode {
+                default: self.showToast("에러: \(error.localizedDescription)")
+                }
+                return
+            } else if let token = token {
+                UserDefaultsManager.token = token
+                APIService.login { [weak self] (value, status, error) in
+                    guard let status = status else { return }
+                    guard let networkCode = NetworkError(rawValue: status) else { return }
+                    switch networkCode {
+                    case .success:
+                        self?.view.makeToast("저장 성공", position: .center, completion: { _ in
+                        self?.navigationController?.popViewController(animated: true)
+                    })
+                    default: self?.showToast("잠시 후 다시 시도해 주세요.")
+                    }
+                }
+            }
+        }
     }
     
     override func configure() {

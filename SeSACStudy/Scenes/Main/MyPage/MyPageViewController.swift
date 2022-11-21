@@ -81,8 +81,16 @@ extension MyPageViewController: UITableViewDelegate, UITableViewDataSource {
             APIService.login { [weak self] value, statusCode, error in
                 guard let statusCode = statusCode else { return }
                 guard let networkErr = NetworkError(rawValue: statusCode) else { return }
+                
                 switch networkErr {
-                case .success: self?.navigationController?.pushViewController(MyInfoViewController(), animated: true)
+                case .success:
+                    //MARK: - 로그인 통신 성공 시 값 받아오기
+                    UserDefaultsManager.gender = value?.gender ?? 2
+                    UserDefaultsManager.study = value?.study ?? ""
+                    UserDefaultsManager.searchable = value?.searchable ?? 2
+                    UserDefaultsManager.ageMin = value?.ageMin ?? 18
+                    UserDefaultsManager.ageMax = value?.ageMax ?? 65
+                    self?.navigationController?.pushViewController(MyInfoViewController(), animated: true)
                 case .invalidToken: self?.refreshToken()
                 default: self?.showToast("\(networkErr.errorDescription)")
                 }

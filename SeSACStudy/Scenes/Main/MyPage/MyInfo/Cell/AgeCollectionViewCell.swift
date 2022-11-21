@@ -69,9 +69,18 @@ class AgeCollectionViewCell: BaseCollectionViewCell {
     }
     
     override func bindData() {
+        
+        //MARK: - 유저 디폴트 값을 multiSlider에 적용
+        ageLabel.text = "\(UserDefaultsManager.ageMin) - \(UserDefaultsManager.ageMax)"
+        multiSlider.lower = Double(UserDefaultsManager.ageMin)
+        multiSlider.upper = Double(UserDefaultsManager.ageMax)
+        
+        
         multiSlider.rx.controlEvent(.valueChanged)
             .withUnretained(self)
             .bind { (vc, _) in
+                UserDefaultsManager.ageMin = Int(vc.multiSlider.lower)
+                UserDefaultsManager.ageMax = Int(vc.multiSlider.upper)
                 vc.ageLabel.text = "\(Int(vc.multiSlider.lower)) - \(Int(vc.multiSlider.upper))"
             }
             .disposed(by: disposeBag)

@@ -7,8 +7,12 @@
 
 import UIKit
 import SnapKit
+import RxSwift
+import RxCocoa
 
 class StudyCollectionViewCell: BaseCollectionViewCell {
+    
+    let disposeBag = DisposeBag()
     
     let titleLabel: UILabel = {
         let label = UILabel()
@@ -52,6 +56,19 @@ class StudyCollectionViewCell: BaseCollectionViewCell {
             $0.centerY.equalTo(titleLabel)
             $0.centerX.equalTo(textline.snp.centerX).offset(8)
             $0.trailing.equalTo(textline.snp.trailing)
-        }        
+        }
+    }
+    
+    override func bindData() {
+        
+        //MARK: - 유저 디폴트 값을 studyInfo 텍스트에 적용
+        studyInfo.text = UserDefaultsManager.study
+        
+        studyInfo.rx.controlEvent([.editingDidEnd, .editingDidEndOnExit])
+            .withUnretained(self)
+            .bind { (vc, _) in
+                UserDefaultsManager.study = vc.studyInfo.text
+            }
+            .disposed(by: disposeBag)
     }
 }
