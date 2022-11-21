@@ -48,10 +48,10 @@ class SearchAllowCollectionViewCell: BaseCollectionViewCell {
     override func bindData() {
         
         //MARK: - 유저 디폴트 값을 searchSwith에 적용
-        if UserDefaultsManager.searchable == 0 {
-            searchSwitch.isOn = false
-        } else {
+        if UserDefaultsManager.searchable == 1 {
             searchSwitch.isOn = true
+        } else {
+            searchSwitch.isOn = false
         }
         
         searchSwitch.rx.isOn

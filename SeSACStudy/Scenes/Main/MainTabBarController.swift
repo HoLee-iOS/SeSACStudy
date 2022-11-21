@@ -9,6 +9,7 @@ import UIKit
 
 class MainTabBarController: UITabBarController {
 
+    let mapVC = MapViewController()
     let myPageVC = MyPageViewController()
     
     override func viewDidLoad() {
@@ -17,12 +18,15 @@ class MainTabBarController: UITabBarController {
         tabBar.tintColor = BrandColor.green
         tabBar.unselectedItemTintColor = GrayScale.gray6
         
+        mapVC.title = "홈"
         myPageVC.title = "내정보"
         
+        mapVC.tabBarItem.image = Icons.homeTab
         myPageVC.tabBarItem.image = Icons.mypageTab
         
+        let mapTab = UINavigationController(rootViewController: mapVC)
         let mypageTab = UINavigationController(rootViewController: myPageVC)
         
-        setViewControllers([mypageTab], animated: false)
+        setViewControllers([mapTab, mypageTab], animated: false)
     }
 }

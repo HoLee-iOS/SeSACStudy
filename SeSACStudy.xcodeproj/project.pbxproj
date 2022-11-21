@@ -56,6 +56,8 @@
 		C19CA045291BA20400CC6761 /* String + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19CA044291BA20400CC6761 /* String + Extensions.swift */; };
 		C1ACFDA2291F8A97002941DF /* AuthTap.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1ACFDA1291F8A97002941DF /* AuthTap.swift */; };
 		C1ADB799292B8C8800867752 /* WithdrawViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1ADB798292B8C8800867752 /* WithdrawViewController.swift */; };
+		C1ADB79B292BF75F00867752 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1ADB79A292BF75F00867752 /* MapViewController.swift */; };
+		C1ADB79E292BFC5300867752 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1ADB79D292BFC5300867752 /* LocationManager.swift */; };
 		C1BAF7E229266543007157AC /* UserCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BAF7DB29266542007157AC /* UserCardCollectionViewCell.swift */; };
 		C1BAF7E329266543007157AC /* StudyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BAF7DC29266542007157AC /* StudyCollectionViewCell.swift */; };
 		C1BAF7E429266543007157AC /* UserImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BAF7DD29266543007157AC /* UserImageCollectionViewCell.swift */; };
@@ -139,6 +141,8 @@
 		C19CA044291BA20400CC6761 /* String + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Extensions.swift"; sourceTree = "<group>"; };
 		C1ACFDA1291F8A97002941DF /* AuthTap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTap.swift; sourceTree = "<group>"; };
 		C1ADB798292B8C8800867752 /* WithdrawViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawViewController.swift; sourceTree = "<group>"; };
+		C1ADB79A292BF75F00867752 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		C1ADB79D292BFC5300867752 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		C1BAF7DB29266542007157AC /* UserCardCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCardCollectionViewCell.swift; sourceTree = "<group>"; };
 		C1BAF7DC29266542007157AC /* StudyCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudyCollectionViewCell.swift; sourceTree = "<group>"; };
 		C1BAF7DD29266543007157AC /* UserImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserImageCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -243,6 +247,7 @@
 		C1817C5C2918E91D00382A09 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				C1ADB79C292BFC4300867752 /* Class */,
 				C1D789C02922AAA800A83600 /* Custom */,
 				C1D789952922263200A83600 /* Struct */,
 				C1D789942922262B00A83600 /* Enum */,
@@ -332,6 +337,14 @@
 				C1D789AC292242E900A83600 /* NetworkMonitor.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		C1ADB79C292BFC4300867752 /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				C1ADB79D292BFC5300867752 /* LocationManager.swift */,
+			);
+			path = Class;
 			sourceTree = "<group>";
 		};
 		C1BAF7D029261685007157AC /* Friends */ = {
@@ -505,6 +518,7 @@
 		C1D789A32922283000A83600 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				C1ADB79A292BF75F00867752 /* MapViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -673,6 +687,7 @@
 				C110D2782927681C00CD536D /* Comparable + Extensions.swift in Sources */,
 				C19CA031291B862000CC6761 /* PhoneAuthView.swift in Sources */,
 				C12CD14C292363E10083C869 /* Section.swift in Sources */,
+				C1ADB79B292BF75F00867752 /* MapViewController.swift in Sources */,
 				C1440698291C210900B6C9EC /* PhoneInputViewModel.swift in Sources */,
 				C19373BC291A8230008C8FED /* Icons.swift in Sources */,
 				C19CA037291B874000CC6761 /* BaseViewController.swift in Sources */,
@@ -687,6 +702,7 @@
 				C110D27A2927931700CD536D /* UIImage + Extensions.swift in Sources */,
 				C1C949A3291D14FA00A58FBF /* DateView.swift in Sources */,
 				C1817C4B2918E0C500382A09 /* SceneDelegate.swift in Sources */,
+				C1ADB79E292BFC5300867752 /* LocationManager.swift in Sources */,
 				C1C15E94291E34E7005B9188 /* EmailViewModel.swift in Sources */,
 				C19CA033291B862F00CC6761 /* PhoneAuthViewModel.swift in Sources */,
 				C1D789AF29224BEB00A83600 /* SettingList.swift in Sources */,

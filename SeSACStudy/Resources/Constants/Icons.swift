@@ -28,4 +28,7 @@ struct Icons {
     static let settingPermit = UIImage(named: "permit")
     static let moreView = UIImage(named: "more_arrow")
     static let sesacBack1 = UIImage(named: "sesac_background_1")
+    static let floatingSearch = UIImage(named: "search")
+    static let floatingAntenna = UIImage(named: "antenna")
+    static let floatingMessage = UIImage(named: "message")
 }
