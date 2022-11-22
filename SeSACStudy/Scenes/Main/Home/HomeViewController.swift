@@ -53,6 +53,7 @@ class HomeViewController: BaseViewController {
     }
     
     override func bindData() {
+        //MARK: - GPS 버튼 구현
         homeView.locationButton.rx.tap
             .withUnretained(self)
             .bind { (vc, _) in
