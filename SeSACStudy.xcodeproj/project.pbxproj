@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C10CBA1F292CA5260010E812 /* UIButton + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10CBA1E292CA5260010E812 /* UIButton + Extensions.swift */; };
 		C110D27229275C0600CD536D /* ThumbButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C110D27129275C0600CD536D /* ThumbButton.swift */; };
 		C110D27629275C8F00CD536D /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C110D27529275C8F00CD536D /* CustomSlider.swift */; };
 		C110D2782927681C00CD536D /* Comparable + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C110D2772927681C00CD536D /* Comparable + Extensions.swift */; };
@@ -56,7 +57,6 @@
 		C19CA045291BA20400CC6761 /* String + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19CA044291BA20400CC6761 /* String + Extensions.swift */; };
 		C1ACFDA2291F8A97002941DF /* AuthTap.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1ACFDA1291F8A97002941DF /* AuthTap.swift */; };
 		C1ADB799292B8C8800867752 /* WithdrawViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1ADB798292B8C8800867752 /* WithdrawViewController.swift */; };
-		C1ADB79B292BF75F00867752 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1ADB79A292BF75F00867752 /* MapViewController.swift */; };
 		C1ADB79E292BFC5300867752 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1ADB79D292BFC5300867752 /* LocationManager.swift */; };
 		C1BAF7E229266543007157AC /* UserCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BAF7DB29266542007157AC /* UserCardCollectionViewCell.swift */; };
 		C1BAF7E329266543007157AC /* StudyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BAF7DC29266542007157AC /* StudyCollectionViewCell.swift */; };
@@ -82,6 +82,9 @@
 		C1C949A3291D14FA00A58FBF /* DateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C949A2291D14FA00A58FBF /* DateView.swift */; };
 		C1C949A5291D154E00A58FBF /* DateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C949A4291D154E00A58FBF /* DateViewController.swift */; };
 		C1C949A7291D155A00A58FBF /* DateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C949A6291D155A00A58FBF /* DateViewModel.swift */; };
+		C1D0E0A1292C0C0000370579 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D0E0A0292C0C0000370579 /* HomeView.swift */; };
+		C1D0E0A3292C0C1500370579 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D0E0A2292C0C1500370579 /* HomeViewController.swift */; };
+		C1D0E0A5292C0C1D00370579 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D0E0A4292C0C1D00370579 /* HomeViewModel.swift */; };
 		C1D78985292209BD00A83600 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D78984292209BD00A83600 /* NetworkError.swift */; };
 		C1D78989292222A800A83600 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D78988292222A800A83600 /* MainTabBarController.swift */; };
 		C1D7898B2922230D00A83600 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D7898A2922230D00A83600 /* MyPageViewController.swift */; };
@@ -96,6 +99,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C10CBA1E292CA5260010E812 /* UIButton + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton + Extensions.swift"; sourceTree = "<group>"; };
 		C110D27129275C0600CD536D /* ThumbButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbButton.swift; sourceTree = "<group>"; };
 		C110D27529275C8F00CD536D /* CustomSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
 		C110D2772927681C00CD536D /* Comparable + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Comparable + Extensions.swift"; sourceTree = "<group>"; };
@@ -141,7 +145,6 @@
 		C19CA044291BA20400CC6761 /* String + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Extensions.swift"; sourceTree = "<group>"; };
 		C1ACFDA1291F8A97002941DF /* AuthTap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTap.swift; sourceTree = "<group>"; };
 		C1ADB798292B8C8800867752 /* WithdrawViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawViewController.swift; sourceTree = "<group>"; };
-		C1ADB79A292BF75F00867752 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		C1ADB79D292BFC5300867752 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		C1BAF7DB29266542007157AC /* UserCardCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCardCollectionViewCell.swift; sourceTree = "<group>"; };
 		C1BAF7DC29266542007157AC /* StudyCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudyCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -167,6 +170,9 @@
 		C1C949A2291D14FA00A58FBF /* DateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateView.swift; sourceTree = "<group>"; };
 		C1C949A4291D154E00A58FBF /* DateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateViewController.swift; sourceTree = "<group>"; };
 		C1C949A6291D155A00A58FBF /* DateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateViewModel.swift; sourceTree = "<group>"; };
+		C1D0E0A0292C0C0000370579 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		C1D0E0A2292C0C1500370579 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		C1D0E0A4292C0C1D00370579 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		C1D78984292209BD00A83600 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		C1D78988292222A800A83600 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		C1D7898A2922230D00A83600 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
@@ -286,6 +292,7 @@
 				C19CA044291BA20400CC6761 /* String + Extensions.swift */,
 				C110D2772927681C00CD536D /* Comparable + Extensions.swift */,
 				C110D2792927931700CD536D /* UIImage + Extensions.swift */,
+				C10CBA1E292CA5260010E812 /* UIButton + Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -518,7 +525,9 @@
 		C1D789A32922283000A83600 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				C1ADB79A292BF75F00867752 /* MapViewController.swift */,
+				C1D0E0A0292C0C0000370579 /* HomeView.swift */,
+				C1D0E0A2292C0C1500370579 /* HomeViewController.swift */,
+				C1D0E0A4292C0C1D00370579 /* HomeViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -675,19 +684,21 @@
 				C1D789A72922420F00A83600 /* BaseCollectionViewCell.swift in Sources */,
 				C1C15E98291E404A005B9188 /* GenderViewController.swift in Sources */,
 				C14D21652920F5C800FF2AF3 /* Router.swift in Sources */,
+				C1D0E0A5292C0C1D00370579 /* HomeViewModel.swift in Sources */,
 				C1817C492918E0C500382A09 /* AppDelegate.swift in Sources */,
 				C1D789BF2922A8EB00A83600 /* MyInfoViewController.swift in Sources */,
 				C17D12FF291ED39A007D8049 /* LaunchViewController.swift in Sources */,
 				C1BAF7E329266543007157AC /* StudyCollectionViewCell.swift in Sources */,
+				C1D0E0A1292C0C0000370579 /* HomeView.swift in Sources */,
 				C1C9499D291D042400A58FBF /* NicknameViewController.swift in Sources */,
 				C1D7898B2922230D00A83600 /* MyPageViewController.swift in Sources */,
+				C10CBA1F292CA5260010E812 /* UIButton + Extensions.swift in Sources */,
 				C1C9499F291D044700A58FBF /* NicknameView.swift in Sources */,
 				C1ADB799292B8C8800867752 /* WithdrawViewController.swift in Sources */,
 				C17D1301291ED671007D8049 /* SplashView.swift in Sources */,
 				C110D2782927681C00CD536D /* Comparable + Extensions.swift in Sources */,
 				C19CA031291B862000CC6761 /* PhoneAuthView.swift in Sources */,
 				C12CD14C292363E10083C869 /* Section.swift in Sources */,
-				C1ADB79B292BF75F00867752 /* MapViewController.swift in Sources */,
 				C1440698291C210900B6C9EC /* PhoneInputViewModel.swift in Sources */,
 				C19373BC291A8230008C8FED /* Icons.swift in Sources */,
 				C19CA037291B874000CC6761 /* BaseViewController.swift in Sources */,
@@ -705,6 +716,7 @@
 				C1ADB79E292BFC5300867752 /* LocationManager.swift in Sources */,
 				C1C15E94291E34E7005B9188 /* EmailViewModel.swift in Sources */,
 				C19CA033291B862F00CC6761 /* PhoneAuthViewModel.swift in Sources */,
+				C1D0E0A3292C0C1500370579 /* HomeViewController.swift in Sources */,
 				C1D789AF29224BEB00A83600 /* SettingList.swift in Sources */,
 				C19CA02F291B83E700CC6761 /* PhoneAuthViewController.swift in Sources */,
 				C110D27629275C8F00CD536D /* CustomSlider.swift in Sources */,

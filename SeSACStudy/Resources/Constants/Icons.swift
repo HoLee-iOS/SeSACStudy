@@ -31,4 +31,6 @@ struct Icons {
     static let floatingSearch = UIImage(named: "search")
     static let floatingAntenna = UIImage(named: "antenna")
     static let floatingMessage = UIImage(named: "message")
+    static let myLocation = UIImage(named: "place")
+    static let mapMarker = UIImage(named: "map_marker")
 }
