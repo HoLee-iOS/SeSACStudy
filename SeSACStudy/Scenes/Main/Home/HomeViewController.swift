@@ -68,7 +68,6 @@ class HomeViewController: BaseViewController {
 }
 
 extension HomeViewController {
-    
     //MARK: - 권한 요청
     func checkUserDeviceLocationServiceAuthorization() {
         let authorizationStatus: CLAuthorizationStatus

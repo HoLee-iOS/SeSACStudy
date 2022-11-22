@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C10CBA1F292CA5260010E812 /* UIButton + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10CBA1E292CA5260010E812 /* UIButton + Extensions.swift */; };
+		C10CBA21292CDFFA0010E812 /* AnnotationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10CBA20292CDFFA0010E812 /* AnnotationType.swift */; };
 		C110D27229275C0600CD536D /* ThumbButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C110D27129275C0600CD536D /* ThumbButton.swift */; };
 		C110D27629275C8F00CD536D /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C110D27529275C8F00CD536D /* CustomSlider.swift */; };
 		C110D2782927681C00CD536D /* Comparable + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C110D2772927681C00CD536D /* Comparable + Extensions.swift */; };
@@ -100,6 +101,7 @@
 
 /* Begin PBXFileReference section */
 		C10CBA1E292CA5260010E812 /* UIButton + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton + Extensions.swift"; sourceTree = "<group>"; };
+		C10CBA20292CDFFA0010E812 /* AnnotationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationType.swift; sourceTree = "<group>"; };
 		C110D27129275C0600CD536D /* ThumbButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbButton.swift; sourceTree = "<group>"; };
 		C110D27529275C8F00CD536D /* CustomSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
 		C110D2772927681C00CD536D /* Comparable + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Comparable + Extensions.swift"; sourceTree = "<group>"; };
@@ -350,6 +352,7 @@
 			isa = PBXGroup;
 			children = (
 				C1ADB79D292BFC5300867752 /* LocationManager.swift */,
+				C10CBA20292CDFFA0010E812 /* AnnotationType.swift */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -714,6 +717,7 @@
 				C1C949A3291D14FA00A58FBF /* DateView.swift in Sources */,
 				C1817C4B2918E0C500382A09 /* SceneDelegate.swift in Sources */,
 				C1ADB79E292BFC5300867752 /* LocationManager.swift in Sources */,
+				C10CBA21292CDFFA0010E812 /* AnnotationType.swift in Sources */,
 				C1C15E94291E34E7005B9188 /* EmailViewModel.swift in Sources */,
 				C19CA033291B862F00CC6761 /* PhoneAuthViewModel.swift in Sources */,
 				C1D0E0A3292C0C1500370579 /* HomeViewController.swift in Sources */,
