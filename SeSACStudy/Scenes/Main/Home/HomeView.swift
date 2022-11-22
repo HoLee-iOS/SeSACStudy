@@ -8,12 +8,8 @@
 import UIKit
 import MapKit
 import SnapKit
-import RxSwift
-import RxCocoa
 
 class HomeView: BaseView {
-    
-    let disposeBag = DisposeBag()
     
     let mapView = MKMapView()
     

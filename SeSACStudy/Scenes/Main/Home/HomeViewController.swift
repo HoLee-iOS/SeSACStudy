@@ -10,7 +10,6 @@ import MapKit
 import CoreLocation
 import RxSwift
 import RxCocoa
-import SnapKit
 
 class HomeViewController: BaseViewController {
     
@@ -37,14 +36,20 @@ class HomeViewController: BaseViewController {
         checkUserDeviceLocationServiceAuthorization()
         
         setRegionAndAnnotation(center: CLLocationCoordinate2D(latitude: 37.517829, longitude: 126.886270))
-        
+        limitZoomRange()
         self.navigationController?.navigationBar.isHidden = true
     }
     
     //MARK: - 위경도 기준으로 보여질 범위 설정
     func setRegionAndAnnotation(center: CLLocationCoordinate2D) {
-        let region = MKCoordinateRegion(center: center, latitudinalMeters: 700, longitudinalMeters: 700)
+        let region = MKCoordinateRegion(center: center, latitudinalMeters: 350, longitudinalMeters: 350)
         homeView.mapView.setRegion(region, animated: true)
+    }
+    
+    //MARK: - 카메라 줌 범위 설정
+    func limitZoomRange() {
+        let zoomRange = MKMapView.CameraZoomRange(minCenterCoordinateDistance: 50, maxCenterCoordinateDistance: 3000)
+        homeView.mapView.setCameraZoomRange(zoomRange, animated: true)
     }
     
     override func bindData() {
@@ -99,7 +104,9 @@ extension HomeViewController {
                 UIApplication.shared.open(appSetting)
             }
         }
-        let cancel = UIAlertAction(title: "취소", style: .default)
+        let cancel = UIAlertAction(title: "취소", style: .default) { [weak self] _ in
+            self?.setRegionAndAnnotation(center: CLLocationCoordinate2D(latitude: 37.517829, longitude: 126.886270))
+        }
         requestLocationServiceAlert.addAction(cancel)
         requestLocationServiceAlert.addAction(goSetting)
         present(requestLocationServiceAlert, animated: true, completion: nil)
