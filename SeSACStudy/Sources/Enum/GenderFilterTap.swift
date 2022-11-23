@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+enum GenderFilterTap {
+    case all
+    case female
+    case male    
+}
