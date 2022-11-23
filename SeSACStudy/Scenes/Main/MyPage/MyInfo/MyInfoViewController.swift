@@ -42,7 +42,7 @@ class MyInfoViewController: BaseViewController {
     
     //MARK: - 저장 버튼 클릭 시 PUT 통신을 통해 회원 정보 수정
     @objc func saveButtonTapped() {
-        APIService.myPage { [weak self] value, statusCode, error in
+        APIService.myPage { [weak self] (value, statusCode, error) in
             guard let statusCode = statusCode else { return }
             guard let networkErr = NetworkError(rawValue: statusCode) else { return }
             switch networkErr {
@@ -68,7 +68,7 @@ class MyInfoViewController: BaseViewController {
                 return
             } else if let token = token {
                 UserDefaultsManager.token = token
-                APIService.login { [weak self] (value, status, error) in
+                APIService.myPage { [weak self] (value, status, error) in
                     guard let status = status else { return }
                     guard let networkCode = NetworkError(rawValue: status) else { return }
                     switch networkCode {
