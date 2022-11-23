@@ -87,6 +87,15 @@ class HomeViewController: BaseViewController {
     }
     
     override func bindData() {
+        //MARK: - 플로팅 버튼 클릭 시 화면 푸시
+        homeView.floatingButton.rx.tap
+            .withUnretained(self)
+            .bind { (vc, _) in
+                let studyVC = StudyInputViewController()
+                vc.navigationController?.pushViewController(studyVC, animated: true)
+            }
+            .disposed(by: disposeBag)
+        
         //MARK: - GPS 버튼 구현
         homeView.locationButton.rx.tap
             .withUnretained(self)
