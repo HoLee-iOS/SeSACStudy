@@ -61,4 +61,17 @@ class APIService {
             }
         }
     }
+    
+    //MARK: - Search API 통신
+    static func searchAround(completion: @escaping (SearchInfo?, Int?, Error?) -> Void) {
+        AF.request(Router.search).responseDecodable(of: SearchInfo.self) { response in
+            guard let statusCode = response.response?.statusCode else { return }
+            switch response.result {
+            case .success(let data):
+                completion(data, statusCode, nil)
+            case .failure(let error):
+                completion(nil, statusCode, error)
+            }
+        }
+    }
 }
