@@ -8,9 +8,11 @@
 import MapKit
 
 final class AnnotationType: MKPointAnnotation {
+    var gender: Int
     var identifier: Int
     
-    init(_ identifier: Int) {
+    init(_ identifier: Int, gender: Int) {
         self.identifier = identifier
+        self.gender = gender
     }
 }
