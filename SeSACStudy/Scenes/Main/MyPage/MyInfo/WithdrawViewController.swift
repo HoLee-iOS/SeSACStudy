@@ -153,7 +153,7 @@ class WithdrawViewController: BaseViewController {
                 return
             } else if let token = token {
                 UserDefaultsManager.token = token
-                APIService.login { [weak self] (value, status, error) in
+                APIService.withdraw { [weak self] (value, status, error) in
                     guard let status = status else { return }
                     guard let networkCode = NetworkError(rawValue: status) else { return }
                     switch networkCode {
