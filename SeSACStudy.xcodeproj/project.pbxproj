@@ -29,8 +29,6 @@
 		C161BE1B292E06D80066786F /* AnnotationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C161BE1A292E06D80066786F /* AnnotationList.swift */; };
 		C161BE1E292E275B0066786F /* StudyInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C161BE1D292E275B0066786F /* StudyInputViewController.swift */; };
 		C161BE22292E28530066786F /* StudyInputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C161BE21292E28530066786F /* StudyInputViewModel.swift */; };
-		C161BE25292E28EE0066786F /* StudyNearTagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C161BE24292E28EE0066786F /* StudyNearTagCollectionViewCell.swift */; };
-		C161BE27292E29010066786F /* StudyMyTagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C161BE26292E29010066786F /* StudyMyTagCollectionViewCell.swift */; };
 		C17D12F8291EA9F5007D8049 /* TextFieldControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17D12F7291EA9F5007D8049 /* TextFieldControl.swift */; };
 		C17D12FA291EAF58007D8049 /* GenderTap.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17D12F9291EAF58007D8049 /* GenderTap.swift */; };
 		C17D12FF291ED39A007D8049 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17D12FE291ED39A007D8049 /* LaunchViewController.swift */; };
@@ -44,6 +42,7 @@
 		C1817C702918FD1A00382A09 /* GrayScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1817C6F2918FD1A00382A09 /* GrayScale.swift */; };
 		C1817C722918FD2600382A09 /* SystemColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1817C712918FD2600382A09 /* SystemColor.swift */; };
 		C184086D292E97C50076FB8C /* StudyInputCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C184086C292E97C50076FB8C /* StudyInputCollectionReusableView.swift */; };
+		C184086F292E99D50076FB8C /* StudyInputCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C184086E292E99D50076FB8C /* StudyInputCollectionViewCell.swift */; };
 		C19373B7291A7697008C8FED /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19373B6291A7697008C8FED /* OnBoardingViewController.swift */; };
 		C19373BA291A7FC7008C8FED /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = C19373B9291A7FC7008C8FED /* SnapKit */; };
 		C19373BC291A8230008C8FED /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19373BB291A8230008C8FED /* Icons.swift */; };
@@ -126,8 +125,6 @@
 		C161BE1A292E06D80066786F /* AnnotationList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationList.swift; sourceTree = "<group>"; };
 		C161BE1D292E275B0066786F /* StudyInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyInputViewController.swift; sourceTree = "<group>"; };
 		C161BE21292E28530066786F /* StudyInputViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyInputViewModel.swift; sourceTree = "<group>"; };
-		C161BE24292E28EE0066786F /* StudyNearTagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyNearTagCollectionViewCell.swift; sourceTree = "<group>"; };
-		C161BE26292E29010066786F /* StudyMyTagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyMyTagCollectionViewCell.swift; sourceTree = "<group>"; };
 		C17D12F7291EA9F5007D8049 /* TextFieldControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldControl.swift; sourceTree = "<group>"; };
 		C17D12F9291EAF58007D8049 /* GenderTap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderTap.swift; sourceTree = "<group>"; };
 		C17D12FE291ED39A007D8049 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
@@ -143,6 +140,7 @@
 		C1817C6F2918FD1A00382A09 /* GrayScale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrayScale.swift; sourceTree = "<group>"; };
 		C1817C712918FD2600382A09 /* SystemColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemColor.swift; sourceTree = "<group>"; };
 		C184086C292E97C50076FB8C /* StudyInputCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyInputCollectionReusableView.swift; sourceTree = "<group>"; };
+		C184086E292E99D50076FB8C /* StudyInputCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyInputCollectionViewCell.swift; sourceTree = "<group>"; };
 		C19373B6291A7697008C8FED /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
 		C19373BB291A8230008C8FED /* Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
 		C19373BD291A89CE008C8FED /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
@@ -225,7 +223,6 @@
 			children = (
 				C161BE1D292E275B0066786F /* StudyInputViewController.swift */,
 				C161BE21292E28530066786F /* StudyInputViewModel.swift */,
-				C184086C292E97C50076FB8C /* StudyInputCollectionReusableView.swift */,
 				C161BE23292E28A00066786F /* Cell */,
 			);
 			path = StudyInput;
@@ -234,8 +231,8 @@
 		C161BE23292E28A00066786F /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				C161BE24292E28EE0066786F /* StudyNearTagCollectionViewCell.swift */,
-				C161BE26292E29010066786F /* StudyMyTagCollectionViewCell.swift */,
+				C184086C292E97C50076FB8C /* StudyInputCollectionReusableView.swift */,
+				C184086E292E99D50076FB8C /* StudyInputCollectionViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -564,10 +561,10 @@
 		C1D789A32922283000A83600 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				C161BE1C292E271E0066786F /* StudyInput */,
-				C1D0E0A0292C0C0000370579 /* HomeView.swift */,
 				C1D0E0A2292C0C1500370579 /* HomeViewController.swift */,
 				C1D0E0A4292C0C1D00370579 /* HomeViewModel.swift */,
+				C1D0E0A0292C0C0000370579 /* HomeView.swift */,
+				C161BE1C292E271E0066786F /* StudyInput */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -744,7 +741,7 @@
 				C110D2782927681C00CD536D /* Comparable + Extensions.swift in Sources */,
 				C19CA031291B862000CC6761 /* PhoneAuthView.swift in Sources */,
 				C12CD14C292363E10083C869 /* Section.swift in Sources */,
-				C161BE27292E29010066786F /* StudyMyTagCollectionViewCell.swift in Sources */,
+				C184086F292E99D50076FB8C /* StudyInputCollectionViewCell.swift in Sources */,
 				C1440698291C210900B6C9EC /* PhoneInputViewModel.swift in Sources */,
 				C19373BC291A8230008C8FED /* Icons.swift in Sources */,
 				C19CA037291B874000CC6761 /* BaseViewController.swift in Sources */,
@@ -788,7 +785,6 @@
 				C1C15E90291E34BA005B9188 /* EmailView.swift in Sources */,
 				C110D27229275C0600CD536D /* ThumbButton.swift in Sources */,
 				C19CA035291B870200CC6761 /* BaseView.swift in Sources */,
-				C161BE25292E28EE0066786F /* StudyNearTagCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

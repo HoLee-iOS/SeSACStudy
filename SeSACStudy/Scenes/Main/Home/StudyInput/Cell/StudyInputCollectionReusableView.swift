@@ -35,7 +35,7 @@ final class SearchCollectionReusableView: UICollectionReusableView {
         }
     }
     
-//    func setComponents(text: String?) {
-//        headerLabel.text = text
-//    }
+    func setComponents(text: String?) {
+        headerLabel.text = text
+    }
 }
