@@ -44,10 +44,12 @@ class HomeViewController: BaseViewController {
         
         setRegionAndAnnotation(center: CLLocationCoordinate2D(latitude: 37.517829, longitude: 126.886270))
         limitZoomRange()
-        self.navigationController?.navigationBar.isHidden = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = true
+        self.tabBarController?.tabBar.isHidden = false
         //MARK: - 다른 화면에서 홈 화면으로 전환되었을 때 search
         searchMate()
     }
