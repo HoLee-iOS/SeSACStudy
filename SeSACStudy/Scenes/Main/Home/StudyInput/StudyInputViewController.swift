@@ -15,6 +15,7 @@ class StudyInputViewController: BaseViewController {
     let searchBar: UISearchBar = {
         let bar = UISearchBar()
         bar.placeholder = "띄어쓰기로 복수 입력이 가능해요"
+        bar.sizeToFit()
         return bar
     }()
     
@@ -36,10 +37,16 @@ class StudyInputViewController: BaseViewController {
         
         self.navigationController?.navigationBar.isHidden = false
         self.navigationItem.titleView = searchBar
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(endEdit)))
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = true
+    }
+    
+    @objc func endEdit() {
+        searchBar.resignFirstResponder()
     }
     
     override func configure() {
