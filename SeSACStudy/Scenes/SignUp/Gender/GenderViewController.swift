@@ -63,7 +63,7 @@ class GenderViewController: BaseViewController {
                 return
             } else if let token = token {
                 UserDefaultsManager.token = token
-                APIService.login { [weak self] (value, status, error) in
+                APIService.signUp { [weak self] (value, status, error) in
                     guard let status = status else { return }
                     guard let networkCode = NetworkError(rawValue: status) else { return }
                     switch networkCode {
