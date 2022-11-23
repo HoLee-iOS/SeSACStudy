@@ -15,6 +15,7 @@ enum Router: URLRequestConvertible {
     case signUp
     case save
     case withdraw
+    case search
     
     var baseURL: URL {
         guard let url = URL(string: UserDefaultsManager.baseURL) else { return URL(fileURLWithPath: "") }
@@ -24,7 +25,7 @@ enum Router: URLRequestConvertible {
     var method: HTTPMethod {
         switch self {
         case .login: return .get
-        case .signUp, .withdraw: return .post
+        case .signUp, .withdraw, .search: return .post
         case .save: return .put
         }
     }
@@ -34,12 +35,13 @@ enum Router: URLRequestConvertible {
         case .login, .signUp: return UserDefaultsManager.loginPath
         case .save: return UserDefaultsManager.savePath
         case .withdraw: return UserDefaultsManager.withdrawPath
+        case .search: return UserDefaultsManager.searchPath
         }
     }
     
     var headers: HTTPHeaders {
         switch self {
-        case .login, .signUp, .save, .withdraw:
+        case .login, .signUp, .save, .withdraw, .search:
             return ["idtoken" : UserDefaultsManager.token, "Content-Type" : UserDefaultsManager.contentType]
         }
     }
@@ -62,6 +64,11 @@ enum Router: URLRequestConvertible {
                 "ageMax" : "\(UserDefaultsManager.ageMax)",
                 "gender" : "\(UserDefaultsManager.gender)",
                 "study" : UserDefaultsManager.study ?? ""
+            ]
+        case .search:
+            return [
+                "lat" : "\(UserDefaultsManager.lat)",
+                "long" : "\(UserDefaultsManager.long)"
             ]
         default:
             return ["":""]

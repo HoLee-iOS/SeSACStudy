@@ -27,6 +27,9 @@ struct UserDefaultsManager {
     @UserDefaultsWrapper(key: "withdrawPath", defaultValue: "/v1/user/withdraw")
     static var withdrawPath: String
     
+    @UserDefaultsWrapper(key: "searchPath", defaultValue: "/v1/queue/search")
+    static var searchPath: String
+    
     @UserDefaultsWrapper(key: "verificationCode", defaultValue: "")
     static var verificationCode: String
     
@@ -65,6 +68,12 @@ struct UserDefaultsManager {
     
     @UserDefaultsWrapper(key: "study", defaultValue: "")
     static var study: String?
+    
+    @UserDefaultsWrapper(key: "lat", defaultValue: 0)
+    static var lat: Double
+    
+    @UserDefaultsWrapper(key: "long", defaultValue: 0)
+    static var long: Double
     
     static func resetData() {
         UserDefaultsManager.token = ""
