@@ -7,7 +7,7 @@
 
 import Foundation
 
-// MARK: - UserInfo
+// MARK: - Login 통신 DTO
 struct UserInfo: Codable, Hashable {
     let id: String
     let v: Int
@@ -37,4 +37,18 @@ struct UserInfo: Codable, Hashable {
         case transactionID = "transactionId"
         case reviewedBefore, reportedNum, reportedUser, dodgepenalty, dodgeNum, ageMin, ageMax, searchable, createdAt
     }
+}
+
+// MARK: - Search 통신 DTO
+struct SearchInfo: Codable {
+    let fromQueueDB, fromQueueDBRequested: [FromQueueDB]
+    let fromRecommend: [String]
+}
+
+struct FromQueueDB: Codable {
+    let uid, nick: String
+    let lat, long: Double
+    let reputation: [Int]
+    let studylist, reviews: [String]
+    let gender, type, sesac, background: Int
 }
