@@ -43,6 +43,7 @@
 		C1817C6E2918FD1100382A09 /* BrandColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1817C6D2918FD1100382A09 /* BrandColor.swift */; };
 		C1817C702918FD1A00382A09 /* GrayScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1817C6F2918FD1A00382A09 /* GrayScale.swift */; };
 		C1817C722918FD2600382A09 /* SystemColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1817C712918FD2600382A09 /* SystemColor.swift */; };
+		C184086D292E97C50076FB8C /* StudyInputCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C184086C292E97C50076FB8C /* StudyInputCollectionReusableView.swift */; };
 		C19373B7291A7697008C8FED /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19373B6291A7697008C8FED /* OnBoardingViewController.swift */; };
 		C19373BA291A7FC7008C8FED /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = C19373B9291A7FC7008C8FED /* SnapKit */; };
 		C19373BC291A8230008C8FED /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19373BB291A8230008C8FED /* Icons.swift */; };
@@ -141,6 +142,7 @@
 		C1817C6D2918FD1100382A09 /* BrandColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandColor.swift; sourceTree = "<group>"; };
 		C1817C6F2918FD1A00382A09 /* GrayScale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrayScale.swift; sourceTree = "<group>"; };
 		C1817C712918FD2600382A09 /* SystemColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemColor.swift; sourceTree = "<group>"; };
+		C184086C292E97C50076FB8C /* StudyInputCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyInputCollectionReusableView.swift; sourceTree = "<group>"; };
 		C19373B6291A7697008C8FED /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
 		C19373BB291A8230008C8FED /* Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
 		C19373BD291A89CE008C8FED /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 			children = (
 				C161BE1D292E275B0066786F /* StudyInputViewController.swift */,
 				C161BE21292E28530066786F /* StudyInputViewModel.swift */,
+				C184086C292E97C50076FB8C /* StudyInputCollectionReusableView.swift */,
 				C161BE23292E28A00066786F /* Cell */,
 			);
 			path = StudyInput;
@@ -734,6 +737,7 @@
 				C1C9499D291D042400A58FBF /* NicknameViewController.swift in Sources */,
 				C1D7898B2922230D00A83600 /* MyPageViewController.swift in Sources */,
 				C10CBA1F292CA5260010E812 /* UIButton + Extensions.swift in Sources */,
+				C184086D292E97C50076FB8C /* StudyInputCollectionReusableView.swift in Sources */,
 				C1C9499F291D044700A58FBF /* NicknameView.swift in Sources */,
 				C1ADB799292B8C8800867752 /* WithdrawViewController.swift in Sources */,
 				C17D1301291ED671007D8049 /* SplashView.swift in Sources */,
