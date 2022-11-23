@@ -7,6 +7,7 @@
 
 import UIKit
 import Toast
+import FirebaseAuth
 
 class BaseViewController: UIViewController {
     
@@ -44,4 +45,21 @@ class BaseViewController: UIViewController {
         sceneDelegate?.window?.rootViewController = vc
         sceneDelegate?.window?.makeKeyAndVisible()
     }
+    
+    //MARK: - 토큰 만료 시 재발급
+//    func refreshToken(completion: @escaping () -> Void) {
+//        let currentUser = Auth.auth().currentUser
+//        currentUser?.getIDTokenForcingRefresh(true) { token, error in
+//            if let error = error as? NSError {
+//                guard let errorCode = AuthErrorCode.Code(rawValue: error.code) else { return }
+//                switch errorCode {
+//                default: self.showToast("에러: \(error.localizedDescription)")
+//                }
+//                return
+//            } else if let token = token {
+//                UserDefaultsManager.token = token
+//                completion()
+//            }
+//        }
+//    }
 }
