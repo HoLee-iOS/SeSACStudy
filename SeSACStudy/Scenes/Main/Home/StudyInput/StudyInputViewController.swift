@@ -97,7 +97,7 @@ final class StudyInputViewController: BaseViewController {
                 case .editingDidBegin:
                     vc.searchBar.searchTextField.inputAccessoryView = vc.accButton
                 case .editingDidEnd:
-                    break
+                    vc.searchBar.searchTextField.text = nil
                 }
             }
             .disposed(by: disposeBag)
@@ -105,6 +105,7 @@ final class StudyInputViewController: BaseViewController {
 }
 
 extension StudyInputViewController: UITextFieldDelegate {
+    //MARK: - 키보드 리턴 버튼 클릭 시 추가
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if TagList.greenTags.count == 8 {
             showToast("스터디를 더 이상 추가할 수 없습니다.")
@@ -127,10 +128,17 @@ extension StudyInputViewController: UITextFieldDelegate {
             showToast("내가 하고 싶은 스터디는 8개까지만 등록이 가능합니다.")
             return true
         } else {
-            inputStudy.forEach{TagList.greenTags.append(TagList(text: $0))}
+            //MARK: 중복된 스터디 추가 제한
+            inputStudy.forEach{ value in
+                let tag = TagList.greenTags.map{ $0.text.lowercased() }
+                if tag.contains(value.lowercased()) {
+                    showToast("이미 등록된 스터디입니다.")
+                } else {
+                    TagList.greenTags.append(TagList(text: value))
+                }
+            }
             textField.resignFirstResponder()
             inputStudy.removeAll()
-            textField.text = nil
             updateUI()
             return true
         }
@@ -170,17 +178,26 @@ extension StudyInputViewController {
         return layout
     }
     
-    //MARK: - dataSource 생성
     private func configureDataSource() {
+        
+        //MARK: - cell 등록
         let cellRegistration = UICollectionView.CellRegistration<StudyInputCollectionViewCell, TagList> { (cell, indexPath, item) in
             cell.setCell(text: item.text, indexPath: indexPath)
             
+            //MARK: - 태그 버튼 클릭 시 내가 하고 싶은 스터디 추가
             cell.tagButton.rx.tap
                 .withUnretained(self)
                 .bind { (vc, _) in
                     if indexPath.section == 0 {
+                        //MARK: - 하고 싶은 스터디 개수 제한
                         if TagList.greenTags.count == 8 {
                             vc.showToast("스터디를 더 이상 추가할 수 없습니다.")
+                            return
+                        }
+                        //MARK: 중복된 스터디 추가 제한
+                        let tag = TagList.greenTags.map{$0.text.lowercased()}
+                        if tag.contains(item.text.lowercased()) {
+                            vc.showToast("이미 등록된 스터디입니다.")
                             return
                         }
                         TagList.greenTags.append(TagList(text: item.text))
