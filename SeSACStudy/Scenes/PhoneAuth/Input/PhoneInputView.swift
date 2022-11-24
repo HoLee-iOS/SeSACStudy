@@ -125,7 +125,9 @@ final class PhoneInputView: BaseView {
             .bind { (vc, actions) in
                 switch actions {
                 case .editingDidBegin: vc.underline.backgroundColor = BlackNWhite.black
+                    return
                 case .editingDidEnd: vc.underline.backgroundColor = GrayScale.gray6
+                    return
                 }
             }
             .disposed(by: disposeBag)

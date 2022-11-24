@@ -11,7 +11,7 @@ protocol ReusableViewProtocol: AnyObject {
     static var reuseIdentifier: String { get }
 }
 
-extension UICollectionViewCell: ReusableViewProtocol {
+extension UICollectionReusableView: ReusableViewProtocol {
     static var reuseIdentifier: String {
         return String(describing: self)
     }

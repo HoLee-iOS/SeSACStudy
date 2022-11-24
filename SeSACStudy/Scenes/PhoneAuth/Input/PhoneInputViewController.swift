@@ -41,10 +41,11 @@ class PhoneInputViewController: BaseViewController {
                         switch errorCode {
                         case .sessionExpired, .invalidVerificationCode:
                             vc.showToast("전화 번호 인증 실패")
+                            return
                         default:
                             vc.showToast("에러가 발생했습니다. 잠시 후 다시 시도해주세요.")
+                            return
                         }
-                        return
                     }
                     //MARK: - ID 토큰 발급
                     authResult?.user.getIDToken { token, error in
@@ -62,12 +63,16 @@ class PhoneInputViewController: BaseViewController {
                                 //MARK: - 로그인 성공 시 닉네임 값 받아오기
                                 UserDefaultsManager.nickname = value?.nick ?? ""
                                 vc.view.makeToast("로그인 성공", position: .top) { _ in vc.setRootVC(vc: MainTabBarController()) }
+                                return
                             case 401: vc.refreshToken()
+                                return
                             case 406:
                                 vc.view.makeToast("미가입 유저로 회원가입 화면으로 이동합니다.") { _ in
                                     vc.navigationController?.pushViewController(NicknameViewController(), animated: true)
                                 }
+                                return
                             default: vc.showToast("잠시 후 다시 시도해주세요.")
+                                return
                             }
                         }
                     }
@@ -116,11 +121,14 @@ class PhoneInputViewController: BaseViewController {
                         //MARK: - 로그인 성공 시 닉네임 값 받아오기
                         UserDefaultsManager.nickname = value?.nick ?? ""
                         self?.view.makeToast("로그인 성공", position: .top, completion: { _ in self?.setRootVC(vc: MainTabBarController()) })
+                        return
                     case 406:
                         self?.view.makeToast("미가입 유저로 회원가입 화면으로 이동합니다.") { _ in
                             self?.navigationController?.pushViewController(NicknameViewController(), animated: true)
+                            return
                         }
                     default: self?.showToast("잠시 후 다시 시도해주세요.")
+                        return
                     }
                 }
             }

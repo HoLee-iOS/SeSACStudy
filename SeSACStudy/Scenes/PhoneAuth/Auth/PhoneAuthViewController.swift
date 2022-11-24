@@ -42,10 +42,11 @@ class PhoneAuthViewController: BaseViewController {
                                 switch errorCode {
                                 case .tooManyRequests:
                                     vc.showToast("과도한 인증 시도가 있었습니다. 나중에 다시 시도해 주세요.")
+                                    return
                                 default:
                                     vc.showToast("에러가 발생했습니다. 다시 시도해주세요.")
+                                    return
                                 }
-                                return
                             }
                             guard let id = verificationID else { return }
                             UserDefaultsManager.phoneNum = vc.authView.phoneNumberText.text?.removeHypen() ?? ""

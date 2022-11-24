@@ -37,4 +37,5 @@ struct Icons {
     static let floatingMessage = UIImage(named: "message")
     static let myLocation = UIImage(named: "place")
     static let mapMarker = UIImage(named: "map_marker")
+    static let closeSmall = UIImage(named: "close_small")
 }

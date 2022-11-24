@@ -132,12 +132,15 @@ class HomeViewController: BaseViewController {
         case .all:
             removeAllPin()
             AnnotationList.allList.forEach { addPin(type: $0.type, lat: $0.lat, long: $0.long, gender: $0.gender) }
+            return
         case .female:
             removeAllPin()
             AnnotationList.femaleList.forEach { addPin(type: $0.type, lat: $0.lat, long: $0.long, gender: $0.gender) }
+            return
         case .male:
             removeAllPin()
             AnnotationList.maleList.forEach { addPin(type: $0.type, lat: $0.lat, long: $0.long, gender: $0.gender) }
+            return
         }
     }
     
@@ -151,6 +154,7 @@ class HomeViewController: BaseViewController {
             homeView.femaleButton.configuration?.attributedTitle?.foregroundColor = BlackNWhite.black
             homeView.maleButton.backgroundColor = BlackNWhite.white
             homeView.maleButton.configuration?.attributedTitle?.foregroundColor = BlackNWhite.black
+            return
         case .female:
             homeView.allButton.backgroundColor = BlackNWhite.white
             homeView.allButton.configuration?.attributedTitle?.foregroundColor = BlackNWhite.black
@@ -158,6 +162,7 @@ class HomeViewController: BaseViewController {
             homeView.femaleButton.configuration?.attributedTitle?.foregroundColor = BlackNWhite.white
             homeView.maleButton.backgroundColor = BlackNWhite.white
             homeView.maleButton.configuration?.attributedTitle?.foregroundColor = BlackNWhite.black
+            return
         case .male:
             homeView.allButton.backgroundColor = BlackNWhite.white
             homeView.allButton.configuration?.attributedTitle?.foregroundColor = BlackNWhite.black
@@ -165,6 +170,7 @@ class HomeViewController: BaseViewController {
             homeView.femaleButton.configuration?.attributedTitle?.foregroundColor = BlackNWhite.black
             homeView.maleButton.backgroundColor = BrandColor.green
             homeView.maleButton.configuration?.attributedTitle?.foregroundColor = BlackNWhite.white
+            return
         }
     }
     
@@ -189,15 +195,49 @@ class HomeViewController: BaseViewController {
                 case .success:
                     //MARK: - 중복 통신 제한 기능
                     self?.limitAPI()
+                    guard let value = value else { return }
+                    TagList.allTags.removeAll()
+                    TagList.redTags.removeAll()
+                    //MARK: - 빨간색 태그 값 가져오기
+                    value.fromRecommend.forEach { value in
+                        TagList.redTags.append(TagList(text: value))
+                        TagList.allTags.append(TagList(text: value))
+                    }
                     //MARK: - 통신 후 어노테이션 찍어주기
                     AnnotationList.allList.removeAll()
                     self?.removeAllPin()
-                    value?.fromQueueDB.forEach { pin in
+                    //MARK: - 스터디를 찾는 다른 사용자 목록 값 요청
+                    value.fromQueueDB.forEach { pin in
                         AnnotationList.allList.append(AnnotationList(type: pin.sesac, lat: pin.lat, long: pin.long, gender: pin.gender))
                         self?.addPin(type: pin.sesac, lat: pin.lat, long: pin.long, gender: pin.gender)
+                        //MARK: - 회색 태그 값 가져오기
+                        pin.studylist.forEach { value in
+                            TagList.allTags.append(TagList(text: value))
+                        }
                     }
+                    //MARK: - 나에게 스터디를 요청한 사람 목록 값 요청
+                    value.fromQueueDBRequested.forEach { pin in
+                        AnnotationList.allList.append(AnnotationList(type: pin.sesac, lat: pin.lat, long: pin.long, gender: pin.gender))
+                        self?.addPin(type: pin.sesac, lat: pin.lat, long: pin.long, gender: pin.gender)
+                        //MARK: - 회색 태그 값 가져오기
+                        pin.studylist.forEach { value in
+                            TagList.allTags.append(TagList(text: value))
+                        }
+                    }
+                    //MARK: - 예외처리를 한 태그 배열 회색 태그 배열에 담기
+//                    TagList.grayTags = Array(Set(TagList.allTags.map{ $0.text.lowercased() }).filter{$0.text.count > 0}.subtracting(TagList.redTags.map{$0.text.lowercased()}))
+                    TagList.grayTags.removeAll()
+                    var arr = Array(Set(TagList.allTags.map{ $0.text.lowercased() }.filter{ $0.count > 0 }).subtracting(TagList.redTags.map{$0.text.lowercased()}))
+                    arr.forEach { TagList.grayTags.append(TagList(text: $0)) }
+                    print(arr)
+                    print("all", TagList.allTags)
+                    print("red", TagList.redTags)
+                    print("gray", TagList.grayTags)
+                    return
                 case .invalidToken: self?.refreshToken()
+                    return
                 default: self?.showToast("잠시 후 다시 시도해주세요.")
+                    return
                 }
             }
         } else { return }
@@ -227,7 +267,9 @@ class HomeViewController: BaseViewController {
                             AnnotationList.allList.append(AnnotationList(type: pin.sesac, lat: pin.lat, long: pin.long, gender: pin.gender))
                             self?.addPin(type: pin.sesac, lat: pin.lat, long: pin.long, gender: pin.gender)
                         }
+                        return
                     default: self?.showToast("잠시 후 다시 시도해 주세요.")
+                        return
                     }
                 }
             }

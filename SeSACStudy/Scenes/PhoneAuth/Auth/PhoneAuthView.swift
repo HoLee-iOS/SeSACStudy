@@ -89,7 +89,9 @@ final class PhoneAuthView: BaseView {
             .bind { (vc, value) in
                 switch value {
                 case .editingDidBegin: vc.underline.backgroundColor = BlackNWhite.black
+                    return
                 case .editingDidEnd: vc.underline.backgroundColor = GrayScale.gray6
+                    return
                 }
             }
             .disposed(by: disposeBag)

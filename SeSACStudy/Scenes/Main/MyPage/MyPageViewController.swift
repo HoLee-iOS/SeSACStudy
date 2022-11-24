@@ -92,8 +92,11 @@ extension MyPageViewController: UITableViewDelegate, UITableViewDataSource {
                     UserDefaultsManager.ageMin = value?.ageMin ?? 18
                     UserDefaultsManager.ageMax = value?.ageMax ?? 65
                     self?.navigationController?.pushViewController(MyInfoViewController(), animated: true)
+                    return
                 case .invalidToken: self?.refreshToken()
+                    return
                 default: self?.showToast("\(networkErr.errorDescription)")
+                    return
                 }
             }
         } else {
@@ -118,7 +121,9 @@ extension MyPageViewController: UITableViewDelegate, UITableViewDataSource {
                     guard let networkCode = NetworkError(rawValue: status) else { return }
                     switch networkCode {
                     case .success: self?.navigationController?.pushViewController(MyInfoViewController(), animated: true)
+                        return
                     default: self?.showToast("잠시 후 다시 시도해 주세요.")
+                        return
                     }
                 }
             }
