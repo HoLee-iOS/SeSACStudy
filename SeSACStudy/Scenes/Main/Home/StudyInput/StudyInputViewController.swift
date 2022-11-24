@@ -10,23 +10,19 @@ import SnapKit
 import RxSwift
 import RxCocoa
 
-class StudyInputViewController: BaseViewController {
+final class StudyInputViewController: BaseViewController {
     
     let disposeBag = DisposeBag()
     
     let viewModel = StudyInputViewModel()
     
-    let searchBar: UISearchBar = {
+    lazy var searchBar: UISearchBar = {
         let bar = UISearchBar()
+        bar.searchTextField.delegate = self
         bar.searchTextField.backgroundColor = GrayScale.gray1
         bar.placeholder = "띄어쓰기로 복수 입력이 가능해요"
         bar.sizeToFit()
         return bar
-    }()
-    
-    private lazy var collectionView: UICollectionView = {
-        let view = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
-        return view
     }()
     
     let searchButton: UIButton = {
@@ -43,6 +39,14 @@ class StudyInputViewController: BaseViewController {
         button.backgroundColor = BrandColor.green
         return button
     }()
+    
+    lazy var collectionView: UICollectionView = {
+        let view = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
+        return view
+    }()
+    
+    var dataSource: UICollectionViewDiffableDataSource<Int, TagList>! = nil
+    var currentSnapshot: NSDiffableDataSourceSnapshot<Int, TagList>! = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,13 +67,20 @@ class StudyInputViewController: BaseViewController {
     }
     
     override func configure() {
-        [searchButton].forEach { view.addSubview($0) }
+        configureDataSource()
+        [searchButton, collectionView].forEach { view.addSubview($0) }
     }
     
     override func setConstraints() {
         searchButton.snp.makeConstraints {
             $0.horizontalEdges.bottom.equalTo(view.safeAreaLayoutGuide).inset(16)
             $0.height.equalTo(view.safeAreaLayoutGuide).multipliedBy(0.075)
+        }
+        
+        collectionView.snp.makeConstraints {
+            $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(16)
+            $0.top.equalTo(view.safeAreaLayoutGuide).inset(32)
+            $0.bottom.equalTo(searchButton.snp.top)
         }
     }
     
@@ -93,123 +104,123 @@ class StudyInputViewController: BaseViewController {
     }
 }
 
+extension StudyInputViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if TagList.greenTags.count == 8 {
+            showToast("스터디를 더 이상 추가할 수 없습니다.")
+            return true
+        }
+        
+        if (textField.text == "") || (textField.text == " ") {
+            showToast("스터디명은 최소 한 자 이상, 최대 8글자까지 작성 가능합니다.")
+            return true
+        }
+        
+        guard let text = textField.text else { return true }
+        var inputStudy = text.components(separatedBy: " ").filter { $0.count > 0 }
+        let inputStudyLength = inputStudy.map { $0.count }.filter { $0 != 0 }
+        
+        if inputStudyLength.min() ?? 0 < 1 || inputStudyLength.max() ?? 0 > 8  {
+            showToast("스터디명은 최소 한 자 이상, 최대 8글자까지 작성 가능합니다.")
+            return true
+        } else if (inputStudy.count + TagList.greenTags.count) > 8 {
+            showToast("내가 하고 싶은 스터디는 8개까지만 등록이 가능합니다.")
+            return true
+        } else {
+            inputStudy.forEach{TagList.greenTags.append(TagList(text: $0))}
+            textField.resignFirstResponder()
+            inputStudy.removeAll()
+            textField.text = nil
+            updateUI()
+            return true
+        }
+    }
+}
+
+
 extension StudyInputViewController {    
     //MARK: - compositionalLayout 설정
     private func createLayout() -> UICollectionViewLayout {
         
-        return UICollectionViewCompositionalLayout { (sectionNumber, env) -> NSCollectionLayoutSection? in
+        let sectionProvider = { (sectionIndex: Int,
+                                 layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
             
-            guard let section = Section(rawValue: sectionNumber) else { return nil }
-            switch section {
-            case .main:
-                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                                      heightDimension: .fractionalHeight(1.0))
-                let item = NSCollectionLayoutItem(layoutSize: itemSize)
-                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                                       heightDimension: .fractionalWidth(0.6))
-                let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-                let section = NSCollectionLayoutSection(group: group)
-                return section
-            case .profile:
-                let estimatedHeight = CGFloat(70)
-                let layoutSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                                        heightDimension: .estimated(estimatedHeight))
-                let item = NSCollectionLayoutItem(layoutSize: layoutSize)
-                let group = NSCollectionLayoutGroup.vertical(layoutSize: layoutSize, subitem: item, count: 1)
-                let section = NSCollectionLayoutSection(group: group)
-                return section
-            case .gender, .study, .search, .age, .withdraw:
-                let estimatedHeight = CGFloat(90)
-                let layoutSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                                        heightDimension: .estimated(estimatedHeight))
-                let item = NSCollectionLayoutItem(layoutSize: layoutSize)
-                let group = NSCollectionLayoutGroup.vertical(layoutSize: layoutSize, subitem: item, count: 1)
-                let section = NSCollectionLayoutSection(group: group)
-                return section
-            }
+            let itemSize = NSCollectionLayoutSize(widthDimension: .estimated(44), heightDimension: .estimated(44))
+            let item = NSCollectionLayoutItem(layoutSize: itemSize)
+            
+            let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(44))
+            let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+            
+            let section = NSCollectionLayoutSection(group: group)
+            
+            section.contentInsets = NSDirectionalEdgeInsets(top: 12, leading: 0, bottom: 12, trailing: 0)
+            
+            let titleSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(44))
+            
+            let titleSupplementary = NSCollectionLayoutBoundarySupplementaryItem(
+                layoutSize: titleSize,
+                elementKind: StudyInputCollectionReusableView.reuseIdentifier,
+                alignment: .top)
+            section.boundarySupplementaryItems = [titleSupplementary]
+            
+            return section
         }
+        let config = UICollectionViewCompositionalLayoutConfiguration()
+        let layout = UICollectionViewCompositionalLayout(sectionProvider: sectionProvider, configuration: config)
+        return layout
     }
     
-    //    private func configureDataSource() {
-    //        //MARK: - 셀 등록
-    //        let cellRegistration0 = UICollectionView.CellRegistration<UserImageCollectionViewCell, dummy> { cell, indexPath, itemIdentifier in
-    //            cell.cardHeader.image = itemIdentifier.profile
-    //            var background = UIBackgroundConfiguration.listPlainCell()
-    //            background.cornerRadius = 8
-    //            background.image = Icons.sesacBack1
-    //            background.backgroundInsets = .init(top: 16, leading: 16, bottom: 0, trailing: 16)
-    //            cell.backgroundConfiguration = background
-    //        }
-    //
-    //        let cellRegistration1 = UICollectionView.CellRegistration<UserCardCollectionViewCell, dummy> { cell, indexPath, itemIdentifier in
-    //            cell.userCardLabel.text = itemIdentifier.name
-    //            var background = UIBackgroundConfiguration.listPlainCell()
-    //            background.cornerRadius = 8
-    //            background.strokeColor = GrayScale.gray2
-    //            background.strokeWidth = 1
-    //            background.backgroundInsets = .init(top: 0, leading: 16, bottom: 0, trailing: 16)
-    //            cell.backgroundConfiguration = background
-    //        }
-    //
-    //        let cellRegistration2 = UICollectionView.CellRegistration<GenderCollectionViewCell, dummy> { cell,indexPath,itemIdentifier in
-    //        }
-    //
-    //        let cellRegistration3 = UICollectionView.CellRegistration<StudyCollectionViewCell, dummy> { cell, indexPath, itemIdentifier in
-    //        }
-    //
-    //        let cellRegistration4 = UICollectionView.CellRegistration<SearchAllowCollectionViewCell, dummy> { cell, indexPath, itemIdentifier in
-    //        }
-    //
-    //        let cellRegistration5 = UICollectionView.CellRegistration<AgeCollectionViewCell, dummy> { cell, indexPath, itemIdentifier in
-    //        }
-    //
-    //        let cellRegistration6 = UICollectionView.CellRegistration<WithdrawCollectionViewCell, dummy> { cell, indexPath, itemIdentifier in
-    //            cell.withdrawButton.rx.tap
-    //                .bind { _ in
-    //                    let vc = WithdrawViewController()
-    //                    vc.modalPresentationStyle = .overFullScreen
-    //                    self.present(vc, animated: true)
-    //                }
-    //                .disposed(by: self.disposeBag)
-    //        }
-    //
-    //        //MARK: - 데이터 소스에 데이터 넣기
-    //        dataSource = UICollectionViewDiffableDataSource(collectionView: collectionView, cellProvider: { collectionView, indexPath, itemIdentifier in
-    //            let cell0 = collectionView.dequeueConfiguredReusableCell(using: cellRegistration0, for: indexPath, item: itemIdentifier)
-    //            let cell1 = collectionView.dequeueConfiguredReusableCell(using: cellRegistration1, for: indexPath, item: itemIdentifier)
-    //            let cell2 = collectionView.dequeueConfiguredReusableCell(using: cellRegistration2, for: indexPath, item: itemIdentifier)
-    //            let cell3 = collectionView.dequeueConfiguredReusableCell(using: cellRegistration3, for: indexPath, item: itemIdentifier)
-    //            let cell4 = collectionView.dequeueConfiguredReusableCell(using: cellRegistration4, for: indexPath, item: itemIdentifier)
-    //            let cell5 = collectionView.dequeueConfiguredReusableCell(using: cellRegistration5, for: indexPath, item: itemIdentifier)
-    //            let cell6 = collectionView.dequeueConfiguredReusableCell(using: cellRegistration6, for: indexPath, item: itemIdentifier)
-    //
-    //            guard let section = Section(rawValue: indexPath.section) else { return nil }
-    //
-    //            switch section {
-    //            case .main:
-    //                return cell0
-    //            case .profile:
-    //                return cell1
-    //            case .gender:
-    //                return cell2
-    //            case .study:
-    //                return cell3
-    //            case .search:
-    //                return cell4
-    //            case .age:
-    //                return cell5
-    //            case .withdraw:
-    //                return cell6
-    //            }
-    //        })
-    //
-    //        //MARK: - 스냅샷으로 데이터를 보여주기
-    //        currentSnapshot = NSDiffableDataSourceSnapshot<Section, dummy>()
-    //        Section.allCases.forEach { section in
-    //            currentSnapshot.appendSections([section])
-    //            currentSnapshot.appendItems(dummy.contents(), toSection: section)
-    //        }
-    //        dataSource.apply(currentSnapshot, animatingDifferences: true)
-    //    }
+    //MARK: - dataSource 생성
+    private func configureDataSource() {
+        let cellRegistration = UICollectionView.CellRegistration<StudyInputCollectionViewCell, TagList> { (cell, indexPath, item) in
+            cell.setCell(text: item.text, indexPath: indexPath)
+            
+            cell.tagButton.rx.tap
+                .withUnretained(self)
+                .bind { (vc, _) in
+                    if indexPath.section == 0 {
+                        if TagList.greenTags.count == 8 {
+                            vc.showToast("스터디를 더 이상 추가할 수 없습니다.")
+                            return
+                        }
+                        TagList.greenTags.append(TagList(text: item.text))
+                    } else {
+                        TagList.greenTags.removeAll { value in
+                            value.text == item.text
+                        }
+                    }
+                    vc.updateUI()
+                }
+                .disposed(by: self.disposeBag)
+        }
+        
+        dataSource = UICollectionViewDiffableDataSource<Int, TagList>(collectionView: collectionView) {
+            (collectionView, indexPath, item) -> UICollectionViewCell? in
+            return collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: item)
+        }
+        
+        let supplementaryRegistration = UICollectionView.SupplementaryRegistration<StudyInputCollectionReusableView>(elementKind: StudyInputCollectionReusableView.reuseIdentifier) {
+            supplementaryView, elementKind, indexPath in
+            supplementaryView.setSection(indexPath: indexPath)
+        }
+        
+        dataSource.supplementaryViewProvider = { (view, kind, index) in
+            return self.collectionView.dequeueConfiguredReusableSupplementary(using: supplementaryRegistration, for: index)
+        }
+        
+        updateUI()
+    }
+    
+    //MARK: - 값 변경에 따른 컬렉션 뷰 업데이트
+    func updateUI() {
+        currentSnapshot = NSDiffableDataSourceSnapshot<Int, TagList>()
+        currentSnapshot.appendSections([0, 1])
+        
+        currentSnapshot.appendItems(TagList.redTags, toSection: 0)
+        currentSnapshot.appendItems(TagList.grayTags, toSection: 0)
+        currentSnapshot.appendItems(TagList.greenTags, toSection: 1)
+        
+        dataSource.apply(currentSnapshot, animatingDifferences: true)
+    }
 }
 

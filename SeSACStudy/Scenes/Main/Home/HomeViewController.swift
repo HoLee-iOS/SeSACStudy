@@ -225,14 +225,9 @@ class HomeViewController: BaseViewController {
                         }
                     }
                     //MARK: - 예외처리를 한 태그 배열 회색 태그 배열에 담기
-//                    TagList.grayTags = Array(Set(TagList.allTags.map{ $0.text.lowercased() }).filter{$0.text.count > 0}.subtracting(TagList.redTags.map{$0.text.lowercased()}))
                     TagList.grayTags.removeAll()
-                    var arr = Array(Set(TagList.allTags.map{ $0.text.lowercased() }.filter{ $0.count > 0 }).subtracting(TagList.redTags.map{$0.text.lowercased()}))
+                    let arr = Array(Set(TagList.allTags.map{ $0.text.lowercased() }.filter{ $0.count > 0 }).subtracting(TagList.redTags.map{$0.text.lowercased()}))
                     arr.forEach { TagList.grayTags.append(TagList(text: $0)) }
-                    print(arr)
-                    print("all", TagList.allTags)
-                    print("red", TagList.redTags)
-                    print("gray", TagList.grayTags)
                     return
                 case .invalidToken: self?.refreshToken()
                     return

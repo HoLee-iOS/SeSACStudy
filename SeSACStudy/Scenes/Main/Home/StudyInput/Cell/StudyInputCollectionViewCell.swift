@@ -9,11 +9,16 @@ import UIKit
 
 import SnapKit
 
-class StudyInputCollectionViewCell: BaseCollectionViewCell {
+final class StudyInputCollectionViewCell: BaseCollectionViewCell {
     
-    private let tagButton: UIButton = {
+    let tagButton: UIButton = {
         let button = UIButton()
+        var config = UIButton.Configuration.plain()
         button.titleLabel?.font = UIFont(name: Fonts.regular, size: 14)
+        button.layer.borderWidth = 1
+        button.layer.cornerRadius = 8
+        config.contentInsets = .init(top: 5, leading: 16, bottom: 5, trailing: 16)
+        button.configuration = config
         return button
     }()
     
@@ -29,8 +34,22 @@ class StudyInputCollectionViewCell: BaseCollectionViewCell {
     
     func setCell(text: String?, indexPath: IndexPath) {
         tagButton.setTitle(text, for: .normal)
-
-        tagButton.layer.borderColor = indexPath.section == 0 && (0...2).contains(indexPath.item) ? SystemColor.error.cgColor : GrayScale.gray4.cgColor
-        tagButton.setTitleColor(indexPath.section == 0 && (0...2).contains(indexPath.item) ? SystemColor.error : BlackNWhite.black, for: .normal)
+        
+        if indexPath.section == 0 {
+            if indexPath.item < TagList.redTags.count {
+                tagButton.layer.borderColor = SystemColor.error.cgColor
+                tagButton.setTitleColor(SystemColor.error, for: .normal)
+            } else {
+                tagButton.layer.borderColor = GrayScale.gray4.cgColor
+                tagButton.setTitleColor(BlackNWhite.black, for: .normal)
+            }
+        } else {
+            tagButton.layer.borderColor = BrandColor.green.cgColor
+            tagButton.setTitleColor(BrandColor.green, for: .normal)
+            tagButton.configuration?.image = Icons.closeSmall
+            tagButton.configuration?.imagePlacement = .trailing
+            tagButton.configuration?.imagePadding = 6
+            tagButton.tintColor = BrandColor.green
+        }
     }
 }
