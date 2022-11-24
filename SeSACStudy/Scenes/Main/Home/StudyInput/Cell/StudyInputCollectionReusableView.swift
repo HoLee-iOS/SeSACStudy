@@ -9,7 +9,7 @@ import UIKit
 
 import SnapKit
 
-final class SearchCollectionReusableView: UICollectionReusableView {
+final class StudyInputCollectionReusableView: UICollectionReusableView {
     
     private let headerLabel: UILabel = {
         let label = UILabel()
@@ -35,7 +35,7 @@ final class SearchCollectionReusableView: UICollectionReusableView {
         }
     }
     
-    func setComponents(text: String?) {
-        headerLabel.text = text
+    func setSection(indexPath: IndexPath) {        
+        (indexPath.section == 0) ? (headerLabel.text = "지금 주변에는") : (headerLabel.text = "내가 하고 싶은")
     }
 }
