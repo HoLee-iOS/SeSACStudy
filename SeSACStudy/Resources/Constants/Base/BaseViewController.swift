@@ -27,7 +27,7 @@ class BaseViewController: UIViewController {
     
     //MARK: - 토스트 메시지 설정
     func showToast(_ message: String) {
-        self.view.makeToast(message, position: .top)
+        self.view.makeToast(message, position: .center)
     }
     
     //MARK: - 네비게이션 루트뷰 설정

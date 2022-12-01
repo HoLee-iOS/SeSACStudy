@@ -28,7 +28,7 @@ extension UIButton {
         }
     }
 
-    func addShadow(offset: CGSize, color: UIColor = BlackNWhite.black, opacity: Float = 0.1, radius: CGFloat = 3.0) {
+    func addShadow(offset: CGSize, color: UIColor = BlackNWhite.black, opacity: Float = 0.1, radius: CGFloat = 3.0) { 
         self.layer.masksToBounds = false
         self.layer.shadowColor = color.cgColor
         self.layer.shadowOffset = offset
