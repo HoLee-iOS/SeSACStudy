@@ -45,10 +45,16 @@ struct SearchInfo: Codable {
     let fromRecommend: [String]
 }
 
-struct FromQueueDB: Codable {
+struct FromQueueDB: Codable, Hashable {
     let uid, nick: String
     let lat, long: Double
     let reputation: [Int]
     let studylist, reviews: [String]
     let gender, type, sesac, background: Int
+}
+
+// MARK: - MyQueueState 통신 DTO
+struct MyState: Codable {
+    let dodged, matched, reviewed: Int
+    let matchedNick, matchedUid: String
 }
