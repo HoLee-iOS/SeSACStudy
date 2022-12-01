@@ -30,6 +30,21 @@ struct UserDefaultsManager {
     @UserDefaultsWrapper(key: "searchPath", defaultValue: "/v1/queue/search")
     static var searchPath: String
     
+    @UserDefaultsWrapper(key: "myStatePath", defaultValue: "/v1/queue/myQueueState")
+    static var myStatePath: String
+    
+    @UserDefaultsWrapper(key: "requestPath", defaultValue: "/v1/queue/studyrequest")
+    static var requestPath: String
+    
+    @UserDefaultsWrapper(key: "acceptPath", defaultValue: "/v1/queue/studyaccept")
+    static var acceptPath: String
+    
+    @UserDefaultsWrapper(key: "sesacPath", defaultValue: "/v1/queue")
+    static var sesacPath: String
+    
+    @UserDefaultsWrapper(key: "otheruid", defaultValue: "")
+    static var otheruid: String
+    
     @UserDefaultsWrapper(key: "verificationCode", defaultValue: "")
     static var verificationCode: String
     
@@ -74,6 +89,12 @@ struct UserDefaultsManager {
     
     @UserDefaultsWrapper(key: "long", defaultValue: 0)
     static var long: Double
+    
+    @UserDefaultsWrapper(key: "studyList", defaultValue: ["anything"])
+    static var studyList: Array
+    
+    @UserDefaultsWrapper(key: "matched", defaultValue: 0)
+    static var matched: Int
     
     static func resetData() {
         UserDefaultsManager.token = ""
