@@ -17,8 +17,7 @@ class LaunchViewController: BaseViewController {
     }
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        
+        super.viewDidLoad()        
     }
     
     override func bindData() {

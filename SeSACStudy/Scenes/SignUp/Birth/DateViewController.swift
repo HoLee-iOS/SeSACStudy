@@ -25,7 +25,7 @@ class DateViewController: BaseViewController {
         func dateFormatted(date: Date) -> String {
             let birth = date
             let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "YYYY-MM-dd'T'HH:mm:ss.SSS'Z'"
+            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
             return dateFormatter.string(from: birth)
         }
         

@@ -29,16 +29,16 @@ class SplashView: BaseView {
     }
     
     override func setConstraints() {
-        logoImage.snp.makeConstraints { make in
-            make.horizontalEdges.equalTo(self.safeAreaLayoutGuide).inset(78)
-            make.bottom.equalTo(self.safeAreaLayoutGuide).multipliedBy(0.63)
-            make.height.equalTo(self.safeAreaLayoutGuide).multipliedBy(0.4)
+        logoImage.snp.makeConstraints {
+            $0.horizontalEdges.equalTo(safeAreaLayoutGuide).inset(78)
+            $0.bottom.equalTo(safeAreaLayoutGuide).multipliedBy(0.63)
+            $0.height.equalTo(safeAreaLayoutGuide).multipliedBy(0.4)
         }
         
-        txtImage.snp.makeConstraints { make in
-            make.horizontalEdges.equalTo(self.safeAreaLayoutGuide).inset(24)
-            make.top.equalTo(logoImage.snp.bottom)
-            make.height.equalTo(self.safeAreaLayoutGuide).multipliedBy(0.2)
+        txtImage.snp.makeConstraints {
+            $0.horizontalEdges.equalTo(safeAreaLayoutGuide).inset(24)
+            $0.top.equalTo(logoImage.snp.bottom)
+            $0.height.equalTo(safeAreaLayoutGuide).multipliedBy(0.2)
         }
     }
 }
