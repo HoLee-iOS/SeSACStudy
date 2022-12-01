@@ -74,4 +74,84 @@ class APIService {
             }
         }
     }
+    
+    //MARK: - 새싹 찾기 요청
+    static func sesacSearch(completion: @escaping (String?, Int?, Error?) -> Void) {
+        
+        let url = UserDefaultsManager.baseURL + UserDefaultsManager.sesacPath
+        
+        let header: HTTPHeaders = [
+            "idtoken": UserDefaultsManager.token,
+            "Content-Type": "application/x-www-form-urlencoded"
+        ]
+        
+        let parameter: [String : Any] = [
+            "long": UserDefaultsManager.long,
+            "lat": UserDefaultsManager.lat,
+            "studylist": UserDefaultsManager.studyList.isEmpty ? ["anything"] : UserDefaultsManager.studyList
+        ]
+        let enc: ParameterEncoding = URLEncoding(arrayEncoding: .noBrackets)
+        
+        AF.request(url, method: .post, parameters: parameter, encoding: enc, headers: header).responseString { response in
+            guard let statusCode = response.response?.statusCode else { return }
+            switch response.result {
+            case .success(let data):
+                completion(data, statusCode, nil)
+            case .failure(let error):
+                completion(nil, statusCode, error)
+            }
+        }
+    }
+    
+    //MARK: - 새싹 찾기 중단
+    static func sesacStop(completion: @escaping (String?, Int?, Error?) -> Void) {
+        AF.request(Router.stop).responseString { response in
+            guard let statusCode = response.response?.statusCode else { return }
+            switch response.result {
+            case .success(let data):
+                completion(data, statusCode, nil)
+            case .failure(let error):
+                completion(nil, statusCode, error)
+            }
+        }
+    }
+    
+    //MARK: - 사용자의 매칭상태 확인
+    static func myQueueState(completion: @escaping (MyState?, Int?, Error?) -> Void) {
+        AF.request(Router.myState).responseDecodable(of: MyState.self) { response in
+            guard let statusCode = response.response?.statusCode else { return }
+            switch response.result {
+            case .success(let data):
+                completion(data, statusCode, nil)
+            case .failure(let error):
+                completion(nil, statusCode, error)
+            }
+        }
+    }
+    
+    //MARK: - 스터디 요청
+    static func studyRequest(completion: @escaping (String?, Int?, Error?) -> Void) {
+        AF.request(Router.request).responseString { response in
+            guard let statusCode = response.response?.statusCode else { return }
+            switch response.result {
+            case .success(let data):
+                completion(data, statusCode, nil)
+            case .failure(let error):
+                completion(nil, statusCode, error)
+            }
+        }
+    }
+    
+    //MARK: - 스터디 수락
+    static func studyAccept(completion: @escaping (String?, Int?, Error?) -> Void) {
+        AF.request(Router.accept).responseString { response in
+            guard let statusCode = response.response?.statusCode else { return }
+            switch response.result {
+            case .success(let data):
+                completion(data, statusCode, nil)
+            case .failure(let error):
+                completion(nil, statusCode, error)
+            }
+        }
+    }
 }
