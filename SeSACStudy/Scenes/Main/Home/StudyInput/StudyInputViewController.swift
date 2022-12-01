@@ -6,11 +6,14 @@
 //
 
 import UIKit
+
+import FirebaseAuth
 import SnapKit
 import RxSwift
 import RxCocoa
+import Toast
 
-final class StudyInputViewController: BaseViewController {
+class StudyInputViewController: BaseViewController {
     
     let disposeBag = DisposeBag()
     
@@ -42,6 +45,8 @@ final class StudyInputViewController: BaseViewController {
     
     lazy var collectionView: UICollectionView = {
         let view = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
+        //MARK: - 스터디 입력 화면을 수직 스크롤 할 경우 키보드 내려감
+        view.keyboardDismissMode = .onDrag
         return view
     }()
     
@@ -59,6 +64,92 @@ final class StudyInputViewController: BaseViewController {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = true
         self.navigationController?.navigationBar.isHidden = false
+        searchMate()
+    }
+    
+    //MARK: - search API 통신
+    func searchMate() {
+        APIService.searchAround { [weak self] (value, statusCode, error) in
+            guard let statusCode = statusCode else { return }
+            guard let status = NetworkError(rawValue: statusCode) else { return }
+            switch status {
+            case .success:
+                guard let value = value else { return }
+                SesacList.aroundList = value.fromQueueDB
+                SesacList.requestList = value.fromQueueDBRequested
+                SesacList.recommendList = value.fromRecommend
+                TagList.allTags.removeAll()
+                TagList.redTags.removeAll()
+                //MARK: - 빨간색 태그 값 가져오기
+                value.fromRecommend.forEach { value in
+                    TagList.redTags.append(TagList(text: value))
+                    TagList.allTags.append(TagList(text: value))
+                }
+                //MARK: - 스터디를 찾는 다른 사용자 목록 값 요청
+                value.fromQueueDB.forEach { pin in
+                    //MARK: - 회색 태그 값 가져오기
+                    pin.studylist.forEach { value in
+                        TagList.allTags.append(TagList(text: value))
+                    }
+                }
+                //MARK: - 예외처리를 한 태그 배열 회색 태그 배열에 담기
+                TagList.grayTags.removeAll()
+                let arr = Array(Set(TagList.allTags.map{ $0.text.lowercased() }.filter{ $0.count > 0 }).subtracting(TagList.redTags.map{$0.text.lowercased()}))
+                arr.forEach { TagList.grayTags.append(TagList(text: $0)) }
+                self?.updateUI()
+                return
+            case .invalidToken: self?.refreshToken2()
+                return
+            default: self?.showToast("잠시 후 다시 시도해주세요.")
+                return
+            }
+        }
+    }
+    
+    //MARK: - 토큰 만료 시 토큰 재발급
+    func refreshToken2() {
+        let currentUser = Auth.auth().currentUser
+        currentUser?.getIDTokenForcingRefresh(true) { token, error in
+            if let error = error as? NSError {
+                guard let errorCode = AuthErrorCode.Code(rawValue: error.code) else { return }
+                switch errorCode {
+                default: self.showToast("에러: \(error.localizedDescription)")
+                }
+                return
+            } else if let token = token {
+                UserDefaultsManager.token = token
+                APIService.searchAround { [weak self] (value, status, error) in
+                    guard let status = status else { return }
+                    guard let networkCode = NetworkError(rawValue: status) else { return }
+                    switch networkCode {
+                    case .success:
+                        guard let value = value else { return }
+                        TagList.allTags.removeAll()
+                        TagList.redTags.removeAll()
+                        //MARK: - 빨간색 태그 값 가져오기
+                        value.fromRecommend.forEach { value in
+                            TagList.redTags.append(TagList(text: value))
+                            TagList.allTags.append(TagList(text: value))
+                        }
+                        //MARK: - 스터디를 찾는 다른 사용자 목록 값 요청
+                        value.fromQueueDB.forEach { pin in
+                            //MARK: - 회색 태그 값 가져오기
+                            pin.studylist.forEach { value in
+                                TagList.allTags.append(TagList(text: value))
+                            }
+                        }
+                        //MARK: - 예외처리를 한 태그 배열 회색 태그 배열에 담기
+                        TagList.grayTags.removeAll()
+                        let arr = Array(Set(TagList.allTags.map{ $0.text.lowercased() }.filter{ $0.count > 0 }).subtracting(TagList.redTags.map{$0.text.lowercased()}))
+                        arr.forEach { TagList.grayTags.append(TagList(text: $0)) }
+                        self?.updateUI()
+                        return
+                    default: self?.showToast("잠시 후 다시 시도해 주세요.")
+                        return
+                    }
+                }
+            }
+        }
     }
     
     //MARK: - 화면 클릭 시 키보드 내림
@@ -84,7 +175,60 @@ final class StudyInputViewController: BaseViewController {
         }
     }
     
+    //MARK: - 토큰 만료 시 토큰 재발급
+    func refreshToken1() {
+        let currentUser = Auth.auth().currentUser
+        currentUser?.getIDTokenForcingRefresh(true) { token, error in
+            if let error = error {
+                self.showToast("에러: \(error.localizedDescription)")
+                return
+            } else if let token = token {
+                UserDefaultsManager.token = token
+                APIService.sesacSearch { [weak self] (value, statusCode, error) in
+                    guard let statusCode = statusCode else { return }
+                    guard let status = NetworkError(rawValue: statusCode) else { return }
+                    switch status {
+                    case .success:
+                        self?.view.makeToast("스터디 함께할 친구 찾기 요청 성공", position: .center) { _ in
+                            let viewController = SesacSearchTabViewController()
+                            self?.navigationController?.pushViewController(viewController, animated: true)
+                        }
+                    case .alreadySignUp: self?.showToast("신고가 누적되어 이용하실 수 없습니다")
+                    case .alreadyMatched: self?.showToast("스터디 취소 패널티로, 1분동안 이용하실 수 없습니다")
+                    case .penalty2: self?.showToast("스터디 취소 패널티로, 2분동안 이용하실 수 없습니다")
+                    case .penalty3: self?.showToast("스터디 취소 패널티로, 3분동안 이용하실 수 없습니다")
+                    default: self?.showToast("잠시 후 다시 시도해주세요.")
+                    }
+                }
+            }
+        }
+    }
+    
     override func bindData() {
+        //MARK: - 새싹 찾기 버튼 클릭에 대한 기능
+        searchButton.rx.tap
+            .withUnretained(self)
+            .bind { (vc, _) in
+                UserDefaultsManager.studyList.removeAll()
+                TagList.greenTags.forEach { UserDefaultsManager.studyList.append($0.text) }
+                APIService.sesacSearch { value, statusCode, error in
+                    guard let statusCode = statusCode else { return }
+                    guard let status = NetworkError(rawValue: statusCode) else { return }
+                    switch status {
+                    case .success:
+                        let viewController = SesacSearchTabViewController()
+                        vc.navigationController?.pushViewController(viewController, animated: true)
+                    case .alreadySignUp: vc.showToast("신고가 누적되어 이용하실 수 없습니다")
+                    case .alreadyMatched: vc.showToast("스터디 취소 패널티로, 1분동안 이용하실 수 없습니다")
+                    case .penalty2: vc.showToast("스터디 취소 패널티로, 2분동안 이용하실 수 없습니다")
+                    case .penalty3: vc.showToast("스터디 취소 패널티로, 3분동안 이용하실 수 없습니다")
+                    case .invalidToken: vc.refreshToken1()
+                    default: vc.showToast("\(statusCode): 잠시 후 다시 시도해주세요.")
+                    }
+                }
+            }
+            .disposed(by: disposeBag)
+        
         //MARK: - 검색 창 편집 상태 Input Output
         let input = StudyInputViewModel.Input(upKeyboard: searchBar.rx.textDidBeginEditing, downKeyboard: searchBar.rx.textDidEndEditing)
         let output = viewModel.transform(input: input)
@@ -95,8 +239,10 @@ final class StudyInputViewController: BaseViewController {
             .bind { (vc, status) in
                 switch status {
                 case .editingDidBegin:
+                    vc.searchButton.isHidden = true
                     vc.searchBar.searchTextField.inputAccessoryView = vc.accButton
                 case .editingDidEnd:
+                    vc.searchButton.isHidden = false
                     vc.searchBar.searchTextField.text = nil
                 }
             }
@@ -178,10 +324,10 @@ extension StudyInputViewController {
         return layout
     }
     
-    private func configureDataSource() {
-        
+    private func configureDataSource() {        
         //MARK: - cell 등록
         let cellRegistration = UICollectionView.CellRegistration<StudyInputCollectionViewCell, TagList> { (cell, indexPath, item) in
+            
             cell.setCell(text: item.text, indexPath: indexPath)
             
             //MARK: - 태그 버튼 클릭 시 내가 하고 싶은 스터디 추가
@@ -224,8 +370,6 @@ extension StudyInputViewController {
         dataSource.supplementaryViewProvider = { (view, kind, index) in
             return self.collectionView.dequeueConfiguredReusableSupplementary(using: supplementaryRegistration, for: index)
         }
-        
-        updateUI()
     }
     
     //MARK: - 값 변경에 따른 컬렉션 뷰 업데이트

@@ -9,7 +9,7 @@ import UIKit
 
 import SnapKit
 
-final class StudyInputCollectionViewCell: BaseCollectionViewCell {
+class StudyInputCollectionViewCell: BaseCollectionViewCell {
     
     let tagButton: UIButton = {
         let button = UIButton()
@@ -30,6 +30,12 @@ final class StudyInputCollectionViewCell: BaseCollectionViewCell {
         tagButton.snp.makeConstraints {
             $0.edges.equalTo(safeAreaLayoutGuide).inset(4)
         }
+    }
+    
+    override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
+        let targetSize = CGSize(width: tagButton.intrinsicContentSize.width + 20, height: 44)
+        layoutAttributes.frame.size = contentView.systemLayoutSizeFitting(targetSize, withHorizontalFittingPriority: .defaultHigh, verticalFittingPriority: .fittingSizeLevel)
+        return layoutAttributes
     }
     
     func setCell(text: String?, indexPath: IndexPath) {
