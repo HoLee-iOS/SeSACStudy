@@ -31,6 +31,8 @@ class HomeViewController: BaseViewController {
     
     var limit = false
     
+    var allowed = false
+    
     override func loadView() {
         self.view = homeView
     }
@@ -52,11 +54,49 @@ class HomeViewController: BaseViewController {
         self.tabBarController?.tabBar.isHidden = false
         //MARK: - 다른 화면에서 홈 화면으로 전환되었을 때 search
         searchMate()
+        //MARK: - 홈 화면이 보일 때마다 현재 상태 확인
+        updateMyState()
+    }
+    
+    //MARK: - 현재 상태 확인
+    func updateMyState() {
+        APIService.myQueueState { [weak self] (value, statusCode, error) in
+            guard let statusCode = statusCode else { return }
+            guard let status = NetworkError(rawValue: statusCode) else { return }
+            switch status {
+            case .success: self?.homeView.floatingButton.setImage( value?.matched == 1 ? Icons.floatingMessage : Icons.floatingAntenna, for: .normal)
+            case .alreadySignUp: self?.homeView.floatingButton.setImage(Icons.floatingSearch, for: .normal)
+            case .invalidToken: self?.refreshToken1()
+            default: self?.showToast("\(statusCode), 기타 에러")
+            }
+        }
+    }
+    
+    //MARK: - 토큰 만료 시 토큰 재발급
+    func refreshToken1() {
+        let currentUser = Auth.auth().currentUser
+        currentUser?.getIDTokenForcingRefresh(true) { token, error in
+            if let error = error {
+                self.showToast("에러: \(error.localizedDescription)")
+                return
+            } else if let token = token {
+                UserDefaultsManager.token = token
+                APIService.myQueueState { [weak self] (value, statusCode, error) in
+                    guard let statusCode = statusCode else { return }
+                    guard let status = NetworkError(rawValue: statusCode) else { return }
+                    switch status {
+                    case .success: self?.homeView.floatingButton.setImage( value?.matched == 1 ? Icons.floatingMessage : Icons.floatingAntenna, for: .normal)
+                    case .alreadySignUp: self?.homeView.floatingButton.setImage(Icons.floatingSearch, for: .normal)
+                    default: self?.showToast("잠시 후 다시 시도해주세요.")
+                    }
+                }
+            }
+        }
     }
     
     //MARK: - 위경도 기준으로 보여질 범위 설정
     func setRegionAndAnnotation(center: CLLocationCoordinate2D) {
-        let region = MKCoordinateRegion(center: center, latitudinalMeters: 350, longitudinalMeters: 350)
+        let region = MKCoordinateRegion(center: center, latitudinalMeters: 700, longitudinalMeters: 700)
         homeView.mapView.setRegion(region, animated: true)
     }
     
@@ -93,8 +133,20 @@ class HomeViewController: BaseViewController {
         homeView.floatingButton.rx.tap
             .withUnretained(self)
             .bind { (vc, _) in
-                let studyVC = StudyInputViewController()
-                vc.navigationController?.pushViewController(studyVC, animated: true)
+                //MARK: - 현재 상태에 따른 화면 전환
+                let vc1 = StudyInputViewController()
+                let vc2 = SesacSearchTabViewController()
+                let vc3 = ChattingViewController()
+                switch vc.homeView.floatingButton.imageView?.image {
+                case Icons.floatingSearch:
+                    vc.allowed ? vc.navigationController?.pushViewController(vc1, animated: true) : vc.showRequestLocationServiceAlert()
+                case Icons.floatingAntenna:
+                    vc.navigationController?.push([vc1, vc2])
+                    return
+                case Icons.floatingMessage:
+                    vc.navigationController?.push([vc1, vc2, vc3])
+                default: break
+                }                
             }
             .disposed(by: disposeBag)
         
@@ -106,9 +158,9 @@ class HomeViewController: BaseViewController {
                     vc.checkUserDeviceLocationServiceAuthorization()
                     return
                 }
-                vc.setRegionAndAnnotation(center: loc)
                 //MARK: - GPS 버튼 클릭 시 search
                 vc.searchMate()
+                vc.setRegionAndAnnotation(center: loc)
             }
             .disposed(by: disposeBag)
         
@@ -196,6 +248,10 @@ class HomeViewController: BaseViewController {
                     //MARK: - 중복 통신 제한 기능
                     self?.limitAPI()
                     guard let value = value else { return }
+                    //여자 남자에 대한 분기처리
+                    SesacList.aroundList = value.fromQueueDB
+                    SesacList.requestList = value.fromQueueDBRequested
+                    SesacList.recommendList = value.fromRecommend
                     TagList.allTags.removeAll()
                     TagList.redTags.removeAll()
                     //MARK: - 빨간색 태그 값 가져오기
@@ -215,21 +271,12 @@ class HomeViewController: BaseViewController {
                             TagList.allTags.append(TagList(text: value))
                         }
                     }
-                    //MARK: - 나에게 스터디를 요청한 사람 목록 값 요청
-                    value.fromQueueDBRequested.forEach { pin in
-                        AnnotationList.allList.append(AnnotationList(type: pin.sesac, lat: pin.lat, long: pin.long, gender: pin.gender))
-                        self?.addPin(type: pin.sesac, lat: pin.lat, long: pin.long, gender: pin.gender)
-                        //MARK: - 회색 태그 값 가져오기
-                        pin.studylist.forEach { value in
-                            TagList.allTags.append(TagList(text: value))
-                        }
-                    }
                     //MARK: - 예외처리를 한 태그 배열 회색 태그 배열에 담기
                     TagList.grayTags.removeAll()
                     let arr = Array(Set(TagList.allTags.map{ $0.text.lowercased() }.filter{ $0.count > 0 }).subtracting(TagList.redTags.map{$0.text.lowercased()}))
                     arr.forEach { TagList.grayTags.append(TagList(text: $0)) }
                     return
-                case .invalidToken: self?.refreshToken()
+                case .invalidToken: self?.refreshToken2()
                     return
                 default: self?.showToast("잠시 후 다시 시도해주세요.")
                     return
@@ -239,7 +286,7 @@ class HomeViewController: BaseViewController {
     }
     
     //MARK: - 토큰 만료 시 토큰 재발급
-    func refreshToken() {
+    func refreshToken2() {
         let currentUser = Auth.auth().currentUser
         currentUser?.getIDTokenForcingRefresh(true) { token, error in
             if let error = error as? NSError {
@@ -255,13 +302,34 @@ class HomeViewController: BaseViewController {
                     guard let networkCode = NetworkError(rawValue: status) else { return }
                     switch networkCode {
                     case .success:
+                        self?.limitAPI()
+                        guard let value = value else { return }
+                        SesacList.aroundList = value.fromQueueDB
+                        SesacList.requestList = value.fromQueueDBRequested
+                        SesacList.recommendList = value.fromRecommend
+                        TagList.allTags.removeAll()
+                        TagList.redTags.removeAll()
+                        //MARK: - 빨간색 태그 값 가져오기
+                        value.fromRecommend.forEach { value in
+                            TagList.redTags.append(TagList(text: value))
+                            TagList.allTags.append(TagList(text: value))
+                        }
                         //MARK: - 통신 후 어노테이션 찍어주기
                         AnnotationList.allList.removeAll()
                         self?.removeAllPin()
-                        value?.fromQueueDB.forEach { pin in
+                        //MARK: - 스터디를 찾는 다른 사용자 목록 값 요청
+                        value.fromQueueDB.forEach { pin in
                             AnnotationList.allList.append(AnnotationList(type: pin.sesac, lat: pin.lat, long: pin.long, gender: pin.gender))
                             self?.addPin(type: pin.sesac, lat: pin.lat, long: pin.long, gender: pin.gender)
+                            //MARK: - 회색 태그 값 가져오기
+                            pin.studylist.forEach { value in
+                                TagList.allTags.append(TagList(text: value))
+                            }
                         }
+                        //MARK: - 예외처리를 한 태그 배열 회색 태그 배열에 담기
+                        TagList.grayTags.removeAll()
+                        let arr = Array(Set(TagList.allTags.map{ $0.text.lowercased() }.filter{ $0.count > 0 }).subtracting(TagList.redTags.map{$0.text.lowercased()}))
+                        arr.forEach { TagList.grayTags.append(TagList(text: $0)) }
                         return
                     default: self?.showToast("잠시 후 다시 시도해 주세요.")
                         return
@@ -335,9 +403,13 @@ extension HomeViewController {
             locationManager.requestWhenInUseAuthorization()
         case .restricted ,.denied:
             print("DENIED")
+            //MARK: - 위치 권한 허용 판별
+            allowed = false
             showRequestLocationServiceAlert()
         case .authorizedWhenInUse:
             print("WHEN IN USE")
+            //MARK: - 위치 권한 허용 판별
+            allowed = true
             //사용자가 위치를 허용해둔 상태라면, startUpdatingLocation을 통해 didUpdateLocations 메서드가 실행
             locationManager.startUpdatingLocation() //단점: 정확도를 위해서 무한대로 호출됨
         default: print("디폴트")
@@ -377,8 +449,8 @@ extension HomeViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let loc = locations.last?.coordinate else { return }
         //MARK: - CoreLocation 메서드를 통해 위치가 업데이트 될 때 search
-        searchMate()
         setRegionAndAnnotation(center: loc)
+        searchMate()
         locationManager.stopUpdatingLocation()
     }
     
