@@ -18,9 +18,9 @@ class MyInfoViewController: BaseViewController {
         return view
     }()
     
-    private var dataSource: UICollectionViewDiffableDataSource<Section, dummy>!
+    private var dataSource: UICollectionViewDiffableDataSource<InfoSection, InfoData>!
     
-    var currentSnapshot: NSDiffableDataSourceSnapshot<Section, dummy>!
+    var currentSnapshot: NSDiffableDataSourceSnapshot<InfoSection, InfoData>!
     
     let disposeBag = DisposeBag()
     
@@ -101,7 +101,7 @@ extension MyInfoViewController {
         
         return UICollectionViewCompositionalLayout { (sectionNumber, env) -> NSCollectionLayoutSection? in
             
-            guard let section = Section(rawValue: sectionNumber) else { return nil }
+            guard let section = InfoSection(rawValue: sectionNumber) else { return nil }
             switch section {
             case .main:
                 let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
@@ -134,8 +134,9 @@ extension MyInfoViewController {
     
     private func configureDataSource() {
         //MARK: - 셀 등록
-        let cellRegistration0 = UICollectionView.CellRegistration<UserImageCollectionViewCell, dummy> { cell, indexPath, itemIdentifier in
+        let cellRegistration0 = UICollectionView.CellRegistration<UserImageCollectionViewCell, InfoData> { cell, indexPath, itemIdentifier in
             cell.cardHeader.image = itemIdentifier.profile
+            cell.requestButton.isHidden = true
             var background = UIBackgroundConfiguration.listPlainCell()
             background.cornerRadius = 8
             background.image = Icons.sesacBack1
@@ -143,7 +144,7 @@ extension MyInfoViewController {
             cell.backgroundConfiguration = background
         }
         
-        let cellRegistration1 = UICollectionView.CellRegistration<UserCardCollectionViewCell, dummy> { cell, indexPath, itemIdentifier in
+        let cellRegistration1 = UICollectionView.CellRegistration<UserCardCollectionViewCell, InfoData> { cell, indexPath, itemIdentifier in
             cell.userCardLabel.text = itemIdentifier.name
             var background = UIBackgroundConfiguration.listPlainCell()
             background.cornerRadius = 8
@@ -153,19 +154,19 @@ extension MyInfoViewController {
             cell.backgroundConfiguration = background
         }
         
-        let cellRegistration2 = UICollectionView.CellRegistration<GenderCollectionViewCell, dummy> { cell,indexPath,itemIdentifier in
+        let cellRegistration2 = UICollectionView.CellRegistration<GenderCollectionViewCell, InfoData> { cell,indexPath,itemIdentifier in
         }
         
-        let cellRegistration3 = UICollectionView.CellRegistration<StudyCollectionViewCell, dummy> { cell, indexPath, itemIdentifier in
+        let cellRegistration3 = UICollectionView.CellRegistration<StudyCollectionViewCell, InfoData> { cell, indexPath, itemIdentifier in
         }
         
-        let cellRegistration4 = UICollectionView.CellRegistration<SearchAllowCollectionViewCell, dummy> { cell, indexPath, itemIdentifier in
+        let cellRegistration4 = UICollectionView.CellRegistration<SearchAllowCollectionViewCell, InfoData> { cell, indexPath, itemIdentifier in
         }
         
-        let cellRegistration5 = UICollectionView.CellRegistration<AgeCollectionViewCell, dummy> { cell, indexPath, itemIdentifier in
+        let cellRegistration5 = UICollectionView.CellRegistration<AgeCollectionViewCell, InfoData> { cell, indexPath, itemIdentifier in
         }
         
-        let cellRegistration6 = UICollectionView.CellRegistration<WithdrawCollectionViewCell, dummy> { cell, indexPath, itemIdentifier in
+        let cellRegistration6 = UICollectionView.CellRegistration<WithdrawCollectionViewCell, InfoData> { cell, indexPath, itemIdentifier in
             cell.withdrawButton.rx.tap
                 .bind { _ in
                     let vc = WithdrawViewController()
@@ -185,7 +186,7 @@ extension MyInfoViewController {
             let cell5 = collectionView.dequeueConfiguredReusableCell(using: cellRegistration5, for: indexPath, item: itemIdentifier)
             let cell6 = collectionView.dequeueConfiguredReusableCell(using: cellRegistration6, for: indexPath, item: itemIdentifier)
             
-            guard let section = Section(rawValue: indexPath.section) else { return nil }
+            guard let section = InfoSection(rawValue: indexPath.section) else { return nil }
             
             switch section {
             case .main:
@@ -206,10 +207,10 @@ extension MyInfoViewController {
         })
         
         //MARK: - 스냅샷으로 데이터를 보여주기
-        currentSnapshot = NSDiffableDataSourceSnapshot<Section, dummy>()
-        Section.allCases.forEach { section in
+        currentSnapshot = NSDiffableDataSourceSnapshot<InfoSection, InfoData>()
+        InfoSection.allCases.forEach { section in
             currentSnapshot.appendSections([section])
-            currentSnapshot.appendItems(dummy.contents(), toSection: section)
+            currentSnapshot.appendItems(InfoData.contents(), toSection: section)
         }
         dataSource.apply(currentSnapshot, animatingDifferences: true)
     }
