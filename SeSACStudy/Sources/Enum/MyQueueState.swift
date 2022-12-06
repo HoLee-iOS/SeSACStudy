@@ -7,16 +7,8 @@
 
 import UIKit
 
-enum MyQueueState {
-    case search
-    case antenna
-    case message
-    
-    var images: UIImage? {
-        switch self {
-        case .search: return Icons.floatingSearch
-        case .antenna: return Icons.floatingAntenna
-        case .message: return Icons.floatingMessage
-        }
-    }
+enum MyQueueState: Int {
+    case wait
+    case matching
+    case normal
 }
