@@ -38,63 +38,15 @@ final class SesacSearchViewController: BaseViewController {
     
     let disposeBag = DisposeBag()
     
-    //MARK: - 타이머 객체 생성
-    var apiTimer = Timer()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //MARK: - 라이프 사이클에 맞게 타이머 초기화
-        apiTimer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(updateUserState(sender:)), userInfo: nil, repeats: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         //MARK: - 화면 진입 시 주변 새싹 검색 통신
         searchMate()
-        //MARK: - 화면 진입 시 바로 상태 확인
-        updateUserState(sender: apiTimer)
-    }
-    
-    //MARK: - 5초마다 상태 확인
-    @objc func updateUserState(sender: Timer) {
-        APIService.myQueueState { [weak self] (value, statusCode, error) in
-            guard let statusCode = statusCode else { return }
-            guard let status = NetworkError(rawValue: statusCode) else { return }
-            switch status {
-            case .success:
-                if value?.matched == 1 {
-                    self?.view.makeToast("000님과 매칭되셨습니다. 잠시 후 채팅방으로 이동합니다", position: .center, completion: { _ in
-                        self?.navigationController?.pushViewController(ChattingViewController(), animated: true)
-                    })
-                }
-            case .invalidToken: self?.refreshToken1()
-            default: self?.showToast("\(statusCode), 기타 에러")
-            }
-        }
-    }
-    
-    //MARK: - 토큰 만료 시 토큰 재발급
-    func refreshToken1() {
-        let currentUser = Auth.auth().currentUser
-        currentUser?.getIDTokenForcingRefresh(true) { token, error in
-            if let error = error {
-                self.showToast("에러: \(error.localizedDescription)")
-                return
-            } else if let token = token {
-                UserDefaultsManager.token = token
-                APIService.myQueueState { [weak self] (value, statusCode, error) in
-                    guard let statusCode = statusCode else { return }
-                    guard let status = NetworkError(rawValue: statusCode) else { return }
-                    switch status {
-                    case .success: self?.view.makeToast("000님과 매칭되셨습니다. 잠시 후 채팅방으로 이동합니다", position: .center, completion: { _ in
-                        self?.navigationController?.pushViewController(ChattingViewController(), animated: true)
-                    })
-                    default: self?.showToast("잠시 후 다시 시도해주세요.")
-                    }
-                }
-            }
-        }
     }
     
     override func configure() {
@@ -133,6 +85,7 @@ final class SesacSearchViewController: BaseViewController {
             .disposed(by: disposeBag)
     }
     
+    //MARK: - 배열 값에 따라 빈 화면으로 보여주기
     func switchEmptyView() {
         switch pageboyPageIndex {
         case 0:
@@ -160,7 +113,7 @@ final class SesacSearchViewController: BaseViewController {
                 self?.switchEmptyView()
                 self?.updateUI()
                 return
-            case .invalidToken: self?.refreshToken2()
+            case .invalidToken: self?.refreshToken()
                 return
             default: self?.showToast("잠시 후 다시 시도해주세요.")
                 return
@@ -169,7 +122,7 @@ final class SesacSearchViewController: BaseViewController {
     }
     
     //MARK: - 토큰 만료 시 토큰 재발급
-    func refreshToken2() {
+    func refreshToken() {
         let currentUser = Auth.auth().currentUser
         currentUser?.getIDTokenForcingRefresh(true) { token, error in
             if let error = error as? NSError {
