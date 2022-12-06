@@ -58,3 +58,32 @@ struct MyState: Codable {
     let dodged, matched, reviewed: Int
     let matchedNick, matchedUid: String
 }
+
+// MARK: - Chat
+struct Chat: Codable {
+    let id, to, from, chat: String
+    let createdAt: String
+
+    enum CodingKeys: String, CodingKey {
+        case id = "_id"
+        case to, from, chat, createdAt
+    }
+}
+
+// MARK: - ChatList
+struct ChatList: Codable {
+    let payload: [Payload]
+}
+
+// MARK: - Payload
+struct Payload: Codable {
+    let id, to, from, chat: String
+    let createdAt: String
+
+    enum CodingKeys: String, CodingKey {
+        case id = "_id"
+        case to, from, chat, createdAt
+    }
+}
+
+
