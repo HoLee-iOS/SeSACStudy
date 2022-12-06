@@ -42,6 +42,12 @@ struct UserDefaultsManager {
     @UserDefaultsWrapper(key: "sesacPath", defaultValue: "/v1/queue")
     static var sesacPath: String
     
+    @UserDefaultsWrapper(key: "sendPath", defaultValue: "/v1/chat/\(ChatDataModel.shared.uid)")
+    static var sendPath: String
+    
+    @UserDefaultsWrapper(key: "listPath", defaultValue: "/v1/chat/\(ChatDataModel.shared.uid)?lastchatDate=")
+    static var listPath: String
+    
     @UserDefaultsWrapper(key: "otheruid", defaultValue: "")
     static var otheruid: String
     
