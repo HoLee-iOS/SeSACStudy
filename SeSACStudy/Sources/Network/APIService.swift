@@ -154,4 +154,20 @@ class APIService {
             }
         }
     }
+    
+    //MARK: - 채팅 요청
+    static func sendChat(completion: @escaping (Chat?, Int?, Error?) -> Void) {
+        AF.request(ChatRouter.send).responseDecodable(of: Chat.self) { response in
+            guard let statusCode = response.response?.statusCode else { return }
+            switch response.result {
+            case .success(let data):
+                completion(data, statusCode, nil)
+            case .failure(let error):
+                completion(nil, statusCode, error)
+            }
+        }
+    }
+    
+    //MARK: - 채팅 목록 불러오기
+    
 }
