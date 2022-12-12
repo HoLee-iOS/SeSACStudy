@@ -13,16 +13,16 @@ class MoreMenuButton: UIButton {
         super.init(frame: frame)
     }
     
-    convenience init(text: String, image: UIImage?) {
+    convenience init(text: String, image: UIImage?, type: MoreMenuTap) {
         self.init(frame: .zero)
-        configure(text: text, image: image)
+        configure(text: text, image: image, type: type)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(text: String, image: UIImage?) {
+    func configure(text: String, image: UIImage?, type: MoreMenuTap) {
         var config = UIButton.Configuration.plain()
         config.attributedTitle = AttributedString.init(text)
         config.attributedTitle?.font = UIFont(name: Fonts.regular, size: 14)
