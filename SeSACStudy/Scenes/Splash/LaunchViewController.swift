@@ -37,8 +37,6 @@ class LaunchViewController: BaseViewController {
                     guard let networkErr = NetworkError(rawValue: statusCode) else { return }
                     switch networkErr {
                     case .success:
-                        //MARK: - 로그인 성공 시 닉네임 값 받아오기
-                        UserDefaultsManager.nickname = value?.nick ?? ""
                         self?.setRootVC(vc: MainTabBarController())
                         return
                     case .invalidToken: self?.refreshToken()
@@ -77,8 +75,6 @@ class LaunchViewController: BaseViewController {
                     guard let networkCode = NetworkError(rawValue: status) else { return }
                     switch networkCode {
                     case .success:
-                        //MARK: - 로그인 성공 시 닉네임 값 받아오기
-                        UserDefaultsManager.nickname = value?.nick ?? ""
                         self?.setRootVC(vc: MainTabBarController())
                         return
                     case .needSignUp: self?.setRootNavVC(vc: NicknameViewController())
