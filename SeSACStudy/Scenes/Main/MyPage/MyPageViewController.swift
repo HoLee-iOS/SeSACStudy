@@ -82,7 +82,6 @@ extension MyPageViewController: UITableViewDelegate, UITableViewDataSource {
             APIService.login { [weak self] value, statusCode, error in
                 guard let statusCode = statusCode else { return }
                 guard let networkErr = NetworkError(rawValue: statusCode) else { return }
-                
                 switch networkErr {
                 case .success:
                     //MARK: - 로그인 통신 성공 시 값 받아오기                    
@@ -120,7 +119,14 @@ extension MyPageViewController: UITableViewDelegate, UITableViewDataSource {
                     guard let status = status else { return }
                     guard let networkCode = NetworkError(rawValue: status) else { return }
                     switch networkCode {
-                    case .success: self?.navigationController?.pushViewController(MyInfoViewController(), animated: true)
+                    case .success:
+                        //MARK: - 로그인 통신 성공 시 값 받아오기
+                        UserDefaultsManager.gender = value?.gender ?? 2
+                        UserDefaultsManager.study = value?.study ?? ""
+                        UserDefaultsManager.searchable = value?.searchable ?? 0
+                        UserDefaultsManager.ageMin = value?.ageMin ?? 18
+                        UserDefaultsManager.ageMax = value?.ageMax ?? 65
+                        self?.navigationController?.pushViewController(MyInfoViewController(), animated: true)
                         return
                     default: self?.showToast("잠시 후 다시 시도해 주세요.")
                         return

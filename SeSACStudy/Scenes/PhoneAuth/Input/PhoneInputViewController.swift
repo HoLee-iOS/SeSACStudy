@@ -60,8 +60,6 @@ class PhoneInputViewController: BaseViewController {
                             guard let statusCode = statusCode else { return }
                             switch statusCode {
                             case 200:
-                                //MARK: - 로그인 성공 시 닉네임 값 받아오기
-                                UserDefaultsManager.nickname = value?.nick ?? ""
                                 vc.view.makeToast("로그인 성공", position: .top) { _ in vc.setRootVC(vc: MainTabBarController()) }
                                 return
                             case 401: vc.refreshToken()
@@ -118,8 +116,6 @@ class PhoneInputViewController: BaseViewController {
                     guard let status = status else { return }
                     switch status {
                     case 200:
-                        //MARK: - 로그인 성공 시 닉네임 값 받아오기
-                        UserDefaultsManager.nickname = value?.nick ?? ""
                         self?.view.makeToast("로그인 성공", position: .top, completion: { _ in self?.setRootVC(vc: MainTabBarController()) })
                         return
                     case 406:
