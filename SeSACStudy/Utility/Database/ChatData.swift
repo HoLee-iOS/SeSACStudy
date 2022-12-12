@@ -16,9 +16,9 @@ class ChatData: Object {
     @Persisted var toChat: String
     @Persisted var fromChat: String
     @Persisted var chatContent: String
-    @Persisted var chatDate = Date()
+    @Persisted var chatDate: String
     
-    convenience init(chatId: String, toChat: String, fromChat: String, chatContent: String, chatDate: Date) {
+    convenience init(chatId: String, toChat: String, fromChat: String, chatContent: String, chatDate: String) {
         self.init()
         self.chatId = chatId
         self.toChat = toChat
