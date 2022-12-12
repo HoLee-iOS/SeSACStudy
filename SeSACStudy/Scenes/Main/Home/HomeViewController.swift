@@ -64,8 +64,12 @@ class HomeViewController: BaseViewController {
             guard let statusCode = statusCode else { return }
             guard let status = NetworkError(rawValue: statusCode) else { return }
             switch status {
-            case .success: self?.homeView.floatingButton.setImage( value?.matched == 1 ? Icons.floatingMessage : Icons.floatingAntenna, for: .normal)
-            case .alreadySignUp: self?.homeView.floatingButton.setImage(Icons.floatingSearch, for: .normal)
+            case .success:
+                UserDefaultsManager.matched = value?.matched ?? 0
+                self?.homeView.floatingButton.setImage( value?.matched == 1 ? Icons.floatingMessage : Icons.floatingAntenna, for: .normal)
+            case .alreadySignUp:
+                UserDefaultsManager.matched = 2
+                self?.homeView.floatingButton.setImage(Icons.floatingSearch, for: .normal)
             case .invalidToken: self?.refreshToken1()
             default: self?.showToast("\(statusCode), 기타 에러")
             }
@@ -133,20 +137,17 @@ class HomeViewController: BaseViewController {
         homeView.floatingButton.rx.tap
             .withUnretained(self)
             .bind { (vc, _) in
+                vc.updateMyState()
                 //MARK: - 현재 상태에 따른 화면 전환
                 let vc1 = StudyInputViewController()
                 let vc2 = SesacSearchTabViewController()
                 let vc3 = ChattingViewController()
-                switch vc.homeView.floatingButton.imageView?.image {
-                case Icons.floatingSearch:
-                    vc.allowed ? vc.navigationController?.pushViewController(vc1, animated: true) : vc.showRequestLocationServiceAlert()
-                case Icons.floatingAntenna:
-                    vc.navigationController?.push([vc1, vc2])
-                    return
-                case Icons.floatingMessage:
-                    vc.navigationController?.push([vc1, vc2, vc3])
-                default: break
-                }                
+                guard let state = MyQueueState(rawValue: UserDefaultsManager.matched) else { return }
+                switch state {
+                case .wait: vc.navigationController?.push([vc1, vc2])
+                case .matching: vc.navigationController?.push([vc1, vc2, vc3])
+                case .normal: vc.allowed ? vc.navigationController?.pushViewController(vc1, animated: true) : vc.showRequestLocationServiceAlert()
+                }
             }
             .disposed(by: disposeBag)
         
