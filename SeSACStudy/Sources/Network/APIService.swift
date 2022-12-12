@@ -16,6 +16,8 @@ class APIService {
             guard let statusCode = response.response?.statusCode else { return }
             switch response.result {
             case .success(let data):
+                UserDefaultsManager.nickname = data.nick
+                ChatDataModel.shared.myUid = data.uid
                 completion(data, statusCode, nil)
             case .failure(let error):
                 completion(nil, statusCode, error)
@@ -122,6 +124,8 @@ class APIService {
             guard let statusCode = response.response?.statusCode else { return }
             switch response.result {
             case .success(let data):
+                ChatDataModel.shared.otherUid = data.matchedUid
+                ChatDataModel.shared.otherNick = data.matchedNick
                 completion(data, statusCode, nil)
             case .failure(let error):
                 completion(nil, statusCode, error)
@@ -169,5 +173,15 @@ class APIService {
     }
     
     //MARK: - 채팅 목록 불러오기
-    
+    static func loadChat(completion: @escaping (ChatList?, Int?, Error?) -> Void) {
+        AF.request(ChatRouter.list).responseDecodable(of: ChatList.self) { response in
+            guard let statusCode = response.response?.statusCode else { return }
+            switch response.result {
+            case .success(let data):
+                completion(data, statusCode, nil)
+            case .failure(let error):
+                completion(nil, statusCode, error)
+            }
+        }
+    }
 }
