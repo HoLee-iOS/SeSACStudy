@@ -8,6 +8,13 @@
 import Foundation
 
 enum NetworkError: Int {
+    
+    enum ChatError: Int {
+        case send = 200
+        case fail = 201
+        case invalidToken = 401
+    }
+    
     case success = 200
     case alreadySignUp = 201
     case invalidNick = 202
