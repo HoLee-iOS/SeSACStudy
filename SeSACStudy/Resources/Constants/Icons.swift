@@ -8,6 +8,7 @@
 import UIKit
 
 struct Icons {
+    private init() {}
     static let splashTxt = UIImage(named: "txt")
     static let splashLogo = UIImage(named: "splash_logo")
     static let onboarding1 = UIImage(named: "onboarding_img1")
@@ -48,4 +49,16 @@ struct Icons {
     static let closeSmall = UIImage(named: "close_small")
     static let sesacEmpty = UIImage(named: "img")
     static let refresh = UIImage(named: "Vector")
+    
+    struct Chat {
+        private init() {}
+        static let bell = UIImage(named: "bell")
+        static let unSend = UIImage(named: "unSend")
+        static let send = UIImage(named: "send")
+        static let more = UIImage(named: "more")
+        static let report = UIImage(named: "siren")
+        static let cancel = UIImage(named: "cancel_match")
+        static let review = UIImage(named: "write")
+        static let closeBig = UIImage(named: "close_big")
+    }
 }
