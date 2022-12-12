@@ -1,0 +1,21 @@
+//
+//  ChatDataModel.swift
+//  SeSACStudy
+//
+//  Created by 이현호 on 2022/12/05.
+//
+
+import Foundation
+
+class ChatDataModel {
+    
+    private init() {}
+    
+    static let shared = ChatDataModel()
+    
+    var myUid = ""
+    var otherUid = ""
+    var otherNick = ""
+    var content = ""
+    var date = Calendar.current.dateComponents([.month, .day, .weekday], from: .now)
+}

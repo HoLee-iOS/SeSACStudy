@@ -16,6 +16,7 @@ enum TextCase {
         case review = "리뷰 등록"
         case reviewButton = "리뷰 등록하기"
         case reviewPlaceholder = "자세한 피드백은 다른 새싹들에게 도움이 됩니다\n(500자 이내 작성)"
+        case defaultLastDate = "2000-01-01T00:00:00.000Z"
     }
     enum Review: String {
         case manner = "좋은 매너"
