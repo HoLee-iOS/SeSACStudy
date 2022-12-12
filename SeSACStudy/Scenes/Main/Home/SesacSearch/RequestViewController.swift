@@ -231,6 +231,7 @@ extension RequestViewController {
             case .success:
                 if value?.matched == 1 {
                     self?.dismiss(animated: true, completion: {
+                        UserDefaultsManager.otheruid = value?.matchedUid ?? ""
                         self?.pageIndex == 0 ? self?.view.makeToast("상대방도 스터디를 요청하여 매칭되었습니다. 잠시 후 채팅방으로 이동합니다", position: .bottom, completion: { _ in
                             self?.navigationController?.pushViewController(ChattingViewController(), animated: true)
                         }) : self?.navigationController?.pushViewController(ChattingViewController(), animated: true)

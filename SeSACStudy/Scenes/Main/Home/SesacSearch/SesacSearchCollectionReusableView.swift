@@ -56,7 +56,7 @@ final class SesacSearchCollectionReusableView: UICollectionReusableView {
     
     func setConstraints() {
         
-        [cardBackground, cardHeader, requestButton].forEach{ self.addSubview($0) }
+        [cardBackground, cardHeader, requestButton].forEach{ addSubview($0) }
         
         cardBackground.snp.makeConstraints {
             $0.edges.equalTo(safeAreaLayoutGuide)
