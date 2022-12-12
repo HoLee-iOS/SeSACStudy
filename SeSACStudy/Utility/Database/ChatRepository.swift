@@ -17,8 +17,10 @@ class ChatRepository {
     
     let localRealm = try! Realm()
     
-    func fetch() -> Results<ChatData> {
-        return localRealm.objects(ChatData.self)
+    var tasks: Results<ChatData>?
+    
+    func fetch() {
+        tasks = localRealm.objects(ChatData.self)
     }
     
     //MARK: - 채팅 저장 기능
