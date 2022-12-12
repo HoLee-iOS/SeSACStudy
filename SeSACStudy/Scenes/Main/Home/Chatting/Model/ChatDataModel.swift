@@ -17,5 +17,5 @@ class ChatDataModel {
     var otherUid = ""
     var otherNick = ""
     var content = ""
-    var date = Calendar.current.dateComponents([.month, .day, .weekday], from: .now)
+    var lastDate = ""
 }
