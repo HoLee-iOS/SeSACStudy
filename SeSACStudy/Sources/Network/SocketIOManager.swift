@@ -39,19 +39,20 @@ class SocketIOManager {
         }
         
         //이벤트 수신
-        socket.on("chat") { dataArray, ack in
+        socket.on(TextCase.Chatting.ChatSokcet.chat.rawValue) { dataArray, ack in
             print("CHAT RECEIVED", dataArray, ack)
             
             //인코딩되어있는 내용을 타입캐스팅을 통해 알아볼 수 있게 변환함
             let data = dataArray[0] as! NSDictionary
-            let chat = data["text"] as! String
-            let name = data["name"] as! String
-            let userId = data["userId"] as! String
-            let createdAt = data["createdAt"] as! String
+            let id = data[TextCase.Chatting.ChatSokcet.id.rawValue] as! String
+            let chat = data[TextCase.Chatting.ChatSokcet.chat.rawValue] as! String
+            let createdAt = data[TextCase.Chatting.ChatSokcet.createdAt.rawValue] as! String
+            let from = data[TextCase.Chatting.ChatSokcet.from.rawValue] as! String
+            let to = data[TextCase.Chatting.ChatSokcet.to.rawValue] as! String
             
-            print("Check >>>", chat, name, createdAt)
+            print("Check >>>", id, chat, createdAt, from, to)
             
-            NotificationCenter.default.post(name: NSNotification.Name("getMessage"), object: self, userInfo: ["chat": chat, "name": name, "createdAt": createdAt, "userId": userId])
+            NotificationCenter.default.post(name: NSNotification.Name("getMessage"), object: self, userInfo: [TextCase.Chatting.ChatSokcet.id.rawValue: id, TextCase.Chatting.ChatSokcet.chat.rawValue: chat, TextCase.Chatting.ChatSokcet.createdAt.rawValue: createdAt, TextCase.Chatting.ChatSokcet.from.rawValue: from, TextCase.Chatting.ChatSokcet.to.rawValue: to])
         }
     }
     
