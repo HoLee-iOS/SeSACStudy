@@ -41,8 +41,8 @@ enum QueueRouter: URLRequestConvertible {
         case .review:
             return [
                 "otheruid" : ChatDataModel.shared.otherUid,
-                "reputation": [1, 1, 1, 1, 1, 1, 0, 0, 0],
-                "comment" : "약속 시간을 잘 지키고 친절해요!"
+                "reputation": ChatDataModel.shared.reputation,
+                "comment" : ChatDataModel.shared.review
             ]
         }
     }
