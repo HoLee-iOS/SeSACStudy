@@ -51,6 +51,9 @@ struct UserDefaultsManager {
     @UserDefaultsWrapper(key: "dodgePath", defaultValue: "/v1/queue/dodge")
     static var dodgePath: String
     
+    @UserDefaultsWrapper(key: "reviewPath", defaultValue: "/v1/queue/rate/\(ChatDataModel.shared.otherUid)")
+    static var reviewPath: String
+    
     @UserDefaultsWrapper(key: "otheruid", defaultValue: "")
     static var otheruid: String
     

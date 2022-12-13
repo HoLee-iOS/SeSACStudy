@@ -88,6 +88,7 @@
 		C1ACFDA2291F8A97002941DF /* AuthTap.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1ACFDA1291F8A97002941DF /* AuthTap.swift */; };
 		C1ADB799292B8C8800867752 /* WithdrawViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1ADB798292B8C8800867752 /* WithdrawViewController.swift */; };
 		C1B5DB92294842AC0040FB29 /* RxKeyboard in Frameworks */ = {isa = PBXBuildFile; productRef = C1B5DB91294842AC0040FB29 /* RxKeyboard */; };
+		C1B5DB942948517A0040FB29 /* QueueRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B5DB932948517A0040FB29 /* QueueRouter.swift */; };
 		C1BAF7E229266543007157AC /* UserCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BAF7DB29266542007157AC /* UserCardCollectionViewCell.swift */; };
 		C1BAF7E329266543007157AC /* StudyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BAF7DC29266542007157AC /* StudyCollectionViewCell.swift */; };
 		C1BAF7E429266543007157AC /* UserImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BAF7DD29266543007157AC /* UserImageCollectionViewCell.swift */; };
@@ -217,6 +218,7 @@
 		C1A6E4CD293C5CF800F46DCC /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
 		C1ACFDA1291F8A97002941DF /* AuthTap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTap.swift; sourceTree = "<group>"; };
 		C1ADB798292B8C8800867752 /* WithdrawViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawViewController.swift; sourceTree = "<group>"; };
+		C1B5DB932948517A0040FB29 /* QueueRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueRouter.swift; sourceTree = "<group>"; };
 		C1BAF7DB29266542007157AC /* UserCardCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCardCollectionViewCell.swift; sourceTree = "<group>"; };
 		C1BAF7DC29266542007157AC /* StudyCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudyCollectionViewCell.swift; sourceTree = "<group>"; };
 		C1BAF7DD29266543007157AC /* UserImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserImageCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -477,6 +479,7 @@
 				C14D21622920F5C200FF2AF3 /* APIService.swift */,
 				C14D21642920F5C800FF2AF3 /* Router.swift */,
 				C11DC47D2939280B00569282 /* ChatRouter.swift */,
+				C1B5DB932948517A0040FB29 /* QueueRouter.swift */,
 				C14D21692920FB7D00FF2AF3 /* DTO.swift */,
 				C1D78984292209BD00A83600 /* NetworkError.swift */,
 				C1D789AC292242E900A83600 /* NetworkMonitor.swift */,
@@ -960,6 +963,7 @@
 				C110D27629275C8F00CD536D /* CustomSlider.swift in Sources */,
 				C14D216A2920FB7D00FF2AF3 /* DTO.swift in Sources */,
 				C1C15E92291E34C6005B9188 /* EmailViewController.swift in Sources */,
+				C1B5DB942948517A0040FB29 /* QueueRouter.swift in Sources */,
 				C1817C6E2918FD1100382A09 /* BrandColor.swift in Sources */,
 				C19CA043291B96F000CC6761 /* CommonViewModel.swift in Sources */,
 				C1817C702918FD1A00382A09 /* GrayScale.swift in Sources */,
