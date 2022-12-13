@@ -10,7 +10,8 @@ import UIKit
 class MainTabBarController: UITabBarController {
 
     let mapVC = HomeViewController()
-    let myPageVC = MyPageViewController() 
+    let shopVC = ShopTabViewController()
+    let myPageVC = MyPageViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,14 +20,17 @@ class MainTabBarController: UITabBarController {
         tabBar.unselectedItemTintColor = GrayScale.gray6
         
         mapVC.title = "홈"
+        shopVC.title = "새싹샵"
         myPageVC.title = "내정보"
         
         mapVC.tabBarItem.image = Icons.homeTab
+        shopVC.tabBarItem.image = Icons.shopTab
         myPageVC.tabBarItem.image = Icons.mypageTab
         
         let mapTab = UINavigationController(rootViewController: mapVC)
+        let shopTab = UINavigationController(rootViewController: shopVC)
         let mypageTab = UINavigationController(rootViewController: myPageVC)
         
-        setViewControllers([mapTab, mypageTab], animated: false)
+        setViewControllers([mapTab, shopTab, mypageTab], animated: false)
     }
 }
