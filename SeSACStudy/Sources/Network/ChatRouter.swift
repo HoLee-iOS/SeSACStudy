@@ -12,6 +12,7 @@ enum ChatRouter: URLRequestConvertible {
     
     case send
     case list
+    case dodge
     
     var baseURL: URL {
         guard let url = URL(string: UserDefaultsManager.baseURL) else { return URL(fileURLWithPath: "") }
@@ -20,7 +21,7 @@ enum ChatRouter: URLRequestConvertible {
     
     var method: HTTPMethod {
         switch self {
-        case .send: return .post
+        case .send, .dodge: return .post
         case .list: return .get
         }
     }
@@ -29,12 +30,13 @@ enum ChatRouter: URLRequestConvertible {
         switch self {
         case .send: return UserDefaultsManager.sendPath
         case .list: return UserDefaultsManager.listPath
+        case .dodge: return UserDefaultsManager.dodgePath
         }
     }
     
     var headers: HTTPHeaders {
         switch self {
-        case .send, .list:
+        case .send, .list, .dodge:
             return ["idtoken" : UserDefaultsManager.token, "Content-Type" : UserDefaultsManager.contentType]
         }
     }
@@ -43,8 +45,10 @@ enum ChatRouter: URLRequestConvertible {
         switch self {
         case .send:
             return ["chat" : ChatDataModel.shared.content]
-        default:
-            return ["":""]
+        case .list:
+            return ["lastchatDate" : ChatDataModel.shared.lastDate]
+        case .dodge:
+            return ["otheruid" : ChatDataModel.shared.otherUid]
         }
     }
     

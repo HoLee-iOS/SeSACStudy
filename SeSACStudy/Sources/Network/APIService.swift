@@ -184,4 +184,17 @@ class APIService {
             }
         }
     }
+    
+    //MARK: - 스터디 취소
+    static func studyCancel(completion: @escaping (String?, Int?, Error?) -> Void) {
+        AF.request(ChatRouter.dodge).responseString { response in
+            guard let statusCode = response.response?.statusCode else { return }
+            switch response.result {
+            case .success(let data):
+                completion(data, statusCode, nil)
+            case .failure(let error):
+                completion(nil, statusCode, error)
+            }
+        }
+    }
 }
