@@ -17,7 +17,7 @@
 		C110D27A2927931700CD536D /* UIImage + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C110D2792927931700CD536D /* UIImage + Extensions.swift */; };
 		C11AE563293C8E9300D326AC /* MoreMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11AE562293C8E9300D326AC /* MoreMenuButton.swift */; };
 		C11AE567293CA02600D326AC /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11AE566293CA02600D326AC /* ReviewViewController.swift */; };
-		C11AE569293CA1A200D326AC /* ReviewPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11AE568293CA1A200D326AC /* ReviewPopupView.swift */; };
+		C11AE569293CA1A200D326AC /* ReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11AE568293CA1A200D326AC /* ReviewView.swift */; };
 		C11AE56B293CA6B900D326AC /* ReviewButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11AE56A293CA6B900D326AC /* ReviewButton.swift */; };
 		C11DC4752938B7AD00569282 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11DC4742938B7AD00569282 /* ChatView.swift */; };
 		C11DC4782938B9B900569282 /* DateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11DC4772938B9B900569282 /* DateTableViewCell.swift */; };
@@ -152,7 +152,7 @@
 		C110D2792927931700CD536D /* UIImage + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage + Extensions.swift"; sourceTree = "<group>"; };
 		C11AE562293C8E9300D326AC /* MoreMenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreMenuButton.swift; sourceTree = "<group>"; };
 		C11AE566293CA02600D326AC /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
-		C11AE568293CA1A200D326AC /* ReviewPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewPopupView.swift; sourceTree = "<group>"; };
+		C11AE568293CA1A200D326AC /* ReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewView.swift; sourceTree = "<group>"; };
 		C11AE56A293CA6B900D326AC /* ReviewButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewButton.swift; sourceTree = "<group>"; };
 		C11DC4742938B7AD00569282 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		C11DC4772938B9B900569282 /* DateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTableViewCell.swift; sourceTree = "<group>"; };
@@ -303,7 +303,7 @@
 			children = (
 				C11DC4762938B7BE00569282 /* Cell */,
 				C11DC4742938B7AD00569282 /* ChatView.swift */,
-				C11AE568293CA1A200D326AC /* ReviewPopupView.swift */,
+				C11AE568293CA1A200D326AC /* ReviewView.swift */,
 				C1C1C1F22936756800651EB6 /* ChattingViewController.swift */,
 				C11AE566293CA02600D326AC /* ReviewViewController.swift */,
 				C124BE7A2947985A0051E44F /* CancelViewController.swift */,
@@ -942,7 +942,7 @@
 				C1440696291C20F700B6C9EC /* PhoneInputViewController.swift in Sources */,
 				C14D21632920F5C200FF2AF3 /* APIService.swift in Sources */,
 				C19373B7291A7697008C8FED /* OnBoardingViewController.swift in Sources */,
-				C11AE569293CA1A200D326AC /* ReviewPopupView.swift in Sources */,
+				C11AE569293CA1A200D326AC /* ReviewView.swift in Sources */,
 				C1D789C22922AABB00A83600 /* CircleImageView.swift in Sources */,
 				C1BAF7E229266543007157AC /* UserCardCollectionViewCell.swift in Sources */,
 				C1D78985292209BD00A83600 /* NetworkError.swift in Sources */,
