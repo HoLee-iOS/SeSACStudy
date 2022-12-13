@@ -89,6 +89,7 @@
 		C1ADB799292B8C8800867752 /* WithdrawViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1ADB798292B8C8800867752 /* WithdrawViewController.swift */; };
 		C1B5DB92294842AC0040FB29 /* RxKeyboard in Frameworks */ = {isa = PBXBuildFile; productRef = C1B5DB91294842AC0040FB29 /* RxKeyboard */; };
 		C1B5DB942948517A0040FB29 /* QueueRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B5DB932948517A0040FB29 /* QueueRouter.swift */; };
+		C1B5DB9629485AB90040FB29 /* ReviewCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B5DB9529485AB90040FB29 /* ReviewCase.swift */; };
 		C1BAF7E229266543007157AC /* UserCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BAF7DB29266542007157AC /* UserCardCollectionViewCell.swift */; };
 		C1BAF7E329266543007157AC /* StudyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BAF7DC29266542007157AC /* StudyCollectionViewCell.swift */; };
 		C1BAF7E429266543007157AC /* UserImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BAF7DD29266543007157AC /* UserImageCollectionViewCell.swift */; };
@@ -219,6 +220,7 @@
 		C1ACFDA1291F8A97002941DF /* AuthTap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTap.swift; sourceTree = "<group>"; };
 		C1ADB798292B8C8800867752 /* WithdrawViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawViewController.swift; sourceTree = "<group>"; };
 		C1B5DB932948517A0040FB29 /* QueueRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueRouter.swift; sourceTree = "<group>"; };
+		C1B5DB9529485AB90040FB29 /* ReviewCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCase.swift; sourceTree = "<group>"; };
 		C1BAF7DB29266542007157AC /* UserCardCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCardCollectionViewCell.swift; sourceTree = "<group>"; };
 		C1BAF7DC29266542007157AC /* StudyCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudyCollectionViewCell.swift; sourceTree = "<group>"; };
 		C1BAF7DD29266543007157AC /* UserImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserImageCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -597,6 +599,7 @@
 				C1A6E4C92939EC2C00F46DCC /* TextCase.swift */,
 				C1F23151293F317B002A701E /* MoreMenuTap.swift */,
 				C164ADD42947A4360000968C /* CancelCase.swift */,
+				C1B5DB9529485AB90040FB29 /* ReviewCase.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -950,6 +953,7 @@
 				C1BAF7E229266543007157AC /* UserCardCollectionViewCell.swift in Sources */,
 				C1D78985292209BD00A83600 /* NetworkError.swift in Sources */,
 				C11DC47C2938C87E00569282 /* YourChatTableViewCell.swift in Sources */,
+				C1B5DB9629485AB90040FB29 /* ReviewCase.swift in Sources */,
 				C110D27A2927931700CD536D /* UIImage + Extensions.swift in Sources */,
 				C1C949A3291D14FA00A58FBF /* DateView.swift in Sources */,
 				C164ADD52947A4360000968C /* CancelCase.swift in Sources */,
