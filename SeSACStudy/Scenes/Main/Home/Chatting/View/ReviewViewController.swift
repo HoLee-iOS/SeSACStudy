@@ -46,11 +46,13 @@ class ReviewViewController: BaseViewController {
         popup.registerButton.rx.tap
             .withUnretained(self)
             .bind { (vc, _) in
-                ChatDataModel.shared.review = vc.popup.reviewText.text
-                let viewController = CancelViewController()
-                viewController.type = vc.popup.registerButton.configuration?.title ?? ""
-                viewController.modalPresentationStyle = .overFullScreen
-                vc.present(viewController, animated: true)
+                if vc.popup.registerButton.backgroundColor == BrandColor.green {
+                    ChatDataModel.shared.review = vc.popup.reviewText.text
+                    let viewController = CancelViewController()
+                    viewController.type = vc.popup.registerButton.configuration?.title ?? ""
+                    viewController.modalPresentationStyle = .overFullScreen
+                    vc.present(viewController, animated: true)
+                }                
             }
             .disposed(by: disposeBag)
     }
