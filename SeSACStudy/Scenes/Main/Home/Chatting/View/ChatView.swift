@@ -158,13 +158,6 @@ class ChatView: BaseView {
             }
             .disposed(by: disposeBag)
         
-        cancelButton.rx.tap
-            .withUnretained(self)
-            .bind { (vc, _) in
-                print(ChatDataModel.shared.otherUid)
-            }
-            .disposed(by: disposeBag)
-        
         sendButton.rx.tap
             .withUnretained(self)
             .bind { (vc, _) in
@@ -175,30 +168,30 @@ class ChatView: BaseView {
                     switch status {
                     case .success:
                         guard let value = value else { return }
-                        ChatRepository.shared.sendChat(item: ChatData(chatId: value.id, toChat: value.to, fromChat: value.from, chatContent: value.chat, chatDate: value.createdAt))
+                        ChatRepository.shared.saveChat(item: ChatData(chatId: value.id, toChat: value.to, fromChat: value.from, chatContent: value.chat, chatDate: value.createdAt))
+                        vc.tableView.reloadData()
+                        vc.tableView.scrollToRow(at: IndexPath(row: (ChatRepository.shared.tasks?.count ?? 0) - 1, section: 0), at: .bottom, animated: false)
                     default:
-                        print(statusCode, "에러")
+                        vc.showToast("잠시후 다시 요청해주세요.")
                     }
                 }
             }
             .disposed(by: disposeBag)
-        
-        let addTap = Observable.merge(reportButton.rx.tap.asObservable(), cancelButton.rx.tap.asObservable(), reviewButton.rx.tap.asObservable())
     }
     
     //MARK: CellData Bind
-    func cellData(cell1: DateTableViewCell, cell2: YourChatTableViewCell, cell3: MyChatTableViewCell) {
+    func cellData(cell1: DateTableViewCell, cell2: YourChatTableViewCell, cell3: MyChatTableViewCell, data: ChatData) {
         //MARK: - DateCell Data Bind
-        cell1.dateLabel.text = "\(ChatDataModel.shared.date.month ?? 1)월 \(ChatDataModel.shared.date.day ?? 1)일 \(ChatDataModel.shared.date.weekday)"
+        cell1.dateLabel.text = data.chatDate.changeDateCell()
         cell1.matchingInfoLabel.text = "\(ChatDataModel.shared.otherNick)님과 매칭되었습니다"
         
         //MARK: - YourChatCell Data Bind
-        cell2.chatBox.text =
-        cell2.timeLabel.text = "15:02"
+        cell2.chatBox.text = data.chatContent
+        cell2.timeLabel.text = data.chatDate.changeDate()
         
         //MARK: - MyChatCell Data Bind
-        cell3.chatBox.text = "안녕하세요! 저 평일은 저녁 8시에 꾸준히 하는데 7시부터 해도 괜찮아요"
-        cell3.timeLabel.text = "15:02"
+        cell3.chatBox.text = data.chatContent
+        cell3.timeLabel.text = data.chatDate.changeDate()
     }
 }
 
@@ -214,16 +207,13 @@ extension ChatView: UITableViewDataSource {
         let myChat = tableView.dequeueReusableCell(withIdentifier: MyChatTableViewCell.reuseIdentifier, for: indexPath) as? MyChatTableViewCell
         
         guard let startInfo = startInfo, let yourChat = yourChat, let myChat = myChat else { return UITableViewCell() }
+        guard let data = ChatRepository.shared.tasks?[indexPath.row] else { return UITableViewCell() }
         
-        cellData(cell1: startInfo, cell2: yourChat, cell3: myChat)
-        
-        ChatRepository.shared.tasks?.sorted(by: "chatDate")
-        
-        
+        cellData(cell1: startInfo, cell2: yourChat, cell3: myChat, data: data)
         
         if indexPath.row == 0 { return startInfo }
-        ChatRepository.shared.tasks?.filter{ $0.fromChat == ChatDataModel.shared.otherUid }
-        if indexPath.row % 2 == 0 { return myChat }
-        else { return yourChat }
+        
+        //내 유저아이디와 같으면 내쪽 아니면 다른쪽
+        return data.fromChat == ChatDataModel.shared.myUid ? myChat : yourChat
     }
 }
