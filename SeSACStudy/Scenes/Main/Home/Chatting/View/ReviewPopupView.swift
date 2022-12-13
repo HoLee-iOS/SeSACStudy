@@ -70,7 +70,7 @@ class ReviewPopupView: BaseView {
     
     let questionLabel: UILabel = {
         let label = UILabel()
-        label.text = TextCase.Review.question.rawValue
+        label.text = "\(ChatDataModel.shared.otherNick)님과의 스터디는 어떠셨나요?"
         label.textColor = BrandColor.green
         label.font = UIFont(name: Fonts.regular, size: 14)
         return label
@@ -134,6 +134,7 @@ class ReviewPopupView: BaseView {
         titleLabel.snp.makeConstraints {
             $0.centerX.equalTo(safeAreaLayoutGuide)
             $0.bottom.equalTo(questionLabel.snp.top).offset(-16)
+            $0.top.equalTo(safeAreaLayoutGuide).inset(21)
         }
         
         closeButton.snp.makeConstraints {
