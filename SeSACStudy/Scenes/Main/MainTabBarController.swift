@@ -10,7 +10,7 @@ import UIKit
 class MainTabBarController: UITabBarController {
 
     let mapVC = HomeViewController()
-    let myPageVC = MyPageViewController()
+    let myPageVC = MyPageViewController() 
     
     override func viewDidLoad() {
         super.viewDidLoad()

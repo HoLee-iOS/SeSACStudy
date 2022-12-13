@@ -91,6 +91,8 @@
 		C1B5DB942948517A0040FB29 /* QueueRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B5DB932948517A0040FB29 /* QueueRouter.swift */; };
 		C1B5DB9629485AB90040FB29 /* ReviewCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B5DB9529485AB90040FB29 /* ReviewCase.swift */; };
 		C1B5DB9B294870C00040FB29 /* ShopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B5DB9A294870C00040FB29 /* ShopView.swift */; };
+		C1B5DB9D2948748A0040FB29 /* ShopTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B5DB9C2948748A0040FB29 /* ShopTabViewController.swift */; };
+		C1B5DB9F294875EC0040FB29 /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B5DB9E294875EC0040FB29 /* ShopViewController.swift */; };
 		C1BAF7E229266543007157AC /* UserCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BAF7DB29266542007157AC /* UserCardCollectionViewCell.swift */; };
 		C1BAF7E329266543007157AC /* StudyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BAF7DC29266542007157AC /* StudyCollectionViewCell.swift */; };
 		C1BAF7E429266543007157AC /* UserImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BAF7DD29266543007157AC /* UserImageCollectionViewCell.swift */; };
@@ -223,6 +225,8 @@
 		C1B5DB932948517A0040FB29 /* QueueRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueRouter.swift; sourceTree = "<group>"; };
 		C1B5DB9529485AB90040FB29 /* ReviewCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCase.swift; sourceTree = "<group>"; };
 		C1B5DB9A294870C00040FB29 /* ShopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopView.swift; sourceTree = "<group>"; };
+		C1B5DB9C2948748A0040FB29 /* ShopTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopTabViewController.swift; sourceTree = "<group>"; };
+		C1B5DB9E294875EC0040FB29 /* ShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
 		C1BAF7DB29266542007157AC /* UserCardCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCardCollectionViewCell.swift; sourceTree = "<group>"; };
 		C1BAF7DC29266542007157AC /* StudyCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudyCollectionViewCell.swift; sourceTree = "<group>"; };
 		C1BAF7DD29266543007157AC /* UserImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserImageCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -508,6 +512,8 @@
 			isa = PBXGroup;
 			children = (
 				C1B5DB9A294870C00040FB29 /* ShopView.swift */,
+				C1B5DB9E294875EC0040FB29 /* ShopViewController.swift */,
+				C1B5DB9C2948748A0040FB29 /* ShopTabViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -965,6 +971,7 @@
 				C1BAF7E629266543007157AC /* MyPageTableViewCell.swift in Sources */,
 				C1D789AD292242E900A83600 /* NetworkMonitor.swift in Sources */,
 				C1089EAF2937361500A782A5 /* UINavigationController + Extensions.swift in Sources */,
+				C1B5DB9D2948748A0040FB29 /* ShopTabViewController.swift in Sources */,
 				C1440696291C20F700B6C9EC /* PhoneInputViewController.swift in Sources */,
 				C14D21632920F5C200FF2AF3 /* APIService.swift in Sources */,
 				C19373B7291A7697008C8FED /* OnBoardingViewController.swift in Sources */,
@@ -983,6 +990,7 @@
 				C19CA033291B862F00CC6761 /* PhoneAuthViewModel.swift in Sources */,
 				C1D0E0A3292C0C1500370579 /* HomeViewController.swift in Sources */,
 				C1D789AF29224BEB00A83600 /* SettingList.swift in Sources */,
+				C1B5DB9F294875EC0040FB29 /* ShopViewController.swift in Sources */,
 				C19CA02F291B83E700CC6761 /* PhoneAuthViewController.swift in Sources */,
 				C110D27629275C8F00CD536D /* CustomSlider.swift in Sources */,
 				C14D216A2920FB7D00FF2AF3 /* DTO.swift in Sources */,
