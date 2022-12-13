@@ -45,7 +45,6 @@ class ReviewButton: UIButton {
             .withUnretained(self)
             .bind { (btn, _) in
                 btn.tapped.toggle()
-                print(btn.tapped)
                 
                 if btn.tapped {
                     btn.config.attributedTitle?.foregroundColor = BlackNWhite.white
