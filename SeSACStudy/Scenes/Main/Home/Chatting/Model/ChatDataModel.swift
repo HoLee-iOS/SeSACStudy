@@ -19,4 +19,5 @@ class ChatDataModel {
     var content = ""
     var lastDate = ""
     var reputation = [0,0,0,0,0,0,0,0,0]
+    var review = ""
 }
