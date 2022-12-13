@@ -138,7 +138,10 @@ class CancelViewController: BaseViewController {
         okButton.rx.tap
             .withUnretained(self)
             .bind { (vc, _) in
-                vc.studyCancel()
+                switch CancelCase(rawValue: vc.type) {
+                case .review: vc.writeReview()
+                default: vc.studyCancel()
+                }
             }
             .disposed(by: disposeBag)
     }
