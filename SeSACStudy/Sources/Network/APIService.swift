@@ -197,4 +197,17 @@ class APIService {
             }
         }
     }
+    
+    //MARK: - 스터디 리뷰 작성
+    static func studyReview(completion: @escaping (String?, Int?, Error?) -> Void) {
+        AF.request(QueueRouter.review).responseString { response in
+            guard let statusCode = response.response?.statusCode else { return }
+            switch response.result {
+            case .success(let data):
+                completion(data, statusCode, nil)
+            case .failure(let error):
+                completion(nil, statusCode, error)
+            }
+        }
+    }
 }
