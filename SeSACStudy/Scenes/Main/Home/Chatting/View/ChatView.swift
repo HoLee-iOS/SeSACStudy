@@ -162,20 +162,22 @@ class ChatView: BaseView {
         sendButton.rx.tap
             .withUnretained(self)
             .bind { (vc, _) in
-                ChatDataModel.shared.content = vc.chatContent.text
-                APIService.sendChat { value, statusCode, error in
-                    guard let statusCode = statusCode else { return }
-                    guard let status = NetworkError(rawValue: statusCode) else { return }
-                    switch status {
-                    case .success:
-                        guard let value = value else { return }
-                        ChatRepository.shared.saveChat(item: ChatData(chatId: value.id, toChat: value.to, fromChat: value.from, chatContent: value.chat, chatDate: value.createdAt))
-                        vc.tableView.reloadData()
-                        vc.tableView.scrollToRow(at: IndexPath(row: (ChatRepository.shared.tasks?.count ?? 0) - 1, section: 0), at: .bottom, animated: false)
-                    default:
-                        vc.showToast("잠시후 다시 요청해주세요.")
+                if vc.sendButton.currentImage == Icons.Chat.send {
+                    ChatDataModel.shared.content = vc.chatContent.text
+                    APIService.sendChat { value, statusCode, error in
+                        guard let statusCode = statusCode else { return }
+                        guard let status = NetworkError(rawValue: statusCode) else { return }
+                        switch status {
+                        case .success:
+                            guard let value = value else { return }
+                            ChatRepository.shared.saveChat(item: ChatData(chatId: value.id, toChat: value.to, fromChat: value.from, chatContent: value.chat, chatDate: value.createdAt))
+                            vc.tableView.reloadData()
+                            vc.tableView.scrollToRow(at: IndexPath(row: (ChatRepository.shared.tasks?.count ?? 0) - 1, section: 0), at: .bottom, animated: false)
+                        default:
+                            vc.showToast("잠시후 다시 요청해주세요.")
+                        }
                     }
-                }
+                }                
             }
             .disposed(by: disposeBag)
     }
