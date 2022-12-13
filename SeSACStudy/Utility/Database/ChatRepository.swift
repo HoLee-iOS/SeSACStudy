@@ -20,11 +20,12 @@ class ChatRepository {
     var tasks: Results<ChatData>?
     
     func fetch() {
-        tasks = localRealm.objects(ChatData.self)
+        tasks = localRealm.objects(ChatData.self).sorted(byKeyPath: "chatDate", ascending: true)
+        ChatDataModel.shared.lastDate = tasks?.last?.chatDate ?? TextCase.Chatting.ChatSokcet.defaultLastDate.rawValue
     }
     
     //MARK: - 채팅 저장 기능
-    func sendChat(item: ChatData) {
+    func saveChat(item: ChatData) {
         do {
             try localRealm.write {
                 localRealm.add(item)
