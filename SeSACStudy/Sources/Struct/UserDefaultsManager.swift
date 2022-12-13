@@ -45,8 +45,11 @@ struct UserDefaultsManager {
     @UserDefaultsWrapper(key: "sendPath", defaultValue: "/v1/chat/\(ChatDataModel.shared.otherUid)")
     static var sendPath: String
     
-    @UserDefaultsWrapper(key: "listPath", defaultValue: "/v1/chat/\(ChatDataModel.shared.otherUid)?lastchatDate=\(ChatRepository.shared.tasks?.last?.chatDate ?? TextCase.Chatting.defaultLastDate.rawValue)")
+    @UserDefaultsWrapper(key: "listPath", defaultValue: "/v1/chat/\(ChatDataModel.shared.otherUid)")
     static var listPath: String
+    
+    @UserDefaultsWrapper(key: "dodgePath", defaultValue: "/v1/queue/dodge")
+    static var dodgePath: String
     
     @UserDefaultsWrapper(key: "otheruid", defaultValue: "")
     static var otheruid: String
