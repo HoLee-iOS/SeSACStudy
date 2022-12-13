@@ -42,6 +42,16 @@ class ReviewViewController: BaseViewController {
                 vc.dismiss(animated: true)
             }
             .disposed(by: disposeBag)
+        
+        popup.registerButton.rx.tap
+            .withUnretained(self)
+            .bind { (vc, _) in
+                let viewController = CancelViewController()
+                viewController.type = vc.popup.registerButton.currentTitle ?? ""
+                viewController.modalPresentationStyle = .overFullScreen
+                vc.present(viewController, animated: true)
+            }
+            .disposed(by: disposeBag)
     }
 }
 
