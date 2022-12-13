@@ -82,7 +82,7 @@ class SesacSearchTabViewController: TabmanViewController {
                 if value?.matched == 1 {
                     //MARK: - 찾기 중단 시 타이머 중지
                     self?.apiTimer.invalidate()
-                    self?.view.makeToast("000님과 매칭되셨습니다. 잠시 후 채팅방으로 이동합니다", position: .center, completion: { _ in
+                    self?.view.makeToast("\(value?.matchedNick ?? "")님과 매칭되셨습니다. 잠시 후 채팅방으로 이동합니다", position: .center, completion: { _ in
                         self?.navigationController?.pushViewController(ChattingViewController(), animated: true)
                     })
                 }
@@ -109,7 +109,7 @@ class SesacSearchTabViewController: TabmanViewController {
                         if value?.matched == 1 {
                             //MARK: - 찾기 중단 시 타이머 중지
                             self?.apiTimer.invalidate()
-                            self?.view.makeToast("000님과 매칭되셨습니다. 잠시 후 채팅방으로 이동합니다", position: .center, completion: { _ in
+                            self?.view.makeToast("\(value?.matchedNick ?? "")님과 매칭되셨습니다. 잠시 후 채팅방으로 이동합니다", position: .center, completion: { _ in
                                 self?.navigationController?.pushViewController(ChattingViewController(), animated: true)
                             })
                         }
