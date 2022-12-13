@@ -74,7 +74,7 @@ class CancelViewController: BaseViewController {
         view.backgroundColor = BlackNWhite.black.withAlphaComponent(0.5)
     }
     
-    override func viewWillAppear(_ animated: Bool) {        
+    override func viewWillAppear(_ animated: Bool) {
         switch CancelCase(rawValue: type) {
         case .cancel:
             titleLabel.text = CancelCase.cancelContent.title.rawValue
@@ -156,14 +156,14 @@ extension CancelViewController {
                 self?.dismiss(animated: true) {
                     self?.setRootVC(vc: MainTabBarController())
                 }
-            case .invalidToken: self?.refreshToken()
+            case .invalidToken: self?.refreshToken1()
             default: self?.showToast("\(statusCode) 에러")
             }
         }
     }
     
     //MARK: - 토큰 만료 시 토큰 재발급
-    func refreshToken() {
+    func refreshToken1() {
         let currentUser = Auth.auth().currentUser
         currentUser?.getIDTokenForcingRefresh(true) { token, error in
             if let error = error {
@@ -172,6 +172,46 @@ extension CancelViewController {
             } else if let token = token {
                 UserDefaultsManager.token = token
                 APIService.studyCancel { [weak self] (value, statusCode, error) in
+                    guard let statusCode = statusCode else { return }
+                    guard let status = NetworkError(rawValue: statusCode) else { return }
+                    switch status {
+                    case .success:
+                        self?.dismiss(animated: true) {
+                            self?.setRootVC(vc: MainTabBarController())
+                        }
+                    default: self?.showToast("잠시 후 다시 시도해주세요.")
+                    }
+                }
+            }
+        }
+    }
+    
+    //MARK: - 리뷰 작성
+    func writeReview() {
+        APIService.studyReview { [weak self] (value, statusCode, error) in
+            guard let statusCode = statusCode else { return }
+            guard let status = NetworkError(rawValue: statusCode) else { return }
+            switch status {
+            case .success:
+                self?.dismiss(animated: true) {
+                    self?.setRootVC(vc: MainTabBarController())
+                }
+            case .invalidToken: self?.refreshToken2()
+            default: self?.showToast("\(statusCode) 에러")
+            }
+        }
+    }
+    
+    //MARK: - 토큰 만료 시 토큰 재발급
+    func refreshToken2() {
+        let currentUser = Auth.auth().currentUser
+        currentUser?.getIDTokenForcingRefresh(true) { token, error in
+            if let error = error {
+                self.showToast("에러: \(error.localizedDescription)")
+                return
+            } else if let token = token {
+                UserDefaultsManager.token = token
+                APIService.studyReview { [weak self] (value, statusCode, error) in
                     guard let statusCode = statusCode else { return }
                     guard let status = NetworkError(rawValue: statusCode) else { return }
                     switch status {
