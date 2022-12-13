@@ -23,6 +23,7 @@ class ChatView: BaseView {
         view.dataSource = self
         view.rowHeight = UITableView.automaticDimension
         view.separatorStyle = .none
+        
         view.register(DateTableViewCell.self, forCellReuseIdentifier: DateTableViewCell.reuseIdentifier)
         view.register(YourChatTableViewCell.self, forCellReuseIdentifier: YourChatTableViewCell.reuseIdentifier)
         view.register(MyChatTableViewCell.self, forCellReuseIdentifier: MyChatTableViewCell.reuseIdentifier)

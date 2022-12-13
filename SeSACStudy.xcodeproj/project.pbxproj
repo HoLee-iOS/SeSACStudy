@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		774F24695C7327CEE8EE4ECD /* Pods_SeSACStudy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47074B748F22BA6BB07FC793 /* Pods_SeSACStudy.framework */; };
 		C1089EAF2937361500A782A5 /* UINavigationController + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1089EAE2937361500A782A5 /* UINavigationController + Extensions.swift */; };
 		C10CBA1F292CA5260010E812 /* UIButton + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10CBA1E292CA5260010E812 /* UIButton + Extensions.swift */; };
 		C10CBA21292CDFFA0010E812 /* AnnotationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10CBA20292CDFFA0010E812 /* AnnotationType.swift */; };
@@ -25,6 +24,9 @@
 		C11DC47A2938B9C600569282 /* MyChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11DC4792938B9C600569282 /* MyChatTableViewCell.swift */; };
 		C11DC47C2938C87E00569282 /* YourChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11DC47B2938C87E00569282 /* YourChatTableViewCell.swift */; };
 		C11DC47E2939280B00569282 /* ChatRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11DC47D2939280B00569282 /* ChatRouter.swift */; };
+		C124BE7529474E630051E44F /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = C124BE7429474E630051E44F /* RxCocoa */; };
+		C124BE7729474E630051E44F /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C124BE7629474E630051E44F /* RxSwift */; };
+		C124BE7B2947985A0051E44F /* CancelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C124BE7A2947985A0051E44F /* CancelViewController.swift */; };
 		C12CD14C292363E10083C869 /* InfoSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12CD14B292363E10083C869 /* InfoSection.swift */; };
 		C12CD1542923BF9A0083C869 /* MyInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12CD1532923BF9A0083C869 /* MyInfoViewModel.swift */; };
 		C133DC2E2930ACD300CC0E7F /* Tabman in Frameworks */ = {isa = PBXBuildFile; productRef = C133DC2D2930ACD300CC0E7F /* Tabman */; };
@@ -43,6 +45,7 @@
 		C161BE1B292E06D80066786F /* AnnotationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C161BE1A292E06D80066786F /* AnnotationList.swift */; };
 		C161BE1E292E275B0066786F /* StudyInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C161BE1D292E275B0066786F /* StudyInputViewController.swift */; };
 		C161BE22292E28530066786F /* StudyInputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C161BE21292E28530066786F /* StudyInputViewModel.swift */; };
+		C164ADD52947A4360000968C /* CancelCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C164ADD42947A4360000968C /* CancelCase.swift */; };
 		C17C5B172932355600594491 /* SesacSearchCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17C5B162932355600594491 /* SesacSearchCollectionReusableView.swift */; };
 		C17D12F8291EA9F5007D8049 /* TextFieldControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17D12F7291EA9F5007D8049 /* TextFieldControl.swift */; };
 		C17D12FA291EAF58007D8049 /* GenderTap.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17D12F9291EAF58007D8049 /* GenderTap.swift */; };
@@ -82,10 +85,9 @@
 		C1A6E4CA2939EC2C00F46DCC /* TextCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A6E4C92939EC2C00F46DCC /* TextCase.swift */; };
 		C1A6E4CC293A2A8900F46DCC /* BasePaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A6E4CB293A2A8900F46DCC /* BasePaddingLabel.swift */; };
 		C1A6E4CE293C5CF800F46DCC /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A6E4CD293C5CF800F46DCC /* ChatViewModel.swift */; };
-		C1A6E4D1293C6E6F00F46DCC /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = C1A6E4D0293C6E6F00F46DCC /* RxCocoa */; };
-		C1A6E4D3293C6E6F00F46DCC /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C1A6E4D2293C6E6F00F46DCC /* RxSwift */; };
 		C1ACFDA2291F8A97002941DF /* AuthTap.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1ACFDA1291F8A97002941DF /* AuthTap.swift */; };
 		C1ADB799292B8C8800867752 /* WithdrawViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1ADB798292B8C8800867752 /* WithdrawViewController.swift */; };
+		C1B5DB92294842AC0040FB29 /* RxKeyboard in Frameworks */ = {isa = PBXBuildFile; productRef = C1B5DB91294842AC0040FB29 /* RxKeyboard */; };
 		C1BAF7E229266543007157AC /* UserCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BAF7DB29266542007157AC /* UserCardCollectionViewCell.swift */; };
 		C1BAF7E329266543007157AC /* StudyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BAF7DC29266542007157AC /* StudyCollectionViewCell.swift */; };
 		C1BAF7E429266543007157AC /* UserImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BAF7DD29266543007157AC /* UserImageCollectionViewCell.swift */; };
@@ -134,16 +136,12 @@
 		C1F23144293E1A6C002A701E /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C1F23143293E1A6C002A701E /* RealmSwift */; };
 		C1F23146293E1F1E002A701E /* ChatRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F23145293E1F1E002A701E /* ChatRepository.swift */; };
 		C1F23149293E2431002A701E /* ChatDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F23148293E2431002A701E /* ChatDataModel.swift */; };
-		C1F2314B293F279A002A701E /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F2314A293F279A002A701E /* APIKey.swift */; };
 		C1F2314E293F29F4002A701E /* SocketIO in Frameworks */ = {isa = PBXBuildFile; productRef = C1F2314D293F29F4002A701E /* SocketIO */; };
 		C1F23150293F2A95002A701E /* SocketIOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F2314F293F2A95002A701E /* SocketIOManager.swift */; };
 		C1F23152293F317B002A701E /* MoreMenuTap.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F23151293F317B002A701E /* MoreMenuTap.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		47074B748F22BA6BB07FC793 /* Pods_SeSACStudy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SeSACStudy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		57482D3D5D62E84F0FD652A5 /* Pods-SeSACStudy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SeSACStudy.debug.xcconfig"; path = "Target Support Files/Pods-SeSACStudy/Pods-SeSACStudy.debug.xcconfig"; sourceTree = "<group>"; };
-		A56C5073447385E61FC31C68 /* Pods-SeSACStudy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SeSACStudy.release.xcconfig"; path = "Target Support Files/Pods-SeSACStudy/Pods-SeSACStudy.release.xcconfig"; sourceTree = "<group>"; };
 		C1089EAE2937361500A782A5 /* UINavigationController + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController + Extensions.swift"; sourceTree = "<group>"; };
 		C10CBA1E292CA5260010E812 /* UIButton + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton + Extensions.swift"; sourceTree = "<group>"; };
 		C10CBA20292CDFFA0010E812 /* AnnotationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationType.swift; sourceTree = "<group>"; };
@@ -161,6 +159,7 @@
 		C11DC4792938B9C600569282 /* MyChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyChatTableViewCell.swift; sourceTree = "<group>"; };
 		C11DC47B2938C87E00569282 /* YourChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourChatTableViewCell.swift; sourceTree = "<group>"; };
 		C11DC47D2939280B00569282 /* ChatRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRouter.swift; sourceTree = "<group>"; };
+		C124BE7A2947985A0051E44F /* CancelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelViewController.swift; sourceTree = "<group>"; };
 		C12CD14B292363E10083C869 /* InfoSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoSection.swift; sourceTree = "<group>"; };
 		C12CD1532923BF9A0083C869 /* MyInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoViewModel.swift; sourceTree = "<group>"; };
 		C133DC2F2930AFC900CC0E7F /* SesacSearchTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SesacSearchTabViewController.swift; sourceTree = "<group>"; };
@@ -175,6 +174,7 @@
 		C161BE1A292E06D80066786F /* AnnotationList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationList.swift; sourceTree = "<group>"; };
 		C161BE1D292E275B0066786F /* StudyInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyInputViewController.swift; sourceTree = "<group>"; };
 		C161BE21292E28530066786F /* StudyInputViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyInputViewModel.swift; sourceTree = "<group>"; };
+		C164ADD42947A4360000968C /* CancelCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelCase.swift; sourceTree = "<group>"; };
 		C17C5B162932355600594491 /* SesacSearchCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SesacSearchCollectionReusableView.swift; sourceTree = "<group>"; };
 		C17D12F7291EA9F5007D8049 /* TextFieldControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldControl.swift; sourceTree = "<group>"; };
 		C17D12F9291EAF58007D8049 /* GenderTap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderTap.swift; sourceTree = "<group>"; };
@@ -263,7 +263,6 @@
 		C1F2313E293E185F002A701E /* ChatData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatData.swift; sourceTree = "<group>"; };
 		C1F23145293E1F1E002A701E /* ChatRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRepository.swift; sourceTree = "<group>"; };
 		C1F23148293E2431002A701E /* ChatDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDataModel.swift; sourceTree = "<group>"; };
-		C1F2314A293F279A002A701E /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		C1F2314F293F2A95002A701E /* SocketIOManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketIOManager.swift; sourceTree = "<group>"; };
 		C1F23151293F317B002A701E /* MoreMenuTap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreMenuTap.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -274,40 +273,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				C14D21612920F33400FF2AF3 /* FirebaseMessaging in Frameworks */,
+				C1B5DB92294842AC0040FB29 /* RxKeyboard in Frameworks */,
 				C133DC2E2930ACD300CC0E7F /* Tabman in Frameworks */,
+				C124BE7529474E630051E44F /* RxCocoa in Frameworks */,
 				C14D21682920F5F600FF2AF3 /* Alamofire in Frameworks */,
-				C1A6E4D1293C6E6F00F46DCC /* RxCocoa in Frameworks */,
 				C1F23142293E1A6C002A701E /* Realm in Frameworks */,
 				C1F2314E293F29F4002A701E /* SocketIO in Frameworks */,
+				C124BE7729474E630051E44F /* RxSwift in Frameworks */,
 				C19CA03C291B950E00CC6761 /* Toast in Frameworks */,
 				C14D215F2920F33400FF2AF3 /* FirebaseAuth in Frameworks */,
-				C1A6E4D3293C6E6F00F46DCC /* RxSwift in Frameworks */,
 				C1F23144293E1A6C002A701E /* RealmSwift in Frameworks */,
 				C19373BA291A7FC7008C8FED /* SnapKit in Frameworks */,
-				774F24695C7327CEE8EE4ECD /* Pods_SeSACStudy.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		21520E361B8E403069066674 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				57482D3D5D62E84F0FD652A5 /* Pods-SeSACStudy.debug.xcconfig */,
-				A56C5073447385E61FC31C68 /* Pods-SeSACStudy.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
-		8FCA7B247A07AA848B73244A /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				47074B748F22BA6BB07FC793 /* Pods_SeSACStudy.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		C11DC4722938B6F600569282 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -324,6 +306,7 @@
 				C11AE568293CA1A200D326AC /* ReviewPopupView.swift */,
 				C1C1C1F22936756800651EB6 /* ChattingViewController.swift */,
 				C11AE566293CA02600D326AC /* ReviewViewController.swift */,
+				C124BE7A2947985A0051E44F /* CancelViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -374,10 +357,9 @@
 		C1817C3C2918E0C500382A09 = {
 			isa = PBXGroup;
 			children = (
+				C19373BD291A89CE008C8FED /* .gitignore */,
 				C1817C472918E0C500382A09 /* SeSACStudy */,
 				C1817C462918E0C500382A09 /* Products */,
-				21520E361B8E403069066674 /* Pods */,
-				8FCA7B247A07AA848B73244A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -393,7 +375,6 @@
 			isa = PBXGroup;
 			children = (
 				C19CA02D291B81C700CC6761 /* SeSACStudy.entitlements */,
-				C19373BD291A89CE008C8FED /* .gitignore */,
 				C1BDB24B2920FF5B00479A3A /* GoogleService-Info.plist */,
 				C1817C482918E0C500382A09 /* AppDelegate.swift */,
 				C1817C4A2918E0C500382A09 /* SceneDelegate.swift */,
@@ -493,7 +474,6 @@
 		C1817C672918EBF900382A09 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				C1F2314A293F279A002A701E /* APIKey.swift */,
 				C14D21622920F5C200FF2AF3 /* APIService.swift */,
 				C14D21642920F5C800FF2AF3 /* Router.swift */,
 				C11DC47D2939280B00569282 /* ChatRouter.swift */,
@@ -613,6 +593,7 @@
 				C1C1C1EF2936615100651EB6 /* SesacImages.swift */,
 				C1A6E4C92939EC2C00F46DCC /* TextCase.swift */,
 				C1F23151293F317B002A701E /* MoreMenuTap.swift */,
+				C164ADD42947A4360000968C /* CancelCase.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -797,11 +778,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C1817C592918E0C600382A09 /* Build configuration list for PBXNativeTarget "SeSACStudy" */;
 			buildPhases = (
-				8A05B610A49B85B7A92A7639 /* [CP] Check Pods Manifest.lock */,
 				C1817C412918E0C500382A09 /* Sources */,
 				C1817C422918E0C500382A09 /* Frameworks */,
 				C1817C432918E0C500382A09 /* Resources */,
-				267DFAF3CF3E1BFAB118ACBA /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -815,11 +794,12 @@
 				C14D21602920F33400FF2AF3 /* FirebaseMessaging */,
 				C14D21672920F5F600FF2AF3 /* Alamofire */,
 				C133DC2D2930ACD300CC0E7F /* Tabman */,
-				C1A6E4D0293C6E6F00F46DCC /* RxCocoa */,
-				C1A6E4D2293C6E6F00F46DCC /* RxSwift */,
 				C1F23141293E1A6C002A701E /* Realm */,
 				C1F23143293E1A6C002A701E /* RealmSwift */,
 				C1F2314D293F29F4002A701E /* SocketIO */,
+				C124BE7429474E630051E44F /* RxCocoa */,
+				C124BE7629474E630051E44F /* RxSwift */,
+				C1B5DB91294842AC0040FB29 /* RxKeyboard */,
 			);
 			productName = SeSACStudy;
 			productReference = C1817C452918E0C500382A09 /* SeSACStudy.app */;
@@ -855,9 +835,10 @@
 				C14D215D2920F33400FF2AF3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				C14D21662920F5F600FF2AF3 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				C133DC2C2930ACD300CC0E7F /* XCRemoteSwiftPackageReference "Tabman" */,
-				C1A6E4CF293C6E6F00F46DCC /* XCRemoteSwiftPackageReference "RxSwift" */,
 				C1F23140293E1A6B002A701E /* XCRemoteSwiftPackageReference "realm-swift" */,
 				C1F2314C293F29F4002A701E /* XCRemoteSwiftPackageReference "socket.io-client-swift" */,
+				C124BE7329474E630051E44F /* XCRemoteSwiftPackageReference "RxSwift" */,
+				C1B5DB90294842AC0040FB29 /* XCRemoteSwiftPackageReference "RxKeyboard" */,
 			);
 			productRefGroup = C1817C462918E0C500382A09 /* Products */;
 			projectDirPath = "";
@@ -883,48 +864,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		267DFAF3CF3E1BFAB118ACBA /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SeSACStudy/Pods-SeSACStudy-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SeSACStudy/Pods-SeSACStudy-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SeSACStudy/Pods-SeSACStudy-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8A05B610A49B85B7A92A7639 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SeSACStudy-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C1817C412918E0C500382A09 /* Sources */ = {
@@ -963,9 +902,9 @@
 				C1D78989292222A800A83600 /* MainTabBarController.swift in Sources */,
 				C17C5B172932355600594491 /* SesacSearchCollectionReusableView.swift in Sources */,
 				C11DC47E2939280B00569282 /* ChatRouter.swift in Sources */,
-				C1F2314B293F279A002A701E /* APIKey.swift in Sources */,
 				C161BE1E292E275B0066786F /* StudyInputViewController.swift in Sources */,
 				C1C1C1F32936756800651EB6 /* ChattingViewController.swift in Sources */,
+				C124BE7B2947985A0051E44F /* CancelViewController.swift in Sources */,
 				C1BAF7E729266543007157AC /* AgeCollectionViewCell.swift in Sources */,
 				C1D789A72922420F00A83600 /* BaseCollectionViewCell.swift in Sources */,
 				C161BE22292E28530066786F /* StudyInputViewModel.swift in Sources */,
@@ -1010,6 +949,7 @@
 				C11DC47C2938C87E00569282 /* YourChatTableViewCell.swift in Sources */,
 				C110D27A2927931700CD536D /* UIImage + Extensions.swift in Sources */,
 				C1C949A3291D14FA00A58FBF /* DateView.swift in Sources */,
+				C164ADD52947A4360000968C /* CancelCase.swift in Sources */,
 				C1817C4B2918E0C500382A09 /* SceneDelegate.swift in Sources */,
 				C10CBA21292CDFFA0010E812 /* AnnotationType.swift in Sources */,
 				C1C15E94291E34E7005B9188 /* EmailViewModel.swift in Sources */,
@@ -1177,7 +1117,6 @@
 		};
 		C1817C5A2918E0C600382A09 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 57482D3D5D62E84F0FD652A5 /* Pods-SeSACStudy.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1212,7 +1151,6 @@
 		};
 		C1817C5B2918E0C600382A09 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A56C5073447385E61FC31C68 /* Pods-SeSACStudy.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1269,6 +1207,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		C124BE7329474E630051E44F /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
 		C133DC2C2930ACD300CC0E7F /* XCRemoteSwiftPackageReference "Tabman" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/uias/Tabman.git";
@@ -1309,12 +1255,12 @@
 				minimumVersion = 5.0.0;
 			};
 		};
-		C1A6E4CF293C6E6F00F46DCC /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+		C1B5DB90294842AC0040FB29 /* XCRemoteSwiftPackageReference "RxKeyboard" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxKeyboard.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 6.0.0;
+				minimumVersion = 2.0.0;
 			};
 		};
 		C1F23140293E1A6B002A701E /* XCRemoteSwiftPackageReference "realm-swift" */ = {
@@ -1336,6 +1282,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		C124BE7429474E630051E44F /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C124BE7329474E630051E44F /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		C124BE7629474E630051E44F /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C124BE7329474E630051E44F /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
 		C133DC2D2930ACD300CC0E7F /* Tabman */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = C133DC2C2930ACD300CC0E7F /* XCRemoteSwiftPackageReference "Tabman" */;
@@ -1366,15 +1322,10 @@
 			package = C19CA03A291B950E00CC6761 /* XCRemoteSwiftPackageReference "Toast-Swift" */;
 			productName = Toast;
 		};
-		C1A6E4D0293C6E6F00F46DCC /* RxCocoa */ = {
+		C1B5DB91294842AC0040FB29 /* RxKeyboard */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = C1A6E4CF293C6E6F00F46DCC /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxCocoa;
-		};
-		C1A6E4D2293C6E6F00F46DCC /* RxSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = C1A6E4CF293C6E6F00F46DCC /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxSwift;
+			package = C1B5DB90294842AC0040FB29 /* XCRemoteSwiftPackageReference "RxKeyboard" */;
+			productName = RxKeyboard;
 		};
 		C1F23141293E1A6C002A701E /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;
