@@ -18,4 +18,5 @@ class ChatDataModel {
     var otherNick = ""
     var content = ""
     var lastDate = ""
+    var reputation: [Int] = []
 }
