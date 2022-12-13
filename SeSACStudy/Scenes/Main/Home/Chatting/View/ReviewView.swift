@@ -13,6 +13,8 @@ import SnapKit
 
 class ReviewView: BaseView {
     
+    let disposeBag = DisposeBag()
+    
     let registerButton: UIButton = {
         let button = UIButton()
         var config = UIButton.Configuration.plain()
@@ -141,5 +143,40 @@ class ReviewView: BaseView {
             $0.top.trailing.equalTo(safeAreaLayoutGuide).inset(21)
             $0.size.equalTo(titleLabel.snp.height)
         }
+    }
+    
+    override func bindData() {
+        
+        let textObservable = Observable.merge(reviewText.rx.didBeginEditing.map{ TextFieldControl.editingDidBegin }, reviewText.rx.didEndEditing.map{ TextFieldControl.editingDidEnd })
+        
+        textObservable
+            .withUnretained(self)
+            .bind { (vc, status) in
+                switch status {
+                case .editingDidBegin:
+                    vc.reviewText.text = vc.reviewText.text == TextCase.Chatting.reviewPlaceholder.rawValue ? nil : vc.reviewText.text
+                    vc.reviewText.textColor = BlackNWhite.black
+                case .editingDidEnd:
+                    if vc.reviewText.text == "" {
+                        vc.reviewText.text = TextCase.Chatting.reviewPlaceholder.rawValue
+                        vc.reviewText.textColor = GrayScale.gray7
+                    }
+                }
+            }
+            .disposed(by: disposeBag)
+                
+        reviewText.rx.text
+            .withUnretained(self)
+            .bind { (vc, value) in
+                if value == TextCase.Chatting.reviewPlaceholder.rawValue || value?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
+                    vc.registerButton.backgroundColor = GrayScale.gray6
+                    vc.registerButton.tintColor = GrayScale.gray3
+                } else {
+                    vc.registerButton.backgroundColor = BrandColor.green
+                    vc.registerButton.tintColor = BlackNWhite.white
+                }
+                
+            }
+            .disposed(by: disposeBag)
     }
 }
