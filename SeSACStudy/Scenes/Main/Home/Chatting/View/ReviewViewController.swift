@@ -13,7 +13,7 @@ import SnapKit
 
 class ReviewViewController: BaseViewController {
     
-    let popup = ReviewPopupView()
+    let popup = ReviewView()
     
     let disposeBag = DisposeBag()
     

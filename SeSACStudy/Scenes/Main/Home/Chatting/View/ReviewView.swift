@@ -1,5 +1,5 @@
 //
-//  ReviewPopupView.swift
+//  ReviewView.swift
 //  SeSACStudy
 //
 //  Created by 이현호 on 2022/12/04.
@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 import SnapKit
 
-class ReviewPopupView: BaseView {
+class ReviewView: BaseView {
     
     let registerButton: UIButton = {
         let button = UIButton()

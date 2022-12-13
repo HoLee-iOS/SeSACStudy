@@ -82,6 +82,9 @@ class CancelViewController: BaseViewController {
         case .quit:
             titleLabel.text = CancelCase.quitContent.title.rawValue
             subLabel.text = CancelCase.quitContent.description.rawValue
+        case .review:
+            titleLabel.text = ChatDataModel.shared.otherNick + CancelCase.reviewContent.title.rawValue
+            subLabel.text = CancelCase.reviewContent.description.rawValue
         default: break
         }
     }
