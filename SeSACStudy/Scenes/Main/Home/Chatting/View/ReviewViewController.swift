@@ -46,6 +46,7 @@ class ReviewViewController: BaseViewController {
         popup.registerButton.rx.tap
             .withUnretained(self)
             .bind { (vc, _) in
+                print(ChatDataModel.shared.reputation)
                 let viewController = CancelViewController()
                 viewController.type = vc.popup.registerButton.currentTitle ?? ""
                 viewController.modalPresentationStyle = .overFullScreen

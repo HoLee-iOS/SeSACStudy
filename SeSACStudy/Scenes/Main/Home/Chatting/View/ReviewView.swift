@@ -35,17 +35,17 @@ class ReviewView: BaseView {
         return text
     }()
     
-    let mannerButton = ReviewButton(TextCase.Review.manner.rawValue)
+    let mannerButton = ReviewButton(TextCase.Review.manner.rawValue, type: ReviewCase.manner)
     
-    let promiseButton = ReviewButton(TextCase.Review.promise.rawValue)
+    let promiseButton = ReviewButton(TextCase.Review.promise.rawValue, type: ReviewCase.promise)
     
-    let responseButton = ReviewButton(TextCase.Review.response.rawValue)
+    let responseButton = ReviewButton(TextCase.Review.response.rawValue, type: ReviewCase.response)
     
-    let kindButton = ReviewButton(TextCase.Review.kind.rawValue)
+    let kindButton = ReviewButton(TextCase.Review.kind.rawValue, type: ReviewCase.kind)
     
-    let skillButton = ReviewButton(TextCase.Review.skill.rawValue)
+    let skillButton = ReviewButton(TextCase.Review.skill.rawValue, type: ReviewCase.skill)
     
-    let beneficialButton = ReviewButton(TextCase.Review.beneficial.rawValue)
+    let beneficialButton = ReviewButton(TextCase.Review.beneficial.rawValue, type: ReviewCase.beneficial)
     
     lazy var reviewType1: UIStackView = {
         let view = UIStackView(arrangedSubviews: [mannerButton, promiseButton])
