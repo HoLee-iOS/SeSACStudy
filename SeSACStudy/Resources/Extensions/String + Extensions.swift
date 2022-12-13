@@ -27,4 +27,34 @@ extension String {
         let phoneNum = phoneText.dropFirst()
         return "+82\(phoneNum)"
     }
+    
+    //MARK: - 데이트 셀 포맷 변경
+    func changeDateCell() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        let convertDate = formatter.date(from: self)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM월 dd일 EEEE"
+        dateFormatter.locale = Locale(identifier: "ko_KR")
+        dateFormatter.timeZone = TimeZone(identifier: TimeZone.current.identifier)
+        if let date = convertDate {
+            return dateFormatter.string(from: date)
+        }
+        return ""
+    }
+    
+    //MARK: - 데이트 포맷 변경
+    func changeDate() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        let convertDate = formatter.date(from: self)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm"
+        dateFormatter.locale = Locale(identifier: "ko_KR")
+        dateFormatter.timeZone = TimeZone(identifier: TimeZone.current.identifier)
+        if let date = convertDate {
+            return dateFormatter.string(from: date + 3600 * 9)
+        }
+        return ""
+    }
 }
