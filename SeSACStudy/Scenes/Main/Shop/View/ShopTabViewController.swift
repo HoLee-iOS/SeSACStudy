@@ -9,13 +9,25 @@ import UIKit
 
 import Tabman
 import Pageboy
+import SnapKit
 
 class ShopTabViewController: TabmanViewController {
+    
+    let cardView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .red
+        return view
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = BlackNWhite.white
+        view.addSubview(cardView)
+        cardView.snp.makeConstraints {
+            $0.top.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
+            $0.height.equalTo(100)
+        }
         setVC()
     }
     
@@ -36,7 +48,7 @@ class ShopTabViewController: TabmanViewController {
         tabBar.layout.transitionStyle = .snap
         tabBar.layout.alignment = .centerDistributed
         tabBar.layout.contentMode = .fit
-        tabBar.layout.contentInset = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 0.0)
+        tabBar.layout.contentInset = UIEdgeInsets(top: 100, left: 0.0, bottom: 0.0, right: 0.0)
         
         tabBar.buttons.customize { (button) in
             button.tintColor = GrayScale.gray6
