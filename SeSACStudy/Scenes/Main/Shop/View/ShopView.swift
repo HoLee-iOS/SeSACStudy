@@ -9,4 +9,8 @@ import UIKit
 
 class ShopView: BaseView {
     
+    override func configure() {
+        backgroundColor = .yellow
+    }
+    
 }
