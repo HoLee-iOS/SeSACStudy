@@ -32,7 +32,7 @@ class ShopTabViewController: TabmanViewController {
         view.backgroundColor = BlackNWhite.white
         view.addSubview(cardView)
         cardView.snp.makeConstraints {
-            $0.top.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
+            $0.top.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(16)
         }
     }
     
@@ -44,7 +44,7 @@ class ShopTabViewController: TabmanViewController {
     
     //MARK: - 탭 레이아웃 설정
     override func viewDidLayoutSubviews() {
-        setTabBar(tabBar: bar, height: cardView.bounds.height)
+        setTabBar(tabBar: bar, height: cardView.bounds.height + 16)
         addBar(bar, dataSource: self, at: .top)
     }
     
