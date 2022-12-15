@@ -144,6 +144,7 @@
 		C1F2314E293F29F4002A701E /* SocketIO in Frameworks */ = {isa = PBXBuildFile; productRef = C1F2314D293F29F4002A701E /* SocketIO */; };
 		C1F23150293F2A95002A701E /* SocketIOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F2314F293F2A95002A701E /* SocketIOManager.swift */; };
 		C1F23152293F317B002A701E /* MoreMenuTap.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F23151293F317B002A701E /* MoreMenuTap.swift */; };
+		C1FB784F294B14DF0070A383 /* MyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FB784E294B14DF0070A383 /* MyData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -275,6 +276,7 @@
 		C1F23148293E2431002A701E /* ChatDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDataModel.swift; sourceTree = "<group>"; };
 		C1F2314F293F2A95002A701E /* SocketIOManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketIOManager.swift; sourceTree = "<group>"; };
 		C1F23151293F317B002A701E /* MoreMenuTap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreMenuTap.swift; sourceTree = "<group>"; };
+		C1FB784E294B14DF0070A383 /* MyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -400,6 +402,7 @@
 		C1817C5C2918E91D00382A09 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				C1FB784D294B14C00070A383 /* Class */,
 				C1D789C02922AAA800A83600 /* Custom */,
 				C1D789952922263200A83600 /* Struct */,
 				C1D789942922262B00A83600 /* Enum */,
@@ -802,6 +805,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		C1FB784D294B14C00070A383 /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				C1FB784E294B14DF0070A383 /* MyData.swift */,
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -964,6 +975,7 @@
 				C19CA031291B862000CC6761 /* PhoneAuthView.swift in Sources */,
 				C12CD14C292363E10083C869 /* InfoSection.swift in Sources */,
 				C184086F292E99D50076FB8C /* StudyInputCollectionViewCell.swift in Sources */,
+				C1FB784F294B14DF0070A383 /* MyData.swift in Sources */,
 				C1840876292FEA8E0076FB8C /* SesacSearchViewController.swift in Sources */,
 				C1440698291C210900B6C9EC /* PhoneInputViewModel.swift in Sources */,
 				C19373BC291A8230008C8FED /* Icons.swift in Sources */,

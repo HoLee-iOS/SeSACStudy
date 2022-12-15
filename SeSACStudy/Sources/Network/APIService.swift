@@ -18,6 +18,8 @@ class APIService {
             case .success(let data):
                 UserDefaultsManager.nickname = data.nick
                 ChatDataModel.shared.myUid = data.uid
+                MyData.shared.sesac = data.sesac
+                MyData.shared.background = data.background
                 completion(data, statusCode, nil)
             case .failure(let error):
                 completion(nil, statusCode, error)
