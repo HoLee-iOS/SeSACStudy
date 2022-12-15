@@ -13,8 +13,8 @@ import SnapKit
 
 class ShopTabViewController: TabmanViewController {
     
-    let cardView: ShopView = {
-        let view = ShopView()
+    let cardView: MySesacImageView = {
+        let view = MySesacImageView()
         return view
     }()
     

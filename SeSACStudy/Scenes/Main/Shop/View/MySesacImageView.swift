@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ShopView: BaseView {
+class MySesacImageView: BaseView {
     
     lazy var cardBackground: UIImageView = {
         let image = UIImageView()
@@ -58,5 +58,5 @@ class ShopView: BaseView {
             $0.width.equalTo(requestButton.snp.height).multipliedBy(2)
         }
     }
-    
+        
 }
