@@ -13,6 +13,5 @@ class MyDataModel {
     
     static let shared = MyDataModel()
     
-    var sesac = 0
-    var background = 0
+    var data = MyInfo(sesac: 0, sesacCollection: [], background: 0, backgroundCollection: [])
 }
