@@ -14,7 +14,7 @@ enum SesacFace: Int {
     case face4
     case face5
     
-    var images: UIImage? {
+    var image: UIImage? {
         switch self {
         case .face1: return Icons.sesacFace1
         case .face2: return Icons.sesacFace2
@@ -36,7 +36,7 @@ enum SesacBackground: Int {
     case back8
     case back9
     
-    var images: UIImage? {
+    var image: UIImage? {
         switch self {
         case .back1: return Icons.sesacBack1
         case .back2: return Icons.sesacBack2
