@@ -18,8 +18,7 @@ class APIService {
             case .success(let data):
                 UserDefaultsManager.nickname = data.nick
                 ChatDataModel.shared.myUid = data.uid
-                MyDataModel.shared.sesac = data.sesac
-                MyDataModel.shared.background = data.background
+                MyDataModel.shared.data = MyInfo(sesac: data.sesac, sesacCollection: data.sesacCollection, background: data.background, backgroundCollection: data.backgroundCollection)
                 completion(data, statusCode, nil)
             case .failure(let error):
                 completion(nil, statusCode, error)
@@ -203,6 +202,46 @@ class APIService {
     //MARK: - 스터디 리뷰 작성
     static func studyReview(completion: @escaping (String?, Int?, Error?) -> Void) {
         AF.request(QueueRouter.review).responseString { response in
+            guard let statusCode = response.response?.statusCode else { return }
+            switch response.result {
+            case .success(let data):
+                completion(data, statusCode, nil)
+            case .failure(let error):
+                completion(nil, statusCode, error)
+            }
+        }
+    }
+    
+    //MARK: - 새싹샵 내 정보 요청
+    static func requestMyInfo(completion: @escaping (MyInfo?, Int?, Error?) -> Void) {
+        AF.request(ShopRouter.myInfo).responseDecodable(of: MyInfo.self) { response in
+            guard let statusCode = response.response?.statusCode else { return }
+            switch response.result {
+            case .success(let data):
+                MyDataModel.shared.data = data
+                completion(data, statusCode, nil)
+            case .failure(let error):
+                completion(nil, statusCode, error)
+            }
+        }
+    }
+    
+    //MARK: - 새싹샵 아이템 업데이트
+    static func updateItem(completion: @escaping (String?, Int?, Error?) -> Void) {
+        AF.request(ShopRouter.item).responseString { response in
+            guard let statusCode = response.response?.statusCode else { return }
+            switch response.result {
+            case .success(let data):
+                completion(data, statusCode, nil)
+            case .failure(let error):
+                completion(nil, statusCode, error)
+            }
+        }
+    }
+    
+    //MARK: - 새싹샵 인앱 결제
+    static func inApp(completion: @escaping (String?, Int?, Error?) -> Void) {
+        AF.request(ShopRouter.inApp).responseString { response in
             guard let statusCode = response.response?.statusCode else { return }
             switch response.result {
             case .success(let data):
