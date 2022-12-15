@@ -34,4 +34,8 @@ enum TextCase {
         case skill = "능숙한 실력"
         case beneficial = "유익한 시간"
     }
+    
+    enum Shop: String {
+        case save = "저장하기"
+    }
 }
