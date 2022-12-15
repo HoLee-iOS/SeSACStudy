@@ -14,7 +14,7 @@ class MySesacImageView: BaseView {
         image.contentMode = .scaleToFill
         image.layer.cornerRadius = 8
         image.clipsToBounds = true
-        image.image = SesacBackground(rawValue: MyData.shared.background)?.image
+        image.image = SesacBackground(rawValue: MyDataModel.shared.background)?.image
         return image
     }()
     
@@ -22,7 +22,7 @@ class MySesacImageView: BaseView {
         let image = UIImageView()
         image.contentMode = .scaleAspectFit
         image.layer.cornerRadius = 8
-        image.image = SesacFace(rawValue: MyData.shared.sesac)?.image
+        image.image = SesacFace(rawValue: MyDataModel.shared.sesac)?.image
         return image
     }()
     

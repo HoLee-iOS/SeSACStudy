@@ -13,6 +13,6 @@ struct InfoData: Hashable {
     private let id = UUID()
     
     static func contents() -> [InfoData] {
-        return [InfoData(profile: SesacFace(rawValue: MyData.shared.sesac)?.image, name: UserDefaultsManager.nickname)]
+        return [InfoData(profile: SesacFace(rawValue: MyDataModel.shared.sesac)?.image, name: UserDefaultsManager.nickname)]
     }
 }

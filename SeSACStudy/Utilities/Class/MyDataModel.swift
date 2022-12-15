@@ -7,11 +7,11 @@
 
 import Foundation
 
-class MyData {
+class MyDataModel {
     
     private init() {}
     
-    static let shared = MyData()
+    static let shared = MyDataModel()
     
     var sesac = 0
     var background = 0

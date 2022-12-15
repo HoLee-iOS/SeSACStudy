@@ -9,7 +9,7 @@ import Foundation
 import Network
 import UIKit
 
-final class NetworkMonitor{
+final class NetworkMonitor {
     
     static let shared = NetworkMonitor()
     

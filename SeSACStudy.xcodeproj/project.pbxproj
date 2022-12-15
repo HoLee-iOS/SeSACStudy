@@ -143,7 +143,7 @@
 		C1F2314E293F29F4002A701E /* SocketIO in Frameworks */ = {isa = PBXBuildFile; productRef = C1F2314D293F29F4002A701E /* SocketIO */; };
 		C1F23150293F2A95002A701E /* SocketIOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F2314F293F2A95002A701E /* SocketIOManager.swift */; };
 		C1F23152293F317B002A701E /* MoreMenuTap.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F23151293F317B002A701E /* MoreMenuTap.swift */; };
-		C1FB784F294B14DF0070A383 /* MyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FB784E294B14DF0070A383 /* MyData.swift */; };
+		C1FB784F294B14DF0070A383 /* MyDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FB784E294B14DF0070A383 /* MyDataModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -274,7 +274,7 @@
 		C1F23148293E2431002A701E /* ChatDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDataModel.swift; sourceTree = "<group>"; };
 		C1F2314F293F2A95002A701E /* SocketIOManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketIOManager.swift; sourceTree = "<group>"; };
 		C1F23151293F317B002A701E /* MoreMenuTap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreMenuTap.swift; sourceTree = "<group>"; };
-		C1FB784E294B14DF0070A383 /* MyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyData.swift; sourceTree = "<group>"; };
+		C1FB784E294B14DF0070A383 /* MyDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDataModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -311,12 +311,8 @@
 		C11DC4732938B70300569282 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C11DC4762938B7BE00569282 /* Cell */,
 				C11DC4742938B7AD00569282 /* ChatView.swift */,
 				C11AE568293CA1A200D326AC /* ReviewView.swift */,
-				C1C1C1F22936756800651EB6 /* ChattingViewController.swift */,
-				C11AE566293CA02600D326AC /* ReviewViewController.swift */,
-				C124BE7A2947985A0051E44F /* CancelViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -334,8 +330,9 @@
 		C161BE1C292E271E0066786F /* StudyInput */ = {
 			isa = PBXGroup;
 			children = (
-				C161BE1D292E275B0066786F /* StudyInputViewController.swift */,
-				C161BE21292E28530066786F /* StudyInputViewModel.swift */,
+				C1FB7858294B1C970070A383 /* ViewController */,
+				C1FB7857294B1C920070A383 /* View */,
+				C1FB7856294B1C8B0070A383 /* ViewModel */,
 				C161BE23292E28A00066786F /* Cell */,
 			);
 			path = StudyInput;
@@ -344,7 +341,6 @@
 		C161BE23292E28A00066786F /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				C184086C292E97C50076FB8C /* StudyInputCollectionReusableView.swift */,
 				C184086E292E99D50076FB8C /* StudyInputCollectionViewCell.swift */,
 			);
 			path = Cell;
@@ -390,24 +386,24 @@
 				C1817C4A2918E0C500382A09 /* SceneDelegate.swift */,
 				C1817C562918E0C600382A09 /* Info.plist */,
 				C1817C5D2918EAC700382A09 /* Resources */,
-				C1817C5C2918E91D00382A09 /* Sources */,
-				C1F2313C293E167D002A701E /* Utility */,
+				C1817C5C2918E91D00382A09 /* Utilities */,
 				C1D789832922054D00A83600 /* Scenes */,
 			);
 			path = SeSACStudy;
 			sourceTree = "<group>";
 		};
-		C1817C5C2918E91D00382A09 /* Sources */ = {
+		C1817C5C2918E91D00382A09 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				C1FB784D294B14C00070A383 /* Class */,
 				C1D789C02922AAA800A83600 /* Custom */,
+				C1FB784D294B14C00070A383 /* Class */,
+				C1F2313D293E16B8002A701E /* Database */,
 				C1D789952922263200A83600 /* Struct */,
 				C1D789942922262B00A83600 /* Enum */,
 				C1817C672918EBF900382A09 /* Network */,
 				C1817C662918EBEB00382A09 /* Protocols */,
 			);
-			path = Sources;
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		C1817C5D2918EAC700382A09 /* Resources */ = {
@@ -485,14 +481,9 @@
 		C1817C672918EBF900382A09 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				C14D21622920F5C200FF2AF3 /* APIService.swift */,
-				C14D21642920F5C800FF2AF3 /* Router.swift */,
-				C11DC47D2939280B00569282 /* ChatRouter.swift */,
-				C1B5DB932948517A0040FB29 /* QueueRouter.swift */,
-				C14D21692920FB7D00FF2AF3 /* DTO.swift */,
-				C1D78984292209BD00A83600 /* NetworkError.swift */,
-				C1D789AC292242E900A83600 /* NetworkMonitor.swift */,
-				C1F2314F293F2A95002A701E /* SocketIOManager.swift */,
+				C1FB7879294B1EB00070A383 /* Class */,
+				C1FB7878294B1EA50070A383 /* Struct */,
+				C1FB7877294B1E850070A383 /* Enum */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -500,11 +491,9 @@
 		C1840874292FEA110076FB8C /* SesacSearch */ = {
 			isa = PBXGroup;
 			children = (
-				C1840875292FEA8E0076FB8C /* SesacSearchViewController.swift */,
-				C1840877292FEAA20076FB8C /* SesacSearchViewModel.swift */,
-				C133DC2F2930AFC900CC0E7F /* SesacSearchTabViewController.swift */,
-				C17C5B162932355600594491 /* SesacSearchCollectionReusableView.swift */,
-				C1DE137D293532FF00FC3016 /* RequestViewController.swift */,
+				C1FB7854294B1C500070A383 /* ViewController */,
+				C1FB7853294B1C360070A383 /* View */,
+				C1FB7855294B1C5E0070A383 /* ViewModel */,
 			);
 			path = SesacSearch;
 			sourceTree = "<group>";
@@ -513,8 +502,6 @@
 			isa = PBXGroup;
 			children = (
 				C1B5DB9A294870C00040FB29 /* MySesacImageView.swift */,
-				C1B5DB9E294875EC0040FB29 /* ShopViewController.swift */,
-				C1B5DB9C2948748A0040FB29 /* ShopTabViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -526,19 +513,13 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		C1B5DB99294870A60040FB29 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		C1BAF7D12926169C007157AC /* Shop */ = {
 			isa = PBXGroup;
 			children = (
+				C1FB7851294B1B790070A383 /* Cell */,
+				C1FB7850294B1B6D0070A383 /* ViewController */,
 				C1B5DB97294870900040FB29 /* View */,
 				C1B5DB982948709E0040FB29 /* ViewModel */,
-				C1B5DB99294870A60040FB29 /* Model */,
 			);
 			path = Shop;
 			sourceTree = "<group>";
@@ -555,9 +536,10 @@
 		C1C1C1F12936752A00651EB6 /* Chatting */ = {
 			isa = PBXGroup;
 			children = (
+				C11DC4762938B7BE00569282 /* Cell */,
+				C1FB7852294B1BE70070A383 /* ViewController */,
 				C11DC4732938B70300569282 /* View */,
 				C11DC4722938B6F600569282 /* ViewModel */,
-				C1F23147293E240F002A701E /* Model */,
 			);
 			path = Chatting;
 			sourceTree = "<group>";
@@ -569,8 +551,8 @@
 				C1D78991292225ED00A83600 /* Onboarding */,
 				C1D78992292225F600A83600 /* PhoneAuth */,
 				C1D789932922260C00A83600 /* SignUp */,
-				C1D789A32922283000A83600 /* Home */,
 				C1D789A22922280A00A83600 /* Main */,
+				C1D789A32922283000A83600 /* Home */,
 				C1BAF7D12926169C007157AC /* Shop */,
 				C1D789A42922286700A83600 /* MyPage */,
 			);
@@ -580,8 +562,8 @@
 		C1D78990292225D500A83600 /* Splash */ = {
 			isa = PBXGroup;
 			children = (
-				C17D12FE291ED39A007D8049 /* LaunchViewController.swift */,
-				C17D1300291ED671007D8049 /* SplashView.swift */,
+				C1FB7876294B1E4A0070A383 /* ViewController */,
+				C1FB7875294B1E470070A383 /* View */,
 			);
 			path = Splash;
 			sourceTree = "<group>";
@@ -589,9 +571,7 @@
 		C1D78991292225ED00A83600 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				C19373C8291AA7E5008C8FED /* PageContentsViewController.swift */,
-				C19373CA291AA873008C8FED /* PageViewController.swift */,
-				C19373B6291A7697008C8FED /* OnBoardingViewController.swift */,
+				C1FB7874294B1E360070A383 /* ViewController */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -652,9 +632,9 @@
 		C1D78998292226FF00A83600 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				C19CA032291B862F00CC6761 /* PhoneAuthViewModel.swift */,
-				C19CA02E291B83E700CC6761 /* PhoneAuthViewController.swift */,
-				C19CA030291B862000CC6761 /* PhoneAuthView.swift */,
+				C1FB7873294B1E220070A383 /* ViewController */,
+				C1FB7872294B1E1F0070A383 /* View */,
+				C1FB7871294B1E1A0070A383 /* ViewModel */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -662,9 +642,9 @@
 		C1D789992922270600A83600 /* Input */ = {
 			isa = PBXGroup;
 			children = (
-				C1440697291C210900B6C9EC /* PhoneInputViewModel.swift */,
-				C1440695291C20F700B6C9EC /* PhoneInputViewController.swift */,
-				C1440693291C20E600B6C9EC /* PhoneInputView.swift */,
+				C1FB7870294B1E070070A383 /* ViewController */,
+				C1FB786F294B1E040070A383 /* View */,
+				C1FB786E294B1E000070A383 /* ViewModel */,
 			);
 			path = Input;
 			sourceTree = "<group>";
@@ -672,9 +652,9 @@
 		C1D7899E2922276B00A83600 /* Nickname */ = {
 			isa = PBXGroup;
 			children = (
-				C1C949A0291D047200A58FBF /* NicknameViewModel.swift */,
-				C1C9499C291D042400A58FBF /* NicknameViewController.swift */,
-				C1C9499E291D044700A58FBF /* NicknameView.swift */,
+				C1FB786D294B1DE90070A383 /* ViewController */,
+				C1FB786C294B1DE60070A383 /* View */,
+				C1FB786B294B1DE20070A383 /* ViewModel */,
 			);
 			path = Nickname;
 			sourceTree = "<group>";
@@ -682,9 +662,9 @@
 		C1D7899F2922277700A83600 /* Birth */ = {
 			isa = PBXGroup;
 			children = (
-				C1C949A6291D155A00A58FBF /* DateViewModel.swift */,
-				C1C949A4291D154E00A58FBF /* DateViewController.swift */,
-				C1C949A2291D14FA00A58FBF /* DateView.swift */,
+				C1FB786A294B1DCF0070A383 /* ViewController */,
+				C1FB7869294B1DCC0070A383 /* View */,
+				C1FB7868294B1DC60070A383 /* ViewModel */,
 			);
 			path = Birth;
 			sourceTree = "<group>";
@@ -692,9 +672,9 @@
 		C1D789A02922278300A83600 /* Email */ = {
 			isa = PBXGroup;
 			children = (
-				C1C15E93291E34E7005B9188 /* EmailViewModel.swift */,
-				C1C15E91291E34C6005B9188 /* EmailViewController.swift */,
-				C1C15E8F291E34BA005B9188 /* EmailView.swift */,
+				C1FB7867294B1DB30070A383 /* ViewController */,
+				C1FB7866294B1DAF0070A383 /* View */,
+				C1FB7865294B1DAA0070A383 /* ViewModel */,
 			);
 			path = Email;
 			sourceTree = "<group>";
@@ -702,9 +682,9 @@
 		C1D789A12922278A00A83600 /* Gender */ = {
 			isa = PBXGroup;
 			children = (
-				C1C15E99291E4054005B9188 /* GenderViewModel.swift */,
-				C1C15E97291E404A005B9188 /* GenderViewController.swift */,
-				C1C15E95291E4042005B9188 /* GenderView.swift */,
+				C1FB7864294B1D980070A383 /* ViewController */,
+				C1FB7863294B1D930070A383 /* View */,
+				C1FB7862294B1D8D0070A383 /* ViewModel */,
 			);
 			path = Gender;
 			sourceTree = "<group>";
@@ -712,7 +692,7 @@
 		C1D789A22922280A00A83600 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				C1D78988292222A800A83600 /* MainTabBarController.swift */,
+				C1FB7861294B1D790070A383 /* ViewController */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -720,9 +700,9 @@
 		C1D789A32922283000A83600 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				C1D0E0A2292C0C1500370579 /* HomeViewController.swift */,
-				C1D0E0A0292C0C0000370579 /* HomeView.swift */,
-				C1D0E0A4292C0C1D00370579 /* HomeViewModel.swift */,
+				C1FB785E294B1D460070A383 /* ViewController */,
+				C1FB785D294B1D410070A383 /* View */,
+				C1FB785C294B1D350070A383 /* ViewModel */,
 				C161BE1C292E271E0066786F /* StudyInput */,
 				C1840874292FEA110076FB8C /* SesacSearch */,
 				C1C1C1F12936752A00651EB6 /* Chatting */,
@@ -733,8 +713,8 @@
 		C1D789A42922286700A83600 /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
-				C1D7898A2922230D00A83600 /* MyPageViewController.swift */,
 				C1BAF7E92926654E007157AC /* Cell */,
+				C1FB7859294B1CD20070A383 /* ViewController */,
 				C1D789BD2922A8C700A83600 /* MyInfo */,
 			);
 			path = MyPage;
@@ -743,10 +723,9 @@
 		C1D789A5292228CD00A83600 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				C19CA034291B870200CC6761 /* BaseView.swift */,
-				C19CA036291B874000CC6761 /* BaseViewController.swift */,
-				C1D789A62922420F00A83600 /* BaseCollectionViewCell.swift */,
-				C1D789B22922518700A83600 /* BaseTableViewCell.swift */,
+				C1FB787C294B1F820070A383 /* Cell */,
+				C1FB787B294B1F7D0070A383 /* ViewController */,
+				C1FB787A294B1F780070A383 /* View */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -754,9 +733,8 @@
 		C1D789BD2922A8C700A83600 /* MyInfo */ = {
 			isa = PBXGroup;
 			children = (
-				C1D789BE2922A8EB00A83600 /* MyInfoViewController.swift */,
-				C12CD1532923BF9A0083C869 /* MyInfoViewModel.swift */,
-				C1ADB798292B8C8800867752 /* WithdrawViewController.swift */,
+				C1FB785B294B1CEB0070A383 /* ViewController */,
+				C1FB785A294B1CE40070A383 /* ViewModel */,
 				C1621FBD292715BD00DD720E /* Cell */,
 			);
 			path = MyInfo;
@@ -777,14 +755,6 @@
 			path = Custom;
 			sourceTree = "<group>";
 		};
-		C1F2313C293E167D002A701E /* Utility */ = {
-			isa = PBXGroup;
-			children = (
-				C1F2313D293E16B8002A701E /* Database */,
-			);
-			path = Utility;
-			sourceTree = "<group>";
-		};
 		C1F2313D293E16B8002A701E /* Database */ = {
 			isa = PBXGroup;
 			children = (
@@ -794,20 +764,370 @@
 			path = Database;
 			sourceTree = "<group>";
 		};
-		C1F23147293E240F002A701E /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				C1F23148293E2431002A701E /* ChatDataModel.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		C1FB784D294B14C00070A383 /* Class */ = {
 			isa = PBXGroup;
 			children = (
-				C1FB784E294B14DF0070A383 /* MyData.swift */,
+				C1FB784E294B14DF0070A383 /* MyDataModel.swift */,
+				C1F23148293E2431002A701E /* ChatDataModel.swift */,
 			);
 			path = Class;
+			sourceTree = "<group>";
+		};
+		C1FB7850294B1B6D0070A383 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C1B5DB9C2948748A0040FB29 /* ShopTabViewController.swift */,
+				C1B5DB9E294875EC0040FB29 /* ShopViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		C1FB7851294B1B790070A383 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		C1FB7852294B1BE70070A383 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C1C1C1F22936756800651EB6 /* ChattingViewController.swift */,
+				C11AE566293CA02600D326AC /* ReviewViewController.swift */,
+				C124BE7A2947985A0051E44F /* CancelViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		C1FB7853294B1C360070A383 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C17C5B162932355600594491 /* SesacSearchCollectionReusableView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C1FB7854294B1C500070A383 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C1840875292FEA8E0076FB8C /* SesacSearchViewController.swift */,
+				C133DC2F2930AFC900CC0E7F /* SesacSearchTabViewController.swift */,
+				C1DE137D293532FF00FC3016 /* RequestViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		C1FB7855294B1C5E0070A383 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C1840877292FEAA20076FB8C /* SesacSearchViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C1FB7856294B1C8B0070A383 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C161BE21292E28530066786F /* StudyInputViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C1FB7857294B1C920070A383 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C184086C292E97C50076FB8C /* StudyInputCollectionReusableView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C1FB7858294B1C970070A383 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C161BE1D292E275B0066786F /* StudyInputViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		C1FB7859294B1CD20070A383 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C1D7898A2922230D00A83600 /* MyPageViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		C1FB785A294B1CE40070A383 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C12CD1532923BF9A0083C869 /* MyInfoViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C1FB785B294B1CEB0070A383 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C1D789BE2922A8EB00A83600 /* MyInfoViewController.swift */,
+				C1ADB798292B8C8800867752 /* WithdrawViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		C1FB785C294B1D350070A383 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C1D0E0A4292C0C1D00370579 /* HomeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C1FB785D294B1D410070A383 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C1D0E0A0292C0C0000370579 /* HomeView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C1FB785E294B1D460070A383 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C1D0E0A2292C0C1500370579 /* HomeViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		C1FB7861294B1D790070A383 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C1D78988292222A800A83600 /* MainTabBarController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		C1FB7862294B1D8D0070A383 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C1C15E99291E4054005B9188 /* GenderViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C1FB7863294B1D930070A383 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C1C15E95291E4042005B9188 /* GenderView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C1FB7864294B1D980070A383 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C1C15E97291E404A005B9188 /* GenderViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		C1FB7865294B1DAA0070A383 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C1C15E93291E34E7005B9188 /* EmailViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C1FB7866294B1DAF0070A383 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C1C15E8F291E34BA005B9188 /* EmailView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C1FB7867294B1DB30070A383 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C1C15E91291E34C6005B9188 /* EmailViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		C1FB7868294B1DC60070A383 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C1C949A6291D155A00A58FBF /* DateViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C1FB7869294B1DCC0070A383 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C1C949A2291D14FA00A58FBF /* DateView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C1FB786A294B1DCF0070A383 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C1C949A4291D154E00A58FBF /* DateViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		C1FB786B294B1DE20070A383 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C1C949A0291D047200A58FBF /* NicknameViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C1FB786C294B1DE60070A383 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C1C9499E291D044700A58FBF /* NicknameView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C1FB786D294B1DE90070A383 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C1C9499C291D042400A58FBF /* NicknameViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		C1FB786E294B1E000070A383 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C1440697291C210900B6C9EC /* PhoneInputViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C1FB786F294B1E040070A383 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C1440693291C20E600B6C9EC /* PhoneInputView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C1FB7870294B1E070070A383 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C1440695291C20F700B6C9EC /* PhoneInputViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		C1FB7871294B1E1A0070A383 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C19CA032291B862F00CC6761 /* PhoneAuthViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C1FB7872294B1E1F0070A383 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C19CA030291B862000CC6761 /* PhoneAuthView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C1FB7873294B1E220070A383 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C19CA02E291B83E700CC6761 /* PhoneAuthViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		C1FB7874294B1E360070A383 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C19373C8291AA7E5008C8FED /* PageContentsViewController.swift */,
+				C19373CA291AA873008C8FED /* PageViewController.swift */,
+				C19373B6291A7697008C8FED /* OnBoardingViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		C1FB7875294B1E470070A383 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C17D1300291ED671007D8049 /* SplashView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C1FB7876294B1E4A0070A383 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C17D12FE291ED39A007D8049 /* LaunchViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		C1FB7877294B1E850070A383 /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				C1D78984292209BD00A83600 /* NetworkError.swift */,
+				C14D21642920F5C800FF2AF3 /* Router.swift */,
+				C11DC47D2939280B00569282 /* ChatRouter.swift */,
+				C1B5DB932948517A0040FB29 /* QueueRouter.swift */,
+			);
+			path = Enum;
+			sourceTree = "<group>";
+		};
+		C1FB7878294B1EA50070A383 /* Struct */ = {
+			isa = PBXGroup;
+			children = (
+				C14D21692920FB7D00FF2AF3 /* DTO.swift */,
+			);
+			path = Struct;
+			sourceTree = "<group>";
+		};
+		C1FB7879294B1EB00070A383 /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				C14D21622920F5C200FF2AF3 /* APIService.swift */,
+				C1D789AC292242E900A83600 /* NetworkMonitor.swift */,
+				C1F2314F293F2A95002A701E /* SocketIOManager.swift */,
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
+		C1FB787A294B1F780070A383 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C19CA034291B870200CC6761 /* BaseView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C1FB787B294B1F7D0070A383 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C19CA036291B874000CC6761 /* BaseViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		C1FB787C294B1F820070A383 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				C1D789A62922420F00A83600 /* BaseCollectionViewCell.swift */,
+				C1D789B22922518700A83600 /* BaseTableViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -972,7 +1292,7 @@
 				C19CA031291B862000CC6761 /* PhoneAuthView.swift in Sources */,
 				C12CD14C292363E10083C869 /* InfoSection.swift in Sources */,
 				C184086F292E99D50076FB8C /* StudyInputCollectionViewCell.swift in Sources */,
-				C1FB784F294B14DF0070A383 /* MyData.swift in Sources */,
+				C1FB784F294B14DF0070A383 /* MyDataModel.swift in Sources */,
 				C1840876292FEA8E0076FB8C /* SesacSearchViewController.swift in Sources */,
 				C1440698291C210900B6C9EC /* PhoneInputViewModel.swift in Sources */,
 				C19373BC291A8230008C8FED /* Icons.swift in Sources */,
