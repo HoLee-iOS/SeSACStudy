@@ -569,7 +569,10 @@
 				C1D78991292225ED00A83600 /* Onboarding */,
 				C1D78992292225F600A83600 /* PhoneAuth */,
 				C1D789932922260C00A83600 /* SignUp */,
+				C1D789A32922283000A83600 /* Home */,
 				C1D789A22922280A00A83600 /* Main */,
+				C1BAF7D12926169C007157AC /* Shop */,
+				C1D789A42922286700A83600 /* MyPage */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -710,9 +713,6 @@
 			isa = PBXGroup;
 			children = (
 				C1D78988292222A800A83600 /* MainTabBarController.swift */,
-				C1D789A32922283000A83600 /* Home */,
-				C1BAF7D12926169C007157AC /* Shop */,
-				C1D789A42922286700A83600 /* MyPage */,
 			);
 			path = Main;
 			sourceTree = "<group>";

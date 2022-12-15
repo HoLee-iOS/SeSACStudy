@@ -14,7 +14,7 @@ struct SettingList: Hashable {
     let moreView: UIImage?
     
     static let contents: [SettingList] = [
-        SettingList(image: Icons.sesacFace1, title: UserDefaultsManager.nickname, moreView: Icons.moreView),
+        SettingList(image: SesacFace(rawValue: MyData.shared.sesac)?.image, title: UserDefaultsManager.nickname, moreView: Icons.moreView),
         SettingList(image: Icons.settingNotice, title: "공지사항", moreView: nil),
         SettingList(image: Icons.settingFAQ, title: "자주 묻는 질문", moreView: nil),
         SettingList(image: Icons.settingQNA, title: "1:1 문의", moreView: nil),
