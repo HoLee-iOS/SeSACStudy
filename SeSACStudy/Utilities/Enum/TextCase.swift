@@ -37,5 +37,6 @@ enum TextCase {
     
     enum Shop: String {
         case save = "저장하기"
+        case mine = "보유"
     }
 }
