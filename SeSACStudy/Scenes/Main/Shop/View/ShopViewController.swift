@@ -12,6 +12,5 @@ class ShopViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = BrandColor.yellowGreen
     }
 }
