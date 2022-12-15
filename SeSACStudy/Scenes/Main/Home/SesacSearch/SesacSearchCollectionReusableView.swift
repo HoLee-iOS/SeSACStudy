@@ -49,11 +49,6 @@ final class SesacSearchCollectionReusableView: UICollectionReusableView {
         fatalError("init(coder:) has not been implemented")
     }
     
-//    override func prepareForReuse() {
-//        cardBackground.image = nil
-//        cardHeader.image = nil
-//    }
-    
     func setConstraints() {
         
         [cardBackground, cardHeader, requestButton].forEach{ addSubview($0) }
@@ -85,26 +80,7 @@ final class SesacSearchCollectionReusableView: UICollectionReusableView {
         requestButton.configuration?.attributedTitle?.foregroundColor = BlackNWhite.white
         requestButton.backgroundColor = page == 0 ? SystemColor.error : SystemColor.success
         
-        switch SesacBackground(rawValue: arr[requestButton.tag].background) {
-        case .back1: cardBackground.image = SesacBackground.back1.images
-        case .back2: cardBackground.image = SesacBackground.back2.images
-        case .back3: cardBackground.image = SesacBackground.back3.images
-        case .back4: cardBackground.image = SesacBackground.back4.images
-        case .back5: cardBackground.image = SesacBackground.back5.images
-        case .back6: cardBackground.image = SesacBackground.back6.images
-        case .back7: cardBackground.image = SesacBackground.back7.images
-        case .back8: cardBackground.image = SesacBackground.back8.images
-        case .back9: cardBackground.image = SesacBackground.back9.images
-        default: break
-        }
-        
-        switch SesacFace(rawValue: arr[requestButton.tag].sesac) {
-        case .face1: cardHeader.image = SesacFace.face1.images
-        case .face2: cardHeader.image = SesacFace.face2.images
-        case .face3: cardHeader.image = SesacFace.face3.images
-        case .face4: cardHeader.image = SesacFace.face4.images
-        case .face5: cardHeader.image = SesacFace.face5.images
-        default: break
-        }
+        cardBackground.image = SesacBackground(rawValue: arr[requestButton.tag].background)?.image
+        cardHeader.image = SesacFace(rawValue: arr[requestButton.tag].sesac)?.image        
     }
 }
