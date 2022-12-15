@@ -14,7 +14,7 @@ class MySesacImageView: BaseView {
         image.contentMode = .scaleToFill
         image.layer.cornerRadius = 8
         image.clipsToBounds = true
-        image.image = Icons.sesacBack9
+        image.image = SesacBackground(rawValue: MyData.shared.background)?.image
         return image
     }()
     
@@ -22,7 +22,7 @@ class MySesacImageView: BaseView {
         let image = UIImageView()
         image.contentMode = .scaleAspectFit
         image.layer.cornerRadius = 8
-        image.image = Icons.sesacFace5
+        image.image = SesacFace(rawValue: MyData.shared.sesac)?.image
         return image
     }()
     
@@ -31,7 +31,7 @@ class MySesacImageView: BaseView {
         var config = UIButton.Configuration.plain()
         button.layer.cornerRadius = 8
         config.contentInsets = .init(top: 9, leading: 14, bottom: 9, trailing: 14)
-        config.title = "저장하기"
+        config.title = TextCase.Shop.save.rawValue
         config.background.backgroundColor = BrandColor.green
         config.baseForegroundColor = BlackNWhite.white
         button.configuration = config
@@ -58,5 +58,4 @@ class MySesacImageView: BaseView {
             $0.width.equalTo(requestButton.snp.height).multipliedBy(2)
         }
     }
-        
 }
