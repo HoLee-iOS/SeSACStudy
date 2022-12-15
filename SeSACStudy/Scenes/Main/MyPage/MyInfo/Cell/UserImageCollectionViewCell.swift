@@ -13,7 +13,6 @@ final class UserImageCollectionViewCell: BaseCollectionViewCell {
     lazy var cardHeader: UIImageView = {
         let image = UIImageView()
         image.contentMode = .scaleAspectFit
-        image.image = Icons.sesacBack1
         image.layer.cornerRadius = 8
         return image
     }()
