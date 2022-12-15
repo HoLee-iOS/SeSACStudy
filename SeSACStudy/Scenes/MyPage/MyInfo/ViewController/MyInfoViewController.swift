@@ -139,7 +139,7 @@ extension MyInfoViewController {
             cell.requestButton.isHidden = true
             var background = UIBackgroundConfiguration.listPlainCell()
             background.cornerRadius = 8
-            background.image = SesacBackground(rawValue: MyDataModel.shared.background)?.image
+            background.image = SesacBackground(rawValue: MyDataModel.shared.data.background)?.image
             background.backgroundInsets = .init(top: 16, leading: 16, bottom: 0, trailing: 16)
             cell.backgroundConfiguration = background
         }
