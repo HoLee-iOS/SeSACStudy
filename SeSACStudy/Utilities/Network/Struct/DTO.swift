@@ -59,7 +59,7 @@ struct MyState: Codable {
     let matchedNick, matchedUid: String
 }
 
-// MARK: - Chat
+// MARK: - Chat 통신 DTO
 struct Chat: Codable {
     let id, to, from, chat: String
     let createdAt: String
@@ -70,12 +70,11 @@ struct Chat: Codable {
     }
 }
 
-// MARK: - ChatList
+// MARK: - ChatList 통신 DTO
 struct ChatList: Codable {
     let payload: [Payload]
 }
 
-// MARK: - Payload
 struct Payload: Codable {
     let id, to, from, chat: String
     let createdAt: String
@@ -86,4 +85,11 @@ struct Payload: Codable {
     }
 }
 
+// MARK: - MyInfo 통신 DTO
+struct MyInfo: Codable {
+    let sesac: Int
+    let sesacCollection: [Int]
+    let background: Int
+    let backgroundCollection: [Int]
+}
 
