@@ -7,14 +7,21 @@
 
 import UIKit
 
+import RxSwift
+import RxCocoa
+import FirebaseAuth
+import Toast
+
 class MySesacImageView: BaseView {
+    
+    let disposeBag = DisposeBag()
     
     lazy var cardBackground: UIImageView = {
         let image = UIImageView()
         image.contentMode = .scaleToFill
         image.layer.cornerRadius = 8
         image.clipsToBounds = true
-        image.image = SesacBackground(rawValue: MyDataModel.shared.background)?.image
+        image.image = SesacBackground(rawValue: MyDataModel.shared.data.background)?.image
         return image
     }()
     
@@ -22,7 +29,7 @@ class MySesacImageView: BaseView {
         let image = UIImageView()
         image.contentMode = .scaleAspectFit
         image.layer.cornerRadius = 8
-        image.image = SesacFace(rawValue: MyDataModel.shared.sesac)?.image
+        image.image = SesacFace(rawValue: MyDataModel.shared.data.sesac)?.image
         return image
     }()
     
@@ -56,6 +63,61 @@ class MySesacImageView: BaseView {
             $0.top.trailing.equalTo(safeAreaLayoutGuide).inset(20)
             $0.height.equalTo(cardHeader.safeAreaLayoutGuide).multipliedBy(0.15)
             $0.width.equalTo(requestButton.snp.height).multipliedBy(2)
+        }
+    }
+    
+    @objc func dataSend() {
+        cardBackground.image = SesacBackground(rawValue: ShopDataModel.shared.background)?.image
+        cardHeader.image = SesacFace(rawValue: ShopDataModel.shared.sesac)?.image
+    }
+    
+    override func bindData() {
+        NotificationCenter.default.addObserver(self, selector: #selector(dataSend), name: Notification.Name("data"), object: nil)
+        
+        requestButton.rx.tap
+            .withUnretained(self)
+            .bind { (vc, _) in
+                vc.updateItem()
+            }
+            .disposed(by: disposeBag)
+    }
+    
+    //MARK: - 새싹과 배경 이미지 업데이트
+    func updateItem() {
+        APIService.updateItem { [weak self] (value, statusCode, error) in
+            guard let statusCode = statusCode else { return }
+            guard let status = NetworkError(rawValue: statusCode) else { return }
+            switch status {
+            case .success: self?.makeToast("성공적으로 저장되었습니다")
+            case .alreadySignUp: self?.makeToast("구매가 필요한 아이템이 있어요")
+            case .invalidToken: self?.refreshToken()
+            default: self?.makeToast("잠시 후 다시 시도해 주세요.")
+            }
+        }
+    }
+    
+    //MARK: - 토큰 만료 시 토큰 재발급
+    func refreshToken() {
+        let currentUser = Auth.auth().currentUser
+        currentUser?.getIDTokenForcingRefresh(true) { token, error in
+            if let error = error as? NSError {
+                guard let errorCode = AuthErrorCode.Code(rawValue: error.code) else { return }
+                switch errorCode {
+                default: self.showToast("에러: \(error.localizedDescription)")
+                }
+                return
+            } else if let token = token {
+                UserDefaultsManager.token = token
+                APIService.updateItem { [weak self] (value, statusCode, error) in
+                    guard let statusCode = statusCode else { return }
+                    guard let status = NetworkError(rawValue: statusCode) else { return }
+                    switch status {
+                    case .success: self?.makeToast("성공적으로 저장되었습니다")
+                    case .alreadySignUp: self?.makeToast("구매가 필요한 아이템이 있어요")
+                    default: self?.makeToast("잠시 후 다시 시도해 주세요.")
+                    }
+                }
+            }
         }
     }
 }
