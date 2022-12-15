@@ -13,42 +13,49 @@ import SnapKit
 
 class ShopTabViewController: TabmanViewController {
     
-    let cardView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .red
+    let cardView: ShopView = {
+        let view = ShopView()
         return view
     }()
+    
+    let bar = TMBar.ButtonBar()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        configureUI()
+        setVC()
+    }
+    
+    //MARK: - 상단 카드뷰 추가
+    func configureUI() {
         view.backgroundColor = BlackNWhite.white
         view.addSubview(cardView)
         cardView.snp.makeConstraints {
             $0.top.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
-            $0.height.equalTo(100)
         }
-        setVC()
     }
     
     //MARK: - 탭 뷰컨 설정
     func setVC() {
         self.title = "새싹샵"
         self.dataSource = self
-        
-        let bar = TMBar.ButtonBar()
-        setTabBar(tabBar: bar)
+    }
+    
+    //MARK: - 탭 레이아웃 설정
+    override func viewDidLayoutSubviews() {
+        setTabBar(tabBar: bar, height: cardView.bounds.height)
         addBar(bar, dataSource: self, at: .top)
     }
     
     //MARK: - 탭 UI 설정
-    func setTabBar (tabBar : TMBar.ButtonBar) {
+    func setTabBar (tabBar: TMBar.ButtonBar, height: CGFloat) {
         tabBar.backgroundView.style = .clear
         
         tabBar.layout.transitionStyle = .snap
         tabBar.layout.alignment = .centerDistributed
         tabBar.layout.contentMode = .fit
-        tabBar.layout.contentInset = UIEdgeInsets(top: 100, left: 0.0, bottom: 0.0, right: 0.0)
+        tabBar.layout.contentInset = UIEdgeInsets(top: height, left: 0.0, bottom: 0.0, right: 0.0)
         
         tabBar.buttons.customize { (button) in
             button.tintColor = GrayScale.gray6
