@@ -130,7 +130,6 @@
 		C1D789AB292242BB00A83600 /* ReusableViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D789AA292242BB00A83600 /* ReusableViewProtocol.swift */; };
 		C1D789AD292242E900A83600 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D789AC292242E900A83600 /* NetworkMonitor.swift */; };
 		C1D789AF29224BEB00A83600 /* SettingList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D789AE29224BEB00A83600 /* SettingList.swift */; };
-		C1D789B12922500500A83600 /* MyPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D789B02922500500A83600 /* MyPageViewModel.swift */; };
 		C1D789B32922518700A83600 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D789B22922518700A83600 /* BaseTableViewCell.swift */; };
 		C1D789BF2922A8EB00A83600 /* MyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D789BE2922A8EB00A83600 /* MyInfoViewController.swift */; };
 		C1D789C22922AABB00A83600 /* CircleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D789C12922AABB00A83600 /* CircleImageView.swift */; };
@@ -265,7 +264,6 @@
 		C1D789AA292242BB00A83600 /* ReusableViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableViewProtocol.swift; sourceTree = "<group>"; };
 		C1D789AC292242E900A83600 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		C1D789AE29224BEB00A83600 /* SettingList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingList.swift; sourceTree = "<group>"; };
-		C1D789B02922500500A83600 /* MyPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewModel.swift; sourceTree = "<group>"; };
 		C1D789B22922518700A83600 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		C1D789BE2922A8EB00A83600 /* MyInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoViewController.swift; sourceTree = "<group>"; };
 		C1D789C12922AABB00A83600 /* CircleImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImageView.swift; sourceTree = "<group>"; };
@@ -736,7 +734,6 @@
 			isa = PBXGroup;
 			children = (
 				C1D7898A2922230D00A83600 /* MyPageViewController.swift */,
-				C1D789B02922500500A83600 /* MyPageViewModel.swift */,
 				C1BAF7E92926654E007157AC /* Cell */,
 				C1D789BD2922A8C700A83600 /* MyInfo */,
 			);
@@ -1011,7 +1008,6 @@
 				C1817C6E2918FD1100382A09 /* BrandColor.swift in Sources */,
 				C19CA043291B96F000CC6761 /* CommonViewModel.swift in Sources */,
 				C1817C702918FD1A00382A09 /* GrayScale.swift in Sources */,
-				C1D789B12922500500A83600 /* MyPageViewModel.swift in Sources */,
 				C1BAF7EB2926658D007157AC /* SearchAllowCollectionViewCell.swift in Sources */,
 				C19CA045291BA20400CC6761 /* String + Extensions.swift in Sources */,
 				C12CD1542923BF9A0083C869 /* MyInfoViewModel.swift in Sources */,
