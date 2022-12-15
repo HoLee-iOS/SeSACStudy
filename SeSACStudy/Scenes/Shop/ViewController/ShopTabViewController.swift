@@ -10,10 +10,11 @@ import UIKit
 import Tabman
 import Pageboy
 import SnapKit
+import Toast
 
 class ShopTabViewController: TabmanViewController {
     
-    let cardView: MySesacImageView = {
+    lazy var cardView: MySesacImageView = {
         let view = MySesacImageView()
         return view
     }()
@@ -29,6 +30,8 @@ class ShopTabViewController: TabmanViewController {
     
     //MARK: - 상단 카드뷰 추가
     func configureUI() {
+        ShopDataModel.shared.sesac = MyDataModel.shared.data.sesac
+        ShopDataModel.shared.background = MyDataModel.shared.data.background
         view.backgroundColor = BlackNWhite.white
         view.addSubview(cardView)
         cardView.snp.makeConstraints {
