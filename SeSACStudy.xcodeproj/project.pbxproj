@@ -144,6 +144,10 @@
 		C1F23150293F2A95002A701E /* SocketIOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F2314F293F2A95002A701E /* SocketIOManager.swift */; };
 		C1F23152293F317B002A701E /* MoreMenuTap.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F23151293F317B002A701E /* MoreMenuTap.swift */; };
 		C1FB784F294B14DF0070A383 /* MyDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FB784E294B14DF0070A383 /* MyDataModel.swift */; };
+		C1FB787E294B237D0070A383 /* SesacCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FB787D294B237D0070A383 /* SesacCollectionViewCell.swift */; };
+		C1FB7880294B23A90070A383 /* BackgroundCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FB787F294B23A90070A383 /* BackgroundCollectionViewCell.swift */; };
+		C1FB7882294B4E460070A383 /* ShopRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FB7881294B4E460070A383 /* ShopRouter.swift */; };
+		C1FB7886294B8D6A0070A383 /* ShopDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FB7885294B8D6A0070A383 /* ShopDataModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -275,6 +279,10 @@
 		C1F2314F293F2A95002A701E /* SocketIOManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketIOManager.swift; sourceTree = "<group>"; };
 		C1F23151293F317B002A701E /* MoreMenuTap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreMenuTap.swift; sourceTree = "<group>"; };
 		C1FB784E294B14DF0070A383 /* MyDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDataModel.swift; sourceTree = "<group>"; };
+		C1FB787D294B237D0070A383 /* SesacCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SesacCollectionViewCell.swift; sourceTree = "<group>"; };
+		C1FB787F294B23A90070A383 /* BackgroundCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundCollectionViewCell.swift; sourceTree = "<group>"; };
+		C1FB7881294B4E460070A383 /* ShopRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopRouter.swift; sourceTree = "<group>"; };
+		C1FB7885294B8D6A0070A383 /* ShopDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopDataModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -769,6 +777,7 @@
 			children = (
 				C1FB784E294B14DF0070A383 /* MyDataModel.swift */,
 				C1F23148293E2431002A701E /* ChatDataModel.swift */,
+				C1FB7885294B8D6A0070A383 /* ShopDataModel.swift */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -785,6 +794,8 @@
 		C1FB7851294B1B790070A383 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				C1FB787D294B237D0070A383 /* SesacCollectionViewCell.swift */,
+				C1FB787F294B23A90070A383 /* BackgroundCollectionViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -1083,6 +1094,7 @@
 				C14D21642920F5C800FF2AF3 /* Router.swift */,
 				C11DC47D2939280B00569282 /* ChatRouter.swift */,
 				C1B5DB932948517A0040FB29 /* QueueRouter.swift */,
+				C1FB7881294B4E460070A383 /* ShopRouter.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -1269,6 +1281,7 @@
 				C161BE22292E28530066786F /* StudyInputViewModel.swift in Sources */,
 				C1C15E98291E404A005B9188 /* GenderViewController.swift in Sources */,
 				C14D21652920F5C800FF2AF3 /* Router.swift in Sources */,
+				C1FB7882294B4E460070A383 /* ShopRouter.swift in Sources */,
 				C1D0E0A5292C0C1D00370579 /* HomeViewModel.swift in Sources */,
 				C1817C492918E0C500382A09 /* AppDelegate.swift in Sources */,
 				C1D789BF2922A8EB00A83600 /* MyInfoViewController.swift in Sources */,
@@ -1293,7 +1306,9 @@
 				C12CD14C292363E10083C869 /* InfoSection.swift in Sources */,
 				C184086F292E99D50076FB8C /* StudyInputCollectionViewCell.swift in Sources */,
 				C1FB784F294B14DF0070A383 /* MyDataModel.swift in Sources */,
+				C1FB7880294B23A90070A383 /* BackgroundCollectionViewCell.swift in Sources */,
 				C1840876292FEA8E0076FB8C /* SesacSearchViewController.swift in Sources */,
+				C1FB7886294B8D6A0070A383 /* ShopDataModel.swift in Sources */,
 				C1440698291C210900B6C9EC /* PhoneInputViewModel.swift in Sources */,
 				C19373BC291A8230008C8FED /* Icons.swift in Sources */,
 				C19CA037291B874000CC6761 /* BaseViewController.swift in Sources */,
@@ -1339,6 +1354,7 @@
 				C1440694291C20E600B6C9EC /* PhoneInputView.swift in Sources */,
 				C19373C7291A9EE2008C8FED /* Fonts.swift in Sources */,
 				C1C15E96291E4042005B9188 /* GenderView.swift in Sources */,
+				C1FB787E294B237D0070A383 /* SesacCollectionViewCell.swift in Sources */,
 				C1817C722918FD2600382A09 /* SystemColor.swift in Sources */,
 				C1BDB2502921699200479A3A /* UserDefaultsManager.swift in Sources */,
 				C1C949A5291D154E00A58FBF /* DateViewController.swift in Sources */,

@@ -54,6 +54,15 @@ struct UserDefaultsManager {
     @UserDefaultsWrapper(key: "reviewPath", defaultValue: "/v1/queue/rate/\(ChatDataModel.shared.otherUid)")
     static var reviewPath: String
     
+    @UserDefaultsWrapper(key: "myInfoPath", defaultValue: "/v1/user/shop/myinfo")
+    static var myInfoPath: String
+    
+    @UserDefaultsWrapper(key: "itemPath", defaultValue: "/v1/user/shop/item")
+    static var itemPath: String
+    
+    @UserDefaultsWrapper(key: "inAppPath", defaultValue: "/v1/user/shop/ios")
+    static var inAppPath: String
+    
     @UserDefaultsWrapper(key: "otheruid", defaultValue: "")
     static var otheruid: String
     
