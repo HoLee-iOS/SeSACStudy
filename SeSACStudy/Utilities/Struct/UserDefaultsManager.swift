@@ -63,6 +63,9 @@ struct UserDefaultsManager {
     @UserDefaultsWrapper(key: "inAppPath", defaultValue: "/v1/user/shop/ios")
     static var inAppPath: String
     
+    @UserDefaultsWrapper(key: "fcmPath", defaultValue: "/v1/user/update_fcm_token")
+    static var fcmPath: String
+    
     @UserDefaultsWrapper(key: "otheruid", defaultValue: "")
     static var otheruid: String
     
