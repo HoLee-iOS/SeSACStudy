@@ -28,10 +28,20 @@ class ShopTabViewController: TabmanViewController {
         setVC()
     }
     
-    //MARK: - 상단 카드뷰 추가
-    func configureUI() {
+    override func viewWillAppear(_ animated: Bool) {
+        cardViewImage()
+    }
+    
+    //MARK: - 상단 카드뷰 이미지 초기화
+    func cardViewImage() {
         ShopDataModel.shared.sesac = MyDataModel.shared.data.sesac
         ShopDataModel.shared.background = MyDataModel.shared.data.background
+        cardView.cardBackground.image = SesacBackground(rawValue: MyDataModel.shared.data.background)?.image
+        cardView.cardHeader.image = SesacFace(rawValue: MyDataModel.shared.data.sesac)?.image
+    }
+    
+    //MARK: - 상단 카드뷰 추가
+    func configureUI() {
         view.backgroundColor = BlackNWhite.white
         view.addSubview(cardView)
         cardView.snp.makeConstraints {
