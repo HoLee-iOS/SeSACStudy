@@ -53,6 +53,16 @@ enum SesacFace: Int, CaseIterable {
         case .face5: return "화려하고 멋있는 삶을 살며 돈과 인생을 플렉스 하는 자유분방한 새싹입니다."
         }
     }
+    
+    var IAPBundle: String {
+        switch self {
+        case .face1: return ""
+        case .face2: return "com.memolease.sesac1.sprout1"
+        case .face3: return "com.memolease.sesac1.sprout2"
+        case .face4: return "com.memolease.sesac1.sprout3"
+        case .face5: return "com.memolease.sesac1.sprout4"
+        }
+    }
 }
 
 enum SesacBackground: Int, CaseIterable {
@@ -64,7 +74,6 @@ enum SesacBackground: Int, CaseIterable {
     case back6
     case back7
     case back8
-    case back9
     
     var image: UIImage? {
         switch self {
@@ -76,7 +85,6 @@ enum SesacBackground: Int, CaseIterable {
         case .back6: return Icons.sesacBack6
         case .back7: return Icons.sesacBack7
         case .back8: return Icons.sesacBack8
-        case .back9: return Icons.sesacBack9
         }
     }
     
@@ -90,7 +98,6 @@ enum SesacBackground: Int, CaseIterable {
         case .back6: return "라틴 거실"
         case .back7: return "홈트방"
         case .back8: return "뮤지션 작업실"
-        case .back9: return "도예가 작업실"
         }
     }
     
@@ -104,7 +111,6 @@ enum SesacBackground: Int, CaseIterable {
         case .back6: return "2500"
         case .back7: return "2500"
         case .back8: return "2500"
-        case .back9: return "2500"
         }
     }
     
@@ -118,7 +124,19 @@ enum SesacBackground: Int, CaseIterable {
         case .back6: return "모노톤의 따스한 감성의 거실로 편하게 쉴 수 있는 공간입니다"
         case .back7: return "집에서 운동을 할 수 있도록 기구를 갖춘 방입니다"
         case .back8: return "여러가지 음악 작업을 할 수 있는 작업실입니다"
-        case .back9: return "여러가지 도예 작업을 할 수 있는 작업실입니다"
+        }
+    }
+    
+    var IAPBundle: String {
+        switch self {
+        case .back1: return ""
+        case .back2: return "com.memolease.sesac1.background1"
+        case .back3: return "com.memolease.sesac1.background2"
+        case .back4: return "com.memolease.sesac1.background3"
+        case .back5: return "com.memolease.sesac1.background4"
+        case .back6: return "com.memolease.sesac1.background5"
+        case .back7: return "com.memolease.sesac1.background6"
+        case .back8: return "com.memolease.sesac1.background7"
         }
     }
 }
