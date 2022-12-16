@@ -251,4 +251,17 @@ class APIService {
             }
         }
     }
+    
+    //MARK: - fcm 토큰 업데이트
+    static func fcmUpdate(completion: @escaping (String?, Int?, Error?) -> Void) {
+        AF.request(Router.fcmUpdate).responseString { response in
+            guard let statusCode = response.response?.statusCode else { return }
+            switch response.result {
+            case .success(let data):
+                completion(data, statusCode, nil)
+            case .failure(let error):
+                completion(nil, statusCode, error)
+            }
+        }
+    }
 }
