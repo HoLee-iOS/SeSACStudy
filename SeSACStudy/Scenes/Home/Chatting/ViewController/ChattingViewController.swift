@@ -59,7 +59,9 @@ class ChattingViewController: BaseViewController {
             case .success:
                 value?.payload.forEach { ChatRepository.shared.saveChat(item: ChatData(chatId: $0.id, toChat: $0.to, fromChat: $0.from, chatContent: $0.chat, chatDate: $0.createdAt)) }
                 self?.chatView.tableView.reloadData()
-                self?.chatView.tableView.scrollToRow(at: IndexPath(row: (ChatRepository.shared.tasks?.count ?? 0) - 1, section: 0), at: .bottom, animated: false)
+                if ChatRepository.shared.tasks?.count ?? 0 > 0 {
+                    self?.chatView.tableView.scrollToRow(at: IndexPath(row: (ChatRepository.shared.tasks?.count ?? 0) - 1, section: 0), at: .bottom, animated: false)
+                }
             case .invalidToken: self?.refreshToken1()
             default: self?.showToast("잠시 후 다시 시도해주세요.")
             }
@@ -82,7 +84,9 @@ class ChattingViewController: BaseViewController {
                     case .success:
                         value?.payload.forEach { ChatRepository.shared.saveChat(item: ChatData(chatId: $0.id, toChat: $0.to, fromChat: $0.from, chatContent: $0.chat, chatDate: $0.createdAt)) }
                         self?.chatView.tableView.reloadData()
-                        self?.chatView.tableView.scrollToRow(at: IndexPath(row: (ChatRepository.shared.tasks?.count ?? 0) - 1, section: 0), at: .bottom, animated: false)
+                        if ChatRepository.shared.tasks?.count ?? 0 > 0 {
+                            self?.chatView.tableView.scrollToRow(at: IndexPath(row: (ChatRepository.shared.tasks?.count ?? 0) - 1, section: 0), at: .bottom, animated: false)
+                        }
                     default: self?.showToast("잠시 후 다시 시도해주세요.")
                     }
                 }
