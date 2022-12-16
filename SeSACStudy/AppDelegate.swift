@@ -32,7 +32,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             if let error = error {
                 print("Error fetching FCM registration token: \(error)")
             } else if let token = token {
-                UserDefaultsManager.fcmToken = token
+                //MARK: - 유저디폴트에 저장되어있는 fcm토큰 값이 변경될 경우에만 저장
+                if UserDefaultsManager.fcmToken.isEmpty || UserDefaultsManager.fcmToken != token {
+                    UserDefaultsManager.fcmToken = token
+                }
                 print("FCM registration token: \(token)")
             }
         }
