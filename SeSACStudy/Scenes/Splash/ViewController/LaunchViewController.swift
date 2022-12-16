@@ -17,7 +17,7 @@ class LaunchViewController: BaseViewController {
     }
     
     override func viewDidLoad() {
-        super.viewDidLoad()        
+        super.viewDidLoad()
     }
     
     override func bindData() {
@@ -37,9 +37,10 @@ class LaunchViewController: BaseViewController {
                     guard let networkErr = NetworkError(rawValue: statusCode) else { return }
                     switch networkErr {
                     case .success:
-                        self?.setRootVC(vc: MainTabBarController())
+                        if UserDefaultsManager.fcmToken != (value?.fcMtoken ?? "") { self?.fcmUpdate() }
+                        else { self?.setRootVC(vc: MainTabBarController()) }
                         return
-                    case .invalidToken: self?.refreshToken()
+                    case .invalidToken: self?.refreshToken1()
                         return
                     case .needSignUp: self?.setRootNavVC(vc: NicknameViewController())
                         return
@@ -59,7 +60,7 @@ class LaunchViewController: BaseViewController {
     }
     
     //MARK: - 토큰 만료 시 토큰 재발급
-    func refreshToken() {
+    func refreshToken1() {
         let currentUser = Auth.auth().currentUser
         currentUser?.getIDTokenForcingRefresh(true) { token, error in
             if let error = error as? NSError {
@@ -86,6 +87,43 @@ class LaunchViewController: BaseViewController {
                         }
                     })
                         return
+                    }
+                }
+            }
+        }
+    }
+    
+    //MARK: - FCM 토큰 업데이트
+    func fcmUpdate() {
+        APIService.fcmUpdate { [weak self] (value, statusCode, error) in
+            guard let statusCode = statusCode else { return }
+            guard let status = NetworkError(rawValue: statusCode) else { return }
+            switch status {
+            case .success: self?.setRootVC(vc: MainTabBarController())
+            case .invalidToken: self?.refreshToken2()
+            default: self?.view.makeToast("잠시 후 다시 시도해주세요.")
+            }
+        }
+    }
+    
+    //MARK: - 토큰 만료 시 토큰 재발급
+    func refreshToken2() {
+        let currentUser = Auth.auth().currentUser
+        currentUser?.getIDTokenForcingRefresh(true) { token, error in
+            if let error = error as? NSError {
+                guard let errorCode = AuthErrorCode.Code(rawValue: error.code) else { return }
+                switch errorCode {
+                default: self.showToast("에러: \(error.localizedDescription)")
+                }
+                return
+            } else if let token = token {
+                UserDefaultsManager.token = token
+                APIService.fcmUpdate { [weak self] (value, statusCode, error) in
+                    guard let statusCode = statusCode else { return }
+                    guard let status = NetworkError(rawValue: statusCode) else { return }
+                    switch status {
+                    case .success: self?.setRootVC(vc: MainTabBarController())
+                    default: self?.view.makeToast("잠시 후 다시 시도해주세요.")
                     }
                 }
             }
