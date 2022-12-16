@@ -74,6 +74,7 @@
 		C19373C9291AA7E5008C8FED /* PageContentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19373C8291AA7E5008C8FED /* PageContentsViewController.swift */; };
 		C19373CB291AA873008C8FED /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19373CA291AA873008C8FED /* PageViewController.swift */; };
 		C19373CD291ABFE3008C8FED /* PageContents.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19373CC291ABFE3008C8FED /* PageContents.swift */; };
+		C1962970294C63C1004497D8 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C196296F294C63C1004497D8 /* StoreKit.framework */; };
 		C19CA02F291B83E700CC6761 /* PhoneAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19CA02E291B83E700CC6761 /* PhoneAuthViewController.swift */; };
 		C19CA031291B862000CC6761 /* PhoneAuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19CA030291B862000CC6761 /* PhoneAuthView.swift */; };
 		C19CA033291B862F00CC6761 /* PhoneAuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19CA032291B862F00CC6761 /* PhoneAuthViewModel.swift */; };
@@ -213,6 +214,7 @@
 		C19373C8291AA7E5008C8FED /* PageContentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageContentsViewController.swift; sourceTree = "<group>"; };
 		C19373CA291AA873008C8FED /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		C19373CC291ABFE3008C8FED /* PageContents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageContents.swift; sourceTree = "<group>"; };
+		C196296F294C63C1004497D8 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		C19CA02D291B81C700CC6761 /* SeSACStudy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SeSACStudy.entitlements; sourceTree = "<group>"; };
 		C19CA02E291B83E700CC6761 /* PhoneAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneAuthViewController.swift; sourceTree = "<group>"; };
 		C19CA030291B862000CC6761 /* PhoneAuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneAuthView.swift; sourceTree = "<group>"; };
@@ -301,6 +303,7 @@
 				C19CA03C291B950E00CC6761 /* Toast in Frameworks */,
 				C14D215F2920F33400FF2AF3 /* FirebaseAuth in Frameworks */,
 				C1F23144293E1A6C002A701E /* RealmSwift in Frameworks */,
+				C1962970294C63C1004497D8 /* StoreKit.framework in Frameworks */,
 				C19373BA291A7FC7008C8FED /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -374,6 +377,7 @@
 				C19373BD291A89CE008C8FED /* .gitignore */,
 				C1817C472918E0C500382A09 /* SeSACStudy */,
 				C1817C462918E0C500382A09 /* Products */,
+				C196296E294C63C1004497D8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -504,6 +508,14 @@
 				C1FB7855294B1C5E0070A383 /* ViewModel */,
 			);
 			path = SesacSearch;
+			sourceTree = "<group>";
+		};
+		C196296E294C63C1004497D8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C196296F294C63C1004497D8 /* StoreKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		C1B5DB97294870900040FB29 /* View */ = {
@@ -1503,9 +1515,10 @@
 				CODE_SIGN_ENTITLEMENTS = SeSACStudy/SeSACStudy.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 54R3763M9G;
+				DEVELOPMENT_TEAM = 2EZ5QWFYX2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SeSACStudy/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "지도에서 내 위치를 확인하여 주변 스터디원의 정보 표시 기능을 이용하기 위해 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
@@ -1518,7 +1531,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.memolease.sesacslp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.memolease.sesac1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -1537,9 +1550,10 @@
 				CODE_SIGN_ENTITLEMENTS = SeSACStudy/SeSACStudy.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 54R3763M9G;
+				DEVELOPMENT_TEAM = 2EZ5QWFYX2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SeSACStudy/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "지도에서 내 위치를 확인하여 주변 스터디원의 정보 표시 기능을 이용하기 위해 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
@@ -1552,7 +1566,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.memolease.sesacslp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.memolease.sesac1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
