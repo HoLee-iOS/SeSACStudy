@@ -20,6 +20,7 @@ enum Router: URLRequestConvertible {
     case request
     case accept
     case stop
+    case fcmUpdate
     
     var baseURL: URL {
         guard let url = URL(string: UserDefaultsManager.baseURL) else { return URL(fileURLWithPath: "") }
@@ -30,7 +31,7 @@ enum Router: URLRequestConvertible {
         switch self {
         case .login, .myState: return .get
         case .signUp, .withdraw, .search, .request, .accept: return .post
-        case .save: return .put
+        case .save, .fcmUpdate: return .put
         case .stop: return .delete
         }
     }
@@ -45,12 +46,13 @@ enum Router: URLRequestConvertible {
         case .request: return UserDefaultsManager.requestPath
         case .accept: return UserDefaultsManager.acceptPath
         case .stop: return UserDefaultsManager.sesacPath
+        case .fcmUpdate: return UserDefaultsManager.fcmPath
         }
     }
     
     var headers: HTTPHeaders {
         switch self {
-        case .login, .signUp, .save, .withdraw, .search, .myState, .request, .accept, .stop:
+        case .login, .signUp, .save, .withdraw, .search, .myState, .request, .accept, .stop, .fcmUpdate:
             return ["idtoken" : UserDefaultsManager.token, "Content-Type" : UserDefaultsManager.contentType]
         }
     }
@@ -82,6 +84,10 @@ enum Router: URLRequestConvertible {
         case .request, .accept:
             return [
                 "otheruid" : UserDefaultsManager.otheruid
+            ]
+        case .fcmUpdate:
+            return [
+                "FCMtoken" : UserDefaultsManager.fcmToken
             ]
         default:
             return ["":""]
