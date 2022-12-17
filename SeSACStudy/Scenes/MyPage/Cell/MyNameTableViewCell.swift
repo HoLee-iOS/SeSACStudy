@@ -11,7 +11,7 @@ import SnapKit
 final class MyNameTableViewCell: BaseTableViewCell {
     
     let cellImage: CircleImageView = {
-        let image = CircleImageView(image: nil)
+        let image = CircleImageView(image: SesacFace(rawValue: MyDataModel.shared.data.sesac)?.image)
         return image
     }()
     

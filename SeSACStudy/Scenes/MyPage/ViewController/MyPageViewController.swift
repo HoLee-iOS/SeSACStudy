@@ -58,7 +58,6 @@ extension MyPageViewController: UITableViewDelegate, UITableViewDataSource {
             cell1.selectionStyle = .none
             cell1.cellTitle.text = contents.title
             cell1.cellImage.image = contents.image
-            cell1.moreViewImage.image = contents.moreView
             return cell1
         } else {
             tableView.rowHeight = 80
