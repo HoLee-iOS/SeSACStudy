@@ -15,4 +15,6 @@ class ShopDataModel {
     
     var sesac = 0
     var background = 0
+    var receipt = ""
+    var product = ""
 }
