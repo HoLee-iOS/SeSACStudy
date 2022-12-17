@@ -52,8 +52,8 @@ enum ShopRouter: URLRequestConvertible {
             ]
         case .inApp:
             return [
-                "receipt" : "MIIT9gYJKoZIhvcNAQcCoIIT5zCCE+MCAQExCzAJBgUrDgMCGg",
-                "product" : "com.sesac.sesacfriends.sesac1"
+                "receipt" : ShopDataModel.shared.receipt,
+                "product" : ShopDataModel.shared.product
             ]
         default: return ["":""]
         }
