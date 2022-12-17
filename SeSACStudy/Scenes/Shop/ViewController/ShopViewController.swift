@@ -7,7 +7,6 @@
 
 import UIKit
 
-import FirebaseAuth
 import StoreKit
 
 class ShopViewController: BaseViewController {
@@ -42,10 +41,6 @@ class ShopViewController: BaseViewController {
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        loadMyInfo()
-    }
-    
     //MARK: - productIdentifiers에 정의된 상품 ID에 대한 정보 가져오기 및 사용자의 디바이스가 인앱결제가 가능한지 여부 확인
     func requestProductData() {
         if SKPaymentQueue.canMakePayments() {
@@ -55,43 +50,6 @@ class ShopViewController: BaseViewController {
             request.start() //인앱 상품 조회
         } else {
             print("In App Purchase Not Enabled")
-        }
-    }
-
-    //MARK: - 내 정보 불러오기
-    func loadMyInfo() {
-        APIService.requestMyInfo { [weak self] (value, statusCode, error) in
-            guard let statusCode = statusCode else { return }
-            guard let status = NetworkError(rawValue: statusCode) else { return }
-            switch status {
-            case .success: break
-            case .invalidToken: self?.refreshToken()
-            default: self?.view.makeToast("잠시 후 다시 시도해 주세요.")
-            }
-        }
-    }
-    
-    //MARK: - 토큰 만료 시 토큰 재발급
-    func refreshToken() {
-        let currentUser = Auth.auth().currentUser
-        currentUser?.getIDTokenForcingRefresh(true) { token, error in
-            if let error = error as? NSError {
-                guard let errorCode = AuthErrorCode.Code(rawValue: error.code) else { return }
-                switch errorCode {
-                default: self.showToast("에러: \(error.localizedDescription)")
-                }
-                return
-            } else if let token = token {
-                UserDefaultsManager.token = token
-                APIService.requestMyInfo { [weak self] (value, statusCode, error) in
-                    guard let statusCode = statusCode else { return }
-                    guard let status = NetworkError(rawValue: statusCode) else { return }
-                    switch status {
-                    case .success: break
-                    default: self?.view.makeToast("잠시 후 다시 시도해 주세요.")
-                    }
-                }
-            }
         }
     }
     

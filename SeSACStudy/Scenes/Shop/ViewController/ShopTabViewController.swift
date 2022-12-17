@@ -7,6 +7,7 @@
 
 import UIKit
 
+import FirebaseAuth
 import Tabman
 import Pageboy
 import SnapKit
@@ -29,7 +30,44 @@ class ShopTabViewController: TabmanViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        cardViewImage()
+        loadMyInfo()
+    }
+    
+    //MARK: - 내 정보 불러오기
+    func loadMyInfo() {
+        APIService.requestMyInfo { [weak self] (value, statusCode, error) in
+            guard let statusCode = statusCode else { return }
+            guard let status = NetworkError(rawValue: statusCode) else { return }
+            switch status {
+            case .success: self?.cardViewImage()
+            case .invalidToken: self?.refreshToken()
+            default: self?.view.makeToast("잠시 후 다시 시도해 주세요.")
+            }
+        }
+    }
+    
+    //MARK: - 토큰 만료 시 토큰 재발급
+    func refreshToken() {
+        let currentUser = Auth.auth().currentUser
+        currentUser?.getIDTokenForcingRefresh(true) { token, error in
+            if let error = error as? NSError {
+                guard let errorCode = AuthErrorCode.Code(rawValue: error.code) else { return }
+                switch errorCode {
+                default: self.view.makeToast("에러: \(error.localizedDescription)")
+                }
+                return
+            } else if let token = token {
+                UserDefaultsManager.token = token
+                APIService.requestMyInfo { [weak self] (value, statusCode, error) in
+                    guard let statusCode = statusCode else { return }
+                    guard let status = NetworkError(rawValue: statusCode) else { return }
+                    switch status {
+                    case .success: self?.cardViewImage()
+                    default: self?.view.makeToast("잠시 후 다시 시도해 주세요.")
+                    }
+                }
+            }
+        }
     }
     
     //MARK: - 상단 카드뷰 이미지 초기화
