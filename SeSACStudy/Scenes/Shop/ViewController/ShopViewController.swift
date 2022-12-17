@@ -8,8 +8,18 @@
 import UIKit
 
 import FirebaseAuth
+import StoreKit
 
 class ShopViewController: BaseViewController {
+    
+    //MARK: - 인앱 상품 ID 정의
+    //1. 인앱 상품 ID 정의
+    //상품이 여러개 일 수 있기 때문에 배열이고 겹치면 안되기 때문에 Set으로 만듦
+    var productIdentifiers: Set<String> = ["com.memolease.sesac1.sprout1", "com.memolease.sesac1.sprout2", "com.memolease.sesac1.sprout3", "com.memolease.sesac1.sprout4", "com.memolease.sesac1.background1", "com.memolease.sesac1.background2", "com.memolease.sesac1.background3", "com.memolease.sesac1.background4", "com.memolease.sesac1.background5", "com.memolease.sesac1.background6", "com.memolease.sesac1.background7"]
+    
+    //1. 인앱 상품 정보
+    //위에서 만든 인앱 상품 ID를 통해 인앱 상품 정보 배열을 만들어줌
+    var productArray = Array<SKProduct>()
     
     private lazy var collectionView: UICollectionView = {
         let view = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
@@ -27,11 +37,24 @@ class ShopViewController: BaseViewController {
         super.viewDidLoad()
         
         loadMyInfo()
+        requestProductData()
         DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(100)) { [weak self] in
             self?.configureDataSource()
         }
     }
     
+    //MARK: - productIdentifiers에 정의된 상품 ID에 대한 정보 가져오기 및 사용자의 디바이스가 인앱결제가 가능한지 여부 확인
+    func requestProductData() {
+        if SKPaymentQueue.canMakePayments() {
+            print("인앱 결제 가능")
+            let request = SKProductsRequest(productIdentifiers: productIdentifiers)
+            request.delegate = self
+            request.start() //인앱 상품 조회
+        } else {
+            print("In App Purchase Not Enabled")
+        }
+    }
+
     //MARK: - 내 정보 불러오기
     func loadMyInfo() {
         APIService.requestMyInfo { [weak self] (value, statusCode, error) in
@@ -111,8 +134,9 @@ extension ShopViewController {
             cell.nameLabel.text = itemIdentifier.name
             cell.priceButton.setAttributedTitle(NSAttributedString(string: itemIdentifier.price, attributes: [NSAttributedString.Key.font: UIFont(name: Fonts.medium, size: 12)!]), for: .normal)
             cell.descriptionLabel.text = itemIdentifier.description
-            cell.index = indexPath.item
             cell.inputData(index: indexPath.item)
+            cell.priceButton.tag = indexPath.item
+            cell.productArr = self.productArray
         }
         
         let cellRegistration2 = UICollectionView.CellRegistration<BackgroundCollectionViewCell, SesacBackground> { cell, indexPath, itemIdentifier in
@@ -120,8 +144,9 @@ extension ShopViewController {
             cell.nameLabel.text = itemIdentifier.name
             cell.priceButton.setAttributedTitle(NSAttributedString(string: itemIdentifier.price, attributes: [NSAttributedString.Key.font: UIFont(name: Fonts.medium, size: 12)!]), for: .normal)
             cell.descriptionLabel.text = itemIdentifier.description
-            cell.index = indexPath.item
             cell.inputData(index: indexPath.item)
+            cell.priceButton.tag = indexPath.item
+            cell.productArr = self.productArray
         }
         
         //MARK: - 데이터 소스에 데이터 넣기, 스냅샷으로 데이터를 보여주기
@@ -150,5 +175,25 @@ extension ShopViewController: UICollectionViewDelegate {
         collectionView.deselectItem(at: indexPath, animated: false)
         pageboyPageIndex == 0 ? (ShopDataModel.shared.sesac = indexPath.item) : (ShopDataModel.shared.background = indexPath.item)
         NotificationCenter.default.post(name: Notification.Name("data"), object: indexPath.item)
+    }
+}
+
+extension ShopViewController: SKProductsRequestDelegate {
+    //MARK: - 인앱 상품 정보 조회, 위의 start를 통해 시작됨
+    func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
+        
+        let products = response.products
+        
+        if products.count > 0 {
+            
+            for i in products {
+                productArray.append(i)
+                //product = i //옵션. 테이블뷰 셀에서 구매하기 버튼 클릭 시, 버튼 클릭 시
+                
+                print(i.localizedTitle, i.price, i.priceLocale, i.localizedDescription)
+            }
+        } else {
+            print("No Product Found") //계약 업데이트. 유료 계약 X. Capabilities X
+        }
     }
 }
