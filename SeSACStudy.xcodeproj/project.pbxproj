@@ -75,6 +75,7 @@
 		C19373CB291AA873008C8FED /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19373CA291AA873008C8FED /* PageViewController.swift */; };
 		C19373CD291ABFE3008C8FED /* PageContents.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19373CC291ABFE3008C8FED /* PageContents.swift */; };
 		C1962970294C63C1004497D8 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C196296F294C63C1004497D8 /* StoreKit.framework */; };
+		C19BF0CE294D955F007C0B0D /* PurchaseDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19BF0CD294D955F007C0B0D /* PurchaseDataModel.swift */; };
 		C19CA02F291B83E700CC6761 /* PhoneAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19CA02E291B83E700CC6761 /* PhoneAuthViewController.swift */; };
 		C19CA031291B862000CC6761 /* PhoneAuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19CA030291B862000CC6761 /* PhoneAuthView.swift */; };
 		C19CA033291B862F00CC6761 /* PhoneAuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19CA032291B862F00CC6761 /* PhoneAuthViewModel.swift */; };
@@ -215,6 +216,7 @@
 		C19373CA291AA873008C8FED /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		C19373CC291ABFE3008C8FED /* PageContents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageContents.swift; sourceTree = "<group>"; };
 		C196296F294C63C1004497D8 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		C19BF0CD294D955F007C0B0D /* PurchaseDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseDataModel.swift; sourceTree = "<group>"; };
 		C19CA02D291B81C700CC6761 /* SeSACStudy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SeSACStudy.entitlements; sourceTree = "<group>"; };
 		C19CA02E291B83E700CC6761 /* PhoneAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneAuthViewController.swift; sourceTree = "<group>"; };
 		C19CA030291B862000CC6761 /* PhoneAuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneAuthView.swift; sourceTree = "<group>"; };
@@ -790,6 +792,7 @@
 				C1FB784E294B14DF0070A383 /* MyDataModel.swift */,
 				C1F23148293E2431002A701E /* ChatDataModel.swift */,
 				C1FB7885294B8D6A0070A383 /* ShopDataModel.swift */,
+				C19BF0CD294D955F007C0B0D /* PurchaseDataModel.swift */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -1322,6 +1325,7 @@
 				C1840876292FEA8E0076FB8C /* SesacSearchViewController.swift in Sources */,
 				C1FB7886294B8D6A0070A383 /* ShopDataModel.swift in Sources */,
 				C1440698291C210900B6C9EC /* PhoneInputViewModel.swift in Sources */,
+				C19BF0CE294D955F007C0B0D /* PurchaseDataModel.swift in Sources */,
 				C19373BC291A8230008C8FED /* Icons.swift in Sources */,
 				C19CA037291B874000CC6761 /* BaseViewController.swift in Sources */,
 				C1BAF7E629266543007157AC /* MyPageTableViewCell.swift in Sources */,
