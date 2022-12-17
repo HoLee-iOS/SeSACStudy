@@ -36,11 +36,14 @@ class ShopViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadMyInfo()
         requestProductData()
         DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(100)) { [weak self] in
             self?.configureDataSource()
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        loadMyInfo()
     }
     
     //MARK: - productIdentifiers에 정의된 상품 ID에 대한 정보 가져오기 및 사용자의 디바이스가 인앱결제가 가능한지 여부 확인
