@@ -50,8 +50,6 @@ class SocketIOManager {
             let from = data[TextCase.Chatting.ChatSokcet.from.rawValue] as! String
             let to = data[TextCase.Chatting.ChatSokcet.to.rawValue] as! String
             
-            print("Check >>>", id, chat, createdAt, from, to)
-            
             NotificationCenter.default.post(name: NSNotification.Name("getMessage"), object: self, userInfo: [TextCase.Chatting.ChatSokcet.id.rawValue: id, TextCase.Chatting.ChatSokcet.chat.rawValue: chat, TextCase.Chatting.ChatSokcet.createdAt.rawValue: createdAt, TextCase.Chatting.ChatSokcet.from.rawValue: from, TextCase.Chatting.ChatSokcet.to.rawValue: to])
         }
     }
