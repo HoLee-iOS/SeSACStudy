@@ -1,3 +1,5 @@
+<img src="https://user-images.githubusercontent.com/78537078/209440172-e6e20eee-514f-4d98-a549-dde88a67812c.png" width = "25%">
+
 # SeSACStudy
 
 <p>
