@@ -10,3 +10,5 @@
 <img src="https://user-images.githubusercontent.com/78537078/209194194-458ae2b1-fe55-4536-8f4c-a788982d9024.png" width = "15%">
 <img src="https://user-images.githubusercontent.com/78537078/209194520-49db17dd-d753-42fa-8252-fc713ddda990.png" width = "15%">
 </p>
+
+# 1. 제작기간
