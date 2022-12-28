@@ -2,7 +2,7 @@
 
 # SeSACStudy
 
-> 현재 위치 기반 주변에서 내가 원하는 사람과 스터디를 할 수 있게 1대1 채팅으로 매칭 시켜주는 앱입니다.
+- 현재 위치 기반 주변에서 내가 원하는 사람과 스터디를 할 수 있게 1대1 채팅으로 매칭 시켜주는 앱입니다.
 
 </br>
 
@@ -18,72 +18,47 @@
 </br>
 
 ## 1. 제작 기간 & 참여 인원
-- [개발 공수](https://elite-pet-b14.notion.site/a3763ffa4aef4f258b7bc5a9cd19feb1?v=ba2e1ce25e90468289919989c552cc3c)
 - 2022년 11월 7일 ~ 12월 10일 (5주)
 - 개인 프로젝트
 
 </br>
 
 ## 2. 사용 기술
-#### `언어`
-  - Swift
-#### `데이터베이스`
-  - Realm
-#### `디자인`
-  - AutoLayout
-#### `네트워크`
-  - Alamofire
-#### `의존성관리` 
-  - Swift Package Manager
-#### `프레임워크`
-  - Foundation
-  - UIKit
-  - StoreKit
-  - MapKit
-  - CoreLocation
-  - Network
-#### `라이브러리`
-  - SnapKit
-  - SocketIO
-  - RxSwift
-  - RxCocoa
-  - RxKeyboard
-  - Toast
-  - FirebaseAuth
-  - FirebaseMessaging
-  - Tabman
-#### `디자인패턴`
-  - MVVM
-  - MVC
-  - Singleton
-  - Input/output
-#### `Tools`
-  - Git / Github
-  - Jandi
-#### `ETC`
-  - DiffableDataSource
-  - Compositional Layout
+| kind | stack |
+| ------ | ------ |
+| 아키텍처 | `MVC` `MVVM` `Input/output` |
+| 프레임워크 | `UIKit` `Foundation` `MapKit` `Network` `StoreKit` `CoreLocation`|
+| UI | `Snapkit` `Codebase` |
+| 라이브러리 | `Toast` `RxSwift` `RxCocoa` `SnapKit` `RxKeyboard` `Tabman` `SocketIO` `FirebaseAuth` `FirebaseMessaging` |
+| 데이터베이스 | `Realm` |
+| 네트워크 | `Alamofire` |
+| 의존성관리 | `Swift Package Manager` |
+| Tools | `Git / Github` `Jandi` |
+| ETC | `DiffableDataSource` `Compositional Layout` |
 
 </br>
 
 ## 3. 핵심 기능
 
+이 서비스의 핵심 기능은 검색을 통해 스터디를 찾고 채팅으로 스터디에 대한 일정을 계획하는 것입니다.
+- 검색 기능
+- 채팅 기능
+- 인앱 결제
+
 <details>
 <summary><b>핵심 기능 설명 펼치기</b></summary>
 
-
+### 3.1 채팅 기능
+- 소켓을 연결
 
 </details>
 
 </br>
 
 ## 4. 트러블슈팅
-[개발일지](https://www.notion.so/8cac79381a344f69977b169c6d091d82)
+
 
 </br>
 
-## 5. 회고 / 느낀점
-
-</br>
-
-## 6. 업데이트 내역
+## 5. 회고
+- 프로젝트 개발에 대한 회고 : https://skylert.tistory.com/63
