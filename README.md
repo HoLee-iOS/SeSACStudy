@@ -31,7 +31,7 @@
 | 아키텍처 | `MVC` `MVVM` `Input/output` |
 | 프레임워크 | `UIKit` `Foundation` `MapKit` `Network` `StoreKit` `CoreLocation`|
 | UI | `Snapkit` `Codebase` |
-| 라이브러리 | `Toast` `RxSwift` `RxCocoa` `SnapKit` `RxKeyboard` `Tabman` `SocketIO` `FirebaseAuth` `FirebaseMessaging` |
+| 라이브러리 | `Toast` `RxSwift` `RxCocoa` `RxKeyboard` `Tabman` `SocketIO` `FirebaseAuth` `FirebaseMessaging` |
 | 데이터베이스 | `Realm` |
 | 네트워크 | `Alamofire` |
 | 의존성관리 | `Swift Package Manager` |
