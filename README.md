@@ -272,6 +272,34 @@ func inApp() {
 </br>
 
 ## 4. 트러블슈팅
+### 4.1 Compositional Layout 에러
+- 문제점: 내가 하고 싶은 스터디를 추가 후에 삭제하고 다시 추가하면 레이아웃이 겹치는 현상 발생
+- 해결: preferredLayoutAttributesFitting을 이용하여 스터디를 추가하고 뷰 갱신 했을 때 해당 메서드가 실행되며 지정해놓은 size에 맞춰 layout이 겹치지 않게 구현함
+    <img width="1175" alt="스크린샷 2022-12-28 오후 5 22 43" src="https://user-images.githubusercontent.com/78537078/209781699-bbf86f9d-c406-41b7-8c7c-a20bacd4f2e8.png">
+
+### 4.2 lessThanOrEqualTo, greaterThanOrEqualTo 
+- 문제점: 채팅 말풍선이 일정 이상의 inset을 넘어가지 않게 lessThanOrEqualTo을 이용해서 제약조건을 설정했는데 trailing 제약조건에서는 잘 동작하는데 leading에서는 동작하지 않음
+- 해결: layout의 제약조건에서 leading 기준에서 trailing 방향으로 갈 수록 offset의 값이 커지기 때문에 leading 기준으로 일정 offset 이상 넘어가지 못하게 하려면 trailing 기준과 반대로 greaterThanOrEqualTo를 사용해야함
+    <img width="609" alt="5" src="https://user-images.githubusercontent.com/78537078/209783322-d3314068-506e-4121-adfc-3f37c679fb66.png">
+    <img width="616" alt="6" src="https://user-images.githubusercontent.com/78537078/209783330-c24cab07-c40f-48ec-81cf-0891e1a6dc3c.png">
+
+### 4.3 Brackets
+- 문제점: 네트워크 통신 시 값을 Post하는 상황에서 배열을 바디로 넣어줬는데 501 에러가 뜨며 통신에 실패함
+    - 501 에러: 서버로 Post 하는 데이터 형태가 올바르지 않음
+- 해결: Alamofire에서는 배열을 바디 값으로 Post할 때 브라켓이라는 빈배열을 넣어 인코딩 후 통신해야하므로 `.noBrackets`으로 빈배열을 넣어서 해결함
+    <img width="636" alt="스크린샷 2022-12-28 오후 5 41 01" src="https://user-images.githubusercontent.com/78537078/209784051-b51bbde4-f0b8-4cb2-97c9-c1ef76515589.png">
+    
+### 4.4 API 과다 호출 막기
+- 문제점:
+- 해결:
+    
+### 4.5 커스텀 버튼
+- 문제점:
+- 해결:
+    
+### 4.6 텍스트 필드 편집 상태
+- 문제점:
+- 해결:    
 
 </br>
 
