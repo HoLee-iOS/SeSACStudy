@@ -18,6 +18,7 @@
 </br>
 
 ## 1. 제작 기간 & 참여 인원
+- 개발 공수 : https://elite-pet-b14.notion.site/cc17a5f6c473445092fff749e6cfeb44
 - 2022년 11월 7일 ~ 12월 10일 (5주)
 - 개인 프로젝트
 
@@ -272,6 +273,7 @@ func inApp() {
 </br>
 
 ## 4. 트러블슈팅
+- 개발 일지 : https://elite-pet-b14.notion.site/4fc049aaeaa94976a583790289a6e630
 ### 4.1 Compositional Layout 에러
 - 문제점: 내가 하고 싶은 스터디를 추가 후에 삭제하고 다시 추가하면 레이아웃이 겹치는 현상 발생
 - 해결: preferredLayoutAttributesFitting을 이용하여 스터디를 추가하고 뷰 갱신 했을 때 해당 메서드가 실행되며 지정해놓은 size에 맞춰 layout이 겹치지 않게 구현함
@@ -286,20 +288,28 @@ func inApp() {
 ### 4.3 Brackets
 - 문제점: 네트워크 통신 시 값을 Post하는 상황에서 배열을 바디로 넣어줬는데 501 에러가 뜨며 통신에 실패함
     - 501 에러: 서버로 Post 하는 데이터 형태가 올바르지 않음
-- 해결: Alamofire에서는 배열을 바디 값으로 Post할 때 브라켓이라는 빈배열을 넣어 인코딩 후 통신해야하므로 `.noBrackets`으로 빈배열을 넣어서 해결함
+- 해결: Alamofire에서는 배열을 바디 값으로 Post할 때 브라켓이라는 빈배열을 넣어 인코딩 후 통신해야하므로 `.noBrackets`으로 빈배열을 넣어서 해결함</br>
     <img width="636" alt="스크린샷 2022-12-28 오후 5 41 01" src="https://user-images.githubusercontent.com/78537078/209784051-b51bbde4-f0b8-4cb2-97c9-c1ef76515589.png">
     
-### 4.4 API 과다 호출 막기
-- 문제점:
-- 해결:
-    
+### 4.4 네트워크 통신 과다 호출 막기
+- 문제점: 지도를 움직일 때나 내 위치 버튼을 누를 때마다 주변 사용자 찾기 통신이 실행되어 네트워크 통신이 과호출이 되는 경우가 생김
+- 해결: 지도를 움직인 후에 interaction을 0.8초 동안 막아서 지도를 막 움직여서 과호출 되는 경우를 막음
+    - limit이라는 Bool 타입의 전역변수를 통해 0.8초에 한번씩만 통신이 가능하게 하여 과호출 되는 경우를 막음 
+    <img width="728" alt="스크린샷 2022-12-28 오후 6 02 31" src="https://user-images.githubusercontent.com/78537078/209787671-75ca975c-88ab-4d56-99b6-c3ce976dddad.png">
+    <img width="667" alt="스크린샷 2022-12-28 오후 6 02 53" src="https://user-images.githubusercontent.com/78537078/209787687-0f348493-14d9-4586-93d1-1ecd33a16295.png">
+    <img width="714" alt="스크린샷 2022-12-28 오후 6 08 01" src="https://user-images.githubusercontent.com/78537078/209787697-5fbfe6ef-c7a3-472b-ba6c-6cedcef0b14d.png">
+
 ### 4.5 커스텀 버튼
-- 문제점:
-- 해결:
-    
-### 4.6 텍스트 필드 편집 상태
-- 문제점:
-- 해결:    
+- 문제점: 버튼의 UI가 다 같고 클릭 시에 변경되는 색상도 다 같은데 같은 코드 중복이 많음
+- 해결: 커스텀 버튼을 만들어서 하나의 파일에서 버튼을 생성하여 중복 코드를 제거함 
+    - enum을 통해 내부에 들어가는 내용을 분기처리하고 Rx를 이용하여 버튼 클릭 시에 색상 변경도 커스텀 버튼 내부에서 처리해줌 
+    <img width="757" alt="스크린샷 2022-12-28 오후 6 14 23" src="https://user-images.githubusercontent.com/78537078/209788460-f282af67-afc3-4524-a0b6-efe72ffc0664.png">
+
+### 4.6 텍스트필드 편집 상태
+- 문제점: 텍스트필드 편집 상태에 따라 처리해줄 코드가 많은데 상태마다 코드를 따로 작성해줘야해서 같은 코드 중복이 많음
+- 해결: 텍스트필드 편집 상태를 enum으로 만들고 상태를 enum으로 치환한 후에 하나의 Observable로 만들어서 중복 코드를 제거함
+    <img width="1083" alt="스크린샷 2022-12-28 오후 6 22 44" src="https://user-images.githubusercontent.com/78537078/209789477-4d7d5acf-79d7-49ca-bbe4-6e5520a69806.png">
+    <img width="1109" alt="스크린샷 2022-12-28 오후 6 23 01" src="https://user-images.githubusercontent.com/78537078/209789507-d766da2e-d98a-43e6-954e-4fefe3f586af.png">
 
 </br>
 
