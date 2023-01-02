@@ -311,3 +311,13 @@ func inApp() {
 
 ## 5. 회고
 - 프로젝트 개발에 대한 회고 : https://skylert.tistory.com/63
+### Keep
+    1. 안녕
+    2. 안농
+    3. 우동
+### Problem
+    1. 
+    2. 
+    3.
+### Try
+    1. 
