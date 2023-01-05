@@ -306,6 +306,16 @@ func inApp() {
 - 해결: 텍스트필드 편집 상태를 enum으로 만들고 상태를 enum으로 치환한 후에 하나의 Observable로 만들어서 중복 코드를 제거함
     <img width="1083" alt="스크린샷 2022-12-28 오후 6 22 44" src="https://user-images.githubusercontent.com/78537078/209789477-4d7d5acf-79d7-49ca-bbe4-6e5520a69806.png">
     <img width="1109" alt="스크린샷 2022-12-28 오후 6 23 01" src="https://user-images.githubusercontent.com/78537078/209789507-d766da2e-d98a-43e6-954e-4fefe3f586af.png">
+    
+### 4.7 의존성 관리
+```
+objc[43893]: Class _TtC7RxCocoa26RxTableViewDataSourceProxy is implemented in both /private/var/containers/Bundle/Application/12866EDD-3CF2-480A-B88F-DA7161164507/SeSACStudy.app/Frameworks/RxCocoa.framework/RxCocoa (0x105f5ac60) and /private/var/containers/Bundle/Application/12866EDD-3CF2-480A-B88F-DA7161164507/SeSACStudy.app/SeSACStudy (0x101ed3cb0). One of the two will be used. Which one is undefined.
+```
+- 문제점: RxKeyboard를 CocoaPod으로 추가한 순간부터 디버깅 창에 위와 같은 오류가  발생함.
+    - 빌드에는 문제가 없지만 디버깅창에 계속 같은 에러가 발생
+    - 처음에는 디바이스 캐싱의 문제인가 해서 디바이스 캐싱의 초기화를 위해 실기기를 껏켰해보고 앱을 삭제 했다가 재설치했지만 해결되지 않음
+- 해결: RxKeyboard 라이브러리에서 갖고 있는 파일명과 SPM으로 설치한 Rx 관련 라이브러리가 갖고 있는 파일명이 다른 의존성 관리 툴로 관리되고 있어서 중복되는 상황이 발생한 것으로 보임
+    - RxKeyboard를 삭제하고 프로젝트에서 CocoaPod을 제거한 후에 SPM으로 다시 RxKeyboard를 추가하여 해결
 
 </br>
 
