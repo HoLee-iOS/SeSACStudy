@@ -46,6 +46,8 @@
 - 채팅 기능
 - 인앱 결제
 
+</br>
+
 ### 3.1 검색 기능
 
 - 찾기 버튼 클릭 시 내가 원하는 태그 값 배열을 파라미터로 갖는 찾기 통신 실행
@@ -95,6 +97,8 @@ func updateUI() {
     }
 }
 ```
+
+</br>
 
 ### 3.2 채팅 기능
 
@@ -172,6 +176,8 @@ APIService.sendChat { value, statusCode, error in
     }
 }
 ```
+
+</br>
 
 ### 3.3 인앱 결제
 
@@ -275,18 +281,24 @@ func inApp() {
 - 해결: preferredLayoutAttributesFitting을 이용하여 스터디를 추가하고 뷰 갱신 했을 때 해당 메서드가 실행되며 지정해놓은 size에 맞춰 layout이 겹치지 않게 구현함
     <img width="1175" alt="스크린샷 2022-12-28 오후 5 22 43" src="https://user-images.githubusercontent.com/78537078/209781699-bbf86f9d-c406-41b7-8c7c-a20bacd4f2e8.png">
 
+</br>
+
 ### 4.2 lessThanOrEqualTo, greaterThanOrEqualTo 
 - 문제점: 채팅 말풍선이 일정 이상의 inset을 넘어가지 않게 lessThanOrEqualTo을 이용해서 제약조건을 설정했는데 trailing 제약조건에서는 잘 동작하는데 leading에서는 동작하지 않음
 - 해결: layout의 제약조건에서 leading 기준에서 trailing 방향으로 갈 수록 offset의 값이 커지기 때문에 leading 기준으로 일정 offset 이상 넘어가지 못하게 하려면 trailing 기준과 반대로 greaterThanOrEqualTo를 사용해야함
     <img width="609" alt="5" src="https://user-images.githubusercontent.com/78537078/209783322-d3314068-506e-4121-adfc-3f37c679fb66.png">
     <img width="616" alt="6" src="https://user-images.githubusercontent.com/78537078/209783330-c24cab07-c40f-48ec-81cf-0891e1a6dc3c.png">
 
+</br>
+
 ### 4.3 Brackets
 - 문제점: 네트워크 통신 시 값을 Post하는 상황에서 배열을 바디로 넣어줬는데 501 에러가 뜨며 통신에 실패함
     - 501 에러: 서버로 Post 하는 데이터 형태가 올바르지 않음
 - 해결: Alamofire에서는 배열을 바디 값으로 Post할 때 브라켓이라는 빈배열을 넣어 인코딩 후 통신해야하므로 `.noBrackets`으로 빈배열을 넣어서 해결함</br>
     <img width="636" alt="스크린샷 2022-12-28 오후 5 41 01" src="https://user-images.githubusercontent.com/78537078/209784051-b51bbde4-f0b8-4cb2-97c9-c1ef76515589.png">
-    
+
+</br>
+
 ### 4.4 네트워크 통신 과다 호출 막기
 - 문제점: 지도를 움직일 때나 내 위치 버튼을 누를 때마다 주변 사용자 찾기 통신이 실행되어 네트워크 통신이 과호출이 되는 경우가 생김
 - 해결: 지도를 움직인 후에 interaction을 0.8초 동안 막아서 지도를 막 움직여서 과호출 되는 경우를 막음
@@ -295,18 +307,24 @@ func inApp() {
     <img width="667" alt="스크린샷 2022-12-28 오후 6 02 53" src="https://user-images.githubusercontent.com/78537078/209787687-0f348493-14d9-4586-93d1-1ecd33a16295.png">
     <img width="714" alt="스크린샷 2022-12-28 오후 6 08 01" src="https://user-images.githubusercontent.com/78537078/209787697-5fbfe6ef-c7a3-472b-ba6c-6cedcef0b14d.png">
 
+</br>
+
 ### 4.5 커스텀 버튼
 - 문제점: 버튼의 UI가 다 같고 클릭 시에 변경되는 색상도 다 같은데 같은 코드 중복이 많음
 - 해결: 커스텀 버튼을 만들어서 하나의 파일에서 버튼을 생성하여 중복 코드를 제거함 
     - enum을 통해 내부에 들어가는 내용을 분기처리하고 Rx를 이용하여 버튼 클릭 시에 색상 변경도 커스텀 버튼 내부에서 처리해줌 
     <img width="757" alt="스크린샷 2022-12-28 오후 6 14 23" src="https://user-images.githubusercontent.com/78537078/209788460-f282af67-afc3-4524-a0b6-efe72ffc0664.png">
 
+</br>
+
 ### 4.6 텍스트필드 편집 상태
 - 문제점: 텍스트필드 편집 상태에 따라 처리해줄 코드가 많은데 상태마다 코드를 따로 작성해줘야해서 같은 코드 중복이 많음
 - 해결: 텍스트필드 편집 상태를 enum으로 만들고 상태를 enum으로 치환한 후에 하나의 Observable로 만들어서 중복 코드를 제거함
     <img width="1083" alt="스크린샷 2022-12-28 오후 6 22 44" src="https://user-images.githubusercontent.com/78537078/209789477-4d7d5acf-79d7-49ca-bbe4-6e5520a69806.png">
     <img width="1109" alt="스크린샷 2022-12-28 오후 6 23 01" src="https://user-images.githubusercontent.com/78537078/209789507-d766da2e-d98a-43e6-954e-4fefe3f586af.png">
-    
+
+</br>
+
 ### 4.7 의존성 관리
 ```
 objc[43893]: Class _TtC7RxCocoa26RxTableViewDataSourceProxy is implemented in both /private/var/containers/Bundle/Application/12866EDD-3CF2-480A-B88F-DA7161164507/SeSACStudy.app/Frameworks/RxCocoa.framework/RxCocoa (0x105f5ac60) and /private/var/containers/Bundle/Application/12866EDD-3CF2-480A-B88F-DA7161164507/SeSACStudy.app/SeSACStudy (0x101ed3cb0). One of the two will be used. Which one is undefined.
@@ -324,52 +342,58 @@ objc[43893]: Class _TtC7RxCocoa26RxTableViewDataSourceProxy is implemented in bo
 
 ### Keep
 
-- enum 활용
+- ***enum 활용***
     - Raw한 값들을 enum을 통해 만들어서 하나의 enum 에서 모든 Raw한 값들을 관리하게 하여 유지보수에 좀 더 수월하게 함
     - 프로젝트에서 필요한 Image Asset, 폰트, 색상과 같은 리소스들을 enum을 통해 관리하여 사용에 좀 더 수월하게 함
     - 텍스트필드 편집 상태를 enum으로 만들고 상태를 enum으로 치환한 후에 하나의 Observable로 만들어서 중복 코드를 제거함
     - enum을 통해 같은 UI지만 다른 값을 가지고 있는 부분들을 관리하여 유지보수 및 사용에 수월하게 함
-- Error Handling의 세세한 처리
+- ***디테일한 Error Handling***
     - 기획서에 statusCode 별로 나와있는 Error에 대한 처리가 너무 명확했기 때문에 통신 코드에서 statusCode에 맞는 enum을 만들어서 그에 맞게 Error Handling을 명확하게 처리해주었다.
     - 기획서가 개발자가 놓칠 수 있는 부분들을 명세해줌으로서 기획의 중요성을 다시 한번 느낄 수 있었다.
-- URLRequestConvertible 활용
+- ***URLRequestConvertible 활용***
     - URLRequestConvertible을 채택한 enum으로 API 통신에 필요한 값들을 한 파일에서 관리함으로 유지보수 및 새로운 통신 코드 추가를 수월하게 함
     - 추후에 백엔드 쪽에서 API 통신의 baseURL의 포트 번호를 변경한 일이 있었는데 URLRequestConvertible을 통해 관리하여 정말 간단하게 변경이 가능했다.
-- 반복되는 UI 재사용
+- ***반복되는 UI 재사용***
     - 반복되는 버튼은 하나의 커스텀 버튼을 생성하여 중복 코드를 제거하고 enum을 통해 내부에 들어가는 내용을 분기처리, Rx를 이용하여 버튼 클릭 시에 색상 변경도 커스텀 버튼 내부에서 처리해 줌
     - 반복되는 팝업 화면은 하나의 팝업 뷰를 생성하여 enum을 통해 내부에 들어가는 내용 및 버튼 클릭에 대한 액션들을 모두 분기처리함
 
+</br>
+
 ### Problem
 
-- 무리한 개발 공수 산정
+- ***무리한 개발 공수 산정***
     - 처음부터 공수 산정 시에 어느 정도의 여유를 두고 공수를 산정했어야 했지만 길지 않은 개발 기간으로 좀 무리하게 산정을 하였더니 발생한 상황으로 무리한 공수로 인해 계속되는 공수 수정이 발생하여 너무 아쉬운 부분이였다.
-- Commit 단위의 모호함
+- ***Commit 단위의 모호함***
     - Commit을 컨벤션을 통일하여 최대한 작은 단위로 하려고 했으나 개발 중 에러와 같은 것이 발생하면 해당 에러를 해결하기 위해 집중하다가 commit을 기능 단위로 하지 못하고 commit의 단위가 좀 모호해지는 상황이 발생해서 아쉬운 부분이 많았다.
-- enum 파일이 너무 많아짐
+- ***enum 파일이 너무 많아짐***
     - 이번 프로젝트에서는 코드를 최대한 깔끔하게 짜기 위해서 enum을 통해 raw한 값을 줄이고 중복되는 코드를 재사용할 수 있게 만드는 등 많은 활용을 했다.
     - 하지만 enum을 사용할 때마다 파일을 생성하게 되니 파일이 너무 많아져서 나중에는 내가 원하는 파일을 한눈에 찾기 어려울 정도였다.
     - 이럴때는 화면 별로 사용하는 enum을 하나의 enum 안에서 관리를 했다면 좀 더 깔끔하게 관리할 수 있지 않았을까하는 아쉬운 부분이 있었다.
-- 네트워크 통신 코드의 중복
+- ***네트워크 통신 코드의 중복***
     - 네트워크 통신 시에 401 에러가 발생할 경우 토큰 재발급 코드를 실행해야 하는데 그에 대한 코드를 한 군데에서 통일하지 못해서 재발급 때마다 통신 메서드를 호출해야하기 때문에 중복되는 코드가 너무 많으므로 추후에 반드시 리팩토링 해야하는 부분이라고 생각함
     - 네트워크 통신 코드를 종류 별로 만들어서 함수로 사용하고 있지만 통신 코드 내부에서 받아오는 데이터의 DTO 타입이나 URL을 제외하고는 중복되는 부분이 많기 때문에 하나로 합쳐서 중복 코드를 좀 제거할 수 있을것 같은데 하지못한 부분이 아쉬운 부분이라고 생각합니다.
-- MVVM 충분한 활용 부족
+- ***MVVM 충분한 활용 부족***
     - 앱 개발 공수 초반인 회원가입 화면 부분에서는 모두 MVVM 패턴과 Rx에서도 Input/Output 구조를 사용하여 개발하였지만 추후 개발하는 과정에서 개발 공수 기한을 맞추는 것 때문에 빠르게 개발하려고 하다 보니 자연스럽게 다시 MVC 패턴으로 개발하게 되는 상황이 발생했다. 일관성 있게 MVVM 패턴을 사용하여 끝까지 개발하지 못한 부분이 많이 아쉬운 부분이라고 생각함.
+
+</br>
 
 ### Try
 
-- 공수 산정 시 여유를 두자
+- ***공수 산정 시 여유를 두자***
     - 공수 산정 시에 기간에 딱 맞게 타이트하게 공수를 산정하면 중간중간 생기는 에러나 다양한 이슈로 인해 공수는 언제든 수정될 수 있기 때문에 기간에서 어느정도의 시간을 앞당긴 기간으로 공수를 산정해야겠다.
-- Commit의 생활화
+- ***Commit의 생활화***
     - 개발을 하다보면 에러를 만나 해결하거나 너무 집중하여서 Commit을 잊게 되는 순간들이 있는데 개발하는 것 만큼이나 기록하는 것도 정말 중요하다.
     - Commit은 내가 개발 한것을 단위별로 기록할 수 있는 것이기 때문에 기능 단위 별로 정해진 컨벤션을 지켜가면서 Commit을 하는 것을 생활화 해야겠다.
-- enum 파일을 합쳐보기
+- ***enum 파일을 합쳐보기***
     - enum을 통해 raw한 값이나 중복되는 코드를 많이 처리하면서 코드를 깔끔하게 처리해 볼 수 있었다.
     - 하지만 enum을 사용할 때마다 파일을 따로 만들게 되면 너무 많은 파일이 만들어질수 있고 그러다보면 같은 enum이 중복되는 경우도 발생할 수 있기 때문에 화면 별로 사용하는 enum을 나눠서 한 파일에서 관리하게 enum을 합쳐봐야겠다.
-- 네트워크 통신 코드를 합쳐보기
+- ***네트워크 통신 코드를 합쳐보기***
     - 네트워크 통신 코드를 종류 별로 다 작성하다보면 통신의 종류가 많을 경우 너무 많은 코드가 생기게 된다.
     - 통신 코드를 보면 DTO 타입이나 URL을 제외하고 중복되는 부분이 많기 때문에 Generic을 사용하여 통신 코드를 하나로 합쳐봐야겠다.
-- MVVM 패턴으로 통일해보기
+- ***MVVM 패턴으로 통일해보기***
     - 회원가입 로직을 제외하고 MVVM 패턴이 적용되어있지 않지만 한 프로젝트에서 다양한 디자인 패턴을 사용하는 것은 코드의 일관성을 해치고 가독성을 떨어뜨린다고 생각하기 때문에 MVVM 패턴으로 모두 통일해봐야겠다.
+
+</br>
 
 ### 느낀 점
 
