@@ -274,7 +274,7 @@ func inApp() {
 
 </br>
 
-## 4. 트러블슈팅
+## 4. 트러블 슈팅
 - 개발 일지 : https://elite-pet-b14.notion.site/4fc049aaeaa94976a583790289a6e630
 ### 4.1 Compositional Layout 에러
 - 문제점: 내가 하고 싶은 스터디를 추가 후에 삭제하고 다시 추가하면 레이아웃이 겹치는 현상 발생
