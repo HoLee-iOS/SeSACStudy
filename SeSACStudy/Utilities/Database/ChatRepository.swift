@@ -36,7 +36,7 @@ class ChatRepository {
     }
     
     //MARK: - 채팅 삭제 기능
-    func deleteChat(item: ChatData) {
+    func deleteChat() {
         try! localRealm.write {
             localRealm.deleteAll()
         }

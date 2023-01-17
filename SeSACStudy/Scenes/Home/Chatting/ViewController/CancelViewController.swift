@@ -196,6 +196,7 @@ extension CancelViewController {
             guard let status = NetworkError(rawValue: statusCode) else { return }
             switch status {
             case .success:
+                ChatRepository.shared.deleteChat()
                 self?.dismiss(animated: true) {
                     self?.setRootVC(vc: MainTabBarController())
                 }
